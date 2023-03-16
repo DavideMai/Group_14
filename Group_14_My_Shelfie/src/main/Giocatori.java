@@ -20,7 +20,7 @@ public class Giocatori {
 	
 	public void Giocatore() {
 		if(contatore_giocatori<=4) {
-			this.numero_giocatore=contatore_giocatori;
+			this.numero_giocatore=contatore_giocatori;	//prova commento per git
 			contatore_giocatori++;
 		}
 	}
