@@ -22,6 +22,6 @@ public class Giocatori {
 		if(contatore_giocatori<=4) {
 			this.numero_giocatore=contatore_giocatori;	//prova commento per git
 			contatore_giocatori++;
-		}
+		}//prova commento 2
 	}
 }
