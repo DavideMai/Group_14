@@ -1,6 +1,16 @@
 package main;
 
 public class PlanciaSoggiorno {
-	int righe;
-	int colonne;
+	
+	public int riga,colonna;
+	
+	int[][] arrayplancia;	
+	
+	public void Selezione (int riga ,int colonna) {
+		this.riga = riga;
+		this.colonna = colonna;
+		
+		return arrayplancia [riga][colonna];
+	}
+	
 }
