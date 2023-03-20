@@ -6,7 +6,7 @@ public class PlanciaGioco {
 	public int contatore_giocatori, codice_cella;
 	int[][] arrayplancia;	
 	//questa funzione seleziona una cella per esempio per pescare una carta dalla plancia 
-	public void Selezione (int riga ,int colonna) {
+	public int Selezione (int riga ,int colonna) {
 		this.riga = riga;
 		this.colonna = colonna;
 		
@@ -24,7 +24,7 @@ public class PlanciaGioco {
 		
 		if (contatore_giocatori == 2)
 		{
-			for (int i=0;i<=9;i++)
+			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
 				{
 					switch (cella.codicecella [i][j])
@@ -42,10 +42,11 @@ public class PlanciaGioco {
 						cella.contenuto = "inutilizzabile";
 						break;
 				}
+			}
 		};
 		if (contatore_giocatori == 3)
 	    {
-			for (int i=0;i<=9;i++)
+			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
 				{
 				   switch (cella.codicecella [i][j])
@@ -63,10 +64,11 @@ public class PlanciaGioco {
 					   cella.contenuto = "inutilizzabile";
 					   break;
 			}
+			}
 		}
 		if (contatore_giocatori == 3)
 		{
-			for (int i=0;i<=9;i++)
+			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
 				{
 					switch (cella.codicecella [i][j])
@@ -85,7 +87,7 @@ public class PlanciaGioco {
 						break;
 	      }
       }
-		
+		}
 	}
    
 }
