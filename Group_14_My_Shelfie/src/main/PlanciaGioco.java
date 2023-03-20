@@ -5,6 +5,7 @@ public class PlanciaGioco {
 	public int riga=9,colonna=9;
 	public int contatore_giocatori, codice_cella;
 	int[][] arrayplancia;	
+	cella cellatest;
 	//questa funzione seleziona una cella per esempio per pescare una carta dalla plancia 
 	public int Selezione (int riga ,int colonna) {
 		this.riga = riga;
@@ -30,16 +31,16 @@ public class PlanciaGioco {
 					switch (cella.codicecella [i][j])
 					
 					case 1:
-						cella.contenuto = "inutilizzabile";
+						cellatest.contenuto = "inutilizzabile";
 						break;
 					case 2:
-						cella.contenuto = "cella libera";
+						cellatest.contenuto = "cella libera";
 						break;
 					case 3:
-						cella.contenuto = "inutilizzabile";
+						cellatest.contenuto = "inutilizzabile";
 						break;
 					case 4:
-						cella.contenuto = "inutilizzabile";
+						cellatest.contenuto = "inutilizzabile";
 						break;
 				}
 			}
@@ -52,16 +53,16 @@ public class PlanciaGioco {
 				   switch (cella.codicecella [i][j])
 									
 				   case 1:
-					   cella.contenuto = "inutilizzabile";
+					   cellatest.contenuto = "inutilizzabile";
 					   break;
 				   case 2:
-					   cella.contenuto = "cella libera";
+					   cellatest.contenuto = "cella libera";
 					   break;
 				   case 3:
-					   cella.contenuto = "cella libera";
+					   cellatest.contenuto = "cella libera";
 					   break;
 				  case 4:
-					   cella.contenuto = "inutilizzabile";
+					  cellatest.contenuto = "inutilizzabile";
 					   break;
 			}
 			}
@@ -74,16 +75,16 @@ public class PlanciaGioco {
 					switch (cella.codicecella [i][j])
 					
 					case 1:
-						cella.contenuto = "inutilizzabile";
+						cellatest.contenuto = "inutilizzabile";
 						break;
 					case 2:
-						cella.contenuto = "cella libera";
+						cellatest.contenuto = "cella libera";
 						break;
 					case 3:
-						cella.contenuto = "cella libera";
+						cellatest.contenuto = "cella libera";
 						break;
 					case 4:
-						cella.contenuto = "cella libera";
+						cellatest.contenuto = "cella libera";
 						break;
 	      }
       }
