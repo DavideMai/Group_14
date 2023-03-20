@@ -4,7 +4,7 @@ public class PlanciaGioco {
 	
 	public int riga=9,colonna=9;
 	public int contatore_giocatori, codice_cella;
-	int[][] arrayplancia;	
+	cella [][] arrayplancia;	
 	cella cellatest;
 	//questa funzione seleziona una cella per esempio per pescare una carta dalla plancia 
 	public int Selezione (int riga ,int colonna) {
@@ -28,7 +28,7 @@ public class PlanciaGioco {
 			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
 				{
-					switch (cella.codicecella [i][j])
+					switch (cellatest.codicecella [i][j])
 					
 					case 1:
 						cellatest.contenuto = "inutilizzabile";
@@ -50,7 +50,7 @@ public class PlanciaGioco {
 			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
 				{
-				   switch (cella.codicecella [i][j])
+				   switch (cellatest.codicecella [i][j])
 									
 				   case 1:
 					   cellatest.contenuto = "inutilizzabile";
@@ -72,7 +72,7 @@ public class PlanciaGioco {
 			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
 				{
-					switch (cella.codicecella [i][j])
+					switch (cellatest.codicecella [i][j])
 					
 					case 1:
 						cellatest.contenuto = "inutilizzabile";
