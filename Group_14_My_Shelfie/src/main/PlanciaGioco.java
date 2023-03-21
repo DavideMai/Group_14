@@ -4,7 +4,7 @@ public class PlanciaGioco {
 	
 	public int riga=9,colonna=9;
 	public int contatore_giocatori, codice_cella;
-	cella [][] arrayplancia;	
+	cella [][] arrayplancia = new cella [riga][colonna];	
 	cella cellatest;
 	//questa funzione seleziona una cella per esempio per pescare una carta dalla plancia 
 	public int Selezione (int riga ,int colonna) {
@@ -67,7 +67,7 @@ public class PlanciaGioco {
 			}
 			}
 		}
-		if (contatore_giocatori == 3)
+		if (contatore_giocatori == 4)
 		{
 			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
