@@ -17,10 +17,10 @@ public class PlanciaGioco {
     / base al numero di giocatori inizializzando il contenuto di ogni cella,
     / (di tipo stringa) in 'cella libera' o ' cella inutilizzabile?, e mettendo quindi a disposizione le celle al gioco 
     */
-	public void CancellaCelle (int contatore_giocatori ,int codice_cella) 
+	public void CancellaCelle (int contatore_giocatori ) 
 	{
 		System.out.println("Preparazione plancia di gioco...");
-		this.codice_cella = codice_cella;
+	
 	    this.contatore_giocatori = contatore_giocatori;
 		
 		if (contatore_giocatori == 2)
