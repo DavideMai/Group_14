@@ -16,7 +16,7 @@ public class Giocatori {
 	
 	public void AumentaPunteggioGiocatore(int aumento) {
 		this.punteggio+=aumento;
-	}
+	} //prova commento 3
 	
 	public void Giocatore() {
 		if(contatore_giocatori<=4) {
