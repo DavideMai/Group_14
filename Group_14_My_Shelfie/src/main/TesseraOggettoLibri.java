@@ -1,6 +1,6 @@
 package main;
 
-public class TesseraOggettoLibri {
+public class TesseraOggettoLibri extends TessereOggetto{
 	private int numeroLibriDisponibili = 22;
 	TipologieTessereOggetto tipologia = TipologieTessereOggetto.LIBRI;
 	
