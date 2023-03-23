@@ -5,7 +5,7 @@ public class PlanciaGioco {
 	public int riga=9,colonna=9;
 	public int contatore_giocatori, codice_cella;
 	Cella [][] arrayplancia = new Cella [riga][colonna];	
-	Cella cellatest;
+	Cella [][]cellatest= new Cella [riga][colonna];
 	//questa funzione seleziona una cella per esempio per pescare una carta dalla plancia 
 	public Cella Selezione (int riga ,int colonna) {
 		this.riga = riga;
@@ -28,19 +28,19 @@ public class PlanciaGioco {
 			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
 				{
-					switch (cellatest.codice_cella [i][j]) {
+					switch (cellatest[i][j].codice_cella) {
 					
 					case 1:
-						cellatest.contenuto = "inutilizzabile";
+						cellatest[i][j].contenuto = "inutilizzabile";
 						break;
 					case 2:
-						cellatest.contenuto = "cella libera";
+						cellatest[i][j].contenuto = "cella libera";
 						break;
 					case 3:
-						cellatest.contenuto = "inutilizzabile";
+						cellatest[i][j].contenuto = "inutilizzabile";
 						break;
 					case 4:
-						cellatest.contenuto = "inutilizzabile";
+						cellatest[i][j].contenuto = "inutilizzabile";
 						break;
 					}
 				}
@@ -51,19 +51,19 @@ public class PlanciaGioco {
 			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
 				{
-				   switch (cellatest.codice_cella [i][j]) {
+				   switch (cellatest[i][j].codice_cella) {
 									
 				   case 1:
-					   cellatest.contenuto = "inutilizzabile";
+					   cellatest[i][j].contenuto = "inutilizzabile";
 					   break;
 				   case 2:
-					   cellatest.contenuto = "cella libera";
+					   cellatest[i][j].contenuto = "cella libera";
 					   break;
 				   case 3:
-					   cellatest.contenuto = "cella libera";
+					   cellatest[i][j].contenuto = "cella libera";
 					   break;
 				  case 4:
-					  cellatest.contenuto = "inutilizzabile";
+					  cellatest[i][j].contenuto = "inutilizzabile";
 					   break;
 				   }
 			}
@@ -74,19 +74,19 @@ public class PlanciaGioco {
 			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
 				{
-					switch (cellatest.codice_cella [i][j]) {
+					switch (cellatest[i][j].codice_cella) {
 					
 					case 1:
-						cellatest.contenuto = "inutilizzabile";
+						cellatest[i][j].contenuto = "inutilizzabile";
 						break;
 					case 2:
-						cellatest.contenuto = "cella libera";
+						cellatest[i][j].contenuto = "cella libera";
 						break;
 					case 3:
-						cellatest.contenuto = "cella libera";
+						cellatest[i][j].contenuto = "cella libera";
 						break;
 					case 4:
-						cellatest.contenuto = "cella libera";
+						cellatest[i][j].contenuto = "cella libera";
 						break;
 					}
 	      }
