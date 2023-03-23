@@ -4,10 +4,10 @@ public class PlanciaGioco {
 	
 	public int riga=9,colonna=9;
 	public int contatore_giocatori, codice_cella;
-	cella [][] arrayplancia = new cella [riga][colonna];	
-	cella cellatest;
+	Cella [][] arrayplancia = new Cella [riga][colonna];	
+	Cella cellatest;
 	//questa funzione seleziona una cella per esempio per pescare una carta dalla plancia 
-	public int Selezione (int riga ,int colonna) {
+	public Cella Selezione (int riga ,int colonna) {
 		this.riga = riga;
 		this.colonna = colonna;
 		
@@ -28,7 +28,7 @@ public class PlanciaGioco {
 			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
 				{
-					switch (cellatest.codicecella [i][j])
+					switch (cellatest.codice_cella [i][j]) {
 					
 					case 1:
 						cellatest.contenuto = "inutilizzabile";
@@ -42,6 +42,7 @@ public class PlanciaGioco {
 					case 4:
 						cellatest.contenuto = "inutilizzabile";
 						break;
+					}
 				}
 			}
 		};
@@ -50,7 +51,7 @@ public class PlanciaGioco {
 			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
 				{
-				   switch (cellatest.codicecella [i][j])
+				   switch (cellatest.codice_cella [i][j]) {
 									
 				   case 1:
 					   cellatest.contenuto = "inutilizzabile";
@@ -64,6 +65,7 @@ public class PlanciaGioco {
 				  case 4:
 					  cellatest.contenuto = "inutilizzabile";
 					   break;
+				   }
 			}
 			}
 		}
@@ -72,7 +74,7 @@ public class PlanciaGioco {
 			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
 				{
-					switch (cellatest.codicecella [i][j])
+					switch (cellatest.codice_cella [i][j]) {
 					
 					case 1:
 						cellatest.contenuto = "inutilizzabile";
@@ -86,6 +88,7 @@ public class PlanciaGioco {
 					case 4:
 						cellatest.contenuto = "cella libera";
 						break;
+					}
 	      }
       }
 		}

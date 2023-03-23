@@ -7,4 +7,5 @@ public class TessereOggetto {
 	TesseraOggettoLibri tesseraLibro = new TesseraOggettoLibri();
 	TesseraOggettoTrofei tesseraTrofeo = new TesseraOggettoTrofei();
 	TesseraOggettoPiante tesseraPianta = new TesseraOggettoPiante();
+	
 }
