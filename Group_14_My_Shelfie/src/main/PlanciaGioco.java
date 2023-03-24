@@ -11,7 +11,7 @@ public class PlanciaGioco {
 		this.riga = riga;
 		this.colonna = colonna;
 		
-		return arrayplancia [riga][colonna];
+		return cellatest[riga][colonna].contenuto [riga][colonna];
 	}
 	/*questa funzione imposta lo stato della plancia in
     / base al numero di giocatori inizializzando il contenuto di ogni cella,
