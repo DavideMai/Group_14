@@ -5,13 +5,14 @@ public class PlanciaGioco {
 	public int riga=9,colonna=9;
 	public int contatore_giocatori, codice_cella;
 	Cella [][] arrayplancia = new Cella [riga][colonna];	
-	Cella [][]cellatest= new Cella [riga][colonna];
+	Cella [][] cellatest= new Cella [riga][colonna];
 	//questa funzione seleziona una cella per esempio per pescare una carta dalla plancia 
-	public Cella Selezione (int riga ,int colonna) {
+	public String Selezione (int riga ,int colonna) {
 		this.riga = riga;
 		this.colonna = colonna;
-		
-		return cellatest[riga][colonna].contenuto [riga][colonna];
+		String contenuto = new String();
+		contenuto = cellatest[riga][colonna].contenuto;
+		return contenuto;
 	}
 	/*questa funzione imposta lo stato della plancia in
     / base al numero di giocatori inizializzando il contenuto di ogni cella,

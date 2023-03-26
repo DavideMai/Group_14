@@ -1,6 +1,6 @@
 package main;
 
-public class Cellalibreria {
+public class CellaLibreria {
     
 	int codice_cella;
 	
