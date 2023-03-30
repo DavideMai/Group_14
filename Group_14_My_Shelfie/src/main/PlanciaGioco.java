@@ -2,7 +2,8 @@ package main;
 
 public class PlanciaGioco {
 	
-	public int riga=9,colonna=9;
+	public final int riga=9;
+	public final int colonna=9;
 	public int contatore_giocatori, codice_cella;
 	Cella [][] arrayplancia = new Cella [riga][colonna];	
 	Cella [][] cellatest= new Cella [riga][colonna];
