@@ -2,11 +2,9 @@ package main;
 
 public class PlanciaGioco {
 	
-	public final int riga=9;
-	public final int colonna=9;
 	public int contatore_giocatori, codice_cella;
-	Cella [][] arrayplancia = new Cella [riga][colonna];	
-	Cella [][] cellatest= new Cella [riga][colonna];
+	//Cella [][] arrayplancia = new Cella [riga][colonna];	
+	Cella [9][9] cellatest= new Cella [riga][colonna];
 	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[riga][colonna];
 	int numeroGatti = 22, numeroTrofei = 22, numeroGiochi = 22, numeroCornici = 22, numeroPiante = 22, numeroLibri = 22;
 	//questa funzione seleziona una cella per esempio per pescare una carta dalla plancia 
