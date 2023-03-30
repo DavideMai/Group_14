@@ -10,4 +10,5 @@ Da fare:
 -Funzioni per inserire la serie di tessera nella libreria
 -Funzioni per pescare dalla plancia (elimina dalla plancia, altre funzioni da determinare)
 -Funzioni per inizializzare la plancia (all'inizio? a ogni turno? da controllare)
+-Creazione Classe Obbiettivi e varie implementazioni
 -Classe Coordinate invece che usare righe e colonne. Richiamare lo stesso oggetto per pescare dalla plancia e per inserire nella libreria
