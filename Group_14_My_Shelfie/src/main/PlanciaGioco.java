@@ -311,4 +311,34 @@ public class PlanciaGioco {
 		}
 		return tesseracontrollo;
 	}
+	
+	
+	//celleConfinanti riconosce le celle confinanti ad una determinata cella
+	
+	public void celleConfinanti(int riga, int colonna) {
+		
+		//cella confinante a sinistra
+		System.out.println(plancia[riga][colonna-1]);
+		
+		//cella confinante a destra
+		System.out.println(plancia[riga][colonna+1]);
+		
+		//cella confinante superiormente
+		System.out.println(plancia[riga-1][colonna]);
+		
+		//cella confinanate inferiormente
+		System.out.println(plancia[riga+1][colonna]);
+	}
+	
+	//visualizzaPlancia mostra la casella nella plancia con il tipo di tessera al suo interno 
+	
+		public void visualizzaPlancia(){
+			for(int i=0;i<=9;i++) {
+				for(int j=0;j<=9;j++) {
+					System.out.println(plancia[i][j]);
+					System.out.println(tesseraoggetto[i][j]);
+				}	
+			}
+		}
+	
 }
