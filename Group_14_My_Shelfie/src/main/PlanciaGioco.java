@@ -4,18 +4,20 @@ public class PlanciaGioco {
 	
 	public int contatore_giocatori, codice_cella;
 	//Cella [][] arrayplancia = new Cella [riga][colonna];	
-	Cella [9][9] cellatest= new Cella [riga][colonna];
-	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[riga][colonna];
+	Cella [][] plancia= new Cella [9][9];	//questo attributo viene usato per gestire la plancia
+	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[9][9];	//matrice per gestire le tessere sulla plancia
 	int numeroGatti = 22, numeroTrofei = 22, numeroGiochi = 22, numeroCornici = 22, numeroPiante = 22, numeroLibri = 22;
+	
 	//questa funzione seleziona una cella per esempio per pescare una carta dalla plancia 
 	
-	public String Selezione (int riga ,int colonna) {
-		this.riga = riga;
-		this.colonna = colonna;
-		String contenuto = new String();
-		contenuto = cellatest[riga][colonna].contenuto;
+	/*public boolean Selezione (int riga ,int colonna) {
+		boolean contenuto;
+		contenuto = plancia[riga][colonna].utilizzabile;
 		return contenuto;
 	}
+	commento perchè per ora è inutile, sostituita con getTessera.*/
+	
+	
 	
 	/*questa funzione imposta lo stato della plancia in
     / base al numero di giocatori inizializzando il contenuto di ogni cella,
@@ -33,19 +35,19 @@ public class PlanciaGioco {
 			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
 				{
-					switch (cellatest[i][j].codice_cella) {
+					switch (plancia[i][j].codice_cella) {
 					
 					case 1:
-						cellatest[i][j].contenuto = "inutilizzabile";
+						plancia[i][j].utilizzabile = false;
 						break;
 					case 2:
-						cellatest[i][j].contenuto = "cella libera";
+						plancia[i][j].utilizzabile = true;
 						break;
 					case 3:
-						cellatest[i][j].contenuto = "inutilizzabile";
+						plancia[i][j].utilizzabile = false;
 						break;
 					case 4:
-						cellatest[i][j].contenuto = "inutilizzabile";
+						plancia[i][j].utilizzabile = false;
 						break;
 					}
 				}
@@ -56,19 +58,19 @@ public class PlanciaGioco {
 			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
 				{
-				   switch (cellatest[i][j].codice_cella) {
+				   switch (plancia[i][j].codice_cella) {
 									
 				   case 1:
-					   cellatest[i][j].contenuto = "inutilizzabile";
+					   plancia[i][j].utilizzabile = false;
 					   break;
 				   case 2:
-					   cellatest[i][j].contenuto = "cella libera";
+					   plancia[i][j].utilizzabile = true;
 					   break;
 				   case 3:
-					   cellatest[i][j].contenuto = "cella libera";
+					   plancia[i][j].utilizzabile = true;
 					   break;
 				  case 4:
-					  cellatest[i][j].contenuto = "inutilizzabile";
+					  plancia[i][j].utilizzabile = false;
 					   break;
 				   }
 				}
@@ -79,19 +81,19 @@ public class PlanciaGioco {
 			for (int i=0;i<=9;i++) {
 			for (int j=0;j<=9;j++)
 				{
-					switch (cellatest[i][j].codice_cella) {
+					switch (plancia[i][j].codice_cella) {
 					
 					case 1:
-						cellatest[i][j].contenuto = "inutilizzabile";
+						plancia[i][j].utilizzabile = false;
 						break;
 					case 2:
-						cellatest[i][j].contenuto = "cella libera";
+						plancia[i][j].utilizzabile = true;
 						break;
 					case 3:
-						cellatest[i][j].contenuto = "cella libera";
+						plancia[i][j].utilizzabile = true;
 						break;
 					case 4:
-						cellatest[i][j].contenuto = "cella libera";
+						plancia[i][j].utilizzabile = true;
 						break;
 					}
 				}
@@ -158,5 +160,155 @@ public class PlanciaGioco {
 				numeroCornici--;
 			}
 		}
+	}
+	
+	/*
+	 * Il costruttore PlanciaGioco stabilisce quali celle sono utilizzabili
+	 * in base al numero di giocatori nella partita.
+	 * Il contenuto vale:
+	 * 1 se inutilizzabile
+	 * 2 se utilizzabile con almeno 2 giocatori
+	 * 3 se utilizzabile con almeno 3 giocatori
+	 * 4 se utilizzabile con almeno 4 giocatori
+	 */
+	
+	public PlanciaGioco() {
+		//prima riga, tutte le colonne
+		
+		plancia[0][0].codice_cella = 1;		//inutilizzabile
+		plancia[0][1].codice_cella = 1;
+		plancia[0][2].codice_cella = 1;
+		plancia[0][3].codice_cella = 3;		//almeno 3 giocatori
+		plancia[0][4].codice_cella = 4;		//almno 4 giocatori
+		plancia[0][5].codice_cella = 1;
+		plancia[0][6].codice_cella = 1;
+		plancia[0][7].codice_cella = 1;
+		plancia[0][8].codice_cella = 1;
+		
+		
+		//seconda riga, tutte le colonne
+		
+		plancia[1][0].codice_cella = 1;		
+		plancia[1][1].codice_cella = 1;
+		plancia[1][2].codice_cella = 1;
+		plancia[1][3].codice_cella = 2;		//almeno 2 giocatori
+		plancia[1][4].codice_cella = 2;
+		plancia[1][5].codice_cella = 4;
+		plancia[1][6].codice_cella = 1;
+		plancia[1][7].codice_cella = 1;
+		plancia[1][8].codice_cella = 1;
+		
+		//terza riga, tutte le colonne
+		
+		plancia[2][0].codice_cella = 1;		
+		plancia[2][1].codice_cella = 1;
+		plancia[2][2].codice_cella = 3;
+		plancia[2][3].codice_cella = 2;
+		plancia[2][4].codice_cella = 2;
+		plancia[2][5].codice_cella = 2;
+		plancia[2][6].codice_cella = 3;
+		plancia[2][7].codice_cella = 1;
+		plancia[2][8].codice_cella = 1;
+		
+		//quarta riga, tutte le colonne
+		
+		plancia[3][0].codice_cella = 1;		
+		plancia[3][1].codice_cella = 4;
+		plancia[3][2].codice_cella = 2;
+		plancia[3][3].codice_cella = 2;
+		plancia[3][4].codice_cella = 2;
+		plancia[3][5].codice_cella = 2;
+		plancia[3][6].codice_cella = 2;
+		plancia[3][7].codice_cella = 2;
+		plancia[3][8].codice_cella = 3;
+		
+		//quinta riga, tutte le colonne
+		
+		plancia[4][0].codice_cella = 4;		
+		plancia[4][1].codice_cella = 2;
+		plancia[4][2].codice_cella = 2;
+		plancia[4][3].codice_cella = 2;
+		plancia[4][4].codice_cella = 2;
+		plancia[4][5].codice_cella = 2;
+		plancia[4][6].codice_cella = 2;
+		plancia[4][7].codice_cella = 2;
+		plancia[4][8].codice_cella = 4;
+		
+		//sesta riga, tutte le colonne
+		
+		plancia[5][0].codice_cella = 3;		
+		plancia[5][1].codice_cella = 2;
+		plancia[5][2].codice_cella = 2;
+		plancia[5][3].codice_cella = 2;
+		plancia[5][4].codice_cella = 2;
+		plancia[5][5].codice_cella = 2;
+		plancia[5][6].codice_cella = 2;
+		plancia[5][7].codice_cella = 4;
+		plancia[5][8].codice_cella = 1;
+		
+		//settima riga, tutte le colonne
+		
+		plancia[6][0].codice_cella = 1;		
+		plancia[6][1].codice_cella = 1;
+		plancia[6][2].codice_cella = 3;
+		plancia[6][3].codice_cella = 2;
+		plancia[6][4].codice_cella = 2;
+		plancia[6][5].codice_cella = 2;
+		plancia[6][6].codice_cella = 3;
+		plancia[6][7].codice_cella = 1;
+		plancia[6][8].codice_cella = 1;
+		
+		//ottava riga, tutte le colonne
+		
+		plancia[7][0].codice_cella = 1;		
+		plancia[7][1].codice_cella = 1;
+		plancia[7][2].codice_cella = 1;
+		plancia[7][3].codice_cella = 4;
+		plancia[7][4].codice_cella = 2;
+		plancia[7][5].codice_cella = 2;
+		plancia[7][6].codice_cella = 1;
+		plancia[7][7].codice_cella = 1;
+		plancia[7][8].codice_cella = 1;
+		
+		//nona riga, tutte le colonne
+		
+		plancia[8][0].codice_cella = 1;		
+		plancia[8][1].codice_cella = 1;
+		plancia[8][2].codice_cella = 1;
+		plancia[8][3].codice_cella = 1;
+		plancia[8][4].codice_cella = 4;
+		plancia[8][5].codice_cella = 3;
+		plancia[8][6].codice_cella = 1;
+		plancia[8][7].codice_cella = 1;
+		plancia[8][8].codice_cella = 1;
+	}
+	
+	//questo metodo restituisce che tessera è presente nella casella
+	
+	public TesseraOggetto getTessera(int riga, int colonna) {
+		TesseraOggetto tesseracontrollo = TesseraOggetto.VUOTA;
+		
+		if(tesseraoggetto[riga][colonna] == TesseraOggetto.CORNICE) {
+			tesseracontrollo = TesseraOggetto.CORNICE;
+		}
+		if(tesseraoggetto[riga][colonna] == TesseraOggetto.GATTO) {
+			tesseracontrollo = TesseraOggetto.GATTO;
+		}
+		if(tesseraoggetto[riga][colonna] == TesseraOggetto.TROFEO) {
+			tesseracontrollo = TesseraOggetto.TROFEO;
+		}
+		if(tesseraoggetto[riga][colonna] == TesseraOggetto.GIOCO) {
+			tesseracontrollo = TesseraOggetto.GIOCO;
+		}
+		if(tesseraoggetto[riga][colonna] == TesseraOggetto.LIBRO) {
+			tesseracontrollo = TesseraOggetto.LIBRO;
+		}
+		if(tesseraoggetto[riga][colonna] == TesseraOggetto.PIANTA) {
+			tesseracontrollo = TesseraOggetto.PIANTA;
+		}
+		if(tesseraoggetto[riga][colonna] == TesseraOggetto.VUOTA) {
+			tesseracontrollo = TesseraOggetto.VUOTA;
+		}
+		return tesseracontrollo;
 	}
 }

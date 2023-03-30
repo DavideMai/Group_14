@@ -6,5 +6,6 @@ public enum TesseraOggetto {
 	GIOCO,
 	CORNICE,
 	TROFEO,
-	PIANTA
+	PIANTA, 
+	VUOTA
 }

@@ -1,0 +1,13 @@
+Mettere tra parentesi quadre una cosa già fatta e avvisare sul gruppo quando si lavora a qualcosa e quando si termina
+
+Da fare:
+-Funzione per riconoscere le celle confinanti a una determinata cella
+-Funzione basilare per visualizzare la plancia
+-(Forse macchina statica per i momenti di gioco)
+-Nel main, selezionare il numero di giocatori
+-(Chicca, timer del gioco, vedremo più avanti)
+-Funzioni per assegnare i punteggi
+-Funzioni per inserire la serie di tessera nella libreria
+-Funzioni per pescare dalla plancia (elimina dalla plancia, altre funzioni da determinare)
+-Funzioni per inizializzare la plancia (all'inizio? a ogni turno? da controllare)
+-Classe Coordinate invece che usare righe e colonne. Richiamare lo stesso oggetto per pescare dalla plancia e per inserire nella libreria

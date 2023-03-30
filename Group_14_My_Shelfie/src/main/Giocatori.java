@@ -11,28 +11,26 @@ public class Giocatori {
 		this.nome=nome;
 	}
 	
-	public void Giocatori()
+	public void Giocatori()		//costruttore
 	{
 		nome="";
 		cognome="";
 		punteggio=-1;
-		numero_giocatore=-1;
-		contatore_giocatori=-1;
-		
+		if(contatore_giocatori<=4) {
+			this.numero_giocatore=contatore_giocatori;	//prova commento per git
+			contatore_giocatori++;
+		}
 	}
 	
 	public void SetCognomeGiocatore(String cognome) {
 		this.cognome=cognome;
 	}
 	
+	public int getNumeroGiocatori() {		//ritorna quanti giocatori giocano nella partita
+		return this.contatore_giocatori;
+	}
+	
 	public void AumentaPunteggioGiocatore(int aumento) {
 		this.punteggio+=aumento;
 	} //prova commento 3
-	
-	public void Giocatore() {
-		if(contatore_giocatori<=4) {
-			this.numero_giocatore=contatore_giocatori;	//prova commento per git
-			contatore_giocatori++;
-		}//prova commento 2
-	}
 }
