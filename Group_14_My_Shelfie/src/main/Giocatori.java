@@ -6,8 +6,19 @@ public class Giocatori {
 	private int punteggio=0;
 	private int numero_giocatore;
 	private int contatore_giocatori;
+	
 	public void SetNomeGiocatore(String nome) {
 		this.nome=nome;
+	}
+	
+	public void Giocatori()
+	{
+		nome="";
+		cognome="";
+		punteggio=-1;
+		numero_giocatore=-1;
+		contatore_giocatori=-1;
+		
 	}
 	
 	public void SetCognomeGiocatore(String cognome) {
