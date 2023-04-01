@@ -343,30 +343,36 @@ public class PlanciaGioco {
 		
 		//funzione random che posiziona un qualsiasi dei 6 tipi di tessere sulla plancia  
 		
-		public void SetCella (int riga, int colonna) {
-			
-			int scelta = (int) (Math.random()*6);
-			switch (scelta)
-			{
-			case 0:
-				SetCellaTrofeo (riga,colonna);
-				break;
-			case 1:
-				SetCellaPianta (riga,colonna);
-				break;
-			case 2:
-				SetCellaGatto (riga,colonna);
-				break;
-			case 3:
-				SetCellaGioco (riga,colonna);
-				break;
-			case 4:
-				SetCellaCornice (riga,colonna);
-				break;
-			case 5:
-				SetCellaLibro (riga,colonna);
-				break;
-			}
-		}
-	
+		public void SetCella () {
+		for(int i=0;i<=9;i++) {
+			for(int j=0;j<=9;j++) {
+				
+				if (plancia[i][j].utilizzabile = true)
+				{
+			      int scelta = (int) (Math.random()*6);
+			      switch (scelta)
+			    {
+			    case 0:
+			        SetCellaTrofeo (riga,colonna);
+					break;
+				case 1:
+					SetCellaPianta (riga,colonna);
+					break;
+				case 2:
+					SetCellaGatto (riga,colonna);
+					break;
+				case 3:
+					SetCellaGioco (riga,colonna);
+					break;
+				case 4:
+					SetCellaCornice (riga,colonna);
+					break;
+				case 5:
+					SetCellaLibro (riga,colonna);
+					break;
+			   }
+			 }
+		   }
+	     }
+       }
 }
