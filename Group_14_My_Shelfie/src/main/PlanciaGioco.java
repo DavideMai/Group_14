@@ -353,22 +353,22 @@ public class PlanciaGioco {
 			      switch (scelta)
 			    {
 			    case 0:
-			        SetCellaTrofeo (riga,colonna);
+			        SetCellaTrofeo (i,j);
 					break;
 				case 1:
-					SetCellaPianta (riga,colonna);
+					SetCellaPianta (i,j);
 					break;
 				case 2:
-					SetCellaGatto (riga,colonna);
+					SetCellaGatto (i,j);
 					break;
 				case 3:
-					SetCellaGioco (riga,colonna);
+					SetCellaGioco (i,j);
 					break;
 				case 4:
-					SetCellaCornice (riga,colonna);
+					SetCellaCornice (i,j);
 					break;
 				case 5:
-					SetCellaLibro (riga,colonna);
+					SetCellaLibro (i,j);
 					break;
 			   }
 			 }
