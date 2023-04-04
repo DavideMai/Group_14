@@ -179,7 +179,7 @@ public class PlanciaGioco {
 		plancia[0][1].codice_cella = 1;
 		plancia[0][2].codice_cella = 1;
 		plancia[0][3].codice_cella = 3;		//almeno 3 giocatori
-		plancia[0][4].codice_cella = 4;		//almno 4 giocatori
+		plancia[0][4].codice_cella = 4;		//almeno 4 giocatori
 		plancia[0][5].codice_cella = 1;
 		plancia[0][6].codice_cella = 1;
 		plancia[0][7].codice_cella = 1;
@@ -313,7 +313,7 @@ public class PlanciaGioco {
 	}
 	
 	
-	//celleConfinanti riconosce le celle confinanti ad una determinata cella
+	//celleConfinanti riconosce le celle confinanti ad una determinata cella e le stampa a schermo
 	
 	public void celleConfinanti(int riga, int colonna) {
 		
@@ -332,18 +332,18 @@ public class PlanciaGioco {
 	
 	//visualizzaPlancia mostra la casella nella plancia con il tipo di tessera al suo interno 
 	
-		public void visualizzaPlancia(){
-			for(int i=0;i<=9;i++) {
-				for(int j=0;j<=9;j++) {
-					System.out.println(plancia[i][j]);
-					System.out.println(tesseraoggetto[i][j]);
-				}	
-			}
+	public void visualizzaPlancia(){
+		for(int i=0;i<=9;i++) {
+			for(int j=0;j<=9;j++) {
+				System.out.println(plancia[i][j]);
+				System.out.println(tesseraoggetto[i][j]);
+			}	
 		}
+	}
 		
-		//funzione random che posiziona un qualsiasi dei 6 tipi di tessere sulla plancia  
+	//funzione random che posiziona un qualsiasi dei 6 tipi di tessere sulla plancia  
 		
-		public void SetCella () {
+	public void SetCella () {
 		for(int i=0;i<=9;i++) {
 			for(int j=0;j<=9;j++) {
 				
@@ -375,4 +375,22 @@ public class PlanciaGioco {
 		   }
 	     }
        }
+	
+	//le quattro funzioni seguenti restituiscono le celle confinanti alla cella passata come parametro con riga e colonna
+	public TesseraOggetto getSinistra(int riga, int colonna) {
+		return tesseraoggetto[riga][colonna-1];
+	}
+	
+	public TesseraOggetto getDestra(int riga, int colonna) {
+		return tesseraoggetto[riga][colonna+1];
+	}
+		
+	public TesseraOggetto getSopra(int riga, int colonna) {
+		return tesseraoggetto[riga-1][colonna];
+	}
+		
+	public TesseraOggetto getSotto(int riga, int colonna) {
+		return tesseraoggetto[riga+1][colonna];
+	}
+		
 }
