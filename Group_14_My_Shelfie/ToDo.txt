@@ -13,3 +13,11 @@ Da fare:
 -Creazione Classe Obbiettivi e varie implementazioni
 -Classe Coordinate invece che usare righe e colonne. Richiamare lo stesso oggetto per pescare dalla plancia e per inserire nella libreria
 -Metodi toString per le tessereOggetto (servono per convertire il contenuto della tesseraoggetto a stringa, o più comunemente per visualizzarle in un determinato modo).
+
+
+
+
+
+Le tessere punteggio hanno  2 numeri uno fronte e uno retro
+Funzione per controllare se la libreria e piena
+Funzione controllo tessere per riempimento
