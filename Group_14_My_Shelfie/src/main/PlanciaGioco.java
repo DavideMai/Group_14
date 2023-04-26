@@ -22,6 +22,8 @@ public class PlanciaGioco {
 	/*questa funzione imposta lo stato della plancia in
     / base al numero di giocatori inizializzando il contenuto di ogni cella,
     / (di tipo stringa) in 'cella libera' o ' cella inutilizzabile?, e mettendo quindi a disposizione le celle al gioco 
+     * la plancia è formata da 11 righe e colonne; la colonna 0 e la colonna 11 servono solo per facilitare la funzione di controllo 
+     * in modo  analogo funziona per le righe.
     */
 	
 	public void CancellaCelle (int contatore_giocatori ) 
@@ -435,11 +437,49 @@ public class PlanciaGioco {
 		return tesseraoggetto[riga+1][colonna];
 	}
 	
+	/*
+	 *  la funzione seguente controlla tutte le tessere della plancia contando quelle pescabili
+	 *   
+	 */
+	
 	public void ControlloTessere ()
 	{
+	   	boolean controllo;
+	   	int cellepescabili = 0;
 	   	
+	   	for(int i=0;i<=9;i++) 
+	   	{
+			for(int j=0;j<=9;j++) 
+			{
+				while (tesseraoggetto [i][j]!=TesseraOggetto.VUOTA)
+				{
+				  if (getSinistra (i,j) && getDestra(i,j) && getSopra(i,j) && getSotto(i,j))	
+				  {
+					  controllo = true;
+				  }
+				  else 
+				  {
+					  controllo = false;
+					  System.out.println("è il turno del giocatore numero: ...");
+					  cellepescabili++;
+					  ElencoCellePescabili 
+					  break;
+				  }
+			    }
+			}
+	   	}
+	   	if (controllo = true)
+	   	{
+	   		System.out.println("riempimento plancia...");
+	   		SetCella();
+	   	}
+	   	else
+	   	{
+	   		System.out.println("le celle che puoi pescare sono "+cellepescabili);
+	   	}
 	}
 		
 }
+
 
 
