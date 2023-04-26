@@ -4,8 +4,8 @@ public class PlanciaGioco {
 	
 	public int contatore_giocatori, codice_cella;
 	//Cella [][] arrayplancia = new Cella [riga][colonna];	
-	Cella [][] plancia= new Cella [9][9];	//questo attributo viene usato per gestire la plancia
-	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[9][9];	//matrice per gestire le tessere sulla plancia
+	Cella [][] plancia= new Cella [11][11];	//questo attributo viene usato per gestire la plancia
+	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[11][11];	//matrice per gestire le tessere sulla plancia
 	int numeroGatti = 22, numeroTrofei = 22, numeroGiochi = 22, numeroCornici = 22, numeroPiante = 22, numeroLibri = 22;
 	
 	//questa funzione seleziona una cella per esempio per pescare una carta dalla plancia 
@@ -32,8 +32,8 @@ public class PlanciaGioco {
 		
 		if (contatore_giocatori == 2)
 		{
-			for (int i=0;i<=9;i++) {
-			for (int j=0;j<=9;j++)
+			for (int i=0;i<=11;i++) {
+			for (int j=0;j<=11;j++)
 				{
 					switch (plancia[i][j].codice_cella) {
 					
@@ -55,8 +55,8 @@ public class PlanciaGioco {
 		};
 		if (contatore_giocatori == 3)
 	    {
-			for (int i=0;i<=9;i++) {
-			for (int j=0;j<=9;j++)
+			for (int i=0;i<=11;i++) {
+			for (int j=0;j<=11;j++)
 				{
 				   switch (plancia[i][j].codice_cella) {
 									
@@ -78,8 +78,8 @@ public class PlanciaGioco {
 		}
 		if (contatore_giocatori == 4)
 		{
-			for (int i=0;i<=9;i++) {
-			for (int j=0;j<=9;j++)
+			for (int i=0;i<=11;i++) {
+			for (int j=0;j<=11;j++)
 				{
 					switch (plancia[i][j].codice_cella) {
 					
@@ -173,114 +173,156 @@ public class PlanciaGioco {
 	 */
 	
 	public PlanciaGioco() {
-		//prima riga, tutte le colonne
+		//prima riga, tutte le colonne per controllo
 		
-		plancia[0][0].codice_cella = 1;		//inutilizzabile
-		plancia[0][1].codice_cella = 1;
+		plancia[0][0].codice_cella = 1;
+		plancia[0][1].codice_cella = 1;		
 		plancia[0][2].codice_cella = 1;
-		plancia[0][3].codice_cella = 3;		//almeno 3 giocatori
-		plancia[0][4].codice_cella = 4;		//almeno 4 giocatori
-		plancia[0][5].codice_cella = 1;
+		plancia[0][3].codice_cella = 1;
+		plancia[0][4].codice_cella = 1;		
+		plancia[0][5].codice_cella = 1;		
 		plancia[0][6].codice_cella = 1;
 		plancia[0][7].codice_cella = 1;
 		plancia[0][8].codice_cella = 1;
-		
+		plancia[0][9].codice_cella = 1;
+		plancia[0][10].codice_cella = 1;
 		
 		//seconda riga, tutte le colonne
 		
-		plancia[1][0].codice_cella = 1;		
-		plancia[1][1].codice_cella = 1;
+		plancia[1][0].codice_cella = 1;
+		plancia[1][1].codice_cella = 1;		//inutilizzabile
 		plancia[1][2].codice_cella = 1;
-		plancia[1][3].codice_cella = 2;		//almeno 2 giocatori
-		plancia[1][4].codice_cella = 2;
-		plancia[1][5].codice_cella = 4;
+		plancia[1][3].codice_cella = 1;
+		plancia[1][4].codice_cella = 3;		//almeno 3 giocatori
+		plancia[1][5].codice_cella = 4;		//almeno 4 giocatori
 		plancia[1][6].codice_cella = 1;
 		plancia[1][7].codice_cella = 1;
 		plancia[1][8].codice_cella = 1;
+		plancia[1][9].codice_cella = 1;
+		plancia[1][10].codice_cella = 1;
 		
 		//terza riga, tutte le colonne
 		
-		plancia[2][0].codice_cella = 1;		
-		plancia[2][1].codice_cella = 1;
-		plancia[2][2].codice_cella = 3;
-		plancia[2][3].codice_cella = 2;
-		plancia[2][4].codice_cella = 2;
+		plancia[2][0].codice_cella = 1;
+		plancia[2][1].codice_cella = 1;		
+		plancia[2][2].codice_cella = 1;
+		plancia[2][3].codice_cella = 1;
+		plancia[2][4].codice_cella = 2;		//almeno 2 giocatori
 		plancia[2][5].codice_cella = 2;
-		plancia[2][6].codice_cella = 3;
+		plancia[2][6].codice_cella = 4;
 		plancia[2][7].codice_cella = 1;
 		plancia[2][8].codice_cella = 1;
+		plancia[2][9].codice_cella = 1;
+		plancia[2][10].codice_cella = 1;
 		
 		//quarta riga, tutte le colonne
 		
-		plancia[3][0].codice_cella = 1;		
-		plancia[3][1].codice_cella = 4;
-		plancia[3][2].codice_cella = 2;
-		plancia[3][3].codice_cella = 2;
+		plancia[3][0].codice_cella = 1;
+		plancia[3][1].codice_cella = 1;		
+		plancia[3][2].codice_cella = 1;
+		plancia[3][3].codice_cella = 3;
 		plancia[3][4].codice_cella = 2;
 		plancia[3][5].codice_cella = 2;
 		plancia[3][6].codice_cella = 2;
-		plancia[3][7].codice_cella = 2;
-		plancia[3][8].codice_cella = 3;
+		plancia[3][7].codice_cella = 3;
+		plancia[3][8].codice_cella = 1;
+		plancia[3][9].codice_cella = 1;
+		plancia[3][10].codice_cella = 1;
 		
 		//quinta riga, tutte le colonne
 		
-		plancia[4][0].codice_cella = 4;		
-		plancia[4][1].codice_cella = 2;
-		plancia[4][2].codice_cella = 2;
+		plancia[4][0].codice_cella = 1;
+		plancia[4][1].codice_cella = 1;		
+		plancia[4][2].codice_cella = 4;
 		plancia[4][3].codice_cella = 2;
 		plancia[4][4].codice_cella = 2;
 		plancia[4][5].codice_cella = 2;
 		plancia[4][6].codice_cella = 2;
 		plancia[4][7].codice_cella = 2;
-		plancia[4][8].codice_cella = 4;
+		plancia[4][8].codice_cella = 2;
+		plancia[4][9].codice_cella = 3;
+		plancia[4][10].codice_cella = 1;
 		
 		//sesta riga, tutte le colonne
 		
-		plancia[5][0].codice_cella = 3;		
-		plancia[5][1].codice_cella = 2;
+		plancia[5][1].codice_cella = 4;		
 		plancia[5][2].codice_cella = 2;
 		plancia[5][3].codice_cella = 2;
 		plancia[5][4].codice_cella = 2;
 		plancia[5][5].codice_cella = 2;
 		plancia[5][6].codice_cella = 2;
-		plancia[5][7].codice_cella = 4;
-		plancia[5][8].codice_cella = 1;
-		
+		plancia[5][7].codice_cella = 2;
+		plancia[5][8].codice_cella = 2;
+		plancia[5][9].codice_cella = 4;
+		plancia[5][10].codice_cella = 1;
 		//settima riga, tutte le colonne
 		
-		plancia[6][0].codice_cella = 1;		
-		plancia[6][1].codice_cella = 1;
-		plancia[6][2].codice_cella = 3;
+		plancia[6][0].codice_cella = 1;
+		plancia[6][1].codice_cella = 3;		
+		plancia[6][2].codice_cella = 2;
 		plancia[6][3].codice_cella = 2;
 		plancia[6][4].codice_cella = 2;
 		plancia[6][5].codice_cella = 2;
-		plancia[6][6].codice_cella = 3;
-		plancia[6][7].codice_cella = 1;
-		plancia[6][8].codice_cella = 1;
-		
+		plancia[6][6].codice_cella = 2;
+		plancia[6][7].codice_cella = 2;
+		plancia[6][8].codice_cella = 4;
+		plancia[6][9].codice_cella = 1;
+		plancia[6][10].codice_cella = 1;
 		//ottava riga, tutte le colonne
 		
-		plancia[7][0].codice_cella = 1;		
-		plancia[7][1].codice_cella = 1;
+		plancia[7][0].codice_cella = 1;
+		plancia[7][1].codice_cella = 1;		
 		plancia[7][2].codice_cella = 1;
-		plancia[7][3].codice_cella = 4;
+		plancia[7][3].codice_cella = 3;
 		plancia[7][4].codice_cella = 2;
 		plancia[7][5].codice_cella = 2;
-		plancia[7][6].codice_cella = 1;
-		plancia[7][7].codice_cella = 1;
+		plancia[7][6].codice_cella = 2;
+		plancia[7][7].codice_cella = 3;
 		plancia[7][8].codice_cella = 1;
+		plancia[7][9].codice_cella = 1;
+		plancia[7][10].codice_cella = 1;
 		
 		//nona riga, tutte le colonne
 		
-		plancia[8][0].codice_cella = 1;		
-		plancia[8][1].codice_cella = 1;
+		plancia[8][0].codice_cella = 1;
+		plancia[8][1].codice_cella = 1;		
 		plancia[8][2].codice_cella = 1;
 		plancia[8][3].codice_cella = 1;
 		plancia[8][4].codice_cella = 4;
-		plancia[8][5].codice_cella = 3;
-		plancia[8][6].codice_cella = 1;
+		plancia[8][5].codice_cella = 2;
+		plancia[8][6].codice_cella = 2;
 		plancia[8][7].codice_cella = 1;
 		plancia[8][8].codice_cella = 1;
+		plancia[8][9].codice_cella = 1;
+		plancia[8][10].codice_cella = 1;
+		
+		//decima riga, tutte le colonne
+		
+		plancia[9][0].codice_cella = 1;
+		plancia[9][1].codice_cella = 1;		
+		plancia[9][2].codice_cella = 1;
+		plancia[9][3].codice_cella = 1;
+		plancia[9][4].codice_cella = 1;
+		plancia[9][5].codice_cella = 4;
+		plancia[9][6].codice_cella = 3;
+		plancia[9][7].codice_cella = 1;
+		plancia[9][8].codice_cella = 1;
+		plancia[9][9].codice_cella = 1;
+		plancia[9][10].codice_cella = 1;
+		
+	//decima riga, tutte le colonne per controllo
+		
+		plancia[10][0].codice_cella = 1;
+		plancia[10][1].codice_cella = 1;		
+		plancia[10][2].codice_cella = 1;
+		plancia[10][3].codice_cella = 1;
+		plancia[10][4].codice_cella = 1;
+		plancia[10][5].codice_cella = 1;
+		plancia[10][6].codice_cella = 1;
+		plancia[10][7].codice_cella = 1;
+		plancia[10][8].codice_cella = 1;
+		plancia[10][9].codice_cella = 1;
+		plancia[10][10].codice_cella = 1;
 	}
 	
 	//questo metodo restituisce che tessera è presente nella casella
@@ -347,7 +389,7 @@ public class PlanciaGioco {
 		for(int i=0;i<=9;i++) {
 			for(int j=0;j<=9;j++) {
 				
-				if (plancia[i][j].utilizzabile = true)
+				if (plancia[i][j].utilizzabile = true  && getTessera(i,j)=TesseraOggetto.VUOTA)
 				{
 			      int scelta = (int) (Math.random()*6);
 			      switch (scelta)
@@ -392,5 +434,12 @@ public class PlanciaGioco {
 	public TesseraOggetto getSotto(int riga, int colonna) {
 		return tesseraoggetto[riga+1][colonna];
 	}
+	
+	public void ControlloTessere ()
+	{
+	   	
+	}
 		
 }
+
+
