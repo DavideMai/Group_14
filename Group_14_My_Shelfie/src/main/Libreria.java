@@ -3,8 +3,8 @@ package main;
 public class Libreria {
 	public int riga=6,colonna=5;
 	
-	CellaLibreria [][] arraylibreria = new CellaLibreria [riga][colonna];
-	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[riga][colonna];
+	CellaLibreria [][] arraylibreria = new CellaLibreria [6][5];
+	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[6][5];
 	public String Selezione (int riga ,int colonna) {
 		this.riga = riga;
 		this.colonna = colonna;
