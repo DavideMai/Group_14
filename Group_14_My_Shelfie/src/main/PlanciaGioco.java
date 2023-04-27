@@ -391,7 +391,7 @@ public class PlanciaGioco {
 		for(int i=0;i<=9;i++) {
 			for(int j=0;j<=9;j++) {
 				
-				if (plancia[i][j].utilizzabile = true  && getTessera(i,j)=TesseraOggetto.VUOTA)
+				if (plancia[i][j].utilizzabile == true  && getTessera(i,j)==TesseraOggetto.VUOTA)
 				{
 			      int scelta = (int) (Math.random()*6);
 			      switch (scelta)
@@ -453,7 +453,7 @@ public class PlanciaGioco {
 			{
 				while (tesseraoggetto [i][j]!=TesseraOggetto.VUOTA)
 				{
-				  if (getSinistra (i,j)= TesseraOggetto.VUOTA && getDestra(i,j)= TesseraOggetto.VUOTA && getSopra(i,j)= TesseraOggetto.VUOTA && getSotto(i,j)= TesseraOggetto.VUOTA)	
+				  if (getSinistra (i,j)== TesseraOggetto.VUOTA && getDestra(i,j)== TesseraOggetto.VUOTA && getSopra(i,j)== TesseraOggetto.VUOTA && getSotto(i,j)== TesseraOggetto.VUOTA)	
 				  {
 					  controllo = true;
 				  }
