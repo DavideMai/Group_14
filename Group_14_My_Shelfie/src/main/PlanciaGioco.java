@@ -438,8 +438,8 @@ public class PlanciaGioco {
 	}
 	
 	/*
-	 *  la funzione seguente controlla tutte le tessere della plancia contando quelle pescabili
-	 *   
+	 *  la funzione seguente controlla tutte le tessere della plancia contando quelle pescabili 
+	 *  se controllo è su false puoi continuare il turno  
 	 */
 	
 	public void ControlloTessere ()
@@ -447,13 +447,13 @@ public class PlanciaGioco {
 	   	boolean controllo;
 	   	int cellepescabili = 0;
 	   	
-	   	for(int i=0;i<=9;i++) 
+	   	for(int i=0;i<=11;i++) 
 	   	{
-			for(int j=0;j<=9;j++) 
+			for(int j=0;j<=11;j++) 
 			{
 				while (tesseraoggetto [i][j]!=TesseraOggetto.VUOTA)
 				{
-				  if (getSinistra (i,j) && getDestra(i,j) && getSopra(i,j) && getSotto(i,j))	
+				  if (getSinistra (i,j)= TesseraOggetto.VUOTA && getDestra(i,j)= TesseraOggetto.VUOTA && getSopra(i,j)= TesseraOggetto.VUOTA && getSotto(i,j)= TesseraOggetto.VUOTA)	
 				  {
 					  controllo = true;
 				  }
@@ -461,8 +461,7 @@ public class PlanciaGioco {
 				  {
 					  controllo = false;
 					  System.out.println("è il turno del giocatore numero: ...");
-					  cellepescabili++;
-					  ElencoCellePescabili 
+					  cellepescabili++; 
 					  break;
 				  }
 			    }
