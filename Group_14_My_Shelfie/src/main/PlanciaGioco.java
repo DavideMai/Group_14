@@ -4,7 +4,7 @@ public class PlanciaGioco {
 	
 	public int contatore_giocatori, codice_cella;
 	//Cella [][] arrayplancia = new Cella [riga][colonna];	
-	Cella [][] plancia= new Cella [11][11];	//questo attributo viene usato per gestire la plancia
+	Cella [][] plancia= new Cella [9][9];	//questo attributo viene usato per gestire la plancia
 	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[11][11];	//matrice per gestire le tessere sulla plancia
 	int numeroGatti = 22, numeroTrofei = 22, numeroGiochi = 22, numeroCornici = 22, numeroPiante = 22, numeroLibri = 22;
 	
@@ -34,8 +34,8 @@ public class PlanciaGioco {
 		
 		if (contatore_giocatori == 2)
 		{
-			for (int i=0;i<=11;i++) {
-			for (int j=0;j<=11;j++)
+			for (int i=0;i<=9;i++) {
+			for (int j=0;j<=9;j++)
 				{
 					switch (plancia[i][j].codice_cella) {
 					
@@ -57,8 +57,8 @@ public class PlanciaGioco {
 		};
 		if (contatore_giocatori == 3)
 	    {
-			for (int i=0;i<=11;i++) {
-			for (int j=0;j<=11;j++)
+			for (int i=0;i<=9;i++) {
+			for (int j=0;j<=9;j++)
 				{
 				   switch (plancia[i][j].codice_cella) {
 									
@@ -80,8 +80,8 @@ public class PlanciaGioco {
 		}
 		if (contatore_giocatori == 4)
 		{
-			for (int i=0;i<=11;i++) {
-			for (int j=0;j<=11;j++)
+			for (int i=0;i<=9;i++) {
+			for (int j=0;j<=9;j++)
 				{
 					switch (plancia[i][j].codice_cella) {
 					
