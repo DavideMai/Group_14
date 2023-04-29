@@ -7,7 +7,19 @@ public class Libreria {
 	
 	CellaLibreria [][] libreria = new CellaLibreria [6][5];
 	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[6][5];
-		
+	Scanner sc=new Scanner(System.in);
+	
+	//funzione che seleziona la colonna nella quale inserire le tessere
+	public int selezionaColonna() {
+		int N;  	//variabile che identifica la colonna
+		N=sc.nextInt();
+		while(N<1&&N>5) {
+			System.out.println("Inserimento errato");
+			N=sc.nextInt();
+		}
+		return N;
+	}
+	
 	//funzione che restituisce il tipo di tessera presente nella cella	
 	public TesseraOggetto getTessera(int riga, int colonna) {
 		TesseraOggetto tesseracontrollo = TesseraOggetto.VUOTA;
@@ -37,22 +49,22 @@ public class Libreria {
 	}
 	
 	//serie di funzioni per rendere la cella della libreria una determinata tessera oggetto
-	public void SetCellaTrofeo(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.TROFEO;
+	public void SetCellaTrofeo(int riga) {
+		tesseraoggetto[riga][selezionaColonna()] = TesseraOggetto.TROFEO;
 	}
-	public void SetCellaPianta(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.PIANTA;
+	public void SetCellaPianta(int riga) {
+		tesseraoggetto[riga][selezionaColonna()] = TesseraOggetto.PIANTA;
 	}
-	public void SetCellaGatto(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.GATTO;
+	public void SetCellaGatto(int riga) {
+		tesseraoggetto[riga][selezionaColonna()] = TesseraOggetto.GATTO;
 	}
-	public void SetCellaGioco(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.GIOCO;
+	public void SetCellaGioco(int riga) {
+		tesseraoggetto[riga][selezionaColonna()] = TesseraOggetto.GIOCO;
 	}
-	public void SetCellaCornice(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.CORNICE;
+	public void SetCellaCornice(int riga) {
+		tesseraoggetto[riga][selezionaColonna()] = TesseraOggetto.CORNICE;
 	}
-	public void SetCellaLibro(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.LIBRO;
+	public void SetCellaLibro(int riga) {
+		tesseraoggetto[riga][selezionaColonna()] = TesseraOggetto.LIBRO;
 	}
 }
