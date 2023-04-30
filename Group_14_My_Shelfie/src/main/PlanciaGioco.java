@@ -2,11 +2,18 @@ package main;
 
 public class PlanciaGioco {
 	
-	public int contatore_giocatori, codice_cella;
+	public int contatore_giocatori;
+	public int codice_cella;
+	
 	//Cella [][] arrayplancia = new Cella [riga][colonna];	
 	Cella [][] plancia= new Cella [9][9];	//questo attributo viene usato per gestire la plancia
 	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[11][11];	//matrice per gestire le tessere sulla plancia
-	int numeroGatti = 22, numeroTrofei = 22, numeroGiochi = 22, numeroCornici = 22, numeroPiante = 22, numeroLibri = 22;
+	int numeroGatti = 22;
+	int numeroTrofei = 22;
+	int numeroGiochi = 22;
+	int numeroCornici = 22;
+	int numeroPiante = 22;
+	int numeroLibri = 22;
 	
 	//questa funzione seleziona una cella per esempio per pescare una carta dalla plancia 
 	

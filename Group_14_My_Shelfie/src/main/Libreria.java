@@ -3,7 +3,9 @@ package main;
 import java.util.Scanner;
 
 public class Libreria {
-	public int riga,colonna;
+	
+	public int riga;
+	public int colonna;
 	
 	CellaLibreria [][] libreria = new CellaLibreria [6][5];
 	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[6][5];
