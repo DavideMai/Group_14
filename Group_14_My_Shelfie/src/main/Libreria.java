@@ -22,6 +22,16 @@ public class Libreria {
 		return N;
 	}
 	
+	//funzione per visualizzare a schermo la libreria
+	public void visualizzaLibreria(){
+		for(int i=0;i<=5;i++) {
+			for(int j=0;j<=4;j++) {
+				System.out.println(libreria[i][j]);
+				System.out.println(tesseraoggetto[i][j]);
+			}	
+		}
+	}
+	
 	//funzione che restituisce il tipo di tessera presente nella cella	
 	public TesseraOggetto getTessera(int riga, int colonna) {
 		TesseraOggetto tesseracontrollo = TesseraOggetto.VUOTA;
