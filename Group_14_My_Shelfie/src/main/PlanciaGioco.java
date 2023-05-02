@@ -7,7 +7,7 @@ public class PlanciaGioco {
 	
 	//Cella [][] arrayplancia = new Cella [riga][colonna];	
 	Cella [][] plancia= new Cella [9][9];	//questo attributo viene usato per gestire la plancia
-	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[11][11];	//matrice per gestire le tessere sulla plancia
+	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[9][9];	//matrice per gestire le tessere sulla plancia
 	int numeroGatti = 22;
 	int numeroTrofei = 22;
 	int numeroGiochi = 22;
@@ -41,8 +41,8 @@ public class PlanciaGioco {
 		
 		if (contatore_giocatori == 2)
 		{
-			for (int i=0;i<=9;i++) {
-			for (int j=0;j<=9;j++)
+			for (int i=0;i<9;i++) {
+			for (int j=0;j<9;j++)
 				{
 					switch (plancia[i][j].codice_cella) {
 					
@@ -64,8 +64,8 @@ public class PlanciaGioco {
 		};
 		if (contatore_giocatori == 3)
 	    {
-			for (int i=0;i<=9;i++) {
-			for (int j=0;j<=9;j++)
+			for (int i=0;i<9;i++) {
+			for (int j=0;j<9;j++)
 				{
 				   switch (plancia[i][j].codice_cella) {
 									
@@ -87,8 +87,8 @@ public class PlanciaGioco {
 		}
 		if (contatore_giocatori == 4)
 		{
-			for (int i=0;i<=9;i++) {
-			for (int j=0;j<=9;j++)
+			for (int i=0;i<9;i++) {
+			for (int j=0;j<9;j++)
 				{
 					switch (plancia[i][j].codice_cella) {
 					
@@ -186,6 +186,7 @@ public class PlanciaGioco {
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
 				plancia[i][j] = new Cella();
+				tesseraoggetto[i][j] = TesseraOggetto.VUOTA;
 			}
 		}
 		plancia[0][0].codice_cella = 1;
@@ -357,11 +358,14 @@ public class PlanciaGioco {
 	//visualizzaPlancia mostra la casella nella plancia con il tipo di tessera al suo interno 
 	
 	public void visualizzaPlancia(){
+		String riga = new String();
 		for(int i=0;i<9;i++) {
+			riga = "";
 			for(int j=0;j<9;j++) {
-				System.out.println(plancia[i][j]);
-				System.out.println(tesseraoggetto[i][j]);
-			}	
+				if(tesseraoggetto[i][j] != null)
+				riga = riga + toString(tesseraoggetto[i][j]);	
+			}
+			System.out.println(riga);
 		}
 	}
 		
@@ -443,9 +447,9 @@ public class PlanciaGioco {
 	   	boolean controllo;
 	   	int cellepescabili = 0;
 	   	
-	   	for(int i=0;i<=9;i++) 
+	   	for(int i=0;i<9;i++) 
 	   	{
-			for(int j=0;j<=9;j++) 
+			for(int j=0;j<9;j++) 
 			{
 				while (tesseraoggetto [i][j]!=TesseraOggetto.VUOTA && plancia[i][j].utilizzabile)
 				{
@@ -468,7 +472,34 @@ public class PlanciaGioco {
 	   		System.out.println("le celle che puoi pescare sono "+cellepescabili);
 	   	}
 	}
-		
+	
+	public String toString(TesseraOggetto t) {
+		String tessera = new String();
+		switch(t) {
+		case VUOTA:
+			tessera = "V ";
+			break;
+		case GATTO:
+			tessera = "C ";
+			break;
+		case PIANTA:
+			tessera = "P ";
+			break;
+		case GIOCO:
+			tessera = "G ";
+			break;
+		case CORNICE:
+			tessera = "F ";
+			break;
+		case TROFEO:
+			tessera = "T ";
+			break;
+		case LIBRO:
+			tessera = "L ";
+			break;
+		}
+		return tessera;
+	}
 }
 
 

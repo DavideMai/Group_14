@@ -10,20 +10,22 @@ public class Partita {
 		Scanner sc = new Scanner(System.in);
 		boolean nextPlayer = true;
 		String nome = new String();
-		int i = 0;
+		int numberPlayer = 0;
 		ArrayList<Giocatori> giocatori = new ArrayList<Giocatori>();
 		do {
-			System.out.println("Vuoi inserire un nuovo giocatore? Se sì, inserisci 1, altrimenti inserire 0");
+			System.out.println("Vuoi inserire un nuovo giocatore? Se sì, inserisci true, altrimenti inserisci false");
 			nextPlayer = sc.nextBoolean();
 			if(nextPlayer) {
-				i++;
+				numberPlayer++;
 				System.out.println("Inserisci nome del giocatore: ");
 				sc.nextLine();
 				nome = sc.nextLine();
-				giocatori.add(new Giocatori(nome, i));
+				giocatori.add(new Giocatori(nome, numberPlayer));
 			}
-		}while(nextPlayer && i<4);
+		}while(nextPlayer && numberPlayer<4);
+		plancia.CancellaCelle(numberPlayer);
 		plancia.SetCella();
+		System.out.println("V sta per vuota, C per gatto, P per pianta, G per gioco, F per cornice, T per trofeo e L per libro");
 		plancia.visualizzaPlancia();
 	}
 
