@@ -2,7 +2,6 @@ package main;
 
 public class Giocatori {
 	private String nome;
-	private String cognome;
 	private int punteggio=0;
 	private int numero_giocatore;
 	private int contatore_giocatori;
@@ -11,20 +10,17 @@ public class Giocatori {
 		this.nome=nome;
 	}
 	
-	public void Giocatori()		//costruttore
+	public Giocatori(String nome, int numero)		//costruttore
 	{
-		nome="";
-		cognome="";
+		this.nome = nome;
 		punteggio=-1;
-		if(contatore_giocatori<=4) {
+		/*if(contatore_giocatori<=4) {
 			this.numero_giocatore=contatore_giocatori;	//prova commento per git
 			contatore_giocatori++;
-		}
+		}*/
+		this.numero_giocatore = numero;
 	}
 	
-	public void SetCognomeGiocatore(String cognome) {
-		this.cognome=cognome;
-	}
 	
 	public int getNumeroGiocatori() {		//ritorna quanti giocatori giocano nella partita
 		return this.contatore_giocatori;

@@ -183,7 +183,11 @@ public class PlanciaGioco {
 	
 	public PlanciaGioco() {
 		//prima riga, tutte le colonne per controllo
-		
+		for(int i = 0; i < 9; i++) {
+			for(int j = 0; j < 9; j++) {
+				plancia[i][j] = new Cella();
+			}
+		}
 		plancia[0][0].codice_cella = 1;
 		plancia[0][1].codice_cella = 1;		
 		plancia[0][2].codice_cella = 1;
@@ -353,8 +357,8 @@ public class PlanciaGioco {
 	//visualizzaPlancia mostra la casella nella plancia con il tipo di tessera al suo interno 
 	
 	public void visualizzaPlancia(){
-		for(int i=0;i<=9;i++) {
-			for(int j=0;j<=9;j++) {
+		for(int i=0;i<9;i++) {
+			for(int j=0;j<9;j++) {
 				System.out.println(plancia[i][j]);
 				System.out.println(tesseraoggetto[i][j]);
 			}	
@@ -364,8 +368,8 @@ public class PlanciaGioco {
 	//funzione random che posiziona un qualsiasi dei 6 tipi di tessere sulla plancia  
 		
 	public void SetCella () {
-		for(int i=0;i<=9;i++) {
-			for(int j=0;j<=9;j++) {
+		for(int i=0;i<9;i++) {
+			for(int j=0;j<9;j++) {
 				
 				if (plancia[i][j].utilizzabile == true  && getTessera(i,j)==TesseraOggetto.VUOTA)
 				{
@@ -400,7 +404,7 @@ public class PlanciaGioco {
 	public TesseraOggetto getSinistra(int riga, int colonna) {
 		if (colonna==0)
 		{
-			return tesseraoggetto.VUOTA;
+			return TesseraOggetto.VUOTA;
 		}
 		return tesseraoggetto[riga][colonna-1];
 	}
@@ -408,7 +412,7 @@ public class PlanciaGioco {
 	public TesseraOggetto getDestra(int riga, int colonna) {
 		if (colonna==8)
 		{
-			return tesseraoggetto.VUOTA;
+			return TesseraOggetto.VUOTA;
 		}
 		return tesseraoggetto[riga][colonna+1];
 	}
@@ -416,7 +420,7 @@ public class PlanciaGioco {
 	public TesseraOggetto getSopra(int riga, int colonna) {
 		if (riga==0)
 		{
-			return tesseraoggetto.VUOTA;
+			return TesseraOggetto.VUOTA;
 		}
 		return tesseraoggetto[riga-1][colonna];
 	}
@@ -424,7 +428,7 @@ public class PlanciaGioco {
 	public TesseraOggetto getSotto(int riga, int colonna) {
 		if (riga==8)
 		{
-			return tesseraoggetto.VUOTA;
+			return TesseraOggetto.VUOTA;
 		}
 		return tesseraoggetto[riga+1][colonna];
 	}
