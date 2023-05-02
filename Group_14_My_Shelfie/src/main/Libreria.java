@@ -23,13 +23,13 @@ public class Libreria {
 	}
 	
 	//funzione per visualizzare a schermo la libreria
-	public void visualizzaLibreria(){
+	public CellaLibreria toString(int riga, int colonna){
 		for(int i=0;i<=5;i++) {
 			for(int j=0;j<=4;j++) {
-				System.out.println(libreria[i][j]);
-				System.out.println(tesseraoggetto[i][j]);
+				return libreria[i][j];
 			}	
 		}
+		return null;
 	}
 	
 	//funzione che restituisce il tipo di tessera presente nella cella	
