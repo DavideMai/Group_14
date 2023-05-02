@@ -24,8 +24,8 @@ public class Libreria {
 	
 	//funzione per visualizzare a schermo la libreria
 	public CellaLibreria toString(int riga, int colonna){
-		for(int i=0;i<=5;i++) {
-			for(int j=0;j<=4;j++) {
+		for(int i=0;i<6;i++) {
+			for(int j=0;j<5;j++) {
 				return libreria[i][j];
 			}	
 		}
