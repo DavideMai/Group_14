@@ -51,22 +51,22 @@ public class Libreria {
 	}
 	
 	//serie di funzioni per rendere la cella della libreria una determinata tessera oggetto
-	public void SetCellaTrofeo(int riga) {
-		tesseraoggetto[riga][selezionaColonna()] = TesseraOggetto.TROFEO;
+	public void SetCellaTrofeo(int riga, int colonna) {
+		tesseraoggetto[riga][colonna] = TesseraOggetto.TROFEO;
 	}
 	public void SetCellaPianta(int riga) {
-		tesseraoggetto[riga][selezionaColonna()] = TesseraOggetto.PIANTA;
+		tesseraoggetto[riga][colonna] = TesseraOggetto.PIANTA;
 	}
 	public void SetCellaGatto(int riga) {
-		tesseraoggetto[riga][selezionaColonna()] = TesseraOggetto.GATTO;
+		tesseraoggetto[riga][colonna] = TesseraOggetto.GATTO;
 	}
 	public void SetCellaGioco(int riga) {
-		tesseraoggetto[riga][selezionaColonna()] = TesseraOggetto.GIOCO;
+		tesseraoggetto[riga][colonna] = TesseraOggetto.GIOCO;
 	}
 	public void SetCellaCornice(int riga) {
-		tesseraoggetto[riga][selezionaColonna()] = TesseraOggetto.CORNICE;
+		tesseraoggetto[riga][colonna] = TesseraOggetto.CORNICE;
 	}
 	public void SetCellaLibro(int riga) {
-		tesseraoggetto[riga][selezionaColonna()] = TesseraOggetto.LIBRO;
+		tesseraoggetto[riga][colonna] = TesseraOggetto.LIBRO;
 	}
 }
