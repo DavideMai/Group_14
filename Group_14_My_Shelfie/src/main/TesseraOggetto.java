@@ -1,7 +1,7 @@
 package main;
 
 public enum TesseraOggetto {
-	GATTO,
+	GATTO, 
 	LIBRO,
 	GIOCO,
 	CORNICE,
