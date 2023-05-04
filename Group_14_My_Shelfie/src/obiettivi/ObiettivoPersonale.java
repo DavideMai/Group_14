@@ -1,4 +1,6 @@
-package main;
+package obiettivi;
+
+import utils.TesseraOggetto;
 
 public class ObiettivoPersonale {
 	

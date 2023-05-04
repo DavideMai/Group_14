@@ -1,5 +1,7 @@
 package main;
 
+import obiettivi.ObiettivoComune;
+
 public class Main {
 
 	public static void main(String[] args) {

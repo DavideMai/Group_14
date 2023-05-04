@@ -1,4 +1,4 @@
-package Main;
+package grafica;
 
 import javax.swing.*;
 import javax.swing.JFrame;

@@ -1,7 +1,10 @@
-package main;
+package partita;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import utils.Cella;
+import utils.TesseraOggetto;
 
 public class PlanciaGioco {
 	

@@ -1,6 +1,9 @@
-package main;
+package partita;
 
 import java.util.Scanner;
+
+import utils.CellaLibreria;
+import utils.TesseraOggetto;
 
 public class Libreria {
 	

@@ -1,4 +1,4 @@
-package main;
+package partita;
 
 import java.util.ArrayList;
 import java.util.Scanner;

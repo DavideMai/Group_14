@@ -1,4 +1,4 @@
-package main;
+package partita;
 import java.math.*;
 
 public class Giocatori {
