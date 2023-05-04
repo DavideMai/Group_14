@@ -1,5 +1,8 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class PlanciaGioco {
 	
 	public int contatore_giocatori;
@@ -499,6 +502,46 @@ public class PlanciaGioco {
 			break;
 		}
 		return tessera;
+	}
+	
+	public void LatoVuoto(int riga, int colonna)
+	{
+		if (getSinistra(riga,colonna)!= TesseraOggetto.VUOTA && 
+			getDestra(riga,colonna)!= TesseraOggetto.VUOTA && 
+			getSopra(riga,colonna)!= TesseraOggetto.VUOTA && 
+			getSotto(riga,colonna)!= TesseraOggetto.VUOTA)
+		{
+			return false;
+		}
+		return true;
+	}
+	
+	
+	public int[][] PescaTessere ()
+	{
+	    int [] [] coordinate= new int [2][3];
+		int richiesta=0,i=0,j=0;
+		boolean scelta;
+		
+		do 
+		{
+		System.out.println("inserisci la riga della tessera che vuoi pescare: ");
+		Scanner sc= new Scanner (System.in);
+		coordinate[i][j] = sc.nextInt();
+		System.out.println("inserisci la colonna della tessera che vuoi pescare: ");
+		coordinate[i+1][j] = sc.nextInt();
+		if (LatoVuoto(coordinate[i][j],coordinate[i+1][j] == false)
+				{
+			      System.out.println("la carta non può essere pescata, inserisci nuove coordinate: ");
+			      break;
+				}
+		richiesta++;
+		j++;
+		System.out.println("vuoi pescare un'altra carta? (scrivi true o false");
+		scelta = sc.nextBoolean();
+		}while (richiesta<3 && scelta);
+		
+		return coordinate;
 	}
 }
 
