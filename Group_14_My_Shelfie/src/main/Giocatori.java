@@ -1,10 +1,12 @@
 package main;
+import java.math.*;
 
 public class Giocatori {
 	private String nome;
 	private int punteggio=0;
 	private int numero_giocatore;
 	private int contatore_giocatori;
+	private TesseraOggetto ObiettivoPersonale;
 	
 	public void SetNomeGiocatore(String nome) {
 		this.nome=nome;
@@ -29,4 +31,11 @@ public class Giocatori {
 	public void AumentaPunteggioGiocatore(int aumento) {
 		this.punteggio+=aumento;
 	} //prova commento 3
+	public void AssegnaObiettivoPersonale () {
+		final int NumeroRandom = (int) Math.random()*12;
+		
+		
+		
+		
+	}
 }
