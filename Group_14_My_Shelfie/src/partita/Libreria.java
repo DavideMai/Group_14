@@ -5,6 +5,9 @@ import java.util.Scanner;
 import utils.CellaLibreria;
 import utils.TesseraOggetto;
 
+/**
+ * classe che permette di gestire la libreria
+ */
 public class Libreria {
 	
 	public int riga;
@@ -14,9 +17,12 @@ public class Libreria {
 	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[6][5];
 	Scanner sc=new Scanner(System.in);
 	
-	//funzione che seleziona la colonna nella quale inserire le tessere
+	/**
+	 * funzione che seleziona la colonna nella quale si vuole inserire la/le tessera/e
+	 * @return N: numero della colonna
+	 */
 	public int selezionaColonna() {
-		int N;  	//variabile che identifica la colonna
+		int N;  	
 		N=sc.nextInt();
 		while(N<1&&N>5) {
 			System.out.println("Inserimento errato");
@@ -25,7 +31,9 @@ public class Libreria {
 		return N;
 	}
 	
-	//funzione che serve per poter visualizzare a schermo la libreria
+	/**
+	 * funzione necessaria a poter poi rappresentare a schermo la libreria
+	 */
 	public String toString(){
 		for(int i=0;i<6;i++) {
 			for(int j=0;j<5;j++) {
@@ -35,7 +43,12 @@ public class Libreria {
 		return null;
 	}
 	
-	//funzione che restituisce il tipo di tessera presente nella cella	
+	/**
+	 * funzione che mostra il tipo di tessera presente in una cella	
+	 * @param riga: riga della cella
+	 * @param colonna: colonna della cella
+	 * @return tesseracontrollo: controlla se la cella e' vuota
+	 */
 	public TesseraOggetto getTessera(int riga, int colonna) {
 		TesseraOggetto tesseracontrollo = TesseraOggetto.VUOTA;
 			
@@ -63,7 +76,11 @@ public class Libreria {
 		return tesseracontrollo;
 	}
 	
-	//serie di funzioni per rendere la cella della libreria una determinata tessera oggetto
+	/**
+	 * serie di funzioni che rendono una cella della libreria un determinato tipo di tessera
+	 * @param riga: riga della cella
+	 * @param colonna: colonna della cella
+	 */
 	public void SetCellaTrofeo(int riga, int colonna) {
 		tesseraoggetto[riga][colonna] = TesseraOggetto.TROFEO;
 	}
@@ -83,12 +100,16 @@ public class Libreria {
 		tesseraoggetto[riga][colonna] = TesseraOggetto.LIBRO;
 	}
 	
-	//funzione che visualizza a schermo la libreria
+	/**
+	 * funzione che visualizza a schermo la libreria
+	 */
 	public void visualizzaLibreria() {
 		System.out.println(toString());
 	}
 	
-	//funzione che controlla se la libreria e' piena o ha ancora celle libere
+	/**
+	 * funzione che controlla se la libreria è piena oppure ha ancora celle libere
+	 */
 	public void controlloLibreria() {
 		boolean controllo=false;
 		for(int i=0;i<6;i++) {
