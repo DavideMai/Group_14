@@ -25,11 +25,11 @@ public class Libreria {
 		return N;
 	}
 	
-	//funzione per visualizzare a schermo la libreria
-	public CellaLibreria toString(int riga, int colonna){
+	//funzione che serve per poter visualizzare a schermo la libreria
+	public String toString(){
 		for(int i=0;i<6;i++) {
 			for(int j=0;j<5;j++) {
-				return libreria[i][j];
+				return libreria[i][j] + " ";
 			}	
 		}
 		return null;
@@ -82,4 +82,30 @@ public class Libreria {
 	public void SetCellaLibro(int riga) {
 		tesseraoggetto[riga][colonna] = TesseraOggetto.LIBRO;
 	}
+	
+	//funzione che visualizza a schermo la libreria
+	public void visualizzaLibreria() {
+		System.out.println(toString());
+	}
+	
+	//funzione che controlla se la libreria e' piena o ha ancora celle libere
+	public void controlloLibreria() {
+		boolean controllo=false;
+		for(int i=0;i<6;i++) {
+			for(int j=0;j<5;j++) {
+				if(getTessera(i,j)==TesseraOggetto.VUOTA) {
+					controllo=false;
+				}
+				else {
+					controllo=true;
+					break;
+				}
+			}
+		}
+	}
+	
+	public void inserimentoTessere() {
+		
+	}
+		
 }
