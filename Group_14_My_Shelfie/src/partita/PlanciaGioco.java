@@ -459,7 +459,10 @@ public class PlanciaGioco {
 			{
 				while (tesseraoggetto [i][j]!=TesseraOggetto.VUOTA && plancia[i][j].utilizzabile)
 				{
-				  if (getSinistra (i,j)!= TesseraOggetto.VUOTA && getDestra(i,j)!= TesseraOggetto.VUOTA && getSopra(i,j)!= TesseraOggetto.VUOTA && getSotto(i,j)!= TesseraOggetto.VUOTA)	
+				  if (getSinistra (i,j)!= TesseraOggetto.VUOTA && 
+				      getDestra(i,j)!= TesseraOggetto.VUOTA && 
+				      getSopra(i,j)!= TesseraOggetto.VUOTA && 
+				      getSotto(i,j)!= TesseraOggetto.VUOTA)	
 				  {
 					  System.out.println("è il turno del giocatore numero: ...");
 					  cellepescabili++; 
@@ -507,7 +510,7 @@ public class PlanciaGioco {
 		return tessera;
 	}
 	
-	public void LatoVuoto(int riga, int colonna)
+	public Boolean LatoVuoto(int riga, int colonna)
 	{
 		if (getSinistra(riga,colonna)!= TesseraOggetto.VUOTA && 
 			getDestra(riga,colonna)!= TesseraOggetto.VUOTA && 
@@ -519,10 +522,13 @@ public class PlanciaGioco {
 		return true;
 	}
 	
+	//questa funzione permette di pescare le tessere dalla plancia, la funzione ritorna un array dove sono contenute le coordinate delle carte pescate
+	//la funzione permette di pescare soltanto carte con almeno un lato libero e ovviamente con una tesssera al proprio interno
+	//inoltre mostra a schermo le carte adiacenti in caso di una seconda o terza scelta
 	
 	public int[][] PescaTessere ()
 	{
-	    int [] [] coordinate= new int [2][3];
+	    int [] [] coordinate= new int [3][2];
 		int richiesta=0,i=0,j=0;
 		boolean scelta;
 		
@@ -533,7 +539,7 @@ public class PlanciaGioco {
 		coordinate[i][j] = sc.nextInt();
 		System.out.println("inserisci la colonna della tessera che vuoi pescare: ");
 		coordinate[i+1][j] = sc.nextInt();
-		if (LatoVuoto(coordinate[i][j],coordinate[i+1][j] == false)
+		if (LatoVuoto(coordinate[i][j],coordinate[i+1][j]) == false && getTessera(coordinate[i][j],coordinate[i+1][j])== TesseraOggetto.VUOTA)
 				{
 			      System.out.println("la carta non può essere pescata, inserisci nuove coordinate: ");
 			      break;
@@ -542,6 +548,38 @@ public class PlanciaGioco {
 		j++;
 		System.out.println("vuoi pescare un'altra carta? (scrivi true o false");
 		scelta = sc.nextBoolean();
+		do 
+		{
+			System.out.println("la carta che peschi deve essere adiacente a quella precedente e deve avere almeno un lato libero, scegli tra queste:");
+			if (getTessera((coordinate[i][j]+1) , coordinate[i+1][j])!= TesseraOggetto.VUOTA && LatoVuoto((coordinate[i][j]+1) , coordinate[i+1][j]) == false) 
+			{
+			System.out.println((coordinate[i][j]+1) + coordinate[i+1][j]);//sotto
+			}
+			if (getTessera((coordinate[i][j]-1) , coordinate[i+1][j])!= TesseraOggetto.VUOTA && LatoVuoto((coordinate[i][j]-1) , coordinate[i+1][j]) == false) 
+			{
+			System.out.println((coordinate[i][j]-1) + coordinate[i+1][j]);//sopra
+			}
+			if (getTessera(coordinate[i][j] , (coordinate[i+1][j]+1))!= TesseraOggetto.VUOTA && LatoVuoto(coordinate[i][j] , (coordinate[i+1][j]+1)) == false) 
+			{
+			System.out.println(coordinate[i][j] + (coordinate[i+1][j]+1));//dx
+			}
+			if (getTessera(coordinate[i][j] , (coordinate[i+1][j]-1))!= TesseraOggetto.VUOTA && LatoVuoto(coordinate[i][j] , (coordinate[i+1][j]-1)) == false) 
+			{
+			System.out.println(coordinate[i][j] + (coordinate[i+1][j]-1));//sx
+			}
+			System.out.println("inserisci la riga: ");
+			coordinate[i][j] = sc.nextInt();
+			System.out.println("inserisci la colonna: ");
+			coordinate[i+1][j] = sc.nextInt();
+			if (richiesta==3)
+			{
+				break;
+			}
+			richiesta++;
+			j++;
+			System.out.println("vuoi pescare un'altra carta? (scrivi true o false");
+			scelta = sc.nextBoolean();
+		}while(richiesta<3 && scelta);
 		}while (richiesta<3 && scelta);
 		
 		return coordinate;
