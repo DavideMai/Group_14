@@ -530,7 +530,7 @@ public class PlanciaGioco {
 	//L'ESPERIENZA DI GIOCO IL PIU SEMPLICE POSSIBILE ANCHE PER I GIOCATORI PIU STUPIDI
 	public int[][] PescaTessere ()
 	{
-	    int [] [] coordinate= new int [3][2];
+	    int [] [] coordinate= new int [2][3];
 		int richiesta=0,i=0,j=0,precedente=0,selezione=0;
 		int x = coordinate [i][j];
 		int y = coordinate [i+1][j];
@@ -539,40 +539,47 @@ public class PlanciaGioco {
 		
 		do 
 		{
+	    Scanner sc= new Scanner (System.in);
+	    do 
+	    {	
 		System.out.println("inserisci la riga della tessera che vuoi pescare: ");
-		Scanner sc= new Scanner (System.in);
 		x = sc.nextInt();
 		coordinate[i][j] = x;
 		System.out.println("inserisci la colonna della tessera che vuoi pescare: ");
 		y = sc.nextInt();
 		coordinate[i+1][j]=y;
-		if (LatoVuoto(x,y) == false && getTessera(x,y)== TesseraOggetto.VUOTA)
+		if (LatoVuoto(x,y) == false || getTessera(x,y)== TesseraOggetto.VUOTA)
 				{
 			      System.out.println("la carta non può essere pescata, inserisci nuove coordinate: ");
-			      break;
 				}
+	    }while(LatoVuoto(x,y) == false || getTessera(x,y)== TesseraOggetto.VUOTA);
+		System.out.println("hai pescato la tessera "+ tesseraoggetto [x][y]);
 		richiesta++;
 		j++;
 		System.out.println("vuoi pescare un'altra tessera? (scrivi true o false):");
 		scelta = sc.nextBoolean();
 		if (scelta)
 		{
-			System.out.println("la carta che peschi deve essere adiacente a quella precedente e deve avere almeno un lato libero, scegli tra queste:");
+			System.out.println("la carta che peschi deve essere adiacente a quella precedente e deve avere almeno un lato libero, scegli tra queste: \n");
 			if (getTessera((x+1) , y)!= TesseraOggetto.VUOTA && LatoVuoto((x+1) , y) == false) 
 			{
-			System.out.println("1-sotto: "+(x+1)+"," + y + getTessera((x+1) , y)+"\n");//sotto
+			System.out.println("1-sotto: "+(x+1)+"," + y + " "+getTessera((x+1) , y)+"\n");//sotto
+			continue;
 			}
 			if (getTessera((x-1) , y)!= TesseraOggetto.VUOTA && LatoVuoto((x-1) , y) == false) 
 			{
-			System.out.println("2-sopra: "+(x-1)+"," + y + getTessera((x-1) , y)+"\n");//sopra
+			System.out.println("2-sopra: "+(x-1)+"," + y + " "+ getTessera((x-1) , y)+"\n");//sopra
+			continue;
 			}
 			if (getTessera(x , (y+1))!= TesseraOggetto.VUOTA && LatoVuoto(x , (y+1)) == false) 
 			{
-			System.out.println("3-destra: "+ x +","+ (y+1) + getTessera(x , (y+1))+"\n");//dx
+			System.out.println("3-destra: "+ x +","+ (y+1) +" "+ getTessera(x , (y+1))+"\n");//dx
+			continue;
 			}
 			if (getTessera(x , (y-1))!= TesseraOggetto.VUOTA && LatoVuoto(x , (y-1)) == false) 
 			{
-			System.out.println("4-sinistra: "+ x +","+ (y-1) + getTessera(x , (y-1))+"\n");//sx
+			System.out.println("4-sinistra: "+ x +","+ (y-1) +" "+ getTessera(x , (y-1))+"\n");//sx
+			continue;
 			}
 			System.out.println("inserisci il numero della carta che vuoi pescare (1,2,3,4): ");
 			precedente = sc.nextInt();
@@ -595,9 +602,10 @@ public class PlanciaGioco {
 				coordinate[i+1][j]=(y-1);
 			break;
 			}
+			System.out.println("hai pescato la tessera "+ tesseraoggetto [coordinate[i][j]][coordinate[i+1][j]]);
 			richiesta++;
 			j++;
-			System.out.println("vuoi pescare un'altra carta? (scrivi true o false");
+			System.out.println("vuoi pescare un'altra carta? (scrivi true o false):");
 			scelta = sc.nextBoolean();
 			if (scelta) 
 			{

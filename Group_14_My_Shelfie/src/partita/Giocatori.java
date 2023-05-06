@@ -1,6 +1,8 @@
 package partita;
 import java.math.*;
 
+import utils.TesseraOggetto;
+
 public class Giocatori {
 	private String nome;
 	private int punteggio=0;
@@ -32,10 +34,6 @@ public class Giocatori {
 		this.punteggio+=aumento;
 	} //prova commento 3
 	public void AssegnaObiettivoPersonale () {
-		final int NumeroRandom = (int) Math.random()*12;
-		
-		
-		
-		
+		final int NumeroRandom = (int) Math.random()*12;	
 	}
 }
