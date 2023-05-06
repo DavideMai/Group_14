@@ -11,7 +11,6 @@ public class Main {
 		System.out.println(ob.PrimaCarta());
 		System.out.println(ob.SecondaCarta());
 		
-		
 	}
 
 }
