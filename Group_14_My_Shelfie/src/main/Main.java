@@ -1,5 +1,8 @@
 package main;
 
+import obiettivi.ObiettivoComune;
+import obiettivi.PrimoObiettivoComune;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -9,6 +12,7 @@ public class Main {
 		
 		System.out.println(ob.PrimaCarta());
 		System.out.println(ob.SecondaCarta());*/
+		
 		
 		
 	}
