@@ -50,7 +50,7 @@ public class ObiettivoComune {
 	     return randomNum;	
 	}
 	
-	public String PrimaCarta()
+	public String VisualizzaPrimaCarta()
 	{
 		ObiettivoComune ob= new ObiettivoComune();		
 		ob.GeneraObiettivo();		
@@ -64,7 +64,7 @@ public class ObiettivoComune {
 		return obd;	
 	}
 	
-	public String SecondaCarta()
+	public String VisualizzaSecondaCarta()
 	{
 		ObiettivoComune ob = new ObiettivoComune();
 		ob.GeneraObiettivo();

@@ -4,10 +4,11 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		ObiettivoComune ob= new ObiettivoComune();
+		//prova carte comune
+		/*ObiettivoComune ob= new ObiettivoComune();
 		
 		System.out.println(ob.PrimaCarta());
-		System.out.println(ob.SecondaCarta());
+		System.out.println(ob.SecondaCarta());*/
 		
 		
 	}
