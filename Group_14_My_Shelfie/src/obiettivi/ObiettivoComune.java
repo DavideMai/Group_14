@@ -4,13 +4,13 @@ import java.util.Random;
 
 public abstract class ObiettivoComune {
 
-	private String tipologia;
-	private String descrizione;
+	protected String tipologia;
+	protected String descrizione;
 
-	public ObiettivoComune(String tipologia, String descrizione) // costruttore
+	public ObiettivoComune() // costruttore
 	{
-		this.tipologia = tipologia;
-		this.descrizione = descrizione;
+		this.tipologia = "";
+		this.descrizione = "";
 	}
 
 	/*public void GeneraObiettivo() {
