@@ -6,7 +6,7 @@ Da fare:
 -(Forse macchina statica per i momenti di gioco)
 -Nel main, selezionare il numero di giocatori
 -(Chicca, timer del gioco, vedremo più avanti)
--Funzioni per assegnare i punteggi
+-(Funzioni per assegnare i punteggi)
 -Funzioni per inserire la serie di tessera nella libreria
 -Funzioni per pescare dalla plancia (elimina dalla plancia, altre funzioni da determinare)
 -Funzioni per inizializzare la plancia (all'inizio? a ogni turno? da controllare)
