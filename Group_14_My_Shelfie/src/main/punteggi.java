@@ -1,62 +1,70 @@
-
 package main;
-public class punteggi {
 
-	// create a 2D array to represent the board with 5 rows and 6 columns
-	int[][] board = new int[5][6];
+public class Assegnare_punteggi {
 
-	// fill the board with cards of different colors
-	// assume 0 represents no card, 1 represents blue, 2 represents green, etc.
-	board[0] = new int[]{0, 1, 2, 3, 4, 5};
-	board[1] = new int[]{0, 2, 3, 4, 5, 1};
-	board[2] = new int[]{0, 3, 4, 5, 1, 2};
-	board[3] = new int[]{0, 4, 5, 1, 2, 3};
-	board[4] = new int[]{0, 5, 1, 2, 3, 4};
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
 
-	// check each row for sets of 3 matching colors
-	for (int row = 0; row < 5; row++) {
-	    int[] colors = new int[6];
-	    for (int col = 0; col < 6; col++) {
-	        colors[board[row][col]]++;
-	    }
-	    for (int color = 1; color < 7; color++) {
-	        if (colors[color] >= 3) {
-	            System.out.println("Player gets 2 points for " + colors[color] + " " + color + " cards in row " + row);
-	        }
-	    }
-	}
+public class CardGame {
+    public static void main(String[] args) {
+        // Definizione di colori e coordinate
+        String[] colors = {"blue", "green", "yellow", "white", "pink", "sky"};
+        int[][] coords = new int[30][2];
+        int index = 0;
+        for (int y = 0; y < 5; y++) {
+            for (int x = 0; x < 6; x++) {
+                coords[index][0] = x;
+                coords[index][1] = y;
+                index++;
+            }
+        }
 
-	// check each column for sets of 3 matching colors
-	for (int col = 0; col < 6; col++) {
-	    int[] colors = new int[6];
-	    for (int row = 0; row < 5; row++) {
-	        colors[board[row][col]]++;
-	    }
-	    for (int color = 1; color < 7; color++) {
-	        if (colors[color] >= 3) {
-	            System.out.println("Player gets 2 points for " + colors[color] + " " + color + " cards in column " + col);
-	        }
-	    }
-	}
+        // Definire le variabili
+        int score = 0;
+        ArrayList<String> cards = new ArrayList<String>();
 
-	// Set the point value
-	int points = 0;
+        // Ricevi input dal lettore
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Choose card " + (i+1) + ":");
+            String card = scanner.nextLine();
+            cards.add(card);
+        }
 
-	// Loop to check every row and column in the board
-	for (int i = 0; i < 6; i++) { // 6 Rows
-	    for (int j = 0; j < 5; j++) { // 5 columns
-	        // Verifies that the cards are in the same row or column and are adjacent
-	        if (cards[i][j].getColor() == cards[i][j+1].getColor() && cards[i][j+1].getColor() == cards[i][j+2].getColor()) {
-	            // Point value increased by 2
-	            points += 2;
-	        } else if (cards[i][j].getColor() == cards[i+1][j].getColor() && cards[i+1][j].getColor() == cards[i+2][j].getColor()) {
-	            // Point value increased by 2
-	            points += 2;
-	        }
-	    }
-	}
+        // Controlla che i colori corrispondano
+        Set<String> uniqueCards = new HashSet<String>(cards);
+        int numUniqueCards = uniqueCards.size();
+        if (numUniqueCards == 1) {
+            score += 10;
+            System.out.println("Congratulations, you got 10 points!");
+        } else if (numUniqueCards == 2) {
+            score += 3;
+            System.out.println("Good job, you got 3 points!");
+        } else {
+            System.out.println("Sorry, you didn't score any points.");
+        }
 
-	// Returns the points collected
-	return points;
+        // Cerca 4 carte dello stesso colore
+        if (numUniqueCards == 1 && cards.size() == 4) {
+            score += 3;
+            System.out.println("You also got 3 bonus points for having 4 cards of the same color.");
+        }
+
+        // Controlla se ci sono 5 carte o 6 carte dello stesso colore
+        Set<String> cardSet = new HashSet<String>(cards);
+        Set<String> connectedSet1 = new HashSet<String>(Arrays.asList(colors).subList(0, 5));
+        Set<String> connectedSet2 = new HashSet<String>(Arrays.asList(colors).subList(1, 6));
+        if (cardSet.equals(connectedSet1) || cardSet.equals(connectedSet2)) {
+            score += 5;
+            System.out.println("You also got 5 bonus points for having 5 connected cards of the same color.");
+        } else if (cardSet.equals(new HashSet<String>(Arrays.asList(colors)))) {
+            score += 8;
+            System.out.println("You also got 8 bonus points for having 6 connected cards of the same color.");
+        }
 
     }
+}
+	
