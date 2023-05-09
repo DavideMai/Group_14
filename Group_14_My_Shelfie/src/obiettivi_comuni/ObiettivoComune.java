@@ -2,15 +2,25 @@ package obiettivi_comuni;
 
 import java.util.Random;
 
-public abstract class ObiettivoComune {
+public class ObiettivoComune {
 
 	protected int numero_carta;
 	protected String descrizione;
 
 	public ObiettivoComune() // costruttore
 	{
-		this.numero_carta = "";
+		this.numero_carta =-1;
 		this.descrizione = "";
+	}
+	
+	public int getNumeroCarta()
+	{
+		return numero_carta;
+	}
+	
+	public String getDescrizione()
+	{
+		return descrizione;
 	}
 
 	/*public void GeneraObiettivo() {
@@ -29,37 +39,11 @@ public abstract class ObiettivoComune {
 		descrizione[10] = "Cinque tessere dello stesso tipo che formano una X";
 		descrizione[11] = "Cinque colonne di altezza crescente o decrescente: a partire dalla prima colonna a sinistra o a destra, ogni colonna successiva deve essere formata da una tessera in più. Le tessere possono essere di qualsiasi tipo";
 	}*/
+	
 
 	public static int generateRandomNumber() {
 		Random rand = new Random();
-		int randomNum = rand.nextInt(12);
+		int randomNum = rand.nextInt(3);
 		return randomNum;
 	}
-
-	/*public String PrimaCarta() {
-		ObiettivoComune ob = new ObiettivoComune();
-		ob.GeneraObiettivo();
-		int a = ob.generateRandomNumber();
-
-		String obt;
-		String obd;
-		obt = ob.tipologia[a];
-		obd = ob.descrizione[a];
-		System.out.println("Primo obiettivo comune: " + obd);
-		return obd;
-	}
-
-	public String SecondaCarta() {
-		ObiettivoComune ob = new ObiettivoComune();
-		ob.GeneraObiettivo();
-		int b = ob.generateRandomNumber();
-		String ob2t;
-		String ob2d;
-		ob2t = ob.tipologia[b];
-		ob2d = ob.descrizione[b];
-		System.out.println("Secondo obiettivo comune: " + ob2d);
-
-		return ob2d;
-	}*/
-
 }

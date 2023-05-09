@@ -9,6 +9,16 @@ public class OttavoObiettivoComune extends ObiettivoComune {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public int getNumeroCarta()
+	{
+		return numero_carta;
+	}
+	
+	public String getDescrizione()
+	{
+		return descrizione;
+	}
+	
 	public void OperazioneOttavoObiettivo()
 	{
 		//funzione di gioco carta otto per la partita

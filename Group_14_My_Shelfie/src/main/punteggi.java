@@ -1,5 +1,6 @@
 
-public class Assegnare_punteggi {
+package main;
+public class punteggi {
 
 	// create a 2D array to represent the board with 5 rows and 6 columns
 	int[][] board = new int[5][6];

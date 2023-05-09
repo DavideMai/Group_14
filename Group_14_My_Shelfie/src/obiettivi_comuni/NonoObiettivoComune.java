@@ -9,6 +9,8 @@ public class NonoObiettivoComune extends ObiettivoComune{
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+	
 	public void OperazioneNonoObiettivo()
 	{
 		//funzione di gioco carta nove per la partita
