@@ -1,16 +1,16 @@
 package obiettivi_comuni;
 
-public class NonoObiettivoComune {
+public class NonoObiettivoComune extends ObiettivoComune{
 
-	public PrimoObiettivoComune() {
+	public NonoObiettivoComune() {
 		super();
-		tipologia="a";
-		descrizione="Sei gruppi separati formati ciascuno da due tessere adiacenti dello stesso tipo. Le tessere di un gruppo possono essere diverse da quelle di un altro gruppo";
+		numero_carta=9;
+		descrizione="Due colonne formate ciascuna da 6 diversi tipi di tessere";
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void OperazionePrimoObiettivo()
+	public void OperazioneNonoObiettivo()
 	{
-		//funzione di gioco carta uno per la partita
+		//funzione di gioco carta nove per la partita
 	}
 }

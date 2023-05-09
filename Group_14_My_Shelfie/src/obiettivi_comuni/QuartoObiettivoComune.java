@@ -1,16 +1,16 @@
 package obiettivi_comuni;
 
-public class QuartoObiettivoComune {
+public class QuartoObiettivoComune extends ObiettivoComune {
 
-	public PrimoObiettivoComune() {
+	public QuartoObiettivoComune() {
 		super();
-		tipologia="a";
-		descrizione="Sei gruppi separati formati ciascuno da due tessere adiacenti dello stesso tipo. Le tessere di un gruppo possono essere diverse da quelle di un altro gruppo";
+		numero_carta=4;
+		descrizione="Due gruppi separati di 4 tessere dello stesso tipo che formano un quadrato 2x2- Le tessere dei due gruppi devono essere dello stesso tipo";
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void OperazionePrimoObiettivo()
+	public void OperazioneQuartoObiettivo()
 	{
-		//funzione di gioco carta uno per la partita
+		//funzione di gioco carta quattro per la partita
 	}
 }

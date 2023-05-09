@@ -1,17 +1,17 @@
 package obiettivi_comuni;
 
-public class TerzoObiettivoComune {
+public class TerzoObiettivoComune extends ObiettivoComune {
 
-	public PrimoObiettivoComune() {
+	public TerzoObiettivoComune() {
 		super();
-		tipologia="c";
-		descrizione="";
+		numero_carta=3;
+		descrizione="Quattro gruppi separati formati ciasuno da quattro tessere adiacenti dello stesso tipo. Le tessere di un gruppo possono essere diverse da quelle di un altro gruppo";
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void OperazionePrimoObiettivo()
+	public void OperazioneTerzoObiettivo()
 	{
-		//funzione di gioco carta uno per la partita
+		//funzione di gioco carta tre per la partita
 	}
 	
 }

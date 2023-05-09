@@ -1,16 +1,16 @@
 package obiettivi_comuni;
 
-public class DodicesimoObiettivoComune {
+public class DodicesimoObiettivoComune extends ObiettivoComune{
 
-	public PrimoObiettivoComune() {
+	public DodicesimoObiettivoComune() {
 		super();
-		tipologia="a";
-		descrizione="Sei gruppi separati formati ciascuno da due tessere adiacenti dello stesso tipo. Le tessere di un gruppo possono essere diverse da quelle di un altro gruppo";
+		numero_carta=12;
+		descrizione="Cinque colonne di altezza crescente o decrescente: a partire dalla prima colonna a sinistra o a destra, ogni colonna successiva deve essere formata da una tessera in più. Le tessere possono essere di qualsiasi tipo";
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void OperazionePrimoObiettivo()
+	public void OperazioneDodicesimoObiettivo()
 	{
-		//funzione di gioco carta uno per la partita
+		//funzione di gioco carta dodici per la partita
 	}
 }

@@ -1,16 +1,16 @@
 package obiettivi_comuni;
 
-public class OttavoObiettivoComune {
+public class OttavoObiettivoComune extends ObiettivoComune {
 
-	public PrimoObiettivoComune() {
+	public OttavoObiettivoComune() {
 		super();
-		tipologia="a";
-		descrizione="Sei gruppi separati formati ciascuno da due tessere adiacenti dello stesso tipo. Le tessere di un gruppo possono essere diverse da quelle di un altro gruppo";
+		numero_carta=8;
+		descrizione="Quattro righe formate ciascuna da 5 tessere di uno, due o tre tipi differenti. Righe diverse possono avere combinazioni diverse di tipi di tessere";
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void OperazionePrimoObiettivo()
+	public void OperazioneOttavoObiettivo()
 	{
-		//funzione di gioco carta uno per la partita
+		//funzione di gioco carta otto per la partita
 	}
 }
