@@ -1,4 +1,4 @@
-package obiettivi;
+package obiettivi_comuni;
 
 public class SecondoObiettivoComune {
 

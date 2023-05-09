@@ -1,7 +1,7 @@
 package main;
 
-import obiettivi.ObiettivoComune;
-import obiettivi.PrimoObiettivoComune;
+import obiettivi_comuni.ObiettivoComune;
+import obiettivi_comuni.PrimoObiettivoComune;
 
 public class Main {
 

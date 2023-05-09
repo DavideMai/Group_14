@@ -1,4 +1,4 @@
-package obiettivi;
+package obiettivi_comuni;
 
 import java.util.Random;
 

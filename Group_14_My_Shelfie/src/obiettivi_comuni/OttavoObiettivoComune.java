@@ -1,6 +1,6 @@
-package obiettivi;
+package obiettivi_comuni;
 
-public class NonoObiettivoComune {
+public class OttavoObiettivoComune {
 
 	public PrimoObiettivoComune() {
 		super();

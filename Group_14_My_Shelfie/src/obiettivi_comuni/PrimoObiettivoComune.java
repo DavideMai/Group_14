@@ -1,6 +1,6 @@
-package obiettivi;
+package obiettivi_comuni;
 
-public class OttavoObiettivoComune {
+public class PrimoObiettivoComune extends ObiettivoComune {
 
 	public PrimoObiettivoComune() {
 		super();
@@ -13,4 +13,7 @@ public class OttavoObiettivoComune {
 	{
 		//funzione di gioco carta uno per la partita
 	}
+
+	
 }
+
