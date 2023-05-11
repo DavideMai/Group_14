@@ -6,8 +6,21 @@ import java.util.Random;
 import java.util.Set;
 
 
-import obiettivi.*;
+import obiettivi_personali.*;
 import obiettivi_comuni.*;
+import obiettivi_personali.DecimoObiettivoPersonale;
+import obiettivi_personali.DodicesimoObiettivoPersonale;
+import obiettivi_personali.NonoObiettivoPersonale;
+import obiettivi_personali.ObiettivoPersonale;
+import obiettivi_personali.OttavoObiettivoPersonale;
+import obiettivi_personali.PrimoObiettivoPersonale;
+import obiettivi_personali.QuartoObiettivoPersonale;
+import obiettivi_personali.QuintoObiettivoPersonale;
+import obiettivi_personali.SecondoObiettivoPersonale;
+import obiettivi_personali.SestoObiettivoPersonale;
+import obiettivi_personali.SettimoObiettivoPersonale;
+import obiettivi_personali.TerzoObiettivoPersonale;
+import obiettivi_personali.UndicesimoObiettivoPersonale;
 import utils.TesseraOggetto;
 
 public class Giocatori {
@@ -101,6 +114,7 @@ public class Giocatori {
 			break;
 		}
 	}
+	
 	public static int generateRandomNumber() {
 		Random rand = new Random();
 		int randomNum = rand.nextInt(12);
