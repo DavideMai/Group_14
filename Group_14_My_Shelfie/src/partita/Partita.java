@@ -2,20 +2,7 @@ package partita;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import obiettivi_comuni.DecimoObiettivoComune;
-import obiettivi_comuni.DodicesimoObiettivoComune;
-import obiettivi_comuni.NonoObiettivoComune;
-import obiettivi_comuni.ObiettivoComune;
-import obiettivi_comuni.OttavoObiettivoComune;
-import obiettivi_comuni.PrimoObiettivoComune;
-import obiettivi_comuni.QuartoObiettivoComune;
-import obiettivi_comuni.QuintoObiettivoComune;
-import obiettivi_comuni.SecondoObiettivoComune;
-import obiettivi_comuni.SestoObiettivoComune;
-import obiettivi_comuni.SettimoObiettivoComune;
-import obiettivi_comuni.TerzoObiettivoComune;
-import obiettivi_comuni.UndicesimoObiettivoComune;
+import obiettivi_comuni.*;
 
 public class Partita {
 
