@@ -24,8 +24,9 @@ public class Main {
 		System.out.println(
 				"V sta per vuota, C per gatto, P per pianta, G per gioco, F per cornice, T per trofeo e L per libro");
 		plancia.visualizzaPlancia();
-		//plancia.PescaTessere();
+		plancia.PescaTessere();
+		libreria.setCellaVuoto();
 		libreria.visualizzaLibreria();
-	}
+		}
 
 }

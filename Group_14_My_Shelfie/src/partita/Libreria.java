@@ -35,14 +35,33 @@ public class Libreria {
 
 	/**
 	 * funzione necessaria a poter poi rappresentare a schermo la libreria
-	 */
-	public String toString() {
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 5; j++) {
-				return tesseraoggetto[i][j] + " ";
-			}
+	 */	
+	public String toString(TesseraOggetto t) {
+		String tessera = new String();
+		switch (t) {
+		case VUOTA:
+			tessera = "V ";
+			break;
+		case GATTO:
+			tessera = "C ";
+			break;
+		case PIANTA:
+			tessera = "P ";
+			break;
+		case GIOCO:
+			tessera = "G ";
+			break;
+		case CORNICE:
+			tessera = "F ";
+			break;
+		case TROFEO:
+			tessera = "T ";
+			break;
+		case LIBRO:
+			tessera = "L ";
+			break;
 		}
-		return null;
+		return tessera;
 	}
 
 	/**
@@ -90,48 +109,74 @@ public class Libreria {
 		tesseraoggetto[riga][colonna] = TesseraOggetto.TROFEO;
 	}
 
-	public void setCellaPianta(int riga) {
+	public void setCellaPianta(int riga, int colonna) {
 		tesseraoggetto[riga][colonna] = TesseraOggetto.PIANTA;
 	}
 
-	public void setCellaGatto(int riga) {
+	public void setCellaGatto(int riga, int colonna) {
 		tesseraoggetto[riga][colonna] = TesseraOggetto.GATTO;
 	}
 
-	public void setCellaGioco(int riga) {
+	public void setCellaGioco(int riga, int colonna) {
 		tesseraoggetto[riga][colonna] = TesseraOggetto.GIOCO;
 	}
 
-	public void setCellaCornice(int riga) {
+	public void setCellaCornice(int riga, int colonna) {
 		tesseraoggetto[riga][colonna] = TesseraOggetto.CORNICE;
 	}
 
-	public void setCellaLibro(int riga) {
+	public void setCellaLibro(int riga, int colonna) {
 		tesseraoggetto[riga][colonna] = TesseraOggetto.LIBRO;
+	}
+	
+	public void setCellaVuoto() {
+		for(int i=0; i<6; i++) {
+			for(int j=0; j<5; j++) {
+				tesseraoggetto[i][j]=TesseraOggetto.VUOTA;
+			}
+		}
 	}
 
 	/**
 	 * funzione che visualizza a schermo la libreria
 	 */
 	public void visualizzaLibreria() {
-		System.out.println(toString());
+		String riga = new String();
+		System.out.println("     0 1 2 3 4 ");
+		System.out.println("     ");
+		for (int i=0; i<6; i++) {
+			riga=i+"    ";
+			for (int j=0; j<5; j++) {
+				if (tesseraoggetto[i][j] != null)
+					riga=riga+toString(tesseraoggetto[i][j]);
+			}
+			System.out.println(riga);
+		}
 	}
 
 	/**
 	 * funzione che controlla se la libreria è piena oppure ha ancora celle libere
+	 * @return controllo: può essere false (libreria piena) oppure true (ci sono celle vuote)
 	 */
-	public void controlloLibreria() {
+	public boolean controlloLibreria() {
 		boolean controllo = false;
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 5; j++) {
-				if (getTessera(i, j) == TesseraOggetto.VUOTA) {
-					controllo = false;
+		for (int i=0; i<6; i++) {
+			for (int j=0; j<5; j++) {
+				if (getTessera(i, j)!=TesseraOggetto.VUOTA) {
+					controllo=false;
 				} else {
-					controllo = true;
+					controllo=true;
 					break;
 				}
 			}
 		}
+		if(controllo==false) {
+			System.out.println("la libreria è piena");
+		}
+		else {
+			System.out.println("La libreria ha ancora celle libere");
+		}
+		return controllo;
 	}
 
 	public void inserimentoTessere(PlanciaGioco plancia) {
