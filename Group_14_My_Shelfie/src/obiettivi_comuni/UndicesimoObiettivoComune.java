@@ -9,8 +9,8 @@ public class UndicesimoObiettivoComune extends ObiettivoComune {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void OperazioneUndicesimoObiettivo()
+	public void ControlloObiettivoComune()
 	{
-		//funzione di gioco carta undici per la partita
+		
 	}
 }

@@ -11,8 +11,8 @@ public class DecimoObiettivoComune extends ObiettivoComune {
 	
 	
 	
-	public void OperazioneDecimoObiettivo()
+	public void ControlloObiettivoComune()
 	{
-		//funzione di gioco carta dieci per la partita
+		
 	}
 }

@@ -1,7 +1,12 @@
 package obiettivi_comuni;
 
+import partita.Libreria;
+import utils.TesseraOggetto;
+
 public class OttavoObiettivoComune extends ObiettivoComune {
 
+	public Libreria libreria;
+	
 	public OttavoObiettivoComune() {
 		super();
 		numero_carta=8;
@@ -19,8 +24,16 @@ public class OttavoObiettivoComune extends ObiettivoComune {
 		return descrizione;
 	}
 	
-	public void OperazioneOttavoObiettivo()
+	public boolean ControlloObiettivoComune(Libreria libreria)
 	{
-		//funzione di gioco carta otto per la partita
+		if(libreria.getTessera(0,0)==libreria.getTessera(0,4)&& libreria.getTessera(0,0)==libreria.getTessera(5,0) && libreria.getTessera(0,0)==libreria.getTessera(5, 4))
+		{
+			return true;
+		}
+		return false;
 	}
+		
+		
+		
+	
 }

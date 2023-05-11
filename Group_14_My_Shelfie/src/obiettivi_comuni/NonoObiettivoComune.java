@@ -11,8 +11,8 @@ public class NonoObiettivoComune extends ObiettivoComune{
 	
 	
 	
-	public void OperazioneNonoObiettivo()
+	public void ControlloObiettivoComune()
 	{
-		//funzione di gioco carta nove per la partita
+		
 	}
 }

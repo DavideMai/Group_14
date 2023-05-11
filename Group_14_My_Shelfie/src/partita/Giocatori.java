@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-import obiettivi.*;
 import obiettivi_comuni.DecimoObiettivoComune;
 import obiettivi_comuni.DodicesimoObiettivoComune;
 import obiettivi_comuni.NonoObiettivoComune;
@@ -19,6 +18,7 @@ import obiettivi_comuni.SestoObiettivoComune;
 import obiettivi_comuni.SettimoObiettivoComune;
 import obiettivi_comuni.TerzoObiettivoComune;
 import obiettivi_comuni.UndicesimoObiettivoComune;
+import obiettivi_personali.*;
 import utils.TesseraOggetto;
 
 public class Giocatori {
@@ -28,11 +28,20 @@ public class Giocatori {
 	private int contatore_giocatori;
 	private ObiettivoPersonale obiettivoPersonale;
 	private ObiettivoComune obiettivoComune;
+	private Libreria libreria;
+	
 	private static Set<Integer> numeriEstratti = new HashSet<Integer>();
 
 	public void SetNomeGiocatore(String nome) {
 		this.nome = nome;
 	}
+	
+	public void AssegnaLibreria()
+	{
+		this.libreria = new Libreria();
+	}
+	
+	
 
 	public Giocatori(String nome, int numero) // costruttore
 	{

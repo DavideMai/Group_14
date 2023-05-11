@@ -39,6 +39,7 @@ public class Partita {
 				giocatori.add(new Giocatori(nome, numberPlayer));
 				System.out.println("Inserimento giocatore completato");
 				giocatori.get(numberPlayer-1).AssegnaObiettivoPersonale();
+
 			}
 		} while (nextPlayer && numberPlayer < 4);
 		plancia.CancellaCelle(numberPlayer);
@@ -51,8 +52,10 @@ public class Partita {
 		int SecondoNumero1;
 		
 		do {
-		int PrimoNumero = (int) Math.random() * 12;
-		int SecondoNumero= (int) Math.random() * 12;
+		int PrimoNumero = ObiettivoComune.generateRandomNumber();
+		//(int) Math.random() * 12;
+		int SecondoNumero= ObiettivoComune.generateRandomNumber();
+		
 		PrimoNumero1=PrimoNumero; //variabile d'appoggio
 		SecondoNumero1=SecondoNumero; //variabile d'appoggio
 		if(PrimoNumero!=SecondoNumero)
@@ -137,11 +140,15 @@ public class Partita {
 		
 		}
 		
+		
+		}while(PrimoNumero1==SecondoNumero1);
+		
 		System.out.println(obiettivoComune.getNumeroCarta()+" ");
 		System.out.println(obiettivoComune.getDescrizione()+" ");
 		System.out.println(obiettivoComune2.getNumeroCarta()+" ");
 		System.out.println(obiettivoComune2.getDescrizione()+" ");
-		}while(PrimoNumero1==SecondoNumero1);
+		
+
 	}
 
 }

@@ -1,4 +1,4 @@
-package obiettivi;
+package obiettivi_personali;
 
 import utils.TesseraOggetto;
 

@@ -43,7 +43,12 @@ public class ObiettivoComune {
 
 	public static int generateRandomNumber() {
 		Random rand = new Random();
-		int randomNum = rand.nextInt(3);
+		int randomNum = rand.nextInt(12);
 		return randomNum;
+	}
+	
+	public void ControlloObiettivoComune()
+	{
+		
 	}
 }

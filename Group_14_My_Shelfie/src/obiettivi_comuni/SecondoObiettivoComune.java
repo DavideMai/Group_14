@@ -9,8 +9,8 @@ public class SecondoObiettivoComune extends ObiettivoComune {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void OperazioneSecondoObiettivo()
+	public void ControlloObiettivoComune()
 	{
-		//funzione di gioco carta due per la partita
+		
 	}
 }
