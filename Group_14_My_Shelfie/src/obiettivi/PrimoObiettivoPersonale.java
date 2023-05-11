@@ -15,8 +15,9 @@ public class PrimoObiettivoPersonale extends ObiettivoPersonale {
 		ObiettivoPersonale[5][0] = TesseraOggetto.CORNICE;
 	}
 
-	public int ControllaObiettivoPersonale(TesseraOggetto [][] tesseraoggetto) { //funzione che controlla la libreria con la carta obiettivo personale
-		
+	public int ControllaObiettivoPersonale(TesseraOggetto[][] tesseraoggetto) { // funzione che controlla la libreria
+																				// con la carta obiettivo personale
+
 		int punteggio = 0;
 		int contatore = 0;
 		if (tesseraoggetto[0][2] == TesseraOggetto.GIOCO) {
@@ -37,8 +38,9 @@ public class PrimoObiettivoPersonale extends ObiettivoPersonale {
 		if (tesseraoggetto[5][0] == TesseraOggetto.CORNICE) {
 			contatore += 1;
 		}
-		
-		//switch per assegnare i punteggi a seconda delle carte nelle posizioni corrette
+
+		// switch per assegnare i punteggi a seconda delle carte nelle posizioni
+		// corrette
 		switch (contatore) {
 		case 1:
 			punteggio = 1;
@@ -55,11 +57,11 @@ public class PrimoObiettivoPersonale extends ObiettivoPersonale {
 		case 5:
 			punteggio = 9;
 			break;
-		case 6: 
+		case 6:
 			punteggio = 12;
 			break;
 		}
-		
+
 		return punteggio;
 	}
 }

@@ -14,6 +14,7 @@ public class UndicesimoObiettivoPersonale extends ObiettivoPersonale {
 		ObiettivoPersonale[5][3] = TesseraOggetto.GATTO;
 
 	}
+
 	public int ControllaObiettivoPersonale(TesseraOggetto[][] tesseraoggetto) {
 		int punteggio = 0;
 		int contatore = 0;

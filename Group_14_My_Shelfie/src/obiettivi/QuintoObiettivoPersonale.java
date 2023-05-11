@@ -13,7 +13,8 @@ public class QuintoObiettivoPersonale extends ObiettivoPersonale {
 		ObiettivoPersonale[4][4] = TesseraOggetto.GIOCO;
 		ObiettivoPersonale[5][2] = TesseraOggetto.LIBRO;
 	}
-	public int ControllaObiettivoPersonale(TesseraOggetto [][] tesseraoggetto) {
+
+	public int ControllaObiettivoPersonale(TesseraOggetto[][] tesseraoggetto) {
 		int punteggio = 0;
 		int contatore = 0;
 		if (tesseraoggetto[0][0] == TesseraOggetto.GATTO) {
@@ -50,11 +51,11 @@ public class QuintoObiettivoPersonale extends ObiettivoPersonale {
 		case 5:
 			punteggio = 9;
 			break;
-		case 6: 
+		case 6:
 			punteggio = 12;
 			break;
 		}
-		
+
 		return punteggio;
 	}
 }
