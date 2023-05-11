@@ -37,7 +37,8 @@ public class Partita {
 				sc.nextLine();
 				nome = sc.nextLine();
 				giocatori.add(new Giocatori(nome, numberPlayer));
-				giocatori.get(numberPlayer).AssegnaObiettivoPersonale();
+				System.out.println("Inserimento giocatore completato");
+				giocatori.get(numberPlayer-1).AssegnaObiettivoPersonale();
 			}
 		} while (nextPlayer && numberPlayer < 4);
 		plancia.CancellaCelle(numberPlayer);
@@ -140,9 +141,7 @@ public class Partita {
 		System.out.println(obiettivoComune.getDescrizione()+" ");
 		System.out.println(obiettivoComune2.getNumeroCarta()+" ");
 		System.out.println(obiettivoComune2.getDescrizione()+" ");
-		
 		}while(PrimoNumero1==SecondoNumero1);
-		
 	}
 
 }

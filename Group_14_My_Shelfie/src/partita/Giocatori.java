@@ -2,6 +2,7 @@ package partita;
 
 import java.math.*;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 import obiettivi.*;
@@ -56,10 +57,12 @@ public class Giocatori {
 	 * Funzione che assegna un obiettivo personale non ancora uscito al giocatore
 	 */
 	public void AssegnaObiettivoPersonale() {
-		int NumeroRandom = (int) Math.random() * 12;
-		while (numeriEstratti.contains(NumeroRandom)) {
-			NumeroRandom = (int) Math.random() * 12;
+		int NumeroRandom;
+		NumeroRandom = generateRandomNumber();
+		while(numeriEstratti.contains(NumeroRandom)) {
+			NumeroRandom = generateRandomNumber();
 		}
+		System.out.println(NumeroRandom);
 		numeriEstratti.add(NumeroRandom);
 		switch (NumeroRandom) {
 		case 1:
@@ -100,7 +103,11 @@ public class Giocatori {
 			break;
 		}
 	}
-	
+	public static int generateRandomNumber() {
+		Random rand = new Random();
+		int randomNum = rand.nextInt(12);
+		return randomNum;
+	}
 	
 	
 }
