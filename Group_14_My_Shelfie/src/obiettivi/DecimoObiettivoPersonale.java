@@ -14,7 +14,7 @@ public class DecimoObiettivoPersonale extends ObiettivoPersonale {
 		ObiettivoPersonale[5][0] = TesseraOggetto.GATTO;
 	}
 
-<<<<<<< Updated upstream
+
 	public int ControllaObiettivoPersonale(TesseraOggetto[][] tesseraoggetto) {
 		int punteggio = 0;
 		int contatore = 0;
@@ -58,8 +58,5 @@ public class DecimoObiettivoPersonale extends ObiettivoPersonale {
 		}
 		return punteggio;
 	}
-=======
-	
-	
->>>>>>> Stashed changes
+
 }
