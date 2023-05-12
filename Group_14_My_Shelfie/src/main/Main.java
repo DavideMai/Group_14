@@ -14,6 +14,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		int x;
+		int[][]coordinate;
 		PlanciaGioco plancia = new PlanciaGioco();
 		Libreria libreria = new Libreria();
 		Scanner sc = new Scanner(System.in);
@@ -24,9 +25,17 @@ public class Main {
 		System.out.println(
 				"V sta per vuota, C per gatto, P per pianta, G per gioco, F per cornice, T per trofeo e L per libro");
 		plancia.visualizzaPlancia();
-		plancia.PescaTessere();
-		libreria.setCellaVuoto();
+		coordinate = plancia.PescaTessere();
+		for (int i=0;i<3;i++) {
+			for (int j=0;j<2;j++) {
+				System.out.print(coordinate [i][j]+" ");
+			}
+			System.out.println();
+		}
+		libreria.cancellaTessere(plancia,coordinate);
+		libreria.inserimentoTessere(plancia,coordinate);
 		libreria.visualizzaLibreria();
+		plancia.visualizzaPlancia();
 		}
 
 }

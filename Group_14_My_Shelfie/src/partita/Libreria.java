@@ -179,13 +179,11 @@ public class Libreria {
 		return controllo;
 	}
 
-	public void inserimentoTessere(PlanciaGioco plancia) {
+	public void inserimentoTessere(PlanciaGioco plancia , int [][]coordinate) {
 		Libreria column=new Libreria();
 		int n=0;
-		int[][] coordinate;
 		int x1=0, y1=0, x2=0, y2=0, x3=0, y3=0;
-		
-		coordinate=plancia.PescaTessere();
+
 		
 		x1=coordinate[0][0];
 		y1=coordinate[0][1];
@@ -260,11 +258,10 @@ public class Libreria {
 		}
 	}
 	
-	public void cancellaTessere(PlanciaGioco plancia) {
-		int[][] coordinate;
+	public void cancellaTessere(PlanciaGioco plancia, int [][] coordinate) {
 		int x1=0, y1=0, x2=0, y2=0, x3=0, y3=0;
 		
-		coordinate=plancia.PescaTessere();
+		
 		
 		x1=coordinate[0][0];
 		y1=coordinate[0][1];

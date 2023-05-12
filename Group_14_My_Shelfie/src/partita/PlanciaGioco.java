@@ -533,7 +533,7 @@ public class PlanciaGioco {
 	// ERA L'UNICO MODO CHE MI E' VENUTO IN MENTE PER RENDERE
 	// L'ESPERIENZA DI GIOCO IL PIU SEMPLICE POSSIBILE
 	public int[][] PescaTessere() {
-		int[][] coordinate = new int[2][3];
+		int[][] coordinate = new int[3][2];
 		int richiesta = 0, i = 0, j = 0, precedente = 0, selezione = 0;
 		int x = coordinate[i][j];
 		int y = coordinate[i + 1][j];
@@ -547,14 +547,14 @@ public class PlanciaGioco {
 			coordinate[i][j] = x;
 			System.out.println("inserisci la colonna della tessera che vuoi pescare: ");
 			y = sc.nextInt();
-			coordinate[i + 1][j] = y;
+			coordinate[i][j+1] = y;
 			if (LatoVuoto(x, y) == false || getTessera(x, y) == TesseraOggetto.VUOTA) {
 				System.out.println("la carta non può essere pescata, inserisci nuove coordinate: ");
 			}
 		} while (LatoVuoto(x, y) == false || getTessera(x, y) == TesseraOggetto.VUOTA);
 		System.out.println("hai pescato la tessera " + tesseraoggetto[x][y]);
 		richiesta++;
-		j++;
+		i++;
 //pescaggio seconda tessera
 		System.out.println("vuoi pescare un'altra tessera? (scrivi true o false):");
 		scelta = sc.nextBoolean();
@@ -586,24 +586,24 @@ public class PlanciaGioco {
 			switch (precedente) {
 			case 1:
 				coordinate[i][j] = (x + 1);
-				coordinate[i + 1][j] = y;
+				coordinate[i][j+1] = y;
 				break;
 			case 2:
 				coordinate[i][j] = (x - 1);
-				coordinate[i + 1][j] = y;
+				coordinate[i][j + 1] = y;
 				break;
 			case 3:
 				coordinate[i][j] = x;
-				coordinate[i + 1][j] = (y + 1);
+				coordinate[i][j + 1] = (y + 1);
 				break;
 			case 4:
 				coordinate[i][j] = x;
-				coordinate[i + 1][j] = (y - 1);
+				coordinate[i][j + 1] = (y - 1);
 				break;
 			}
 			System.out.println("hai pescato la tessera " + tesseraoggetto[coordinate[i][j]][coordinate[i + 1][j]]);
 			richiesta++;
-			j++;
+			i++;
 
 //pescaggio terza tessera
 			pescabile = false;
@@ -626,11 +626,11 @@ public class PlanciaGioco {
 						switch (selezione) {
 						case 1:
 							coordinate[i][j] = (coordinate[i][j] + 1);
-							coordinate[i + 1][j] = coordinate[i + 1][j];
+							coordinate[i][j + 1] = coordinate[i + 1][j];
 							break;
 						case 2:
 							coordinate[i][j] = (coordinate[i][j] - 2);
-							coordinate[i + 1][j] = coordinate[i + 1][j];
+							coordinate[i][j + 1] = coordinate[i + 1][j];
 							break;
 						}
 						pescabile = true;
@@ -652,11 +652,11 @@ public class PlanciaGioco {
 						switch (selezione) {
 						case 1:
 							coordinate[i][j] = (coordinate[i][j] - 1);
-							coordinate[i + 1][j] = coordinate[i + 1][j];
+							coordinate[i][j + 1] = coordinate[i + 1][j];
 							break;
 						case 2:
 							coordinate[i][j] = (coordinate[i][j] + 2);
-							coordinate[i + 1][j] = coordinate[i + 1][j];
+							coordinate[i][j + 1] = coordinate[i + 1][j];
 							break;
 						}
 						pescabile = true;
@@ -679,11 +679,11 @@ public class PlanciaGioco {
 						switch (selezione) {
 						case 3:
 							coordinate[i][j] = coordinate[i][j];
-							coordinate[i + 1][j] = (coordinate[i + 1][j] + 1);
+							coordinate[i][j + 1] = (coordinate[i + 1][j] + 1);
 							break;
 						case 4:
 							coordinate[i][j] = coordinate[i][j];
-							coordinate[i + 1][j] = (coordinate[i + 1][j] - 2);
+							coordinate[i][j + 1] = (coordinate[i + 1][j] - 2);
 							break;
 						}
 						pescabile = true;
@@ -705,11 +705,11 @@ public class PlanciaGioco {
 						switch (selezione) {
 						case 3:
 							coordinate[i][j] = coordinate[i][j];
-							coordinate[i + 1][j] = (coordinate[i + 1][j] + 2);
+							coordinate[i][j + 1] = (coordinate[i + 1][j] + 2);
 							break;
 						case 4:
 							coordinate[i][j] = coordinate[i][j];
-							coordinate[i + 1][j] = (coordinate[i + 1][j] - 1);
+							coordinate[i][j + 1] = (coordinate[i + 1][j] - 1);
 							break;
 						}
 						pescabile = true;
