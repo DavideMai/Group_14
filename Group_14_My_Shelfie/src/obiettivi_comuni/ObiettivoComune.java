@@ -51,7 +51,7 @@ public class ObiettivoComune {
 		return randomNum;
 	}
 	
-	public void ControlloObiettivoComune()
+	public boolean ControlloObiettivoComune()
 	{
 		
 	}
