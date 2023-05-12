@@ -32,9 +32,11 @@ public class Main {
 			}
 			System.out.println();
 		}
-		libreria.cancellaTessere(plancia,coordinate);
-		libreria.inserimentoTessere(plancia,coordinate);
+		libreria.setCellaVuoto();
 		libreria.visualizzaLibreria();
+		libreria.inserimentoTessere(plancia, coordinate);
+		libreria.visualizzaLibreria();
+		libreria.cancellaTessere(plancia, coordinate);
 		plancia.visualizzaPlancia();
 		}
 
