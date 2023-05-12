@@ -15,11 +15,15 @@ public class ObiettivoComune {
 	
 	public int getNumeroCarta()
 	{
+		System.out.println("   ");
+		System.out.println("Numero carta obiettivo comune: ");
 		return numero_carta;
 	}
 	
 	public String getDescrizione()
 	{
+		System.out.println("     ");
+		System.out.println("Descrizione obiettivo comune: ");
 		return descrizione;
 	}
 

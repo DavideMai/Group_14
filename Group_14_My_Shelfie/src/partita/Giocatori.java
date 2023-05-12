@@ -38,11 +38,6 @@ public class Giocatori {
 		this.nome = nome;
 	}
 	
-	public void AssegnaLibreria()
-	{
-		this.libreria = new Libreria();
-	}
-	
 	
 
 	public Giocatori(String nome, int numero) // costruttore
@@ -54,6 +49,12 @@ public class Giocatori {
 		 * //prova commento per git contatore_giocatori++; }
 		 */
 		this.numero_giocatore = numero;
+		libreria = new Libreria();
+		for(int i = 0; i < 6; i++) {
+			for(int j = 0; j < 5; j++) {
+				libreria.tesseraoggetto[i][j] = TesseraOggetto.VUOTA;
+			}
+		}
 	}
 
 	public int getNumeroGiocatori() { // ritorna quanti giocatori giocano nella partita
@@ -119,6 +120,18 @@ public class Giocatori {
 		Random rand = new Random();
 		int randomNum = rand.nextInt(12);
 		return randomNum;
+	}
+
+
+
+	public Libreria getLibreria() {
+		return libreria;
+	}
+
+
+
+	public void setLibreria(Libreria libreria) {
+		this.libreria = libreria;
 	}
 	
 	
