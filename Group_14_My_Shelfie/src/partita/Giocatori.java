@@ -74,7 +74,6 @@ public class Giocatori {
 		while(numeriEstratti.contains(NumeroRandom)) {
 			NumeroRandom = generateRandomNumber();
 		}
-		System.out.println(NumeroRandom);
 		numeriEstratti.add(NumeroRandom);
 		switch (NumeroRandom) {
 		case 1:

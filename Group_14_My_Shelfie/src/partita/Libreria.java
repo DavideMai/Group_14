@@ -142,6 +142,9 @@ public class Libreria {
 	 * funzione che visualizza a schermo la libreria
 	 */
 	public void visualizzaLibreria() {
+		System.out.println("   ");
+		System.out.println("Visualizzazione libreria");
+		System.out.println("    ");
 		String riga = new String();
 		System.out.println("     0 1 2 3 4 ");
 		System.out.println("     ");

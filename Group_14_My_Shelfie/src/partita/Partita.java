@@ -135,7 +135,7 @@ public class Partita {
 		System.out.println(obiettivoComune2.getNumeroCarta()+" ");
 		System.out.println(obiettivoComune2.getDescrizione()+" ");
 		
-		giocatori.get(1).getLibreria().inserimentoTessere(plancia);
+		giocatori.get(1).getLibreria().inserimentoTessere(plancia, plancia.PescaTessere());
 		giocatori.get(1).getLibreria().visualizzaLibreria();
 		plancia.visualizzaPlancia();
 

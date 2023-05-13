@@ -351,6 +351,9 @@ public class PlanciaGioco {
 	// suo interno
 
 	public void visualizzaPlancia() {
+		System.out.println("   ");
+		System.out.println("Visualizzazione plancia");
+		System.out.println("   ");
 		String riga = new String();
 		System.out.println("     0 1 2 3 4 5 6 7 8");
 		System.out.println("     ");
