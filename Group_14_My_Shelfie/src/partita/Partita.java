@@ -188,99 +188,8 @@ public class Partita {
 		giocatori.get(1).getLibreria().visualizzaLibreria();
 		plancia.visualizzaPlancia();
 
-			int PrimoNumero = ObiettivoComune.generateRandomNumber();
-			// (int) Math.random() * 12;
-			int SecondoNumero = ObiettivoComune.generateRandomNumber();
-
-			PrimoNumero1 = PrimoNumero; // variabile d'appoggio
-			SecondoNumero1 = SecondoNumero; // variabile d'appoggio
-			if (PrimoNumero != SecondoNumero) {
-				switch (PrimoNumero) {
-				case 1:
-					obiettivoComune = new PrimoObiettivoComune();
-					break;
-				case 2:
-					obiettivoComune = new SecondoObiettivoComune();
-					break;
-				case 3:
-					obiettivoComune = new TerzoObiettivoComune();
-					break;
-				case 4:
-					obiettivoComune = new QuartoObiettivoComune();
-					break;
-				case 5:
-					obiettivoComune = new QuintoObiettivoComune();
-					break;
-				case 6:
-					obiettivoComune = new SestoObiettivoComune();
-					break;
-				case 7:
-					obiettivoComune = new SettimoObiettivoComune();
-					break;
-				case 8:
-					obiettivoComune = new OttavoObiettivoComune();
-					break;
-				case 9:
-					obiettivoComune = new NonoObiettivoComune();
-					break;
-				case 10:
-					obiettivoComune = new DecimoObiettivoComune();
-					break;
-				case 11:
-					obiettivoComune = new UndicesimoObiettivoComune();
-					break;
-				case 12:
-					obiettivoComune = new DodicesimoObiettivoComune();
-					break;
-				}
-
-				switch (SecondoNumero) {
-				case 1:
-					obiettivoComune2 = new PrimoObiettivoComune();
-					break;
-				case 2:
-					obiettivoComune2 = new SecondoObiettivoComune();
-					break;
-				case 3:
-					obiettivoComune2 = new TerzoObiettivoComune();
-					break;
-				case 4:
-					obiettivoComune2 = new QuartoObiettivoComune();
-					break;
-				case 5:
-					obiettivoComune2 = new QuintoObiettivoComune();
-					break;
-				case 6:
-					obiettivoComune2 = new SestoObiettivoComune();
-					break;
-				case 7:
-					obiettivoComune2 = new SettimoObiettivoComune();
-					break;
-				case 8:
-					obiettivoComune2 = new OttavoObiettivoComune();
-					break;
-				case 9:
-					obiettivoComune2 = new NonoObiettivoComune();
-					break;
-				case 10:
-					obiettivoComune2 = new DecimoObiettivoComune();
-					break;
-				case 11:
-					obiettivoComune2 = new UndicesimoObiettivoComune();
-					break;
-				case 12:
-					obiettivoComune2 = new DodicesimoObiettivoComune();
-					break;
-				}
-
-			}
-
-		} while (PrimoNumero1 == SecondoNumero1);
-		System.out.println("Stampa degli obiettivi comuni in corso... \n");
-		System.out.println(obiettivoComune.getNumeroCarta() + " ");
-		System.out.println(obiettivoComune.getDescrizione() + " ");
-		System.out.println(obiettivoComune2.getNumeroCarta() + " ");
-		System.out.println(obiettivoComune2.getDescrizione() + " ");
+		//System.out.println("Stampa degli obiettivi comuni in corso... \n");
+		
 		int[][] coordinate;
 		do {
 			for (int i = 0; i < numberPlayer; i++) {
@@ -302,4 +211,5 @@ public class Partita {
 
 
 	}
+}
 
