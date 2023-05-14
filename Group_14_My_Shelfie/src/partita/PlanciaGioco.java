@@ -411,7 +411,7 @@ public class PlanciaGioco {
 	}
 
 	public TesseraOggetto getdoppiaSinistra(int riga, int colonna) {
-		if (colonna == 0) {
+		if (colonna == 0 || colonna == 1) {
 			return TesseraOggetto.VUOTA;
 		}
 		return tesseraoggetto[riga][colonna - 2];
@@ -425,7 +425,7 @@ public class PlanciaGioco {
 	}
 
 	public TesseraOggetto getdoppiaDestra(int riga, int colonna) {
-		if (colonna == 8) {
+		if (colonna == 8 || colonna == 7) {
 			return TesseraOggetto.VUOTA;
 		}
 		return tesseraoggetto[riga][colonna + 2];
@@ -439,7 +439,7 @@ public class PlanciaGioco {
 	}
 
 	public TesseraOggetto getdoppiaSopra(int riga, int colonna) {
-		if (riga == 0) {
+		if (riga == 0 || riga == 1) {
 			return TesseraOggetto.VUOTA;
 		}
 		return tesseraoggetto[riga - 2][colonna];
@@ -453,7 +453,7 @@ public class PlanciaGioco {
 	}
 
 	public TesseraOggetto getdoppiaSotto(int riga, int colonna) {
-		if (riga == 8) {
+		if (riga == 8 || riga == 7) {
 			return TesseraOggetto.VUOTA;
 		}
 		return tesseraoggetto[riga + 2][colonna];
