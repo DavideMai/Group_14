@@ -16,10 +16,11 @@ public class NonoObiettivoComune extends ObiettivoComune{
 	public boolean ControlloObiettivoComune(Libreria libreria) {
 		
 		int contatore=0; //contatore per controllare numero max di colonne
+		int ntessere[] = new int[6];
 		
 		for(int j=0; j<5; j++) //scorro le colonne
 		{
-			int ntessere[] = new int[6]; //salvo il numero di tessere diverse nella stessa colonna
+			 //salvo il numero di tessere diverse nella stessa colonna
 			
 			for(int i=0; i<6; i++) //scorro le righe
 			{
