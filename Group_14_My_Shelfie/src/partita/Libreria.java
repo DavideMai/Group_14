@@ -211,6 +211,21 @@ public class Libreria {
 			+plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]));
 			scelta=sc.nextInt();
 			
+			while(scelta==1 && plancia.getTessera(coordinate[x][y], coordinate[x][y + 1])==TesseraOggetto.VUOTA) {
+				System.out.println("Inserimento errato. Seleziona una tessera che non sia VUOTA");
+				scelta=sc.nextInt();
+			}
+			
+			while(scelta==2 && plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1])==TesseraOggetto.VUOTA) {
+				System.out.println("Inserimento errato. Seleziona una tessera che non sia VUOTA");
+				scelta=sc.nextInt();
+			}
+			
+			while(scelta==3 && plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1])==TesseraOggetto.VUOTA) {
+				System.out.println("Inserimento errato. Seleziona una tessera che non sia VUOTA");
+				scelta=sc.nextInt();
+			}
+			
 			switch(scelta) {
 			case 1:
 				for (int i = 5; i >= 0; i--) {
