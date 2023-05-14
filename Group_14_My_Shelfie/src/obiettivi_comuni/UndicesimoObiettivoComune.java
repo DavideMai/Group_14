@@ -14,10 +14,10 @@ public class UndicesimoObiettivoComune extends ObiettivoComune {
 	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria) {
 		
-		for(int i=0; i<5; i++) //riga
+		for(int i=0; i<4; i++) //riga
 		{
 			
-			for(int j=0; j<4; j++) //colonna
+			for(int j=0; j<3; j++) //colonna
 			{
 				if(libreria.getTessera(i,j)!= null && libreria.getTessera(i+1, j+1)!=null && libreria.getTessera(i+2, j+2)!=null && libreria.getTessera(i,j+2)!=null && libreria.getTessera(i+2, j)!=null) //controllo che la diagonale non sia vuota
 				{
