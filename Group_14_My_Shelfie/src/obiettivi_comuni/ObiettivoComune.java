@@ -2,7 +2,9 @@ package obiettivi_comuni;
 
 import java.util.Random;
 
-public class ObiettivoComune {
+import partita.Libreria;
+
+public abstract class ObiettivoComune {
 
 	protected int numero_carta;
 	protected String descrizione;
@@ -51,8 +53,6 @@ public class ObiettivoComune {
 		return randomNum;
 	}
 	
-	public void ControlloObiettivoComune()
-	{
-		
-	}
+	public abstract boolean ControlloObiettivoComune(Libreria libreria);
+	
 }

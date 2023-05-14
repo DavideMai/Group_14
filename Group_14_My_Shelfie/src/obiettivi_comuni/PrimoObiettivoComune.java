@@ -1,5 +1,7 @@
 package obiettivi_comuni;
 
+import partita.Libreria;
+
 public class PrimoObiettivoComune extends ObiettivoComune {
 
 	public PrimoObiettivoComune() {
@@ -8,11 +10,13 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 		descrizione="Sei gruppi separati formati ciascuno da due tessere adiacenti dello stesso tipo. Le tessere di un gruppo possono essere diverse da quelle di un altro gruppo";
 		// TODO Auto-generated constructor stub
 	}
-	
-	public void ControlloObiettivoComune()
-	{
-		
+
+	@Override
+	public boolean ControlloObiettivoComune(Libreria libreria) {
+		// TODO Auto-generated method stub
+		return false;
 	}
+	
 
 	
 }

@@ -8,8 +8,8 @@ public class Partita {
 
 	public static void main(String[] args) {
 		PlanciaGioco plancia = new PlanciaGioco();
-		ObiettivoComune obiettivoComune = new ObiettivoComune();
-		ObiettivoComune obiettivoComune2 = new ObiettivoComune();
+		ObiettivoComune obiettivoComune;
+		ObiettivoComune obiettivoComune2;
 		Scanner sc = new Scanner(System.in);
 		boolean nextPlayer = true;
 		String nome = new String();
@@ -50,90 +50,137 @@ public class Partita {
 			switch (PrimoNumero) {
 			case 1:
 				obiettivoComune = new PrimoObiettivoComune();
+				System.out.println(obiettivoComune.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune.getDescrizione()+" ");
 				break;
 			case 2:
 				obiettivoComune = new SecondoObiettivoComune();
+				System.out.println(obiettivoComune.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune.getDescrizione()+" ");
 				break;
 			case 3:
 				obiettivoComune = new TerzoObiettivoComune();
+				System.out.println(obiettivoComune.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune.getDescrizione()+" ");
 				break;
 			case 4:
 				obiettivoComune = new QuartoObiettivoComune();
+				System.out.println(obiettivoComune.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune.getDescrizione()+" ");
 				break;
 			case 5:
 				obiettivoComune = new QuintoObiettivoComune();
+				System.out.println(obiettivoComune.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune.getDescrizione()+" ");
 				break;
 			case 6:
 				obiettivoComune = new SestoObiettivoComune();
+				System.out.println(obiettivoComune.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune.getDescrizione()+" ");
 				break;
 			case 7:
 				obiettivoComune = new SettimoObiettivoComune();
+				System.out.println(obiettivoComune.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune.getDescrizione()+" ");
 				break;
 			case 8:
 				obiettivoComune = new OttavoObiettivoComune();
+				System.out.println(obiettivoComune.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune.getDescrizione()+" ");
 				break;
 			case 9:
 				obiettivoComune = new NonoObiettivoComune();
+				System.out.println(obiettivoComune.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune.getDescrizione()+" ");
 				break;
 			case 10:
 				obiettivoComune = new DecimoObiettivoComune();
+				System.out.println(obiettivoComune.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune.getDescrizione()+" ");
 				break;
 			case 11:
 				obiettivoComune = new UndicesimoObiettivoComune();
+				System.out.println(obiettivoComune.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune.getDescrizione()+" ");
 				break;
 			case 12:
 				obiettivoComune = new DodicesimoObiettivoComune();
+				System.out.println(obiettivoComune.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune.getDescrizione()+" ");
 				break;
+			
 			}
 			
 			switch (SecondoNumero) {
 			case 1:
 				obiettivoComune2 = new PrimoObiettivoComune();
+				System.out.println(obiettivoComune2.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune2.getDescrizione()+" ");
 				break;
 			case 2:
 				obiettivoComune2 = new SecondoObiettivoComune();
+				System.out.println(obiettivoComune2.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune2.getDescrizione()+" ");
 				break;
 			case 3:
 				obiettivoComune2 = new TerzoObiettivoComune();
+				System.out.println(obiettivoComune2.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune2.getDescrizione()+" ");
 				break;
 			case 4:
 				obiettivoComune2 = new QuartoObiettivoComune();
+				System.out.println(obiettivoComune2.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune2.getDescrizione()+" ");
 				break;
 			case 5:
 				obiettivoComune2 = new QuintoObiettivoComune();
+				System.out.println(obiettivoComune2.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune2.getDescrizione()+" ");
 				break;
 			case 6:
 				obiettivoComune2 = new SestoObiettivoComune();
+				System.out.println(obiettivoComune2.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune2.getDescrizione()+" ");
 				break;
 			case 7:
 				obiettivoComune2 = new SettimoObiettivoComune();
+				System.out.println(obiettivoComune2.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune2.getDescrizione()+" ");
 				break;
 			case 8:
 				obiettivoComune2 = new OttavoObiettivoComune();
+				System.out.println(obiettivoComune2.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune2.getDescrizione()+" ");
 				break;
 			case 9:
 				obiettivoComune2 = new NonoObiettivoComune();
+				System.out.println(obiettivoComune2.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune2.getDescrizione()+" ");
 				break;
 			case 10:
 				obiettivoComune2 = new DecimoObiettivoComune();
+				System.out.println(obiettivoComune2.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune2.getDescrizione()+" ");
 				break;
 			case 11:
 				obiettivoComune2 = new UndicesimoObiettivoComune();
+				System.out.println(obiettivoComune2.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune2.getDescrizione()+" ");
 				break;
 			case 12:
 				obiettivoComune2 = new DodicesimoObiettivoComune();
+				System.out.println(obiettivoComune2.getNumeroCarta()+" ");
+				System.out.println(obiettivoComune2.getDescrizione()+" ");
 				break;
 			}
+			
+
 		
 		}
 		
 		
 		}while(PrimoNumero1==SecondoNumero1);
-		
-		System.out.println(obiettivoComune.getNumeroCarta()+" ");
-		System.out.println(obiettivoComune.getDescrizione()+" ");
-		System.out.println(obiettivoComune2.getNumeroCarta()+" ");
-		System.out.println(obiettivoComune2.getDescrizione()+" ");
+
 		
 		giocatori.get(1).getLibreria().inserimentoTessere(plancia, plancia.PescaTessere());
 		giocatori.get(1).getLibreria().visualizzaLibreria();

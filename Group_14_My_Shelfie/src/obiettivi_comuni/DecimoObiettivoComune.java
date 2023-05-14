@@ -1,5 +1,7 @@
 package obiettivi_comuni;
 
+import partita.Libreria;
+
 public class DecimoObiettivoComune extends ObiettivoComune {
 
 	public DecimoObiettivoComune() {
@@ -9,10 +11,10 @@ public class DecimoObiettivoComune extends ObiettivoComune {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	
-	public void ControlloObiettivoComune()
-	{
-		
+
+	@Override
+	public boolean ControlloObiettivoComune(Libreria libreria) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

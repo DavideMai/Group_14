@@ -5,7 +5,6 @@ import utils.TesseraOggetto;
 
 public class OttavoObiettivoComune extends ObiettivoComune {
 
-	public Libreria libreria;
 	
 	public OttavoObiettivoComune() {
 		super();
@@ -24,6 +23,7 @@ public class OttavoObiettivoComune extends ObiettivoComune {
 		return descrizione;
 	}
 	
+	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria)
 	{
 		if(libreria.getTessera(0,0)==libreria.getTessera(0,4)&& libreria.getTessera(0,0)==libreria.getTessera(5,0) && libreria.getTessera(0,0)==libreria.getTessera(5, 4))
