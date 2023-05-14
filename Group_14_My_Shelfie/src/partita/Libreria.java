@@ -186,101 +186,142 @@ public class Libreria {
 
 	public void inserimentoTessere(PlanciaGioco plancia, int[][] coordinate) {
 		Libreria column = new Libreria();
-		int n = 0, x = 0, y = 0;
-
+		Scanner sc=new Scanner(System.in);
+		int n = 0, x = 0, y = 0, t = 0;
+		int scelta=0;
+		boolean sceltaa=true;
+		
+		if(plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) != TesseraOggetto.VUOTA) {
+			t++;
+		}
+		if(plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1]) != TesseraOggetto.VUOTA) {
+			t++;
+		}
+		if(plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]) != TesseraOggetto.VUOTA) {
+			t++;
+		}
+		
 		n = column.selezionaColonna();
-
-		for (int i = 5; i >= 0; i--) {
-			if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.CORNICE
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.CORNICE;
+			
+		do {
+			
+			System.out.println("Quale tessera vuoi inserire? 1-"
+			+plancia.getTessera(coordinate[x][y], coordinate[x][y + 1])+" "+" 2-"
+			+plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1])+" "+" 3-"
+			+plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]));
+			scelta=sc.nextInt();
+			
+			switch(scelta) {
+			case 1:
+				for (int i = 5; i >= 0; i--) {
+					if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.CORNICE
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.CORNICE;
+						plancia.tesseraoggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					} else if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.GATTO
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.GATTO;
+						plancia.tesseraoggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					} else if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.GIOCO
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.GIOCO;
+						plancia.tesseraoggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					} else if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.LIBRO
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.LIBRO;
+						plancia.tesseraoggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					} else if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.PIANTA
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.PIANTA;
+						plancia.tesseraoggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					} else if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.TROFEO
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.TROFEO;
+						plancia.tesseraoggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					}
+				}
 				break;
-			} else if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.GATTO
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.GATTO;
+				
+			case 2:
+				for (int i = 5; i >= 0; i--) {
+					if (plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1]) == TesseraOggetto.CORNICE
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.CORNICE;
+						plancia.tesseraoggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					} else if (plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1]) == TesseraOggetto.GATTO
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.GATTO;
+						plancia.tesseraoggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					} else if (plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1]) == TesseraOggetto.GIOCO
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.GIOCO;
+						plancia.tesseraoggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					} else if (plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1]) == TesseraOggetto.LIBRO
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.LIBRO;
+						plancia.tesseraoggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					} else if (plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1]) == TesseraOggetto.PIANTA
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.PIANTA;
+						plancia.tesseraoggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					} else if (plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1]) == TesseraOggetto.TROFEO
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.TROFEO;
+						plancia.tesseraoggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					}
+				}
 				break;
-			} else if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.GIOCO
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.GIOCO;
-				break;
-			} else if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.LIBRO
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.LIBRO;
-				break;
-			} else if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.PIANTA
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.PIANTA;
-				break;
-			} else if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.TROFEO
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.TROFEO;
+			
+			case 3:
+				for (int i = 5; i >= 0; i--) {
+					if (plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]) == TesseraOggetto.CORNICE
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.CORNICE;
+						plancia.tesseraoggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					} else if (plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]) == TesseraOggetto.GATTO
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.GATTO;
+						plancia.tesseraoggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					} else if (plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]) == TesseraOggetto.GIOCO
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.GIOCO;
+						plancia.tesseraoggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					} else if (plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]) == TesseraOggetto.LIBRO
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.LIBRO;
+						plancia.tesseraoggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					} else if (plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]) == TesseraOggetto.PIANTA
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.PIANTA;
+						plancia.tesseraoggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					} else if (plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]) == TesseraOggetto.TROFEO
+							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraoggetto[i][n] = TesseraOggetto.TROFEO;
+						plancia.tesseraoggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
+						break;
+					}
+				}
 				break;
 			}
-		}
-
-		for (int i = 5; i >= 0; i--) {
-			if (plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1]) == TesseraOggetto.CORNICE
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.CORNICE;
-				break;
-			} else if (plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1]) == TesseraOggetto.GATTO
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.GATTO;
-				break;
-			} else if (plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1]) == TesseraOggetto.GIOCO
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.GIOCO;
-				break;
-			} else if (plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1]) == TesseraOggetto.LIBRO
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.LIBRO;
-				break;
-			} else if (plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1]) == TesseraOggetto.PIANTA
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.PIANTA;
-				break;
-			} else if (plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1]) == TesseraOggetto.TROFEO
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.TROFEO;
-				break;
-			}
-		}
-
-		for (int i = 5; i >= 0; i--) {
-			if (plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]) == TesseraOggetto.CORNICE
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.CORNICE;
-				break;
-			} else if (plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]) == TesseraOggetto.GATTO
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.GATTO;
-				break;
-			} else if (plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]) == TesseraOggetto.GIOCO
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.GIOCO;
-				break;
-			} else if (plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]) == TesseraOggetto.LIBRO
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.LIBRO;
-				break;
-			} else if (plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]) == TesseraOggetto.PIANTA
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.PIANTA;
-				break;
-			} else if (plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]) == TesseraOggetto.TROFEO
-					&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-				tesseraoggetto[i][n] = TesseraOggetto.TROFEO;
-				break;
-			}
-		}
-	}
-
-	public void cancellaTessere(PlanciaGioco plancia, int[][] coordinate) {
-		int x = 0, y = 0;
-
-		plancia.tesseraoggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
-		plancia.tesseraoggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
-		plancia.tesseraoggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
+			t--;
+		} while(t>0);
 	}
 
 }

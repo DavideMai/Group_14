@@ -36,7 +36,6 @@ public class Main {
 		libreria.visualizzaLibreria();
 		libreria.inserimentoTessere(plancia, coordinate);
 		libreria.visualizzaLibreria();
-		libreria.cancellaTessere(plancia, coordinate);
 		plancia.visualizzaPlancia();
 		}
 
