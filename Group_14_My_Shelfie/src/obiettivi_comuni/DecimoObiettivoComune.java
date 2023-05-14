@@ -7,7 +7,7 @@ public class DecimoObiettivoComune extends ObiettivoComune {
 	public DecimoObiettivoComune() {
 		super();
 		numero_carta=10;
-		descrizione="Due righe formate ciascuna da 5 diversi tipi di tessere";
+		descrizione="Cinque tessere dello stesso tipo che formano una X";
 		// TODO Auto-generated constructor stub
 	}
 	
