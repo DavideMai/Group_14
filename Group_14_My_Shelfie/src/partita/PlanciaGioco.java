@@ -533,13 +533,15 @@ public class PlanciaGioco {
 	// L'ESPERIENZA DI GIOCO IL PIU SEMPLICE POSSIBILE
 	public int[][] PescaTessere() {
 		int[][] coordinate = new int[3][2];
-		int richiesta = 0, i = 0, j = 0, precedente = 0, selezione = 0;
+		int i = 0, j = 0, precedente = 0, selezione = 0;
 		int x = coordinate[i][j];
 		int y = coordinate[i + 1][j];
-		boolean scelta, pescabile = false;
+		Boolean scelta, pescabile = false;
 
 		Scanner sc = new Scanner(System.in);
+		
 //pescaggio prima tessera
+		
 		do {
 			System.out.println("inserisci la riga della tessera che vuoi pescare: ");
 			x = sc.nextInt();
@@ -552,9 +554,10 @@ public class PlanciaGioco {
 			}
 		} while (LatoVuoto(x, y) == false || getTessera(x, y) == TesseraOggetto.VUOTA);
 		System.out.println("hai pescato la tessera " + tesseraoggetto[x][y]);
-		richiesta++;
 		i++;
+		
 //pescaggio seconda tessera
+		
 		System.out.println("vuoi pescare un'altra tessera? (scrivi true o false):");
 		scelta = sc.nextBoolean();
 		while (scelta) {
@@ -601,28 +604,40 @@ public class PlanciaGioco {
 				break;
 			}
 			System.out.println("hai pescato la tessera " + tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]);
-			richiesta++;
 			i++;
-
+			scelta = false;
+		    };
 //pescaggio terza tessera
+			
 			pescabile = false;
+			sc.reset();
 			System.out.println("vuoi pescare un'altra tessera? (scrivi true o false):");
 			scelta = sc.nextBoolean();
-			if (scelta) {
-				do {
-					if (precedente == 1
-							&& (getSotto(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
-									|| getdoppiaSopra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA)
-							&& (LatoVuoto((coordinate[i][j] + 1), coordinate[i][j + 1]) == true
-									|| LatoVuoto((coordinate[i][j] - 2), coordinate[i][j + 1]) == true)) {
-						System.out.println("puoi scegliere la tessera da pescare tra le seguenti:");
+			if (scelta = true) 
+			{
+				switch (precedente)
+				{
+				case 1:
+					if ((getSotto(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
+									&& LatoVuoto((coordinate[i][j] + 1), coordinate[i][j + 1]) == true)) 
+					{
 						System.out.println("1-sotto:" + (coordinate[i][j] + 1) + "," + coordinate[i][j + 1] + "-"
 								+ getSotto(coordinate[i][j], coordinate[i][j + 1]) + "\n");
+						pescabile = true;
+					}
+					if ((getdoppiaSopra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
+									&& LatoVuoto((coordinate[i][j] - 2), coordinate[i][j + 1]) == true)) 
+					{
 						System.out.println("2-sopra:" + (coordinate[i][j] - 2) + "," + coordinate[i][j + 1] + "-"
 								+ getdoppiaSopra(coordinate[i][j], coordinate[i][j + 1]) + "\n");
-						System.out.println("scegli la tessera da pescare (1,2):");
-						selezione = sc.nextInt();
-						switch (selezione) {
+						pescabile = true;
+					}
+					if (pescabile)
+					{
+					System.out.println("scegli la tessera da pescare (1,2):");
+					selezione = sc.nextInt();
+						switch (selezione) 
+						{
 						case 1:
 							coordinate[i][j] = (coordinate[i][j] + 1);
 							coordinate[i][j + 1] = coordinate[i][j + 1];
@@ -632,23 +647,30 @@ public class PlanciaGioco {
 							coordinate[i][j + 1] = coordinate[i][j + 1];
 							break;
 						}
-						pescabile = true;
+					 }
 						break;
-					}
 
-					else if (precedente == 2
-							&& (getSopra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
-									|| getdoppiaSotto(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA)
-							&& (LatoVuoto((coordinate[i][j] - 1), coordinate[i][j + 1]) == true
-									|| LatoVuoto((coordinate[i][j] + 2), coordinate[i][j + 1]) == true)) {
-						System.out.println("puoi scegliere la tessera da pescare tra le seguenti:");
+				case 2:
+					if ((getSopra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
+									&& LatoVuoto((coordinate[i][j] - 1), coordinate[i][j + 1]) == true))
+					{
 						System.out.println("1-sopra:" + (coordinate[i][j] - 1) + "," + coordinate[i][j + 1] + "-"
 								+ getSopra(coordinate[i][j], coordinate[i][j + 1]) + "\n");
+						pescabile = true;
+					}
+					if ((getdoppiaSotto(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
+									&& LatoVuoto((coordinate[i][j] + 2), coordinate[i][j + 1]) == true)) 
+					{
 						System.out.println("2-sotto:" + (coordinate[i][j] + 2) + "," + coordinate[i][j + 1] + "-"
 								+ getdoppiaSotto(coordinate[i][j], coordinate[i][j + 1]) + "\n");
-						System.out.println("scegli la tessera da pescare (1,2):");
-						selezione = sc.nextInt();
-						switch (selezione) {
+						pescabile = true;
+					 }
+					if (pescabile) 
+					{
+					System.out.println("scegli la tessera da pescare (1,2):");
+					selezione = sc.nextInt();
+						switch (selezione) 
+						{
 						case 1:
 							coordinate[i][j] = (coordinate[i][j] - 1);
 							coordinate[i][j + 1] = coordinate[i][j + 1];
@@ -658,24 +680,28 @@ public class PlanciaGioco {
 							coordinate[i][j + 1] = coordinate[i][j + 1];
 							break;
 						}
-						pescabile = true;
-						break;
 					}
-
-					else if (precedente == 3
-							&& (getDestra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
-									|| getdoppiaSinistra(coordinate[i][j],
-											coordinate[i][j + 1]) != TesseraOggetto.VUOTA)
-							&& (LatoVuoto(coordinate[i][j], (coordinate[i][j + 1] + 1)) == true
-									|| LatoVuoto(coordinate[i][j], (coordinate[i][j + 1] - 2)) == true)) {
-						System.out.println("puoi scegliere la tessera da pescare tra le seguenti:");
-						System.out.println("3-destra:" + coordinate[i][j] + "," + (coordinate[i][j + 1] + 1) + "-"
-								+ getDestra(coordinate[i][j], coordinate[i][j + 1]) + "\n");
+						break;
+				
+				case 3:
+						if ((getDestra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
+									&& LatoVuoto(coordinate[i][j], (coordinate[i][j + 1] + 1)) == true)) {
+							System.out.println("3-destra:" + coordinate[i][j] + "," + (coordinate[i][j + 1] + 1) + "-"
+									+ getDestra(coordinate[i][j], coordinate[i][j + 1]) + "\n");
+							pescabile = true;
+						}
+						if ((getdoppiaSinistra(coordinate[i][j],coordinate[i][j + 1]) != TesseraOggetto.VUOTA
+									&& LatoVuoto(coordinate[i][j], (coordinate[i][j + 1] - 2)) == true)) {
 						System.out.println("4-sinistra:" + coordinate[i][j] + "," + (coordinate[i][j + 1] - 2) + "-"
 								+ getdoppiaSinistra(coordinate[i][j], coordinate[i][j + 1]) + "\n");
+						    pescabile = true;
+						}
+						if (pescabile) 
+						{
 						System.out.println("scegli la tessera da pescare (3,4):");
 						selezione = sc.nextInt();
-						switch (selezione) {
+						switch (selezione) 
+						{
 						case 3:
 							coordinate[i][j] = coordinate[i][j];
 							coordinate[i][j + 1] = (coordinate[i][j + 1] + 1);
@@ -685,23 +711,30 @@ public class PlanciaGioco {
 							coordinate[i][j + 1] = (coordinate[i][j + 1] - 2);
 							break;
 						}
-						pescabile = true;
-						break;
 					}
-
-					else if (precedente == 4
-							&& (getdoppiaDestra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
-									|| getSinistra((coordinate[i][j]), coordinate[i][j + 1]) != TesseraOggetto.VUOTA)
-							&& (LatoVuoto((coordinate[i][j]), (coordinate[i][j + 1]) + 2) == true
-									|| LatoVuoto((coordinate[i][j]), (coordinate[i][j + 1]) - 1) == true)) {
-						System.out.println("puoi scegliere la tessera da pescare tra le seguenti:");
-						System.out.println("3-destra::" + coordinate[i][j] + "," + (coordinate[i][j + 1] + 2) + "-"
-								+ getdoppiaDestra(coordinate[i][j], coordinate[i][j + 1]) + "\n");
+						break;
+	
+				case 4:
+						if((getdoppiaDestra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
+									&& LatoVuoto((coordinate[i][j]), (coordinate[i][j + 1]) + 2) == true))
+						{
+							System.out.println("3-destra:" + coordinate[i][j] + "," + (coordinate[i][j + 1] + 2) + "-"
+									+ getdoppiaDestra(coordinate[i][j], coordinate[i][j + 1]) + "\n");
+							pescabile = true;
+						}
+						if((getSinistra((coordinate[i][j]), coordinate[i][j + 1]) != TesseraOggetto.VUOTA
+									&& LatoVuoto((coordinate[i][j]), (coordinate[i][j + 1]) - 1) == true)) 
+						{
 						System.out.println("4-sinistra:" + coordinate[i][j] + "," + (coordinate[i][j + 1] - 1) + "-"
 								+ getSinistra((coordinate[i][j]), coordinate[i][j + 1]) + "\n");
+						    pescabile = true;
+						}
+						if (pescabile) 
+						{
 						System.out.println("scegli la tessera da pescare (3,4):");
 						selezione = sc.nextInt();
-						switch (selezione) {
+						switch (selezione) 
+						{
 						case 3:
 							coordinate[i][j] = coordinate[i][j];
 							coordinate[i][j + 1] = (coordinate[i][j + 1] + 2);
@@ -711,16 +744,14 @@ public class PlanciaGioco {
 							coordinate[i][j + 1] = (coordinate[i][j + 1] - 1);
 							break;
 						}
-						pescabile = true;
-						break;
 					}
-					System.out.println("non ci sono più tessere da pescare");
 					break;
-
-				} while (true);
+				}
+				if (pescabile = false) 
+				{
+					System.out.println("non ci sono più tessere da pescare");
+				}
 			}
-			scelta = false;
-		}
 		return coordinate;
 	}
 }
