@@ -195,11 +195,9 @@ public class Partita {
 			for (int i = 0; i < numberPlayer; i++) {
 				System.out.println("Turno del giocatore: " + giocatori.get(i).getNome());
 				plancia.visualizzaPlancia();
-				System.out.println("Visualizzazione della libreria\n");
 				giocatori.get(i).getLibreria().visualizzaLibreria();
 				coordinate = plancia.PescaTessere();
 				giocatori.get(i).getLibreria().inserimentoTessere(plancia, coordinate);
-				giocatori.get(i).getLibreria().cancellaTessere(plancia, coordinate);
 				giocatori.get(i).getLibreria().visualizzaLibreria();
 				if (giocatori.get(i).getLibreria().controlloLibreria() == false) {
 					terminata = true;
