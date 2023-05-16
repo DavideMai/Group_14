@@ -22,6 +22,12 @@ import obiettivi_personali.TerzoObiettivoPersonale;
 import obiettivi_personali.UndicesimoObiettivoPersonale;
 import utils.TesseraOggetto;
 
+/**
+ * questa classe gestisce i giocatori che partecipano alla partita
+ * 
+ * @author david
+ *
+ */
 public class Giocatori {
 	private String nome;
 	private int punteggio = 0;
@@ -37,14 +43,15 @@ public class Giocatori {
 		this.nome = nome;
 	}
 
-	public Giocatori(String nome, int numero) // costruttore
-	{
+	/**
+	 * costruttore di un giocatore
+	 * 
+	 * @param nome   nome del giocatore da creare
+	 * @param numero numero del giocatore da creare
+	 */
+	public Giocatori(String nome, int numero) {
 		this.nome = nome;
 		punteggio = -1;
-		/*
-		 * if(contatore_giocatori<=4) { this.numero_giocatore=contatore_giocatori;
-		 * //prova commento per git contatore_giocatori++; }
-		 */
 		this.numero_giocatore = numero;
 		libreria = new Libreria();
 		for (int i = 0; i < 6; i++) {
@@ -54,10 +61,18 @@ public class Giocatori {
 		}
 	}
 
-	public int getNumeroGiocatori() { // ritorna quanti giocatori giocano nella partita
+	/**
+	 * 
+	 * @return quanti giocatori ci sono nella partita
+	 */
+	public int getNumeroGiocatori() {
 		return this.contatore_giocatori;
 	}
 
+	/**
+	 * 
+	 * @param aumento quanto il punteggio del giocatore deve aumentare
+	 */
 	public void AumentaPunteggioGiocatore(int aumento) {
 		this.punteggio += aumento;
 	} // prova commento 3
@@ -110,7 +125,7 @@ public class Giocatori {
 			this.obiettivoPersonale = new DodicesimoObiettivoPersonale();
 			break;
 		}
-		
+
 	}
 
 	public static int generateRandomNumber() {
