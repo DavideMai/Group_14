@@ -488,25 +488,25 @@ public class PlanciaGioco {
 		String tessera = new String();
 		switch (t) {
 		case VUOTA:
-			tessera = "V ";
+			tessera = "  ";
 			break;
 		case GATTO:
-			tessera = "C ";
+			tessera = "\033[0;32m"+"C "+"\033[0m";
 			break;
 		case PIANTA:
-			tessera = "P ";
+			tessera = "\033[0;35m"+"P "+"\033[0m";
 			break;
 		case GIOCO:
-			tessera = "G ";
+			tessera = "\033[0;31m"+"G "+"\033[0m";
 			break;
 		case CORNICE:
-			tessera = "F ";
+			tessera = "\033[0;34m"+"F "+"\033[0m";
 			break;
 		case TROFEO:
-			tessera = "T ";
+			tessera = "\033[0;36m"+"T "+"\033[0m";
 			break;
 		case LIBRO:
-			tessera = "L ";
+			tessera = "\033[0;37m"+"L "+"\033[0m";
 			break;
 		}
 		return tessera;
@@ -612,7 +612,7 @@ public class PlanciaGioco {
 			sc.reset();
 			System.out.println("vuoi pescare un'altra tessera? (scrivi true o false):");
 			scelta = sc.nextBoolean();
-			if (scelta = true) 
+			if (scelta == true) 
 			{
 				
 				if (precedente == 1)
@@ -651,6 +651,7 @@ public class PlanciaGioco {
 					else 
 					{
 						System.out.println("non ci sono più tessere da pescare");
+						System.out.println("pescaggio finito... proseguire");
 					}
 				  }
 					
@@ -691,6 +692,7 @@ public class PlanciaGioco {
 					else 
 					{
 						System.out.println("non ci sono più tessere da pescare");
+						System.out.println("pescaggio finito... proseguire");
 					}
 				}
 						
@@ -728,6 +730,7 @@ public class PlanciaGioco {
 						else 
 						{
 							System.out.println("non ci sono più tessere da pescare");
+							System.out.println("pescaggio finito... proseguire");
 						}
 				}
 						
@@ -768,13 +771,23 @@ public class PlanciaGioco {
 						else 
 						{
 							System.out.println("non ci sono più tessere da pescare");
+							System.out.println("pescaggio finito... proseguire");
 						}
 				  }
 				}
-				else if (scelta = false) {
+				else 
+				{
 					System.out.println("pescaggio finito... proseguire");
 				}
 		return coordinate;
 	}
+	public void VisualizzaCoordinate(int [][] coordinate)
+	{
+		for (int i=0;i<3;i++) {
+			for (int j=0;j<2;j++) {
+				System.out.print(coordinate [i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
 }
-
