@@ -24,27 +24,27 @@ public class SestoObiettivoComune extends ObiettivoComune {
 			{
 				if(libreria.getTessera(i, j)!=null)
 				{
-					if(libreria.getTessera(i, j)!=TesseraOggetto.CORNICE)
+					if(libreria.getTessera(i, j)==TesseraOggetto.CORNICE)
 					{
 						cornice++;
 					}
-					else if(libreria.getTessera(i, j)!=TesseraOggetto.GATTO)
+					else if(libreria.getTessera(i, j)==TesseraOggetto.GATTO)
 					{
 						gatto++;
 					}
-					else if(libreria.getTessera(i, j)!=TesseraOggetto.GIOCO)
+					else if(libreria.getTessera(i, j)==TesseraOggetto.GIOCO)
 					{
 						gioco++;
 					}
-					else if(libreria.getTessera(i, j)!=TesseraOggetto.LIBRO)
+					else if(libreria.getTessera(i, j)==TesseraOggetto.LIBRO)
 					{
 						libro++;
 					}
-					else if(libreria.getTessera(i, j)!=TesseraOggetto.TROFEO)
+					else if(libreria.getTessera(i, j)==TesseraOggetto.TROFEO)
 					{
 						trofeo++;
 					}
-					else if(libreria.getTessera(i, j)!=TesseraOggetto.PIANTA)
+					else if(libreria.getTessera(i, j)==TesseraOggetto.PIANTA)
 					{
 						pianta++;
 					}

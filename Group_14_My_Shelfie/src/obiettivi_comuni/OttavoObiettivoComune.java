@@ -26,10 +26,6 @@ public class OttavoObiettivoComune extends ObiettivoComune {
 	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria)
 	{
-		if(libreria.getTessera(0,0)==libreria.getTessera(0,4)&& libreria.getTessera(0,0)==libreria.getTessera(5,0) && libreria.getTessera(0,0)==libreria.getTessera(5, 4))
-		{
-			return true;
-		}
 		return false;
 	}
 		
