@@ -110,6 +110,7 @@ public class Giocatori {
 			this.obiettivoPersonale = new DodicesimoObiettivoPersonale();
 			break;
 		}
+		
 	}
 
 	public static int generateRandomNumber() {

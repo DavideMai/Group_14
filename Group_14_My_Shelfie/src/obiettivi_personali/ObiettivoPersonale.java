@@ -10,5 +10,8 @@ import utils.TesseraOggetto;
  *
  */
 public class ObiettivoPersonale {
-
+	public ObiettivoPersonale() {
+		 TesseraOggetto[][] ObiettivoPersonale = new TesseraOggetto[6][5];
+	}
+	
 }
