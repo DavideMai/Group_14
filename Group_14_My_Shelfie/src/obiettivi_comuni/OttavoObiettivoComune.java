@@ -87,9 +87,5 @@ public class OttavoObiettivoComune extends ObiettivoComune {
 		}
 		return false;
 	}
-	}
 		
-		
-		
-	
 }
