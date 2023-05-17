@@ -21,7 +21,7 @@ public class QuintoObiettivoComune extends ObiettivoComune {
 			boolean controllo=false;
 			for(int i=0; i<6; i++)
 			{
-				if(libreria.getTessera(i, j)!=null)
+				if(libreria.getTessera(i, j)!=TesseraOggetto.VUOTA)
 				{
 					if(libreria.getTessera(i, j)==TesseraOggetto.CORNICE)
 					{

@@ -22,7 +22,7 @@ public class SestoObiettivoComune extends ObiettivoComune {
 		{
 			for(int j=0; j<5; j++)
 			{
-				if(libreria.getTessera(i, j)!=null)
+				if(libreria.getTessera(i, j)!=TesseraOggetto.VUOTA)
 				{
 					if(libreria.getTessera(i, j)==TesseraOggetto.CORNICE)
 					{

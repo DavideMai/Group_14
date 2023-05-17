@@ -24,7 +24,7 @@ public class NonoObiettivoComune extends ObiettivoComune{
 			
 			for(int i=0; i<6; i++) //scorro le righe
 			{
-				if(libreria.getTessera(i,j)!=null)
+				if(libreria.getTessera(i,j)!=TesseraOggetto.VUOTA)
 				{
 					if(libreria.getTessera(i,j)==TesseraOggetto.CORNICE)
 					{

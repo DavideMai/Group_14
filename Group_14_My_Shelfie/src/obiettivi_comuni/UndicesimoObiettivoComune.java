@@ -23,7 +23,7 @@ public class UndicesimoObiettivoComune extends ObiettivoComune {
 		{
 			for(int j=0; j<5; j++) //colonne
 			{
-				if(libreria.getTessera(i,j)!=null)
+				if(libreria.getTessera(i,j)!=TesseraOggetto.VUOTA)
 				{
 					
 					if(libreria.getTessera(i,j)==TesseraOggetto.CORNICE)
