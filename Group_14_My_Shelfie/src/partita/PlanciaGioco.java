@@ -329,8 +329,7 @@ public class PlanciaGioco {
 		return tesseracontrollo;
 	}
 
-	// celleConfinanti riconosce le celle confinanti ad una determinata cella e le
-	// stampa a schermo
+	// celleConfinanti riconosce le celle confinanti ad una determinata cella e le stampa a schermo
 
 	public void celleConfinanti(int riga, int colonna) {
 
@@ -347,8 +346,7 @@ public class PlanciaGioco {
 		System.out.println(plancia[riga + 1][colonna]);
 	}
 
-	// visualizzaPlancia mostra la casella nella plancia con il tipo di tessera al
-	// suo interno
+	// visualizzaPlancia mostra la casella nella plancia con il tipo di tessera al suo interno
 
 	public void visualizzaPlancia() {
 		System.out.println("   ");
@@ -367,8 +365,7 @@ public class PlanciaGioco {
 		}
 	}
 
-	// funzione random che posiziona un qualsiasi dei 6 tipi di tessere sulla
-	// plancia
+	// funzione random che posiziona un qualsiasi dei 6 tipi di tessere sulla plancia
 
 	public void SetCella() {
 		for (int i = 0; i < 9; i++) {
@@ -401,8 +398,10 @@ public class PlanciaGioco {
 		}
 	}
 
-	// le quattro funzioni seguenti restituiscono le celle confinanti alla cella
-	// passata come parametro con riga e colonna
+	/* le quattro funzioni seguenti restituiscono le celle confinanti alla cella passata come parametro con riga e colonna
+	 * i metodi getdoppia restituiscono le tessere a distanza di due celle da quella passata inizialmente
+	 */
+	
 	public TesseraOggetto getSinistra(int riga, int colonna) {
 		if (colonna == 0) {
 			return TesseraOggetto.VUOTA;
@@ -461,7 +460,8 @@ public class PlanciaGioco {
 
 	/**
 	 * la funzione seguente controlla tutte le tessere della plancia contando quelle
-	 * pescabili. Se ritorna false, si può continuare il turno
+	 * pescabili, in caso ci fosse ancora una tessera pescabile il gioco continua senno la plancia
+	 * viene ricaricata con il metodo set cella.
 	 */
 	public void ControlloTessere() {
 		boolean controllo;
@@ -483,7 +483,9 @@ public class PlanciaGioco {
 			SetCella();
 		}
 	}
-
+/*
+ * metodo che assegna i colori e le lettere della plancia 
+ */
 	public String toString(TesseraOggetto t) {
 		String tessera = new String();
 		switch (t) {
@@ -511,7 +513,9 @@ public class PlanciaGioco {
 		}
 		return tessera;
 	}
-
+/*
+ * metodo che permette di cotrollare se una tessera con coordinate riga e colonna ha almeno un lato libero
+ */
 	public Boolean LatoVuoto(int riga, int colonna) {
 		if (getSinistra(riga, colonna) == TesseraOggetto.VUOTA || getDestra(riga, colonna) == TesseraOggetto.VUOTA
 				|| getSopra(riga, colonna) == TesseraOggetto.VUOTA || getSotto(riga, colonna) == TesseraOggetto.VUOTA) {
@@ -520,23 +524,28 @@ public class PlanciaGioco {
 		return false;
 	}
 
-	// questa funzione permette di pescare le tessere dalla plancia, la funzione
-	// ritorna un array dove sono contenute le coordinate delle carte pescate
-	// la funzione permette di pescare soltanto carte con almeno un lato libero e
-	// ovviamente con una tesssera al proprio interno
-	// inoltre mostra a schermo soltanto le carte che possono essere pescate in caso
-	// di una seconda o terza scelta
-	// escludendo quelle vuote o quelle senza lato vuoto e usando anche la
-	// condizione che siano adiacenti e che formino soltanto linee rette
-	// SE AVETE MODIFICHE DA FARE CHE POSSONO ACCORCIARE IL CODICE FATE PURE, QUESTO
-	// ERA L'UNICO MODO CHE MI E' VENUTO IN MENTE PER RENDERE
-	// L'ESPERIENZA DI GIOCO IL PIU SEMPLICE POSSIBILE
+	/* questa funzione permette di pescare le tessere dalla plancia, la funzione
+	* ritorna un array dove sono contenute le coordinate delle carte pescate
+	* la funzione permette di pescare soltanto carte con almeno un lato libero e
+	* ovviamente con una tesssera al proprio interno
+	* inoltre mostra a schermo soltanto le carte che possono essere pescate in caso
+	* di una seconda o terza scelta
+	* escludendo quelle vuote o quelle senza lato vuoto e usando anche la
+	* condizione che siano adiacenti e che formino soltanto linee rette
+	* SE AVETE MODIFICHE DA FARE CHE POSSONO ACCORCIARE IL CODICE FATE PURE, QUESTO
+	* ERA L'UNICO MODO CHE MI E' VENUTO IN MENTE PER RENDERE
+	* L'ESPERIENZA DI GIOCO IL PIU SEMPLICE POSSIBILE
+	* */
 	public int[][] PescaTessere() {
-		int[][] coordinate = new int[3][2];
-		int i = 0, j = 0, precedente = 0, selezione = 0;
-		int x = coordinate[i][j];
-		int y = coordinate[i + 1][j];
-		Boolean scelta, pescabile = false;
+		int[][] coordinate = new int[3][2]; //array che salva le coordinate delle carte pescate
+		int i = 0, j = 0, precedente = 0, selezione = 0;/*indice array...,
+		                                                  indice array...,
+		                                                  variabile di memorizzazione carta pescata precedentemente...,
+		                                                  variabile utilizzata come indice a schermo che permette la scelta della carta da pescare
+														*/
+		int x = coordinate[i][j];//variabile usiliaria
+		int y = coordinate[i + 1][j];//variabile usiliaria
+		Boolean scelta, pescabile = false;//varibaili di controllo 
 
 		Scanner sc = new Scanner(System.in);
 		
@@ -614,7 +623,9 @@ public class PlanciaGioco {
 			scelta = sc.nextBoolean();
 			if (scelta == true) 
 			{
-				
+				/*
+				 * in base alla carta precedente mostra le carte disponibili da pescare due posizioni sopra e sotto
+				 */
 				if (precedente == 1)
 				{
 					if ((getSotto(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
@@ -657,7 +668,9 @@ public class PlanciaGioco {
 					}
 				  }
 					
-
+				/*
+				 * in base alla carta precedente mostra le carte disponibili da pescare due posizioni sotto e sopra
+				 */
 				else if (precedente == 2)
 				{
 					if ((getSopra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
@@ -699,7 +712,10 @@ public class PlanciaGioco {
 						System.out.println("pescaggio finito... proseguire");
 					}
 				}
-						
+					
+				/*
+				 * in base alla carta precedente mostra le carte disponibili da pescare due posizioni a sinistra e a destra
+				 */
 				else if (precedente == 3)
 				{
 						if ((getDestra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
@@ -740,7 +756,9 @@ public class PlanciaGioco {
 						}
 				}
 						
-	
+		/*
+		 * in base alla carta precedente mostra le carte disponibili da pescare due posizioni a destra e a sinistra
+		 */
 				else if (precedente == 4)
 				{
 						if((getdoppiaDestra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
