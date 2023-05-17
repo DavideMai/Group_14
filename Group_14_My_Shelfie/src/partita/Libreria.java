@@ -184,6 +184,11 @@ public class Libreria {
 		return controllo;
 	}
 
+	/**
+	 * funzione che inserisce nella libreria le tessere pescate dalla plancia
+	 * @param plancia: è l'insieme di tutte le tessere
+	 * @param coordinate: contiene le coordinate delle tessere pescate dalla plancia 
+	 */
 	public void inserimentoTessere(PlanciaGioco plancia, int[][] coordinate) {
 		Libreria column = new Libreria();
 		Scanner sc=new Scanner(System.in);
