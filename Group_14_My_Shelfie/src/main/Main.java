@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import obiettivi_comuni.ObiettivoComune;
 import obiettivi_comuni.PrimoObiettivoComune;
+import obiettivi_comuni.SettimoObiettivoComune;
 
 public class Main {
 
@@ -33,6 +34,7 @@ public class Main {
 		libreria.visualizzaLibreria();
 		plancia.visualizzaPlancia();
 		coordinate = plancia.PescaTessere();
+
 		}
 
 }
