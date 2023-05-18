@@ -345,6 +345,17 @@ public class PlanciaGioco {
 		// cella confinanate inferiormente
 		System.out.println(plancia[riga + 1][colonna]);
 	}
+	public Boolean tessereConfinanti(int riga, int colonna) {
+
+		if (getSinistra(riga,colonna)==TesseraOggetto.VUOTA && 
+				getDestra(riga,colonna)==TesseraOggetto.VUOTA && 
+				getSopra(riga,colonna)==TesseraOggetto.VUOTA && 
+				getSotto(riga,colonna)==TesseraOggetto.VUOTA) 
+		{
+			return false;
+		}
+		return true;
+	}
 
 	// visualizzaPlancia mostra la casella nella plancia con il tipo di tessera al suo interno
 
@@ -472,8 +483,7 @@ public class PlanciaGioco {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
 				if (tesseraoggetto[i][j] != TesseraOggetto.VUOTA && plancia[i][j].utilizzabile) {
-					if (getSinistra(i, j) != TesseraOggetto.VUOTA && getDestra(i, j) != TesseraOggetto.VUOTA
-							&& getSopra(i, j) != TesseraOggetto.VUOTA && getSotto(i, j) != TesseraOggetto.VUOTA) {
+					if (tessereConfinanti(i,j) == true) {
 						cellepescabili++;
 						break;
 					}
@@ -515,6 +525,33 @@ public class PlanciaGioco {
 		}
 		return tessera;
 	}
+	public String toStringSecondo(TesseraOggetto t) {
+		String tessera = new String();
+		switch (t) {
+		case VUOTA:
+			tessera = "  ";
+			break;
+		case GATTO:
+			tessera = "\033[0;32m"+"GATTO "+"\033[0m";
+			break;
+		case PIANTA:
+			tessera = "\033[0;35m"+"PIANTA "+"\033[0m";
+			break;
+		case GIOCO:
+			tessera = "\033[0;31m"+"GIOCO "+"\033[0m";
+			break;
+		case CORNICE:
+			tessera = "\033[0;34m"+"CORNICE "+"\033[0m";
+			break;
+		case TROFEO:
+			tessera = "\033[0;36m"+"TROFEO "+"\033[0m";
+			break;
+		case LIBRO:
+			tessera = "\033[0;37m"+"LIBRO "+"\033[0m";
+			break;
+		}
+		return tessera;
+	}
 /*
  * metodo che permette di cotrollare se una tessera con coordinate riga e colonna ha almeno un lato libero
  */
@@ -547,82 +584,108 @@ public class PlanciaGioco {
 														*/
 		int x = coordinate[i][j];//variabile usiliaria
 		int y = coordinate[i + 1][j];//variabile usiliaria
-		Boolean scelta, pescabile = false;//varibaili di controllo 
+		Boolean scelta = null, pescabile = false;//varibaili di controllo 
 
 		Scanner sc = new Scanner(System.in);
 		
 //pescaggio prima tessera
+		System.out.println("pescaggio prima tessera");
+		System.out.println();
 		
 		do {
-			System.out.println("inserisci la riga della tessera che vuoi pescare: ");
+			do {
+			System.out.println("\033[0;32m"+"inserisci la riga della tessera che vuoi pescare: "+"\033[0m");
 			x = sc.nextInt();
 			coordinate[i][j] = x;
-			System.out.println("inserisci la colonna della tessera che vuoi pescare: ");
+			System.out.println("\033[0;32m"+"inserisci la colonna della tessera che vuoi pescare: "+"\033[0m");
 			y = sc.nextInt();
 			coordinate[i][j + 1] = y;
-			if (LatoVuoto(x, y) == false || getTessera(x, y) == TesseraOggetto.VUOTA) {
-				System.out.println("la carta non può essere pescata, inserisci nuove coordinate: ");
+			if (x>8 || x<0 || y>8 || y<0 || tessereConfinanti(x,y)==false) {
+				System.out.println("\033[0;31m"+"la carta non può essere pescata, inserisci nuove coordinate: "+"\033[0m");
 			}
-		} while (LatoVuoto(x, y) == false || getTessera(x, y) == TesseraOggetto.VUOTA);
-		System.out.println("hai pescato la tessera " + tesseraoggetto[x][y]);
+			}while (x>8 || x<0 || y>8 || y<0);
+		} while (LatoVuoto(x, y) == false || getTessera(x, y) == TesseraOggetto.VUOTA || tessereConfinanti(x,y)==false);
+		System.out.println("hai pescato la tessera " + toStringSecondo(tesseraoggetto[x][y]));
 		i++;
-		
 //pescaggio seconda tessera
-		
+		System.out.println("pescaggio seconda tessera");
+		System.out.println();
+		try {
 		System.out.println("vuoi pescare un'altra tessera? (scrivi true o false):");
 		scelta = sc.nextBoolean();
-		while (scelta) {
-			System.out.println(
-					"la tessera che peschi deve essere adiacente a quella precedente e deve avere almeno un lato libero, scegli tra queste: \n");
-			if (getSotto(x, y) != TesseraOggetto.VUOTA && LatoVuoto((x + 1), y) == true) {
-				System.out.println("1-sotto: " + (x + 1) + "," + y + " " + getSotto(x, y) + "\n");// sotto
-				pescabile = true;
-			}
-			if (getSopra(x, y) != TesseraOggetto.VUOTA && LatoVuoto((x - 1), y) == true) {
-				System.out.println("2-sopra: " + (x - 1) + "," + y + " " + getSopra(x, y) + "\n");// sopra
-				pescabile = true;
-			}
-			if (getDestra(x, y) != TesseraOggetto.VUOTA && LatoVuoto(x, (y + 1)) == true) {
-				System.out.println("3-destra: " + x + "," + (y + 1) + " " + getDestra(x, y) + "\n");// dx
-				pescabile = true;
-			}
-			if (getSinistra(x, y) != TesseraOggetto.VUOTA && LatoVuoto(x, (y - 1)) == true) {
-				System.out.println("4-sinistra: " + x + "," + (y - 1) + " " + getSinistra(x, y) + "\n");// sx
-				pescabile = true;
-			}
-			if (pescabile == false) {
-				System.out.println("non ci sono più tessere da pescare");
-				break;
-			}
-			System.out.println("inserisci il numero della tessera che vuoi pescare (1,2,3,4): ");
-			precedente = sc.nextInt();
-			switch (precedente) {
-			case 1:
-				coordinate[i][j] = (x + 1);
-				coordinate[i][j + 1] = y;
-				break;
-			case 2:
-				coordinate[i][j] = (x - 1);
-				coordinate[i][j + 1] = y;
-				break;
-			case 3:
-				coordinate[i][j] = x;
-				coordinate[i][j + 1] = (y + 1);
-				break;
-			case 4:
-				coordinate[i][j] = x;
-				coordinate[i][j + 1] = (y - 1);
-				break;
-			}
-			System.out.println("hai pescato la tessera " + tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]);
-			scelta = false;
-		    };
-//pescaggio terza tessera
+		}catch (IllegalArgumentException e) {
+			System.out.println("vuoi pescare un'altra tessera? (scrivi true o false):");
+			scelta = sc.nextBoolean();
+		}
+		if (scelta == true) 
+		{
+			while (scelta) {
+				System.out.println(
+						"la tessera che peschi deve essere adiacente a quella precedente e deve avere almeno un lato libero, scegli tra queste: \n");
+				if (getSotto(x, y) != TesseraOggetto.VUOTA && LatoVuoto((x + 1), y) == true) {
+					System.out.println("1-sotto: " + (x + 1) + "," + y + " " + toStringSecondo(getSotto(x, y)) + "\n");// sotto
+					pescabile = true;
+				}
+				if (getSopra(x, y) != TesseraOggetto.VUOTA && LatoVuoto((x - 1), y) == true) {
+					System.out.println("2-sopra: " + (x - 1) + "," + y + " " + toStringSecondo(getSopra(x, y)) + "\n");// sopra
+					pescabile = true;
+				}
+				if (getDestra(x, y) != TesseraOggetto.VUOTA && LatoVuoto(x, (y + 1)) == true) {
+					System.out.println("3-destra: " + x + "," + (y + 1) + " " + toStringSecondo(getDestra(x, y)) + "\n");// dx
+					pescabile = true;
+				}
+				if (getSinistra(x, y) != TesseraOggetto.VUOTA && LatoVuoto(x, (y - 1)) == true) {
+					System.out.println("4-sinistra: " + x + "," + (y - 1) + " " + toStringSecondo(getSinistra(x, y)) + "\n");// sx
+					pescabile = true;
+				}
+				if (pescabile == false) {
+					System.out.println("\033[0;31m"+"non ci sono più tessere da pescare"+"\033[0m");
+					break;
+				}
+					do 
+					{
+						System.out.println("\033[0;32m"+"inserisci il numero della tessera che vuoi pescare (1,2,3,4): "+"\033[0m");
+						precedente = sc.nextInt();
+						if (precedente > 4 || precedente < 1)
+						{
+						System.out.println("\033[0;31m"+"numero tessera non valido"+"\033[0m");
+						}
+					}while(precedente > 4 || precedente < 1);
+					switch (precedente) 
+					{
+					case 1:
+						coordinate[i][j] = (x + 1);
+						coordinate[i][j + 1] = y;
+						break;
+					case 2:
+						coordinate[i][j] = (x - 1);
+						coordinate[i][j + 1] = y;
+						break;
+					case 3:
+						coordinate[i][j] = x;
+						coordinate[i][j + 1] = (y + 1);
+						break;
+					case 4:
+						coordinate[i][j] = x;
+						coordinate[i][j + 1] = (y - 1);
+						break;
+					}
+				System.out.println("hai pescato la tessera " + toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
+				scelta = false;
+			 	};
+//pescaggio terza tessera    
+            System.out.println("pescaggio terza tessera");
+            System.out.println();
 			
 			pescabile = false;
 			sc.reset();
+			try {
 			System.out.println("vuoi pescare un'altra tessera? (scrivi true o false):");
 			scelta = sc.nextBoolean();
+			}catch(IllegalArgumentException e) {
+				System.out.println("vuoi pescare un'altra tessera? (scrivi true o false):");
+				scelta = sc.nextBoolean();
+			}
 			if (scelta == true) 
 			{
 				/*
@@ -634,21 +697,28 @@ public class PlanciaGioco {
 									&& LatoVuoto((coordinate[i][j] + 1), coordinate[i][j + 1]) == true)) 
 					{
 						System.out.println("1-sotto: " + (coordinate[i][j] + 1) + "," + coordinate[i][j + 1] + "-"
-								+ getSotto(coordinate[i][j], coordinate[i][j + 1]) + "\n");
+								+ toStringSecondo(getSotto(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
 					}
 					if ((getdoppiaSopra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
 									&& LatoVuoto((coordinate[i][j] - 2), coordinate[i][j + 1]) == true)) 
 					{
 						System.out.println("2-sopra: " + (coordinate[i][j] - 2) + "," + coordinate[i][j + 1] + "-"
-								+ getdoppiaSopra(coordinate[i][j], coordinate[i][j + 1]) + "\n");
+								+ toStringSecondo(getdoppiaSopra(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
 					}
 					i++;
 					if (pescabile)
 					{
-					System.out.println("scegli la tessera da pescare (1,2):");
-					selezione = sc.nextInt();
+						do 
+						{
+						System.out.println("\033[0;32m"+"scegli la tessera da pescare (1,2):"+"\033[0m");
+						selezione = sc.nextInt();
+						if (selezione!=1 || selezione !=2)
+						{
+							System.out.println("\033[0;31m"+"numero tessera non valido"+"\033[0m");
+						}
+					    }while (selezione!=1 || selezione !=2);
 						switch (selezione) 
 						{
 						case 1:
@@ -660,12 +730,12 @@ public class PlanciaGioco {
 							coordinate[i][j + 1] = coordinate[i-1][j + 1];
 							break;
 						}
-						System.out.println("hai pescato la tessera " + tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]);
+						System.out.println("hai pescato la tessera " + toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 						System.out.println("pescaggio finito... proseguire");
 					 }
 					else 
 					{
-						System.out.println("non ci sono più tessere da pescare");
+						System.out.println("\033[0;31m"+"non ci sono più tessere da pescare"+"\033[0m");
 						System.out.println("pescaggio finito... proseguire");
 					}
 				  }
@@ -679,21 +749,28 @@ public class PlanciaGioco {
 									&& LatoVuoto((coordinate[i][j] - 1), coordinate[i][j + 1]) == true))
 					{
 						System.out.println("1-sopra: " + (coordinate[i][j] - 1) + "," + coordinate[i][j + 1] + "-"
-								+ getSopra(coordinate[i][j], coordinate[i][j + 1]) + "\n");
+								+ toStringSecondo(getSopra(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
 					}
 					if ((getdoppiaSotto(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
 									&& LatoVuoto((coordinate[i][j] + 2), coordinate[i][j + 1]) == true)) 
 					{
 						System.out.println("2-sotto: " + (coordinate[i][j] + 2) + "," + coordinate[i][j + 1] + "-"
-								+ getdoppiaSotto(coordinate[i][j], coordinate[i][j + 1]) + "\n");
+								+ toStringSecondo(getdoppiaSotto(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
 					 }
 					i++;
 					if (pescabile) 
 					{
-					System.out.println("scegli la tessera da pescare (1,2):");
-					selezione = sc.nextInt();
+						do 
+						{
+						System.out.println("\033[0;32m"+"scegli la tessera da pescare (1,2):"+"\033[0m");
+						selezione = sc.nextInt();
+						if (selezione!=1 || selezione !=2)
+						{
+							System.out.println("\033[0;31m"+"numero tessera non valido"+"\033[0m");
+						}
+					    }while (selezione!=1 || selezione !=2);
 						switch (selezione) 
 						{
 						case 1:
@@ -705,12 +782,12 @@ public class PlanciaGioco {
 							coordinate[i][j + 1] = coordinate[i-1][j + 1];
 							break;
 						}
-						System.out.println("hai pescato la tessera " + tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]);
+						System.out.println("hai pescato la tessera " + toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 						System.out.println("pescaggio finito... proseguire");
 					}
 					else 
 					{
-						System.out.println("non ci sono più tessere da pescare");
+						System.out.println("\033[0;31m"+"non ci sono più tessere da pescare"+"\033[0m");
 						System.out.println("pescaggio finito... proseguire");
 					}
 				}
@@ -723,20 +800,27 @@ public class PlanciaGioco {
 						if ((getDestra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
 									&& LatoVuoto(coordinate[i][j], (coordinate[i][j + 1] + 1)) == true)) {
 							System.out.println("3-destra: " + coordinate[i][j] + "," + (coordinate[i][j + 1] + 1) + "-"
-									+ getDestra(coordinate[i][j], coordinate[i][j + 1]) + "\n");
+									+ toStringSecondo(getDestra(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 							pescabile = true;
 						}
 						if ((getdoppiaSinistra(coordinate[i][j],coordinate[i][j + 1]) != TesseraOggetto.VUOTA
 									&& LatoVuoto(coordinate[i][j], (coordinate[i][j + 1] - 2)) == true)) {
 						System.out.println("4-sinistra: " + coordinate[i][j] + "," + (coordinate[i][j + 1] - 2) + "-"
-								+ getdoppiaSinistra(coordinate[i][j], coordinate[i][j + 1]) + "\n");
+								+ toStringSecondo(getdoppiaSinistra(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						    pescabile = true;
 						}
 						i++;
 						if (pescabile) 
 						{
-							System.out.println("scegli la tessera da pescare (3,4):");
+							do 
+							{
+							System.out.println("\033[0;32m"+"scegli la tessera da pescare (3,4):"+"\033[0m");
 							selezione = sc.nextInt();
+							if (selezione!=3 || selezione !=4)
+							{
+								System.out.println("\033[0;31m"+"numero tessera non valido"+"\033[0m");
+							}
+						    }while (selezione!=3 || selezione !=4);
 							switch (selezione) 
 							{
 							case 3:
@@ -748,12 +832,12 @@ public class PlanciaGioco {
 								coordinate[i][j + 1] = (coordinate[i-1][j + 1] - 2);
 								break;
 							}
-							System.out.println("hai pescato la tessera " + tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]);
+							System.out.println("hai pescato la tessera " + toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 							System.out.println("pescaggio finito... proseguire");
 						}
 						else 
 						{
-							System.out.println("non ci sono più tessere da pescare");
+							System.out.println("\033[0;31m"+"non ci sono più tessere da pescare"+"\033[0m");
 							System.out.println("pescaggio finito... proseguire");
 						}
 				}
@@ -767,21 +851,28 @@ public class PlanciaGioco {
 									&& LatoVuoto((coordinate[i][j]), (coordinate[i][j + 1]) + 2) == true))
 						{
 							System.out.println("3-destra: " + coordinate[i][j] + "," + (coordinate[i][j + 1] + 2) + "-"
-									+ getdoppiaDestra(coordinate[i][j], coordinate[i][j + 1]) + "\n");
+									+ toStringSecondo(getdoppiaDestra(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 							pescabile = true;
 						}
 						if((getSinistra((coordinate[i][j]), coordinate[i][j + 1]) != TesseraOggetto.VUOTA
 									&& LatoVuoto((coordinate[i][j]), (coordinate[i][j + 1]) - 1) == true)) 
 						{
 						System.out.println("4-sinistra: " + coordinate[i][j] + "," + (coordinate[i][j + 1] - 1) + "-"
-								+ getSinistra((coordinate[i][j]), coordinate[i][j + 1]) + "\n");
+								+ toStringSecondo(getSinistra((coordinate[i][j]), coordinate[i][j + 1])) + "\n");
 						    pescabile = true;
 						}
 						i++;
 						if (pescabile) 
-						{
-							System.out.println("scegli la tessera da pescare (3,4):");
+						{  
+							do 
+							{
+							System.out.println("\033[0;32m"+"scegli la tessera da pescare (3,4):"+"\033[0m");
 							selezione = sc.nextInt();
+							if (selezione!=3 || selezione !=4)
+							{
+								System.out.println("\033[0;31m"+"numero tessera non valido"+"\033[0m");
+							}
+						    }while (selezione!=3 || selezione !=4);
 							switch (selezione) 
 							{
 							case 3:
@@ -793,12 +884,12 @@ public class PlanciaGioco {
 								coordinate[i][j + 1] = (coordinate[i-1][j + 1] - 1);
 								break;
 							}
-							System.out.println("hai pescato la tessera " + tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]);
+							System.out.println("hai pescato la tessera " + toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 							System.out.println("pescaggio finito... proseguire");
 						}
 						else 
 						{
-							System.out.println("non ci sono più tessere da pescare");
+							System.out.println("\033[0;31m"+"non ci sono più tessere da pescare"+"\033[0m");
 							System.out.println("pescaggio finito... proseguire");
 						}
 				  }
@@ -807,6 +898,7 @@ public class PlanciaGioco {
 				{
 					System.out.println("pescaggio finito... proseguire");
 				}
+		  }
 		return coordinate;
 	}
 	public void VisualizzaCoordinate(int [][] coordinate)
