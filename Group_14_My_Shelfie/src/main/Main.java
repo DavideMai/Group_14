@@ -33,7 +33,7 @@ public class Main {
 		libreria.inserimentoTessere(plancia, coordinate);
 		libreria.visualizzaLibreria();
 		plancia.visualizzaPlancia();
-		coordinate = plancia.PescaTessere();
+		//coordinate = plancia.PescaTessere();
 
 		}
 
