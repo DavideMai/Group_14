@@ -25,12 +25,14 @@ public class Libreria {
 	 */
 	public int selezionaColonna() {
 		int N;
-		System.out.println("\033[0;32m"+"Scegli la colonna nella quale vuoi inserire le tessere"+"\033[0m");
-		N = sc.nextInt();
-		while (N < 1 && N > 5) {
-			System.out.println("\033[0;31m"+"Colonna che non esiste"+"\033[0m");
+		do {
+			System.out.println("\033[0;32m"+"Scegli la colonna nella quale vuoi inserire le tessere"+"\033[0m");
 			N = sc.nextInt();
-		}
+			if(N < 0 || N > 4) {
+				System.out.println("\033[0;31m"+"Colonna che non esiste"+"\033[0m");
+			}
+		}while (N < 0 || N > 4);
+		
 		return N;
 	}
 
