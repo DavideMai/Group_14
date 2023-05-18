@@ -28,7 +28,7 @@ public class Libreria {
 		System.out.println("Scegli la colonna nella quale vuoi inserire le tessere");
 		N = sc.nextInt();
 		while (N < 1 && N > 5) {
-			System.out.println("Inserimento errato");
+			System.out.println("\033[0;31m"+"Colonna che non esiste"+"\033[0m");
 			N = sc.nextInt();
 		}
 		return N;
@@ -194,6 +194,7 @@ public class Libreria {
 		Scanner sc=new Scanner(System.in);
 		int n = 0, x = 0, y = 0, t = 0;
 		int scelta=0;
+		int spaziDisponibili=6;
 		boolean sceltaa=true;
 		
 		if(plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) != TesseraOggetto.VUOTA) {
@@ -206,7 +207,15 @@ public class Libreria {
 			t++;
 		}
 		
-		n = column.selezionaColonna();
+		do {
+			n = column.selezionaColonna();
+			
+			for(int i=0; i<6; i++) {
+				if(tesseraoggetto[i][n]==TesseraOggetto.VUOTA) {
+					spaziDisponibili++;
+				}
+			}
+		}while(spaziDisponibili<t);
 			
 		do {
 			
@@ -216,18 +225,8 @@ public class Libreria {
 			+plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]));
 			scelta=sc.nextInt();
 			
-			while(scelta==1 && plancia.getTessera(coordinate[x][y], coordinate[x][y + 1])==TesseraOggetto.VUOTA) {
-				System.out.println("Inserimento errato. Seleziona una tessera che non sia VUOTA");
-				scelta=sc.nextInt();
-			}
-			
-			while(scelta==2 && plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1])==TesseraOggetto.VUOTA) {
-				System.out.println("Inserimento errato. Seleziona una tessera che non sia VUOTA");
-				scelta=sc.nextInt();
-			}
-			
-			while(scelta==3 && plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1])==TesseraOggetto.VUOTA) {
-				System.out.println("Inserimento errato. Seleziona una tessera che non sia VUOTA");
+			while(scelta==1 && plancia.getTessera(coordinate[x][y], coordinate[x][y + 1])==TesseraOggetto.VUOTA || scelta==2 && plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1])==TesseraOggetto.VUOTA || scelta==3 && plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1])==TesseraOggetto.VUOTA ) {
+				System.out.println("\033[0;31m"+"Seleziona una tessera che non sia VUOTA"+"\033[0m");
 				scelta=sc.nextInt();
 			}
 			
@@ -339,7 +338,11 @@ public class Libreria {
 					}
 				}
 				break;
+				
+			default:
+				System.out.println("\033[0;31m"+"Scegli un valore valido"+"\033[0m");
 			}
+			
 			t--;
 		} while(t>0);
 	}
