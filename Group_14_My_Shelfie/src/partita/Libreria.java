@@ -25,7 +25,7 @@ public class Libreria {
 	 */
 	public int selezionaColonna() {
 		int N;
-		System.out.println("Scegli la colonna nella quale vuoi inserire le tessere");
+		System.out.println("\033[0;32m"+"Scegli la colonna nella quale vuoi inserire le tessere"+"\033[0m");
 		N = sc.nextInt();
 		while (N < 1 && N > 5) {
 			System.out.println("\033[0;31m"+"Colonna che non esiste"+"\033[0m");
@@ -60,6 +60,34 @@ public class Libreria {
 			break;
 		case LIBRO:
 			tessera = "\033[0;37m"+"L "+"\033[0m";
+			break;
+		}
+		return tessera;
+	}
+	
+	public String toStringSecondo(TesseraOggetto t) {
+		String tessera = new String();
+		switch (t) {
+		case VUOTA:
+			tessera = "\033[0;30m"+"VUOTO "+"\033[0m";
+			break;
+		case GATTO:
+			tessera = "\033[0;32m"+"GATTO "+"\033[0m";
+			break;
+		case PIANTA:
+			tessera = "\033[0;35m"+"PIANTA "+"\033[0m";
+			break;
+		case GIOCO:
+			tessera = "\033[0;31m"+"GIOCO "+"\033[0m";
+			break;
+		case CORNICE:
+			tessera = "\033[0;34m"+"CORNICE "+"\033[0m";
+			break;
+		case TROFEO:
+			tessera = "\033[0;36m"+"TROFEO "+"\033[0m";
+			break;
+		case LIBRO:
+			tessera = "\033[0;37m"+"LIBRO "+"\033[0m";
 			break;
 		}
 		return tessera;
@@ -220,9 +248,9 @@ public class Libreria {
 		do {
 			
 			System.out.println("Quale tessera vuoi inserire? 1-"
-			+plancia.getTessera(coordinate[x][y], coordinate[x][y + 1])+" "+" 2-"
-			+plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1])+" "+" 3-"
-			+plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]));
+			+toStringSecondo(plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]))+" "+" 2-"
+			+toStringSecondo(plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1]))+" "+" 3-"
+			+toStringSecondo(plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1])));
 			scelta=sc.nextInt();
 			
 			while(scelta==1 && plancia.getTessera(coordinate[x][y], coordinate[x][y + 1])==TesseraOggetto.VUOTA || scelta==2 && plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1])==TesseraOggetto.VUOTA || scelta==3 && plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1])==TesseraOggetto.VUOTA ) {
