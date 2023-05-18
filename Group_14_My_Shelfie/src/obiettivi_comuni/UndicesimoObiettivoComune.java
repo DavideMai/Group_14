@@ -5,7 +5,8 @@ import utils.TesseraOggetto;
 
 public class UndicesimoObiettivoComune extends ObiettivoComune {
 
-	public UndicesimoObiettivoComune() {
+	public UndicesimoObiettivoComune()
+	{
 		super();
 		numero_carta=11;
 		descrizione="Due righe formate ciascuna da 5 diversi tipi di tessere";
@@ -14,33 +15,33 @@ public class UndicesimoObiettivoComune extends ObiettivoComune {
 	}
 
 	@Override
-	public boolean ControlloObiettivoComune(Libreria libreria) {
-		
-		int contatore=0; 
-		int[] ntessere = new int[6];
-		
+	public boolean ControlloObiettivoComune(Libreria libreria) 
+	{
+		int contatore=0;
+
 		for(int i=0; i<6; i++) //righe
-		{
+		{	
+			int[] ntessere= new int[6];
+			
 			for(int j=0; j<5; j++) //colonne
 			{
 				if(libreria.getTessera(i,j)!=TesseraOggetto.VUOTA)
 				{
-					
 					if(libreria.getTessera(i,j)==TesseraOggetto.CORNICE)
 					{
 						ntessere[0]++;
 					}
 					else if(libreria.getTessera(i, j)==TesseraOggetto.GATTO)
 					{
-						ntessere[1]++;
+						ntessere[1]++;	
 					}
 					else if(libreria.getTessera(i, j)==TesseraOggetto.GIOCO)
 					{
-						ntessere[2]++;
+						ntessere[2]++;	
 					}
 					else if(libreria.getTessera(i, j)==TesseraOggetto.LIBRO)
 					{
-						ntessere[3]++;
+						ntessere[3]++;	
 					}
 					else if(libreria.getTessera(i, j)==TesseraOggetto.PIANTA)
 					{
@@ -48,11 +49,26 @@ public class UndicesimoObiettivoComune extends ObiettivoComune {
 					}
 					else if(libreria.getTessera(i, j)==TesseraOggetto.TROFEO)
 					{
-						ntessere[5]++;
+						ntessere[5]++;	
 					}
+				} 
+				else
+				{
+					break;	
 				}
+					
 			}
-			if(ntessere[0]==1 && ntessere[1]==1 && ntessere[2]==1 && ntessere[3]==1 && ntessere[4]==1 && ntessere[5]==1)
+		
+			for(int k=0; k<6; k++)
+			{
+				if(ntessere[k] ==0)
+				{
+					ntessere[k]++;
+					break;
+				}
+									
+			}
+			if(ntessere[0]==1 && ntessere[1]==1 && ntessere[2]==1 && ntessere[3]==1 && ntessere[4]==1 && ntessere[5]==1 )
 			{
 				contatore++;
 			}
@@ -60,10 +76,11 @@ public class UndicesimoObiettivoComune extends ObiettivoComune {
 			{
 				return true;
 			}
-			
-		}
-		return false;
-	}
 
-	
+	    }
+				
+	return false;
+	}
 }
+	
+
