@@ -9,9 +9,14 @@ import utils.TesseraOggetto;
  * @author david
  *
  */
-public class ObiettivoPersonale {
+public abstract class ObiettivoPersonale {
 	public ObiettivoPersonale() {
 		 TesseraOggetto[][] ObiettivoPersonale = new TesseraOggetto[6][5];
+	}
+
+	public void VisualizzaObiettivoPersonale() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

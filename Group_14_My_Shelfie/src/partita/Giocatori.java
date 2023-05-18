@@ -146,4 +146,8 @@ public class Giocatori {
 		return nome;
 	}
 
+	public ObiettivoPersonale getObiettivoPersonale() {
+		return obiettivoPersonale;
+	}
+
 }

@@ -77,7 +77,7 @@ public class PrimoObiettivoPersonale extends ObiettivoPersonale {
 	
 
 	
-	public void VisualizzaObiettivoPersonale1() { // funzione per visualizzare la carta obiettivo personale
+	public void VisualizzaObiettivoPersonale() { // funzione per visualizzare la carta obiettivo personale
 		System.out.println("Visualizzazione Obiettivo Personale");
 		String riga = new String();
 		System.out.println("    0 | 1 | 2 | 3 | 4 |");

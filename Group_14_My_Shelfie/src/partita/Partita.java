@@ -31,7 +31,7 @@ public class Partita {
 				giocatori.add(new Giocatori(nome, numberPlayer));
 				System.out.println("Inserimento giocatore completato");
 				giocatori.get(numberPlayer - 1).AssegnaObiettivoPersonale();
-
+				giocatori.get(numberPlayer -1).getObiettivoPersonale().VisualizzaObiettivoPersonale();
 			}
 			/**
 			 * throws IllegalArgumentException quando vengono inseriti meno di due giocatori
@@ -46,8 +46,7 @@ public class Partita {
 		} while ((nextPlayer && numberPlayer < 4) || numberPlayer <= 1);
 		plancia.CancellaCelle(numberPlayer);
 		plancia.SetCella();
-		System.out.println(
-				"V sta per vuota, C per gatto, P per pianta, G per gioco, F per cornice, T per trofeo e L per libro");
+		
 		plancia.visualizzaPlancia();
 
 		int PrimoNumero1;

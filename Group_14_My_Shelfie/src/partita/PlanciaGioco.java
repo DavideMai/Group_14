@@ -351,6 +351,8 @@ public class PlanciaGioco {
 	public void visualizzaPlancia() {
 		System.out.println("   ");
 		System.out.println("Visualizzazione plancia");
+		System.out.println(
+				"V sta per vuota, C per gatto, P per pianta, G per gioco, F per cornice, T per trofeo e L per libro");
 		System.out.println("   ");
 		String riga = new String();
 		System.out.println("     0 1 2 3 4 5 6 7 8");

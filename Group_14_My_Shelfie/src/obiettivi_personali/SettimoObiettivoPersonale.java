@@ -12,6 +12,13 @@ public class SettimoObiettivoPersonale extends ObiettivoPersonale {
 		ObiettivoPersonale[3][4] = TesseraOggetto.LIBRO;
 		ObiettivoPersonale[4][3] = TesseraOggetto.TROFEO;
 		ObiettivoPersonale[5][4] = TesseraOggetto.CORNICE;
+		for (int i = 0; i <6; i++) {
+			for (int j = 0; j<5; j++) {
+				if (ObiettivoPersonale[i][j] == null) {
+					ObiettivoPersonale[i][j] = TesseraOggetto.VUOTA;
+				}
+			}
+		}
 	}
 
 	public int ControllaObiettivoPersonale(TesseraOggetto[][] tesseraoggetto) {
@@ -57,7 +64,7 @@ public class SettimoObiettivoPersonale extends ObiettivoPersonale {
 		}
 		return punteggio;
 	}
-	public void VisualizzaObiettivoPersonale7() { // funzione per visualizzare la carta obiettivo personale
+	public void VisualizzaObiettivoPersonale() { // funzione per visualizzare la carta obiettivo personale
 		System.out.println("Visualizzazione Obiettivo Personale");
 		String riga = new String();
 		System.out.println("    0 | 1 | 2 | 3 | 4 |");
