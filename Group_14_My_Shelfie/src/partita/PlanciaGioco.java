@@ -590,7 +590,7 @@ public class PlanciaGioco {
 				System.out.println("4-sinistra: " + x + "," + (y - 1) + " " + getSinistra(x, y) + "\n");// sx
 				pescabile = true;
 			}
-			if (pescabile = false) {
+			if (pescabile == false) {
 				System.out.println("non ci sono più tessere da pescare");
 				break;
 			}
