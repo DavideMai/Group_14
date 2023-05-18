@@ -714,11 +714,11 @@ public class PlanciaGioco {
 						{
 						System.out.println("\033[0;32m"+"scegli la tessera da pescare (1,2):"+"\033[0m");
 						selezione = sc.nextInt();
-						if (selezione!=1 || selezione !=2)
+						if (selezione<1 || selezione >2)
 						{
 							System.out.println("\033[0;31m"+"numero tessera non valido"+"\033[0m");
 						}
-					    }while (selezione!=1 || selezione !=2);
+					    }while (selezione<1 || selezione >2);
 						switch (selezione) 
 						{
 						case 1:
@@ -766,11 +766,11 @@ public class PlanciaGioco {
 						{
 						System.out.println("\033[0;32m"+"scegli la tessera da pescare (1,2):"+"\033[0m");
 						selezione = sc.nextInt();
-						if (selezione!=1 || selezione !=2)
+						if (selezione<1 || selezione >2)
 						{
 							System.out.println("\033[0;31m"+"numero tessera non valido"+"\033[0m");
 						}
-					    }while (selezione!=1 || selezione !=2);
+					    }while (selezione<1 || selezione >2);
 						switch (selezione) 
 						{
 						case 1:
@@ -816,11 +816,11 @@ public class PlanciaGioco {
 							{
 							System.out.println("\033[0;32m"+"scegli la tessera da pescare (3,4):"+"\033[0m");
 							selezione = sc.nextInt();
-							if (selezione!=3 || selezione !=4)
+							if (selezione<3 || selezione>4)
 							{
 								System.out.println("\033[0;31m"+"numero tessera non valido"+"\033[0m");
 							}
-						    }while (selezione!=3 || selezione !=4);
+						    }while (selezione<3 || selezione>4);
 							switch (selezione) 
 							{
 							case 3:
@@ -868,11 +868,11 @@ public class PlanciaGioco {
 							{
 							System.out.println("\033[0;32m"+"scegli la tessera da pescare (3,4):"+"\033[0m");
 							selezione = sc.nextInt();
-							if (selezione!=3 || selezione !=4)
+							if (selezione<3 || selezione >4)
 							{
 								System.out.println("\033[0;31m"+"numero tessera non valido"+"\033[0m");
 							}
-						    }while (selezione!=3 || selezione !=4);
+						    }while (selezione<3 || selezione >4);
 							switch (selezione) 
 							{
 							case 3:
