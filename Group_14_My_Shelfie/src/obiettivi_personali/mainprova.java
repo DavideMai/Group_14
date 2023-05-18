@@ -6,8 +6,8 @@ public class mainprova {
 	public static void main(String[] args) {
 		PrimoObiettivoPersonale ob = new PrimoObiettivoPersonale();
 		SecondoObiettivoPersonale ob2 = new SecondoObiettivoPersonale();
-		ob.VisualizzaObiettivoPersonale1();
-		ob2.VisualizzaObiettivoPersonale2();
+		ob.VisualizzaObiettivoPersonale();
+		ob2.VisualizzaObiettivoPersonale();
 		
 
 	}
