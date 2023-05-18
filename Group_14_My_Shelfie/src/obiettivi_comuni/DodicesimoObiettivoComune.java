@@ -24,11 +24,11 @@ public class DodicesimoObiettivoComune extends ObiettivoComune{
 		ntessere_colonna[3]=NumeroTessereColonna(libreria, 3); //assegno in posizione 3 il numero di tessere della quarta colonna
 		ntessere_colonna[4]=NumeroTessereColonna(libreria, 4); //assegno in posizione 4 il numero di tessere della quinta colonna
 		
-		System.out.println("Colonna 0 "+ntessere_colonna[0]);
+		/*System.out.println("Colonna 0 "+ntessere_colonna[0]);
 		System.out.println("Colonna 1 "+ntessere_colonna[1]);
 		System.out.println("Colonna 2 "+ntessere_colonna[2]);
 		System.out.println("Colonna 3 "+ntessere_colonna[3]);
-		System.out.println("Colonna 4 "+ntessere_colonna[4]);
+		System.out.println("Colonna 4 "+ntessere_colonna[4]);*/
 		
 		for(int n=0; n<5; n++)
 		{
@@ -36,7 +36,7 @@ public class DodicesimoObiettivoComune extends ObiettivoComune{
 			conta=conta +ntessere_colonna[n];
 		}
 		
-		System.out.println("conta: "+conta);
+		//System.out.println("conta: "+conta);
 		
 		if(conta==20 || conta==15)
 		{
