@@ -31,7 +31,7 @@ public class Partita {
 				giocatori.add(new Giocatori(nome, numberPlayer));
 				System.out.println("Inserimento giocatore completato");
 				giocatori.get(numberPlayer - 1).AssegnaObiettivoPersonale();
-				giocatori.get(numberPlayer -1).getObiettivoPersonale().VisualizzaObiettivoPersonale();
+				giocatori.get(numberPlayer - 1).getObiettivoPersonale().VisualizzaObiettivoPersonale();
 			}
 			/**
 			 * throws IllegalArgumentException quando vengono inseriti meno di due giocatori
@@ -46,8 +46,6 @@ public class Partita {
 		} while ((nextPlayer && numberPlayer < 4) || numberPlayer <= 1);
 		plancia.CancellaCelle(numberPlayer);
 		plancia.SetCella();
-		
-		plancia.visualizzaPlancia();
 
 		int PrimoNumero1;
 		int SecondoNumero1;
@@ -58,9 +56,8 @@ public class Partita {
 		do {
 
 			int PrimoNumero = ObiettivoComune.generateRandomNumber();
-			// (int) Math.random() * 12;
 			int SecondoNumero = ObiettivoComune.generateRandomNumber();
-			
+
 			PrimoNumero1 = PrimoNumero; // variabile d'appoggio
 			SecondoNumero1 = SecondoNumero; // variabile d'appoggio
 			System.out.println("Visualizzazione primo obiettivo comune");
@@ -198,26 +195,37 @@ public class Partita {
 
 		// System.out.println("Stampa degli obiettivi comuni in corso... \n");
 
-		int[][] coordinate;
 		/**
-		 * il seguente do-while permette ai giocatori di pescare le tessere e di
-		 * inserirle nella propria libreria controllando gli obiettivi comuni
+		 * ciclo che permette a ogni giocatore di fare il suo turno
 		 */
 		do {
 			for (int i = 0; i < numberPlayer; i++) {
-				System.out.println("Turno del giocatore: " + giocatori.get(i).getNome());
-				plancia.visualizzaPlancia();
-				giocatori.get(i).getLibreria().visualizzaLibreria();
-				coordinate = plancia.PescaTessere();
-				giocatori.get(i).getLibreria().inserimentoTessere(plancia, coordinate);
-				giocatori.get(i).getLibreria().visualizzaLibreria();
-				if (giocatori.get(i).getLibreria().controlloLibreria() == false) {
-					terminata = true;
-				}
-				plancia.ControlloTessere();
-
+				turno(plancia, giocatori.get(i), terminata);
 			}
 		} while (!terminata);
 
+	}
+
+	/**
+	 * il seguente metodo statico fa sì che un giocatore peschi le tessere dalla
+	 * plancia e le riponga nella sua libreria
+	 * 
+	 * @param plancia la plancia di gioco
+	 * @param g       il giocatore che effettua il turno
+	 * @param t       variabile booleana, è true se un giocatore ha riempito la sua
+	 *                libreria
+	 */
+	public static void turno(PlanciaGioco plancia, Giocatori g, boolean t) {
+		int[][] coordinate;
+		System.out.println("Turno del giocatore: " + g.getNome());
+		plancia.visualizzaPlancia();
+		g.getLibreria().visualizzaLibreria();
+		coordinate = plancia.PescaTessere();
+		g.getLibreria().inserimentoTessere(plancia, coordinate);
+		g.getLibreria().visualizzaLibreria();
+		if (g.getLibreria().controlloLibreria() == false) {
+			t = true;
+		}
+		plancia.ControlloTessere();
 	}
 }
