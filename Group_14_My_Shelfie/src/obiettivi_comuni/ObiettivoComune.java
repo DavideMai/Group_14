@@ -49,7 +49,7 @@ public abstract class ObiettivoComune {
 
 	public static int generateRandomNumber() {
 		Random rand = new Random();
-		int randomNum = rand.nextInt(12);
+		int randomNum = rand.nextInt(11);
 		return randomNum;
 	}
 	
