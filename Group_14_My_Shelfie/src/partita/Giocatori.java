@@ -36,6 +36,12 @@ public class Giocatori {
 	private ObiettivoPersonale obiettivoPersonale;
 	private ObiettivoComune obiettivoComune;
 	private Libreria libreria;
+	/**
+	 * variabili booleane, sono true se il giocatore ha completato uno dei due
+	 * obiettivi comuni (rispettivamente)
+	 */
+	private boolean primoObiettivo = false;
+	private boolean secondoObiettivo = false;
 
 	private static Set<Integer> numeriEstratti = new HashSet<Integer>();
 
@@ -150,4 +156,98 @@ public class Giocatori {
 		return obiettivoPersonale;
 	}
 
+	/**
+	 * questa funzione ritorna l'aumento del punteggio del giocatore a seguito del
+	 * conseguimento del primo obiettivo comune
+	 * 
+	 * @param libreria  la libreria su cui controllare l'obiettivo comune
+	 * @param o         il primo obiettivo comune da controllare
+	 * @param rimanenti quanti giocatori devono ancora completare l'obiettivo comune
+	 * @return l'aumento del punteggio
+	 */
+	public int assegnaPunteggioPrimoObiettivo(Libreria libreria, ObiettivoComune o, int rimanenti) {
+		int aumento = 0;
+		if (!this.primoObiettivo) {
+			if (o.ControlloObiettivoComune(libreria)) {
+				this.primoObiettivo = true;
+				switch (rimanenti) {
+				case 4:
+					aumento = 8;
+					break;
+				case 3:
+					aumento = 6;
+					break;
+				case 2:
+					aumento = 4;
+					break;
+				case 1:
+					aumento = 2;
+					break;
+				}
+				rimanenti--;
+				System.out.println("Il giocatore " + this.nome
+						+ " ha completato il primo obiettivo personale e guadagna " + aumento + " punti");
+			}
+
+		}
+		System.out.println("I giocatori che devono ancora completare il primo obiettivo personale sono " + rimanenti);
+		return aumento;
+	}
+
+	/**
+	 * questa funzione ritorna l'aumento del punteggio del giocatore a seguito del
+	 * conseguimento del secondo
+	 * 
+	 * @param libreria  la libreria su cui controllare l'obiettivo comune
+	 * @param o         il secondo obiettivo comune da controllare
+	 * @param rimanenti quanti giocatori devono ancora completare l'obiettivo comune
+	 * @return l'aumento del punteggio
+	 */
+	public int assegnaPunteggioSecondoObiettivo(Libreria libreria, ObiettivoComune o, int rimanenti) {
+		int aumento = 0;
+		if (!this.secondoObiettivo) {
+			if (o.ControlloObiettivoComune(libreria)) {
+				this.secondoObiettivo = true;
+				switch (rimanenti) {
+				case 4:
+					aumento = 8;
+					break;
+				case 3:
+					aumento = 6;
+					break;
+				case 2:
+					aumento = 4;
+					break;
+				case 1:
+					aumento = 2;
+					break;
+				}
+				rimanenti--;
+				System.out.println("Il giocatore " + this.nome
+						+ " ha completato il secondo obiettivo personale e guadagna " + aumento + " punti");
+			}
+		}
+		System.out.println("I giocatori che devono ancora completare il secondo obiettivo personale sono " + rimanenti);
+		return aumento;
+	}
+
+	/**
+	 * funzione che controlla se il giocatore ha completato uno (o entrambi) gli
+	 * obiettivi comuni, e assegna i punteggi di conseguenza
+	 * 
+	 * @param o1               primo obiettivo comune da controllare
+	 * @param o2               secondo obiettivo comune da controllare
+	 * @param rimanentiPrimo   quanti giocatori devono ancora completare il primo
+	 *                         obiettivo comune
+	 * @param rimanentiSecondo quanti giocatori devono ancora completare il secondo
+	 *                         obiettivo comune
+	 */
+	public void controlloPrimoObiettivoComune(ObiettivoComune o, int rimanentiPrimo) {
+		this.AumentaPunteggioGiocatore(assegnaPunteggioPrimoObiettivo(this.libreria, o, rimanentiPrimo));
+
+	}
+
+	public void controlloSecondoObiettivoComune(ObiettivoComune o, int rimanentiSecondo) {
+		this.AumentaPunteggioGiocatore(assegnaPunteggioSecondoObiettivo(this.libreria, o, rimanentiSecondo));
+	}
 }

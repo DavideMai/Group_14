@@ -12,13 +12,15 @@ public class Partita {
 	 */
 	public static void main(String[] args) {
 		PlanciaGioco plancia = new PlanciaGioco();
-		ObiettivoComune obiettivoComune;
-		ObiettivoComune obiettivoComune2;
+		ObiettivoComune obiettivoComune = null;
+		ObiettivoComune obiettivoComune2 = null;
 		Scanner sc = new Scanner(System.in);
 		boolean nextPlayer = true;
 		String nome = new String();
 		int numberPlayer = 0;
 		boolean terminata = false;
+		int numeroRimanentiPrimoObiettivo = 4;
+		int numeroRimanentiSecondoObiettivo = 4;
 		ArrayList<Giocatori> giocatori = new ArrayList<Giocatori>();
 		do {
 			System.out.println("Vuoi inserire un nuovo giocatore? Se sì, inserisci true, altrimenti inserisci false");
@@ -200,32 +202,50 @@ public class Partita {
 		 */
 		do {
 			for (int i = 0; i < numberPlayer; i++) {
-				turno(plancia, giocatori.get(i), terminata);
+				turno(plancia, giocatori.get(i), terminata, obiettivoComune, obiettivoComune2,
+						numeroRimanentiPrimoObiettivo, numeroRimanentiSecondoObiettivo);
 			}
 		} while (!terminata);
 
 	}
 
 	/**
-	 * il seguente metodo statico fa sì che un giocatore peschi le tessere dalla
-	 * plancia e le riponga nella sua libreria
+	 * il seguente metodo fa sì che un giocatore possa pescare le tessere dalla
+	 * plancia e che le inserisca nella sua libreria
 	 * 
-	 * @param plancia la plancia di gioco
-	 * @param g       il giocatore che effettua il turno
-	 * @param t       variabile booleana, è true se un giocatore ha riempito la sua
-	 *                libreria
+	 * @param plancia          la plancia di gioco da cui si pescano le tessere
+	 * @param g                il giocatore che deve pescare le tessere
+	 * @param t                variabile booleana, viene settata a true se un
+	 *                         giocatore completa la sua libreria
+	 * @param ob1              primo obiettivo comune
+	 * @param ob2              secondo obiettivo comune
+	 * @param rimanentiPrimo   quanti giocatori devono ancora completare il primo
+	 *                         obiettivo comune
+	 * @param rimanentiSecondo quanti giocatori devono ancora completare il secondo
+	 *                         obiettivo comune
 	 */
-	public static void turno(PlanciaGioco plancia, Giocatori g, boolean t) {
+	public static void turno(PlanciaGioco plancia, Giocatori g, boolean t, ObiettivoComune ob1, ObiettivoComune ob2,
+			int rimanentiPrimo, int rimanentiSecondo) {
 		int[][] coordinate;
 		System.out.println("Turno del giocatore: " + g.getNome());
-		plancia.visualizzaPlancia();g.getObiettivoPersonale().VisualizzaObiettivoPersonale();
+		plancia.visualizzaPlancia();
+		g.getObiettivoPersonale().VisualizzaObiettivoPersonale();
+		System.out.println(ob1.getDescrizione());
+		System.out.println(ob2.getDescrizione());
 		g.getLibreria().visualizzaLibreria();
 		coordinate = plancia.PescaTessere();
 		g.getLibreria().inserimentoTessere(plancia, coordinate);
 		g.getLibreria().visualizzaLibreria();
+		if (rimanentiPrimo != 0) {
+			g.controlloPrimoObiettivoComune(ob1, rimanentiPrimo);
+		}
+		if (rimanentiSecondo != 0) {
+			g.controlloSecondoObiettivoComune(ob2, rimanentiSecondo);
+		}
 		if (g.getLibreria().controlloLibreria() == false) {
 			t = true;
 		}
 		plancia.ControlloTessere();
 	}
+
 }
