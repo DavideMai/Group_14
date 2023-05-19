@@ -1,6 +1,7 @@
 package partita;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import utils.Cella;
@@ -577,14 +578,14 @@ public class PlanciaGioco {
 	* */
 	public int[][] PescaTessere() {
 		int[][] coordinate = new int[3][2]; //array che salva le coordinate delle carte pescate
-		int i = 0, j = 0, precedente = 0, selezione = 0;/*indice array...,
+		int i = 0, j = 0, precedente=0, selezione=0,numero_1=0,numero_2=0,numero_3=0,numero_4=0;/*indice array...,
 		                                                  indice array...,
 		                                                  variabile di memorizzazione carta pescata precedentemente...,
 		                                                  variabile utilizzata come indice a schermo che permette la scelta della carta da pescare
 														*/
 		int x = coordinate[i][j];//variabile usiliaria
 		int y = coordinate[i + 1][j];//variabile usiliaria
-		Boolean scelta = null, pescabile = false;//varibaili di controllo 
+		Boolean scelta = null, pescabile = false,scelta2=null,riprova=false;//varibaili di controllo 
 
 		Scanner sc = new Scanner(System.in);
 		
@@ -613,9 +614,9 @@ public class PlanciaGioco {
 		try {
 		System.out.println("vuoi pescare un'altra tessera? (scrivi true o false):");
 		scelta = sc.nextBoolean();
-		}catch (IllegalArgumentException e) {
+		}catch (InputMismatchException e) {
 			System.out.println("vuoi pescare un'altra tessera? (scrivi true o false):");
-			scelta = sc.nextBoolean();
+			scelta2 = sc.nextBoolean();
 		}
 		if (scelta == true) 
 		{
@@ -625,18 +626,22 @@ public class PlanciaGioco {
 				if (getSotto(x, y) != TesseraOggetto.VUOTA && LatoVuoto((x + 1), y) == true) {
 					System.out.println("1-sotto: " + (x + 1) + "," + y + " " + toStringSecondo(getSotto(x, y)) + "\n");// sotto
 					pescabile = true;
+					numero_1=1;
 				}
 				if (getSopra(x, y) != TesseraOggetto.VUOTA && LatoVuoto((x - 1), y) == true) {
 					System.out.println("2-sopra: " + (x - 1) + "," + y + " " + toStringSecondo(getSopra(x, y)) + "\n");// sopra
 					pescabile = true;
+					numero_2=2;
 				}
 				if (getDestra(x, y) != TesseraOggetto.VUOTA && LatoVuoto(x, (y + 1)) == true) {
 					System.out.println("3-destra: " + x + "," + (y + 1) + " " + toStringSecondo(getDestra(x, y)) + "\n");// dx
 					pescabile = true;
+					numero_3=3;
 				}
 				if (getSinistra(x, y) != TesseraOggetto.VUOTA && LatoVuoto(x, (y - 1)) == true) {
 					System.out.println("4-sinistra: " + x + "," + (y - 1) + " " + toStringSecondo(getSinistra(x, y)) + "\n");// sx
 					pescabile = true;
+					numero_4=4;
 				}
 				if (pescabile == false) {
 					System.out.println("\033[0;31m"+"non ci sono più tessere da pescare"+"\033[0m");
@@ -646,11 +651,28 @@ public class PlanciaGioco {
 					{
 						System.out.println("\033[0;32m"+"inserisci il numero della tessera che vuoi pescare (1,2,3,4): "+"\033[0m");
 						precedente = sc.nextInt();
-						if (precedente > 4 || precedente < 1)
+						if (precedente<1||precedente>4)
 						{
 						System.out.println("\033[0;31m"+"numero tessera non valido"+"\033[0m");
+						}else if (precedente==numero_1)
+						{
+							break;
+						}else if (precedente==numero_2)
+						{
+							break;
+						}else if (precedente==numero_3)
+						{
+							break;
+						}else if (precedente==numero_4)
+						{
+							break;
+						}else 
+						{
+							System.out.println("\033[0;31m"+"numero tessera non valido"+"\033[0m");
+							riprova=true;
 						}
-					}while(precedente > 4 || precedente < 1);
+					}while(riprova == true);
+					
 					switch (precedente) 
 					{
 					case 1:

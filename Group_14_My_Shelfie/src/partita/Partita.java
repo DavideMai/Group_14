@@ -218,7 +218,7 @@ public class Partita {
 	public static void turno(PlanciaGioco plancia, Giocatori g, boolean t) {
 		int[][] coordinate;
 		System.out.println("Turno del giocatore: " + g.getNome());
-		plancia.visualizzaPlancia();
+		plancia.visualizzaPlancia();g.getObiettivoPersonale().VisualizzaObiettivoPersonale();
 		g.getLibreria().visualizzaLibreria();
 		coordinate = plancia.PescaTessere();
 		g.getLibreria().inserimentoTessere(plancia, coordinate);
