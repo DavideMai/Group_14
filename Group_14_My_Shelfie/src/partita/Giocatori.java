@@ -185,12 +185,12 @@ public class Giocatori {
 					break;
 				}
 				rimanenti--;
-				System.out.println("Il giocatore " + this.nome
-						+ " ha completato il primo obiettivo personale e guadagna " + aumento + " punti");
+				System.out.println("Il giocatore " + this.nome + " ha completato il primo obiettivo comune e guadagna "
+						+ aumento + " punti");
 			}
 
 		}
-		System.out.println("I giocatori che devono ancora completare il primo obiettivo personale sono " + rimanenti);
+		System.out.println("I giocatori che devono ancora completare il primo obiettivo comune sono " + rimanenti);
 		return aumento;
 	}
 
@@ -224,10 +224,10 @@ public class Giocatori {
 				}
 				rimanenti--;
 				System.out.println("Il giocatore " + this.nome
-						+ " ha completato il secondo obiettivo personale e guadagna " + aumento + " punti");
+						+ " ha completato il secondo obiettivo comune e guadagna " + aumento + " punti");
 			}
 		}
-		System.out.println("I giocatori che devono ancora completare il secondo obiettivo personale sono " + rimanenti);
+		System.out.println("I giocatori che devono ancora completare il secondo obiettivo comnue sono " + rimanenti);
 		return aumento;
 	}
 
@@ -249,5 +249,13 @@ public class Giocatori {
 
 	public void controlloSecondoObiettivoComune(ObiettivoComune o, int rimanentiSecondo) {
 		this.AumentaPunteggioGiocatore(assegnaPunteggioSecondoObiettivo(this.libreria, o, rimanentiSecondo));
+	}
+
+	/**
+	 * 
+	 * @return punteggio del giocatore
+	 */
+	public int getPunteggio() {
+		return punteggio;
 	}
 }
