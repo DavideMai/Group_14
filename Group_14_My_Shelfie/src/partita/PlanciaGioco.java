@@ -700,6 +700,7 @@ public class PlanciaGioco {
 					precedente = sc.nextInt();
 					if (precedente < 1 || precedente > 4) {
 						System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+						riprova = true;
 					} else if (precedente == numero_1) {
 						break;
 					} else if (precedente == numero_2) {

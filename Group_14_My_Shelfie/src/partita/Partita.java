@@ -221,7 +221,9 @@ public class Partita {
 						numeroRimanentiPrimoObiettivo, numeroRimanentiSecondoObiettivo);
 			}
 		} while (!terminata);
-
+		for (int i = 0; i < numberPlayer; i++) {
+			VisualizzaPunteggi(giocatori.get(i));
+		}
 	}
 
 	/**
@@ -263,4 +265,12 @@ public class Partita {
 		plancia.ControlloTessere();
 	}
 
+	/**
+	 * il metodo seguente visualizza il punteggio di un giocatore
+	 * 
+	 * @param g il giocatore
+	 */
+	public static void VisualizzaPunteggi(Giocatori g) {
+		System.out.println(g.getNome() + " ha ottenuto " + g.getPunteggio() + " punti");
+	}
 }
