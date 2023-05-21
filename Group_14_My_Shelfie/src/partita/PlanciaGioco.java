@@ -611,7 +611,7 @@ public class PlanciaGioco {
 	 * L'UNICO MODO CHE MI E' VENUTO IN MENTE PER RENDERE L'ESPERIENZA DI GIOCO IL
 	 * PIU SEMPLICE POSSIBILE
 	 */
-	public int[][] PescaTessere() {
+	public int[][] PescaTessere(int maxtessere_pescabili) {
 		int[][] coordinate = new int[3][2]; // array che salva le coordinate delle carte pescate
 		int i = 0, j = 0, precedente = 0, selezione = 0, numero_1 = 0, numero_2 = 0, numero_3 = 0,
 				numero_4 = 0;/*
@@ -624,9 +624,10 @@ public class PlanciaGioco {
 		Boolean scelta = null, pescabile = false, scelta2 = null, riprova = false;// varibaili di controllo
 		String inserimento = new String();
 		Scanner sc = new Scanner(System.in);
-
+     do {
 //pescaggio prima tessera
-		System.out.println("pescaggio prima tessera");
+    	 if (maxtessere_pescabili>=1) {
+		System.out.println("pescaggio prima tessera...");
 		System.out.println();
 
 		do {
@@ -646,8 +647,11 @@ public class PlanciaGioco {
 				|| tessereConfinanti(x, y) == false);
 		System.out.println("hai pescato la tessera " + toStringSecondo(tesseraoggetto[x][y]));
 		i++;
+		break;
+    	}
 //pescaggio seconda tessera
-		System.out.println("pescaggio seconda tessera");
+    	 if (maxtessere_pescabili>=2){
+		System.out.println("pescaggio seconda tessera...");
 		System.out.println();
 		sc.nextLine();
 		do {
@@ -732,9 +736,12 @@ public class PlanciaGioco {
 						+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 				scelta = false;
 			}
-			;
-//pescaggio terza tessera    
-			System.out.println("pescaggio terza tessera");
+			break;
+		};
+//pescaggio terza tessera   
+		if (maxtessere_pescabili>=3)
+		{
+			System.out.println("pescaggio terza tessera...");
 			System.out.println();
 			numero_1=0;
 			numero_2=0;
@@ -982,9 +989,12 @@ public class PlanciaGioco {
 			} else {
 				System.out.println("pescaggio finito... proseguire");
 			}
+			
+		  }
 		}
-		return coordinate;
-	}
+	  }while(true);
+     return coordinate;
+}
 
 	public void VisualizzaCoordinate(int[][] coordinate) {
 		for (int i = 0; i < 3; i++) {
