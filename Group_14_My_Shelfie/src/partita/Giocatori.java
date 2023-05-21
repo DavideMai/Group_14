@@ -94,40 +94,40 @@ public class Giocatori {
 		}
 		numeriEstratti.add(NumeroRandom);
 		switch (NumeroRandom) {
-		case 1:
+		case 0:
 			this.obiettivoPersonale = new PrimoObiettivoPersonale();
 			break;
-		case 2:
+		case 1:
 			this.obiettivoPersonale = new SecondoObiettivoPersonale();
 			break;
-		case 3:
+		case 2:
 			this.obiettivoPersonale = new TerzoObiettivoPersonale();
 			break;
-		case 4:
+		case 3:
 			this.obiettivoPersonale = new QuartoObiettivoPersonale();
 			break;
-		case 5:
+		case 4:
 			this.obiettivoPersonale = new QuintoObiettivoPersonale();
 			break;
-		case 6:
+		case 5:
 			this.obiettivoPersonale = new SestoObiettivoPersonale();
 			break;
-		case 7:
+		case 6:
 			this.obiettivoPersonale = new SettimoObiettivoPersonale();
 			break;
-		case 8:
+		case 7:
 			this.obiettivoPersonale = new OttavoObiettivoPersonale();
 			break;
-		case 9:
+		case 8:
 			this.obiettivoPersonale = new NonoObiettivoPersonale();
 			break;
-		case 10:
+		case 9:
 			this.obiettivoPersonale = new DecimoObiettivoPersonale();
 			break;
-		case 11:
+		case 10:
 			this.obiettivoPersonale = new UndicesimoObiettivoPersonale();
 			break;
-		case 12:
+		case 11:
 			this.obiettivoPersonale = new DodicesimoObiettivoPersonale();
 			break;
 		}
@@ -136,7 +136,7 @@ public class Giocatori {
 
 	public static int generateRandomNumber() {
 		Random rand = new Random();
-		int randomNum = rand.nextInt(12);
+		int randomNum = rand.nextInt(11);
 		return randomNum;
 	}
 

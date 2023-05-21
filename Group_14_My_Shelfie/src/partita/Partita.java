@@ -21,14 +21,29 @@ public class Partita {
 		boolean terminata = false;
 		int numeroRimanentiPrimoObiettivo = 4;
 		int numeroRimanentiSecondoObiettivo = 4;
+		String inserimento = new String();
 		ArrayList<Giocatori> giocatori = new ArrayList<Giocatori>();
 		do {
-			System.out.println("Vuoi inserire un nuovo giocatore? Se sì, inserisci true, altrimenti inserisci false");
-			nextPlayer = sc.nextBoolean();
+			/**
+			 * il seguente ciclo do - while chiede l'inserimento delle lettere T o F, e
+			 * continua a chiedere l'inserimento se l'inserimento non corrisponde a t, T, F,
+			 * f.
+			 */
+			do {
+				sc.reset();
+				System.out.println("Vuoi inserire un nuovo giocatore? Se sì, inserisci T, altrimenti inserisci F");
+				inserimento = sc.nextLine();
+			} while (!inserimento.matches("T") && !inserimento.matches("t") && !inserimento.matches("F")
+					&& !inserimento.matches("f"));
+			if (inserimento.matches("T") || inserimento.matches("t")) {
+				nextPlayer = true;
+			} else {
+				nextPlayer = false;
+			}
 			if (nextPlayer) {
 				numberPlayer++;
+				sc.reset();
 				System.out.println("Inserisci nome del giocatore: ");
-				sc.nextLine();
 				nome = sc.nextLine();
 				giocatori.add(new Giocatori(nome, numberPlayer));
 				System.out.println("Inserimento giocatore completato");
