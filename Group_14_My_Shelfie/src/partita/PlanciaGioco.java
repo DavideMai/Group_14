@@ -110,8 +110,14 @@ public class PlanciaGioco {
 			}
 		}
 	} // termine di Cancellacelle
-		// serie di funzioni per rendere la cella della plancia una determinata tessera
-		// oggetto
+
+	/**
+	 * i seguenti metodi servono a inizializzare una determinata cella a una tessera
+	 * oggetto
+	 * 
+	 * @param riga    la riga della cella
+	 * @param colonna la colonna della cella
+	 */
 
 	public void SetCellaTrofeo(int riga, int colonna) {
 		tesseraoggetto[riga][colonna] = TesseraOggetto.TROFEO;
@@ -143,7 +149,11 @@ public class PlanciaGioco {
 		RiduciNumeroTessere(TesseraOggetto.LIBRO);
 	}
 
-	// RiduciNumeroTessere serve a ridurre di 1 il numero di tessere disponibili
+	/**
+	 * riduce di 1 il numero di tessere disponibili
+	 * 
+	 * @param tessera la tessera di cui bisogna ridurre il numero
+	 */
 
 	public void RiduciNumeroTessere(TesseraOggetto tessera) {
 		switch (tessera) {
@@ -179,13 +189,12 @@ public class PlanciaGioco {
 		}
 	}
 
-	/*
+	/**
 	 * Il costruttore PlanciaGioco stabilisce quali celle sono utilizzabili in base
 	 * al numero di giocatori nella partita. Il contenuto vale: 1 se inutilizzabile
 	 * 2 se utilizzabile con almeno 2 giocatori 3 se utilizzabile con almeno 3
 	 * giocatori 4 se utilizzabile con almeno 4 giocatori
 	 */
-
 	public PlanciaGioco() {
 		// prima riga, tutte le colonne per controllo
 		for (int i = 0; i < 9; i++) {
@@ -301,7 +310,12 @@ public class PlanciaGioco {
 
 	}
 
-	// questo metodo restituisce che tessera è presente nella casella
+	/**
+	 * 
+	 * @param riga    riga della tessera
+	 * @param colonna colonna della tessera
+	 * @return la tessera presente nelle coordinate
+	 */
 
 	public TesseraOggetto getTessera(int riga, int colonna) {
 		TesseraOggetto tesseracontrollo = TesseraOggetto.VUOTA;
@@ -330,8 +344,13 @@ public class PlanciaGioco {
 		return tesseracontrollo;
 	}
 
-	// celleConfinanti riconosce le celle confinanti ad una determinata cella e le
-	// stampa a schermo
+	/**
+	 * il seguente metodo riconosce le celle confinanti a una data cella e le stampa
+	 * a schermo
+	 * 
+	 * @param riga    riga della cella da studiare
+	 * @param colonna colonna della cella da studiare
+	 */
 
 	public void celleConfinanti(int riga, int colonna) {
 
@@ -357,9 +376,9 @@ public class PlanciaGioco {
 		return true;
 	}
 
-	// visualizzaPlancia mostra la casella nella plancia con il tipo di tessera al
-	// suo interno
-
+	/**
+	 * visualizza la plancia, con le caselle e tutte le tessere presenti
+	 */
 	public void visualizzaPlancia() {
 		System.out.println("   ");
 		System.out.println("Visualizzazione plancia");
@@ -379,9 +398,9 @@ public class PlanciaGioco {
 		}
 	}
 
-	// funzione random che posiziona un qualsiasi dei 6 tipi di tessere sulla
-	// plancia
-
+	/**
+	 * funzione che posiziona in modo semi-casuale le tessere sulla plancia
+	 */
 	public void SetCella() {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
@@ -413,10 +432,13 @@ public class PlanciaGioco {
 		}
 	}
 
-	/*
-	 * le quattro funzioni seguenti restituiscono le celle confinanti alla cella
-	 * passata come parametro con riga e colonna i metodi getdoppia restituiscono le
-	 * tessere a distanza di due celle da quella passata inizialmente
+	/**
+	 * le seguenti funzioni restituiscono le tessere adiacenti a quella data. I
+	 * metodi getDoppia restituiscono quelle a distanza 2
+	 * 
+	 * @param riga    riga della tessera
+	 * @param colonna colonna della tessera
+	 * @return tessera confinante
 	 */
 
 	public TesseraOggetto getSinistra(int riga, int colonna) {
@@ -500,8 +522,11 @@ public class PlanciaGioco {
 		}
 	}
 
-	/*
-	 * metodo che assegna i colori e le lettere della plancia
+	/**
+	 * il metodo toString permette di visualizzare le tessere
+	 * 
+	 * @param t la tessera da visualizzare
+	 * @return una stringa per visualizzare le tessere
 	 */
 	public String toString(TesseraOggetto t) {
 		String tessera = new String();
@@ -559,9 +584,12 @@ public class PlanciaGioco {
 		return tessera;
 	}
 
-	/*
-	 * metodo che permette di cotrollare se una tessera con coordinate riga e
-	 * colonna ha almeno un lato libero
+	/**
+	 * metodo che controlla se una tessera ha almeno un lato vuoto
+	 * 
+	 * @param riga    riga della tessera
+	 * @param colonna colonna della tessera
+	 * @return true se ha almeno un lato libero
 	 */
 	public Boolean LatoVuoto(int riga, int colonna) {
 		if (getSinistra(riga, colonna) == TesseraOggetto.VUOTA || getDestra(riga, colonna) == TesseraOggetto.VUOTA
@@ -571,7 +599,7 @@ public class PlanciaGioco {
 		return false;
 	}
 
-	/*
+	/**
 	 * questa funzione permette di pescare le tessere dalla plancia, la funzione
 	 * ritorna un array dove sono contenute le coordinate delle carte pescate la
 	 * funzione permette di pescare soltanto carte con almeno un lato libero e
