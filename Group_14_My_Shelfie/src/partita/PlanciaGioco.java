@@ -737,7 +737,11 @@ public class PlanciaGioco {
 //pescaggio terza tessera    
 			System.out.println("pescaggio terza tessera");
 			System.out.println();
-
+			numero_1=0;
+			numero_2=0;
+			numero_3=0;
+			numero_4=0;
+			
 			pescabile = false;
 			sc.nextLine();
 			do {
@@ -761,12 +765,14 @@ public class PlanciaGioco {
 						System.out.println("1-sotto: " + (coordinate[i][j] + 1) + "," + coordinate[i][j + 1] + "-"
 								+ toStringSecondo(getSotto(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
+						numero_1=1;
 					}
 					if ((getdoppiaSopra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
 							&& LatoVuoto((coordinate[i][j] - 2), coordinate[i][j + 1]) == true)) {
 						System.out.println("2-sopra: " + (coordinate[i][j] - 2) + "," + coordinate[i][j + 1] + "-"
 								+ toStringSecondo(getdoppiaSopra(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
+						numero_2=2;
 					}
 					i++;
 					if (pescabile) {
@@ -775,8 +781,15 @@ public class PlanciaGioco {
 							selezione = sc.nextInt();
 							if (selezione < 1 || selezione > 2) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+							} else if (selezione == numero_1) {
+								break;
+							} else if (selezione == numero_2) {
+								break;
+							} else {
+								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+								riprova = true;
 							}
-						} while (selezione < 1 || selezione > 2);
+						} while (riprova==true);
 						switch (selezione) {
 						case 1:
 							coordinate[i][j] = (coordinate[i - 1][j] + 1);
@@ -801,6 +814,10 @@ public class PlanciaGioco {
 				 * posizioni sotto e sopra
 				 */
 				else if (precedente == 2) {
+					numero_1=0;
+					numero_2=0;
+					numero_3=0;
+					numero_4=0;
 					if ((getSopra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
 							&& LatoVuoto((coordinate[i][j] - 1), coordinate[i][j + 1]) == true)) {
 						System.out.println("1-sopra: " + (coordinate[i][j] - 1) + "," + coordinate[i][j + 1] + "-"
@@ -820,8 +837,15 @@ public class PlanciaGioco {
 							selezione = sc.nextInt();
 							if (selezione < 1 || selezione > 2) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+							} else if (selezione == numero_1) {
+								break;
+							} else if (selezione == numero_2) {
+								break;
+							} else {
+								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+								riprova = true;
 							}
-						} while (selezione < 1 || selezione > 2);
+						} while (riprova==true);
 						switch (selezione) {
 						case 1:
 							coordinate[i][j] = (coordinate[i - 1][j] - 1);
@@ -846,17 +870,23 @@ public class PlanciaGioco {
 				 * posizioni a sinistra e a destra
 				 */
 				else if (precedente == 3) {
+					numero_1=0;
+					numero_2=0;
+					numero_3=0;
+					numero_4=0;
 					if ((getDestra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
 							&& LatoVuoto(coordinate[i][j], (coordinate[i][j + 1] + 1)) == true)) {
 						System.out.println("3-destra: " + coordinate[i][j] + "," + (coordinate[i][j + 1] + 1) + "-"
 								+ toStringSecondo(getDestra(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
+						numero_3=3;
 					}
 					if ((getdoppiaSinistra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
 							&& LatoVuoto(coordinate[i][j], (coordinate[i][j + 1] - 2)) == true)) {
 						System.out.println("4-sinistra: " + coordinate[i][j] + "," + (coordinate[i][j + 1] - 2) + "-"
 								+ toStringSecondo(getdoppiaSinistra(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
+						numero_4=4;
 					}
 					i++;
 					if (pescabile) {
@@ -865,8 +895,15 @@ public class PlanciaGioco {
 							selezione = sc.nextInt();
 							if (selezione < 3 || selezione > 4) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+							} else if (selezione == numero_3) {
+								break;
+							} else if (selezione == numero_4) {
+								break;
+							} else {
+								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+								riprova = true;
 							}
-						} while (selezione < 3 || selezione > 4);
+						} while (riprova==true);
 						switch (selezione) {
 						case 3:
 							coordinate[i][j] = coordinate[i - 1][j];
@@ -891,17 +928,23 @@ public class PlanciaGioco {
 				 * posizioni a destra e a sinistra
 				 */
 				else if (precedente == 4) {
+					numero_1=0;
+					numero_2=0;
+					numero_3=0;
+					numero_4=0;
 					if ((getdoppiaDestra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
 							&& LatoVuoto((coordinate[i][j]), (coordinate[i][j + 1]) + 2) == true)) {
 						System.out.println("3-destra: " + coordinate[i][j] + "," + (coordinate[i][j + 1] + 2) + "-"
 								+ toStringSecondo(getdoppiaDestra(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
+						numero_3=3;
 					}
 					if ((getSinistra((coordinate[i][j]), coordinate[i][j + 1]) != TesseraOggetto.VUOTA
 							&& LatoVuoto((coordinate[i][j]), (coordinate[i][j + 1]) - 1) == true)) {
 						System.out.println("4-sinistra: " + coordinate[i][j] + "," + (coordinate[i][j + 1] - 1) + "-"
 								+ toStringSecondo(getSinistra((coordinate[i][j]), coordinate[i][j + 1])) + "\n");
 						pescabile = true;
+						numero_4=4;
 					}
 					i++;
 					if (pescabile) {
@@ -910,8 +953,15 @@ public class PlanciaGioco {
 							selezione = sc.nextInt();
 							if (selezione < 3 || selezione > 4) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+							} else if (selezione == numero_3) {
+								break;
+							} else if (selezione == numero_4) {
+								break;
+							} else {
+								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+								riprova = true;
 							}
-						} while (selezione < 3 || selezione > 4);
+						} while (riprova==true);
 						switch (selezione) {
 						case 3:
 							coordinate[i][j] = coordinate[i - 1][j];
