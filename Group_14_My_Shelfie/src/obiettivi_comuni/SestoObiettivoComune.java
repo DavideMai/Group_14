@@ -8,7 +8,7 @@ public class SestoObiettivoComune extends ObiettivoComune {
 	public SestoObiettivoComune() {
 		super();
 		numero_carta=6;
-		descrizione="Otto tessere dello stesso tipo. Non i sono restrizioni sulla posizione di queste tessere";
+		descrizione="Otto tessere dello stesso tipo. Non ci sono restrizioni sulla posizione di queste tessere";
 		// TODO Auto-generated constructor stub
 	}
 
