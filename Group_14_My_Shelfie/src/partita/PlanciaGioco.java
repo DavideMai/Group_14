@@ -649,7 +649,7 @@ public class PlanciaGioco {
 						|| tessereConfinanti(x, y) == false);
 				System.out.println("hai pescato la tessera " + toStringSecondo(tesseraoggetto[x][y]));
 				i++;
-				//break;
+				// break;
 			}
 //pescaggio seconda tessera
 			if (maxtessere_pescabili >= 2) {
@@ -741,10 +741,11 @@ public class PlanciaGioco {
 								+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 						scelta = false;
 					}
-					break;
+					
 				}
-				;
-//pescaggio terza tessera   
+				
+//pescaggio terza tessera 
+				System.out.println(maxtessere_pescabili);
 				if (maxtessere_pescabili >= 3) {
 					System.out.println("pescaggio terza tessera...");
 					System.out.println();
@@ -1009,6 +1010,7 @@ public class PlanciaGioco {
 					}
 
 				}
+				break;
 			}
 		} while (true);
 		return coordinate;
