@@ -18,5 +18,7 @@ public abstract class ObiettivoPersonale {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public abstract int ControllaObiettivoPersonale(TesseraOggetto[][] tesseraoggetto);
 	
 }

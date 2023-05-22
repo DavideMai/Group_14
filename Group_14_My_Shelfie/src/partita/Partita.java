@@ -259,18 +259,21 @@ public class Partita {
 		if (rimanentiSecondo != 0) {
 			g.controlloSecondoObiettivoComune(ob2, rimanentiSecondo);
 		}
-		if (g.getLibreria().controlloLibreria() == false) {
+		if (g.getLibreria().controlloLibreria() == false && !t) {
 			t = true;
+			g.AumentaPunteggioGiocatore(1); // il primo giocatore a riempire la libreria riceve un punto
 		}
 		plancia.ControlloTessere();
 	}
 
 	/**
-	 * il metodo seguente visualizza il punteggio di un giocatore
+	 * il metodo seguente assegna i punteggi degli obiettivi personali e visualizza
+	 * i punteggi dei giocatori
 	 * 
 	 * @param g il giocatore
 	 */
 	public static void VisualizzaPunteggi(Giocatori g) {
+		g.assegnaPunteggioObiettivoPersonale();
 		System.out.println(g.getNome() + " ha ottenuto " + g.getPunteggio() + " punti");
 	}
 }

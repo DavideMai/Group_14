@@ -475,7 +475,7 @@ public class Libreria {
 	 * questo metodo trova quante tessere si possono pescare al massimo, in base al
 	 * numero di celle vuote per ogni colonna della libreria
 	 * 
-	 * @return il numero massimo di celle da pescare
+	 * @return il numero massimo di tessere da pescare
 	 */
 	public int numeroMassimoDaPescare() {
 		int numeroPescabili[] = { 0, 0, 0, 0, 0 };
@@ -496,5 +496,9 @@ public class Libreria {
 			massimo = 3;
 		}
 		return massimo;
+	}
+
+	public TesseraOggetto[][] getTesseraoggetto() {
+		return tesseraoggetto;
 	}
 }

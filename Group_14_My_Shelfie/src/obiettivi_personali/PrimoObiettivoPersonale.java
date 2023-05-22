@@ -25,8 +25,7 @@ public class PrimoObiettivoPersonale extends ObiettivoPersonale {
 		}
 	}
 
-	public int ControllaObiettivoPersonale(TesseraOggetto[][] tesseraoggetto) { // funzione che controlla la libreria
-																				// con la carta obiettivo personale
+	public int ControllaObiettivoPersonale(TesseraOggetto[][] tesseraoggetto) { 
 
 		int punteggio = 0;
 		int contatore = 0;

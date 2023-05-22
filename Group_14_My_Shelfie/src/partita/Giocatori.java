@@ -258,4 +258,13 @@ public class Giocatori {
 	public int getPunteggio() {
 		return punteggio;
 	}
+
+	/**
+	 * metodo che assegna il punteggio al giocatore a fine partita in base a come ha
+	 * completato l'obiettivo personale
+	 */
+	public void assegnaPunteggioObiettivoPersonale() {
+		this.AumentaPunteggioGiocatore(
+				this.obiettivoPersonale.ControllaObiettivoPersonale(this.getLibreria().getTesseraoggetto()));
+	}
 }
