@@ -177,8 +177,8 @@ public class Libreria {
 		}
 	}
 	
-	public void CellaConfinantedx(Libreria l, int riga, int colonna) {
-
+	public void CellaConfinantedx( Libreria l, int riga, int colonna) 
+	{
 		l.getTessera(riga, colonna+1);
 	}
 	

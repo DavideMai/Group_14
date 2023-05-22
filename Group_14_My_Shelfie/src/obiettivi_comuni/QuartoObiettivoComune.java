@@ -1,6 +1,7 @@
 package obiettivi_comuni;
 
 import partita.Libreria;
+import utils.TesseraOggetto;
 
 public class QuartoObiettivoComune extends ObiettivoComune {
 
@@ -13,10 +14,37 @@ public class QuartoObiettivoComune extends ObiettivoComune {
 
 	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria) {
-		// TODO Auto-generated method stub
+		
+		int contatore=0;
+		Libreria libreria_virtuale;
+		libreria_virtuale=libreria;
+		for(int i=0; i<5; i++)
+		{
+			for(int j=0; j<4; j++)
+			{
+				if(libreria_virtuale.getTessera(i, j)!=TesseraOggetto.VUOTA)
+				{
+					if(libreria_virtuale.getTessera(i, j)==libreria_virtuale.getTessera(i+1, j) && libreria_virtuale.getTessera(i, j)==libreria_virtuale.getTessera(i, j+1) && libreria_virtuale.getTessera(i, j)==libreria_virtuale.getTessera(i+1, j+1))
+					{
+						contatore++;
+						libreria.setCellaVuota(i, j);
+						libreria.setCellaVuota(i+1, j);
+						libreria.setCellaVuota(i+1, j+1);
+						libreria.setCellaVuota(i, j+1);
+								
+					}
+				}
+				
+			}
+		}
+		
+		if(contatore>=2)
+		{
+			return true;
+		}
+		
 		return false;
 	}
 	
- 
 
 }

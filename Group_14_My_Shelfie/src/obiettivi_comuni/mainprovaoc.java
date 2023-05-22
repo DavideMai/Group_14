@@ -11,21 +11,21 @@ public class mainprovaoc {
 		libreria.setCellaVuoto();
 		ObiettivoComune oc;
 		
-		oc=new TerzoObiettivoComune();
+		oc=new QuartoObiettivoComune();
 		
 		libreria.setCellaCornice(0, 0);
-		libreria.setCellaLibro(0, 1);
-		libreria.setCellaGatto(0, 2);
-		libreria.setCellaGatto(0, 3);
+		libreria.setCellaCornice(0, 1);
+		libreria.setCellaCornice(0, 2);
+		libreria.setCellaCornice(0, 3);
 		libreria.setCellaCornice(0, 4);
 		
 		libreria.setCellaCornice(1, 0);
-		libreria.setCellaLibro(1, 1);
-		libreria.setCellaGatto(1, 2);
-		libreria.setCellaGatto(1, 3);
+		libreria.setCellaCornice(1, 1);
+		libreria.setCellaCornice(1, 2);
+		libreria.setCellaCornice(1, 3);
 		libreria.setCellaCornice(1, 4);
 		
-		libreria.setCellaCornice(2, 0);
+		/*libreria.setCellaCornice(2, 0);
 		libreria.setCellaLibro(2, 1);
 		libreria.setCellaGatto(2, 2);
 		libreria.setCellaGatto(2, 3);
@@ -47,7 +47,7 @@ public class mainprovaoc {
 		libreria.setCellaCornice(5, 1);
 		libreria.setCellaCornice(5, 2);
 		libreria.setCellaCornice(5, 3);
-		libreria.setCellaGioco(5, 4);
+		libreria.setCellaGioco(5, 4);*/
 		
 		
 		if(oc.ControlloObiettivoComune(libreria))
