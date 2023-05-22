@@ -624,6 +624,7 @@ public class PlanciaGioco {
 		Boolean scelta = null, pescabile = false, scelta2 = null, riprova = false;// varibaili di controllo
 		String inserimento = new String();
 		Scanner sc = new Scanner(System.in);
+		sc.reset();
 		// do {
 //pescaggio prima tessera
 		if (maxtessere_pescabili >= 1) {
@@ -740,11 +741,10 @@ public class PlanciaGioco {
 							+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 					scelta = false;
 				}
-
+				sc.nextLine();
 			}
 
 //pescaggio terza tessera 
-			System.out.println(maxtessere_pescabili);
 			if (maxtessere_pescabili >= 3) {
 				System.out.println("pescaggio terza tessera...");
 				System.out.println();
@@ -754,7 +754,7 @@ public class PlanciaGioco {
 				numero_4 = 0;
 
 				pescabile = false;
-				sc.nextLine();
+				
 				do {
 					System.out.println("Vuoi pescare la terza tessera? Se sì, inserisci T, altrimenti inserisci F");
 					inserimento = sc.nextLine();
