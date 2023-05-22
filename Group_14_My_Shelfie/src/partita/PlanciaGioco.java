@@ -624,7 +624,7 @@ public class PlanciaGioco {
 		Boolean scelta = null, pescabile = false, scelta2 = null, riprova = false;// varibaili di controllo
 		String inserimento = new String();
 		Scanner sc = new Scanner(System.in);
-		do {
+		//do {
 //pescaggio prima tessera
 			if (maxtessere_pescabili >= 1) {
 				System.out.println("pescaggio prima tessera...");
@@ -1008,11 +1008,12 @@ public class PlanciaGioco {
 					} else {
 						System.out.println("pescaggio finito... proseguire");
 					}
-
+					
 				}
-				break;
+				
 			}
-		} while (true);
+			//break;
+		//} while (true);
 		return coordinate;
 	}
 
