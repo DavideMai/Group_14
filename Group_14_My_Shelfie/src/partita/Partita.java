@@ -250,7 +250,7 @@ public class Partita {
 		System.out.println(ob1.getDescrizione());
 		System.out.println(ob2.getDescrizione());
 		g.getLibreria().visualizzaLibreria();
-		coordinate = plancia.PescaTessere();
+		coordinate = plancia.PescaTessere(g.getLibreria().numeroMassimoDaPescare());
 		g.getLibreria().inserimentoTessere(plancia, coordinate);
 		g.getLibreria().visualizzaLibreria();
 		if (rimanentiPrimo != 0) {

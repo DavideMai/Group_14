@@ -26,7 +26,7 @@ public class Main {
 		System.out.println(
 				"V sta per vuota, C per gatto, P per pianta, G per gioco, F per cornice, T per trofeo e L per libro");
 		plancia.visualizzaPlancia();
-		coordinate = plancia.PescaTessere();
+		coordinate = plancia.PescaTessere(libreria.numeroMassimoDaPescare());
 	    plancia.VisualizzaCoordinate(coordinate);
 		libreria.setCellaVuoto();
 		libreria.visualizzaLibreria();
