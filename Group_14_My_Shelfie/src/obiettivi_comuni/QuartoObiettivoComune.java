@@ -16,5 +16,7 @@ public class QuartoObiettivoComune extends ObiettivoComune {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+ 
 
 }

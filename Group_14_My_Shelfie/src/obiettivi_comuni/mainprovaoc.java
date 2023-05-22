@@ -11,10 +11,10 @@ public class mainprovaoc {
 		libreria.setCellaVuoto();
 		ObiettivoComune oc;
 		
-		oc=new DodicesimoObiettivoComune();
+		oc=new PrimoObiettivoComune();
 		
 		libreria.setCellaCornice(0, 0);
-		libreria.setCellaTrofeo(0, 1);
+		libreria.setCellaCornice(0, 1);
 		libreria.setCellaGatto(0, 2);
 		libreria.setCellaPianta(0, 3);
 		libreria.setCellaCornice(0, 4);
