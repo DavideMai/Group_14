@@ -49,7 +49,7 @@ public class mainprovaoc {
 		libreria.setCellaCornice(5, 3);
 		libreria.setCellaGioco(5, 4);*/
 		
-		//libreria.visualizzaLibreria();
+		libreria.visualizzaLibreria();
 		
 		if(oc.ControlloObiettivoComune(libreria))
 		{
