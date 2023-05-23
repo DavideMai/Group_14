@@ -227,7 +227,7 @@ public class Giocatori {
 						+ " ha completato il secondo obiettivo comune e guadagna " + aumento + " punti");
 			}
 		}
-		System.out.println("I giocatori che devono ancora completare il secondo obiettivo comnue sono " + rimanenti);
+		System.out.println("I giocatori che devono ancora completare il secondo obiettivo comune sono " + rimanenti);
 		return aumento;
 	}
 

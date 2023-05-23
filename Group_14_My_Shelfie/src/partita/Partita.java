@@ -19,8 +19,8 @@ public class Partita {
 		String nome = new String();
 		int numberPlayer = 0;
 		boolean terminata = false;
-		int numeroRimanentiPrimoObiettivo = 4;
-		int numeroRimanentiSecondoObiettivo = 4;
+		int numeroRimanentiPrimoObiettivo;
+		int numeroRimanentiSecondoObiettivo;
 		String inserimento = new String();
 		ArrayList<Giocatori> giocatori = new ArrayList<Giocatori>();
 		do {
@@ -65,7 +65,9 @@ public class Partita {
 		} while ((nextPlayer && numberPlayer < 4) || numberPlayer <= 1);
 		plancia.CancellaCelle(numberPlayer);
 		plancia.SetCella();
-
+		numeroRimanentiPrimoObiettivo=numberPlayer;
+		numeroRimanentiSecondoObiettivo=numberPlayer;
+		
 		int PrimoNumero1;
 		int SecondoNumero1;
 		/**

@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
 
-import utils.CellaLibreria;
 import utils.TesseraOggetto;
 
 /**
@@ -15,7 +14,6 @@ public class Libreria {
 	public int riga;
 	public int colonna;
 
-	CellaLibreria[][] libreria = new CellaLibreria[6][5];
 	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[6][5];
 	Scanner sc = new Scanner(System.in);
 
