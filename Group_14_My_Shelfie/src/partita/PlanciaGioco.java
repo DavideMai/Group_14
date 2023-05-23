@@ -625,7 +625,7 @@ public class PlanciaGioco {
 		String inserimento = new String();
 		Scanner sc = new Scanner(System.in);
 		sc.reset();
-		// do {
+		//do {
 //pescaggio prima tessera
 		if (maxtessere_pescabili >= 1) {
 			System.out.println("pescaggio prima tessera...");
@@ -743,9 +743,9 @@ public class PlanciaGioco {
 				}
 				sc.nextLine();
 			}
-
+		}
 //pescaggio terza tessera 
-			if (maxtessere_pescabili >= 3) {
+			if (maxtessere_pescabili >= 3 && pescabile) {
 				System.out.println("pescaggio terza tessera...");
 				System.out.println();
 				numero_1 = 0;
@@ -999,9 +999,9 @@ public class PlanciaGioco {
 
 			}
 
-		}
-		// break;
-		// } while (true);
+		
+		//break;
+		//} while (true);
 		return coordinate;
 	}
 

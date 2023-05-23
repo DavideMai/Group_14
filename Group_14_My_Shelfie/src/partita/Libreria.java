@@ -164,7 +164,7 @@ public class Libreria {
 	public void setCellaLibro(int riga, int colonna) {
 		tesseraoggetto[riga][colonna] = TesseraOggetto.LIBRO;
 	}
-	
+
 	public void setCellaVuota(int riga, int colonna) {
 		tesseraoggetto[riga][colonna] = TesseraOggetto.VUOTA;
 	}
@@ -176,25 +176,24 @@ public class Libreria {
 			}
 		}
 	}
-	
-	public void CellaConfinantedx( Libreria l, int riga, int colonna) 
-	{
-		l.getTessera(riga, colonna+1);
+
+	public void CellaConfinantedx(Libreria l, int riga, int colonna) {
+		l.getTessera(riga, colonna + 1);
 	}
-	
+
 	public void CellaConfinantesx(Libreria l, int riga, int colonna) {
 
-		l.getTessera(riga, colonna-1);
+		l.getTessera(riga, colonna - 1);
 	}
-	
+
 	public void CellaConfinantesopra(Libreria l, int riga, int colonna) {
 
-		l.getTessera(riga-1, colonna);
+		l.getTessera(riga - 1, colonna);
 	}
-	
+
 	public void CellaConfinantesotto(Libreria l, int riga, int colonna) {
 
-		l.getTessera(riga+1, colonna);
+		l.getTessera(riga + 1, colonna);
 	}
 
 	/**
@@ -229,7 +228,7 @@ public class Libreria {
 		boolean controllo = false;
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (getTessera(i, j) != TesseraOggetto.VUOTA) {
+				if (this.getTessera(i, j) != TesseraOggetto.VUOTA) {
 					controllo = false;
 				} else {
 					controllo = true;

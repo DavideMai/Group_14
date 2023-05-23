@@ -43,8 +43,10 @@ public class Partita {
 			if (nextPlayer) {
 				numberPlayer++;
 				sc.reset();
-				System.out.println("Inserisci nome del giocatore: ");
-				nome = sc.nextLine();
+				do {
+					System.out.println("Inserisci nome del giocatore: ");
+					nome = sc.nextLine();
+				} while (nome.equals(""));
 				giocatori.add(new Giocatori(nome, numberPlayer));
 				System.out.println("Inserimento giocatore completato");
 				giocatori.get(numberPlayer - 1).AssegnaObiettivoPersonale();
@@ -219,6 +221,9 @@ public class Partita {
 			for (int i = 0; i < numberPlayer; i++) {
 				turno(plancia, giocatori.get(i), terminata, obiettivoComune, obiettivoComune2,
 						numeroRimanentiPrimoObiettivo, numeroRimanentiSecondoObiettivo);
+			}
+			if (terminata) {
+				break;
 			}
 		} while (!terminata);
 		for (int i = 0; i < numberPlayer; i++) {
