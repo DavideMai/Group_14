@@ -12,6 +12,16 @@ public class NonoObiettivoComune extends ObiettivoComune{
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Controllo nono obiettivo comune: cerco 2 colonne con 6 diversi tipi di tessere scorrendo la libreria
+	 * se il numero di ogni tessera per colonna è uguale a uno allora aumento il contatore. Risulta true se il
+	 * contatore è maggiore o uguale a 2
+	 * 
+	 * @param libreria del giocatore
+	 * 
+	 * @return valore booleano 
+	 */
+	
 	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria) {
 		

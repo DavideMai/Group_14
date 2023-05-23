@@ -13,6 +13,16 @@ public class DodicesimoObiettivoComune extends ObiettivoComune{
 		// TODO Auto-generated constructor stub
 	}
 	
+	/**
+	 * Controllo dodicesimo obiettivo comune: cerco 5 colonne di altezza crescente o decrescente.
+	 * Conto che le tessere totali siano 15 o 20 per far si che l'ordine abbia senso, quindi da altezza
+	 * 6 a 2 o da 5 a 1. Ritorna true se obiettivo verificato.
+	 * 
+	 * @param libreria del giocatore
+	 * 
+	 * @return valore booleano 
+	 */
+	
 	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria)
 	{
@@ -53,6 +63,14 @@ public class DodicesimoObiettivoComune extends ObiettivoComune{
 		return false;
 		
 	}
+	
+	/**
+	 * funzione che conta il numero di tessere in una colonna
+	 * 
+	 * @param libreria: libreria del giocatore
+	 * @param colonna: colonna selezionata
+	 * @return ntessere: il numero di tessere di ogni colonna
+	 */
 	
 	public int NumeroTessereColonna(Libreria libreria, int colonna)
 	{

@@ -13,7 +13,7 @@ public class QuartoObiettivoComune extends ObiettivoComune {
 	}
 
 	/**
-	 * Controllo quarto obiettivo comune, cerco 4 tessere dello stesso tipo 2x2, se le trovo, metto le 
+	 * Controllo quarto obiettivo comune: cerco 4 tessere dello stesso tipo 2x2, se le trovo, metto le 
 	 * tessere VUOTE per evitare di contare due volte. Se il contatore è maggiore o uguale a 2 allora ritorna vero.
 	 * 
 	 * @param libreria del giocatore

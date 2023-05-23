@@ -13,6 +13,14 @@ public class DecimoObiettivoComune extends ObiettivoComune {
 	}
 	
 
+	/**
+	 * Controllo decimo obiettivo comune: cerco cinque tessere dello stesso tipo che formano una x scorrendo la libreria
+	 * Ritorna true se obiettivo verificato.
+	 * 
+	 * @param libreria del giocatore
+	 * 
+	 * @return valore booleano 
+	 */
 	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria) {
 		for(int j=0; j<3; j++) //colonna

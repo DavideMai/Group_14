@@ -14,6 +14,16 @@ public class UndicesimoObiettivoComune extends ObiettivoComune {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Controllo undicesimo obiettivo comune: cerco due righe con 5 diversi tipi di tessere per ognuna
+	 * Scorro la matrice e se ogni tipo di tessera è uguale a 1, aumento il contatore.
+	 * Se il contatore è maggiore o uguale a due risulta true. 
+	 * 
+	 * @param libreria del giocatore
+	 * 
+	 * @return valore booleano 
+	 */
+	
 	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria) 
 	{
@@ -61,7 +71,7 @@ public class UndicesimoObiettivoComune extends ObiettivoComune {
 		
 			for(int k=0; k<6; k++)
 			{
-				if(ntessere[k] ==0)
+				if(ntessere[k] ==0) //controllo che una tessera non trovata in precedenza risulti uno per far funzionare l'if sottostante
 				{
 					ntessere[k]++;
 					break;

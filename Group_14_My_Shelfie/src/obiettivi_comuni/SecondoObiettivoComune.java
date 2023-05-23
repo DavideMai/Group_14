@@ -12,7 +12,7 @@ public class SecondoObiettivoComune extends ObiettivoComune {
 	}
 	
 	/**
-	 * Controllo secondo obiettivo comune, cerca le quattro tessere nei 
+	 * Controllo secondo obiettivo comune: cerca le quattro tessere nei 
 	 * 4 angoli della libreria e controlla che siano uguali. 
 	 * 
 	 * @param libreria del giocatore

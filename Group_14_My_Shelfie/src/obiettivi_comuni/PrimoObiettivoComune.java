@@ -13,7 +13,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 	}
 
 	/**
-	 * Controllo primo obiettivo comune, cerca che le tessere inserite siano dello stesso tipo di quelle a destra
+	 * Controllo primo obiettivo comune: cerca che le tessere inserite siano dello stesso tipo di quelle a destra
 	 * o sopra, se verificato le metto nulle nella libreria_virtuale per evitare di contare le coppie due volte. Controlla che il 
 	 * contatore sia maggiore o uguale a 6.
 	 * 
