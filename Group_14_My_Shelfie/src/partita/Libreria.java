@@ -220,22 +220,20 @@ public class Libreria {
 	/**
 	 * funzione che controlla se la libreria è piena oppure ha ancora celle libere
 	 * 
-	 * @return controllo: può essere false (libreria piena) oppure true (ci sono
+	 * @return controllo: può essere true (libreria piena) oppure false (ci sono
 	 *         celle vuote)
 	 */
+	
 	public boolean controlloLibreria() {
-		boolean controllo = false;
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 5; j++) {
-				if (this.getTessera(i, j) != TesseraOggetto.VUOTA) {
+		boolean controllo = true;
+		for(int i = 0; i < 6; i++) {
+			for(int j = 0; j < 5; j++) {
+				if(this.getTessera(i, j).equals(TesseraOggetto.VUOTA)) {
 					controllo = false;
-				} else {
-					controllo = true;
-					break;
 				}
 			}
 		}
-		if (controllo == false) {
+		if (controllo) {
 			System.out.println("\033[0;31m" + "la libreria è piena" + "\033[0m");
 		} else {
 			System.out.println("\033[0;32m" + "La libreria ha ancora celle libere" + "\033[0m");

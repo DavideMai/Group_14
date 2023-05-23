@@ -67,9 +67,9 @@ public class Partita {
 		} while ((nextPlayer && numberPlayer < 4) || numberPlayer <= 1);
 		plancia.CancellaCelle(numberPlayer);
 		plancia.SetCella();
-		numeroRimanentiPrimoObiettivo=numberPlayer;
-		numeroRimanentiSecondoObiettivo=numberPlayer;
-		
+		numeroRimanentiPrimoObiettivo = numberPlayer;
+		numeroRimanentiSecondoObiettivo = numberPlayer;
+
 		int PrimoNumero1;
 		int SecondoNumero1;
 		/**
@@ -216,82 +216,64 @@ public class Partita {
 
 		} while (PrimoNumero1 == SecondoNumero1);
 
+		for (int i = 0; i < 6; i++) { // for testing purpose only
+			for (int j = 0; j < 5; j++) {
+				giocatori.get(1).getLibreria().setCellaTrofeo(i, j);
+			}
+		}
+		giocatori.get(1).getLibreria().setCellaVuota(0, 4);
 		// System.out.println("Stampa degli obiettivi comuni in corso... \n");
 
 		/**
 		 * ciclo che permette a ogni giocatore di fare il suo turno
 		 */
+		int[][] coordinate;
 		do {
 			for (int i = 0; i < numberPlayer; i++) {
-				turno(plancia, giocatori.get(i), terminata, obiettivoComune, obiettivoComune2,
-						numeroRimanentiPrimoObiettivo, numeroRimanentiSecondoObiettivo);
+				System.out.println("Turno del giocatore: " + giocatori.get(i).getNome());
+				plancia.visualizzaPlancia();
+				giocatori.get(i).getObiettivoPersonale().VisualizzaObiettivoPersonale();
+				System.out.println(obiettivoComune.getDescrizione());
+				System.out.println(obiettivoComune2.getDescrizione());
+				giocatori.get(i).getLibreria().visualizzaLibreria();
+				coordinate = plancia.PescaTessere(giocatori.get(i).getLibreria().numeroMassimoDaPescare());
+				giocatori.get(i).getLibreria().inserimentoTessere(plancia, coordinate);
+				giocatori.get(i).getLibreria().visualizzaLibreria();
+				if (giocatori.get(i).getLibreria().controlloLibreria() && !terminata) {
+					terminata = true;
+
+					giocatori.get(i).AumentaPunteggioGiocatore(1); // il primo giocatore a riempire la libreria riceve
+																	// un punto
+				}
+
+				if (numeroRimanentiPrimoObiettivo != 0) {
+					giocatori.get(i).controlloPrimoObiettivoComune(obiettivoComune, numeroRimanentiPrimoObiettivo);
+					numeroRimanentiPrimoObiettivo--;
+				}
+				if (numeroRimanentiSecondoObiettivo != 0) {
+					giocatori.get(i).controlloSecondoObiettivoComune(obiettivoComune2, numeroRimanentiSecondoObiettivo);
+				}
+				plancia.ControlloTessere();
+				/**
+				 * il seguente try-catch fa sì che si attendano 5 secondi tra un turno e l'altro
+				 */
+				try {
+					TimeUnit.SECONDS.sleep(3);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if (terminata) {
+					System.out.println("Partita terminata");
+					break;
+				}
 			}
-			if (terminata) {
-				break;
-			}
+
 		} while (!terminata);
 		for (int i = 0; i < numberPlayer; i++) {
-			VisualizzaPunteggi(giocatori.get(i));
+			giocatori.get(i).assegnaPunteggioObiettivoPersonale();
+			System.out
+					.println(giocatori.get(i).getNome() + " ha ottenuto " + giocatori.get(i).getPunteggio() + " punti");
 		}
-	}
-
-	/**
-	 * il seguente metodo fa sì che un giocatore possa pescare le tessere dalla
-	 * plancia e che le inserisca nella sua libreria
-	 * 
-	 * @param plancia          la plancia di gioco da cui si pescano le tessere
-	 * @param g                il giocatore che deve pescare le tessere
-	 * @param t                variabile booleana, viene settata a true se un
-	 *                         giocatore completa la sua libreria
-	 * @param ob1              primo obiettivo comune
-	 * @param ob2              secondo obiettivo comune
-	 * @param rimanentiPrimo   quanti giocatori devono ancora completare il primo
-	 *                         obiettivo comune
-	 * @param rimanentiSecondo quanti giocatori devono ancora completare il secondo
-	 *                         obiettivo comune
-	 */
-	public static void turno(PlanciaGioco plancia, Giocatori g, boolean t, ObiettivoComune ob1, ObiettivoComune ob2,
-			int rimanentiPrimo, int rimanentiSecondo) {
-		int[][] coordinate;
-		System.out.println("Turno del giocatore: " + g.getNome());
-		plancia.visualizzaPlancia();
-		g.getObiettivoPersonale().VisualizzaObiettivoPersonale();
-		System.out.println(ob1.getDescrizione());
-		System.out.println(ob2.getDescrizione());
-		g.getLibreria().visualizzaLibreria();
-		coordinate = plancia.PescaTessere(g.getLibreria().numeroMassimoDaPescare());
-		g.getLibreria().inserimentoTessere(plancia, coordinate);
-		g.getLibreria().visualizzaLibreria();
-		if (rimanentiPrimo != 0) {
-			g.controlloPrimoObiettivoComune(ob1, rimanentiPrimo);
-		}
-		if (rimanentiSecondo != 0) {
-			g.controlloSecondoObiettivoComune(ob2, rimanentiSecondo);
-		}
-		if (g.getLibreria().controlloLibreria() == false && !t) {
-			t = true;
-			g.AumentaPunteggioGiocatore(1); // il primo giocatore a riempire la libreria riceve un punto
-		}
-		plancia.ControlloTessere();
-		/**
-		 * il seguente try-catch fa sì che si attendano 5 secondi tra un turno e l'altro
-		 */
-		try {
-			TimeUnit.SECONDS.sleep(5);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * il metodo seguente assegna i punteggi degli obiettivi personali e visualizza
-	 * i punteggi dei giocatori
-	 * 
-	 * @param g il giocatore
-	 */
-	public static void VisualizzaPunteggi(Giocatori g) {
-		g.assegnaPunteggioObiettivoPersonale();
-		System.out.println(g.getNome() + " ha ottenuto " + g.getPunteggio() + " punti");
 	}
 }
