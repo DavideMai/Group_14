@@ -25,9 +25,42 @@ public class QuartoObiettivoComune extends ObiettivoComune {
 		
 		int contatore=0;
 
-		Libreria libreria_virtuale = new Libreria();
-
-		libreria_virtuale=libreria;
+		Libreria libreria_virtuale= new Libreria(libreria);
+		
+		/*for(int i=0; i<6; i++)
+		{
+			for(int j=0; j<5; j++)
+			{
+				if(libreria.getTessera(i, j)==TesseraOggetto.CORNICE)
+				{
+					libreria_virtuale.setCellaCornice(i, j);
+				}
+				else if(libreria.getTessera(i, j)==TesseraOggetto.GATTO)
+				{
+					libreria_virtuale.setCellaGatto(i, j);
+				}
+				else if(libreria.getTessera(i, j)==TesseraOggetto.GIOCO)
+				{
+					libreria_virtuale.setCellaGioco(i, j);
+				}
+				else if(libreria.getTessera(i, j)==TesseraOggetto.LIBRO)
+				{
+					libreria_virtuale.setCellaLibro(i, j);
+				}
+				else if(libreria.getTessera(i, j)==TesseraOggetto.PIANTA)
+				{
+					libreria_virtuale.setCellaPianta(i, j);
+				}
+				else if(libreria.getTessera(i, j)==TesseraOggetto.TROFEO)
+				{
+					libreria_virtuale.setCellaTrofeo(i, j);
+				}
+				else if(libreria.getTessera(i, j)==TesseraOggetto.VUOTA)
+				{
+					libreria_virtuale.setCellaVuota(i, j);
+				}
+			}
+		}*/
 		for(int i=0; i<5; i++)
 		{
 			for(int j=0; j<4; j++)
