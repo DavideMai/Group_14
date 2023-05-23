@@ -277,7 +277,7 @@ public class Libreria {
 			}
 		}
 		if (controllo) {
-			System.out.println("\033[0;31m" + "la libreria è piena" + "\033[0m");
+			System.out.println("\033[0;31m" + "la libreria e' piena" + "\033[0m");
 		} else {
 			System.out.println("\033[0;32m" + "La libreria ha ancora celle libere" + "\033[0m");
 		}

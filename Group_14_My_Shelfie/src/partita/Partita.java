@@ -243,7 +243,6 @@ public class Partita {
 
 				if (numeroRimanentiPrimoObiettivo != 0) {
 					giocatori.get(i).controlloPrimoObiettivoComune(obiettivoComune, numeroRimanentiPrimoObiettivo);
-					numeroRimanentiPrimoObiettivo--;
 				}
 				if (numeroRimanentiSecondoObiettivo != 0) {
 					giocatori.get(i).controlloSecondoObiettivoComune(obiettivoComune2, numeroRimanentiSecondoObiettivo);
