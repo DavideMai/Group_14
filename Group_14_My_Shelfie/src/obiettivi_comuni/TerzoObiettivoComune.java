@@ -24,7 +24,7 @@ public class TerzoObiettivoComune extends ObiettivoComune {
 	public boolean ControlloObiettivoComune(Libreria libreria) {
 		
 		int contatore=0; 
-		Libreria libreria_virtuale;
+		Libreria libreria_virtuale = new Libreria();
 		libreria_virtuale=libreria;
 		for(int i=0; i<6; i++) //scorro le righe
 		{

@@ -24,7 +24,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria) {
 		
-		Libreria libreria_virtuale; //libreria d'appoggio
+		Libreria libreria_virtuale= new Libreria(); //libreria d'appoggio
 		libreria_virtuale=libreria;
 		int contatore=0;
 		
