@@ -29,7 +29,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 					libreria_virtuale.setCellaVuota(5, j);
 					libreria_virtuale.setCellaVuota(5, j+1);
 					contatore++;
-					System.out.println("Coppie uguali: "+contatore);
+					
 					
 				}
 				else if(libreria_virtuale.getTessera(5, j)==libreria_virtuale.getTessera(4, j))
@@ -37,7 +37,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 					libreria_virtuale.setCellaVuota(5, j);
 					libreria_virtuale.setCellaVuota(4, j);
 					contatore++;
-					System.out.println("Coppie uguali: "+contatore);
+					
 				}
 			}
 		}
@@ -51,7 +51,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 					libreria_virtuale.setCellaVuota(4, j);
 					libreria_virtuale.setCellaVuota(4, j+1);
 					contatore++;
-					System.out.println("Coppie uguali: "+contatore);
+					
 					
 				}
 				else if(libreria_virtuale.getTessera(4, j)==libreria_virtuale.getTessera(3, j))
@@ -59,7 +59,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 					libreria_virtuale.setCellaVuota(4, j);
 					libreria_virtuale.setCellaVuota(3, j);
 					contatore++;
-					System.out.println("Coppie uguali: "+contatore);
+					
 				}
 			}		
 		}
@@ -73,7 +73,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 					libreria_virtuale.setCellaVuota(3, j);
 					libreria_virtuale.setCellaVuota(3, j+1);
 					contatore++;
-					System.out.println("Coppie uguali: "+contatore);
+					
 					
 				}
 				else if(libreria_virtuale.getTessera(3, j)==libreria_virtuale.getTessera(2, j))
@@ -81,7 +81,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 					libreria_virtuale.setCellaVuota(3, j);
 					libreria_virtuale.setCellaVuota(2, j);
 					contatore++;
-					System.out.println("Coppie uguali: "+contatore);
+					
 				}
 			}		
 		}
@@ -96,7 +96,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 					libreria_virtuale.setCellaVuota(2, j+1);
 					
 					contatore++;
-					System.out.println("Coppie uguali: "+contatore);
+					
 					
 				}
 				else if(libreria_virtuale.getTessera(2, j)==libreria_virtuale.getTessera(1, j))
@@ -104,7 +104,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 					libreria_virtuale.setCellaVuota(2, j);
 					libreria_virtuale.setCellaVuota(1, j);
 					contatore++;
-					System.out.println("Coppie uguali: "+contatore);
+					
 				}
 			}		
 		}
@@ -119,7 +119,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 					libreria_virtuale.setCellaVuota(1, j+1);
 					
 					contatore++;
-					System.out.println("Coppie uguali: "+contatore);
+					
 					
 				}
 				else if(libreria_virtuale.getTessera(1, j)==libreria_virtuale.getTessera(0, j))
@@ -127,7 +127,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 					libreria_virtuale.setCellaVuota(1, j);
 					libreria_virtuale.setCellaVuota(0, j);
 					contatore++;
-					System.out.println("Coppie uguali: "+contatore);
+					
 				}
 			}		
 		}
@@ -138,7 +138,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 			if(libreria_virtuale.getTessera(5, 4)==libreria_virtuale.getTessera(4, 4))
 			{
 				contatore++;
-				System.out.println("Coppie uguali: "+contatore);
+				
 				libreria_virtuale.setCellaVuota(5, 4);
 				libreria_virtuale.setCellaVuota(4, 4);
 			}
@@ -149,7 +149,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 			if(libreria_virtuale.getTessera(4, 4)==libreria_virtuale.getTessera(3, 4))
 			{
 				contatore++;
-				System.out.println("Coppie uguali: "+contatore);
+				
 				libreria_virtuale.setCellaVuota(4, 4);
 				libreria_virtuale.setCellaVuota(3, 4);
 			}
@@ -160,7 +160,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 			if(libreria_virtuale.getTessera(3, 4)==libreria_virtuale.getTessera(2, 4))
 			{
 				contatore++;
-				System.out.println("Coppie uguali: "+contatore);
+				
 				libreria_virtuale.setCellaVuota(3, 4);
 				libreria_virtuale.setCellaVuota(2, 4);
 			}
@@ -171,7 +171,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 			if(libreria_virtuale.getTessera(2, 4)==libreria_virtuale.getTessera(1, 4))
 			{
 				contatore++;
-				System.out.println("Coppie uguali: "+contatore);
+				
 				libreria_virtuale.setCellaVuota(2, 4);
 				libreria_virtuale.setCellaVuota(1, 4);
 			}
@@ -182,7 +182,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 			if(libreria_virtuale.getTessera(1, 4)==libreria_virtuale.getTessera(0, 4))
 			{
 				contatore++;
-				System.out.println("Coppie uguali: "+contatore);
+				
 				libreria_virtuale.setCellaVuota(1, 4);
 				libreria_virtuale.setCellaVuota(0, 4);
 			}

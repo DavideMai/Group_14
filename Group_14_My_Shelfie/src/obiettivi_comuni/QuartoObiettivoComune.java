@@ -27,10 +27,10 @@ public class QuartoObiettivoComune extends ObiettivoComune {
 					if(libreria_virtuale.getTessera(i, j)==libreria_virtuale.getTessera(i+1, j) && libreria_virtuale.getTessera(i, j)==libreria_virtuale.getTessera(i, j+1) && libreria_virtuale.getTessera(i, j)==libreria_virtuale.getTessera(i+1, j+1))
 					{
 						contatore++;
-						libreria.setCellaVuota(i, j);
-						libreria.setCellaVuota(i+1, j);
-						libreria.setCellaVuota(i+1, j+1);
-						libreria.setCellaVuota(i, j+1);
+						libreria_virtuale.setCellaVuota(i, j);
+						libreria_virtuale.setCellaVuota(i+1, j);
+						libreria_virtuale.setCellaVuota(i+1, j+1);
+						libreria_virtuale.setCellaVuota(i, j+1);
 								
 					}
 				}
