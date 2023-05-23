@@ -216,12 +216,7 @@ public class Partita {
 
 		} while (PrimoNumero1 == SecondoNumero1);
 
-		for (int i = 0; i < 6; i++) { // for testing purpose only
-			for (int j = 0; j < 5; j++) {
-				giocatori.get(1).getLibreria().setCellaTrofeo(i, j);
-			}
-		}
-		giocatori.get(1).getLibreria().setCellaVuota(0, 4);
+		
 		// System.out.println("Stampa degli obiettivi comuni in corso... \n");
 
 		/**
