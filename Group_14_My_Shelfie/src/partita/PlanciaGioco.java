@@ -383,7 +383,13 @@ public class PlanciaGioco {
 		System.out.println("   ");
 		System.out.println("Visualizzazione plancia");
 		System.out.println(
-				"V sta per vuota, C per gatto, P per pianta, G per gioco, F per cornice, T per trofeo e L per libro");
+							"\033[0;30m" + "V " + "\033[0m" + "sta per " + "\033[0;30m" + "VUOTO " + "\033[0m" + ", " +
+							"\033[0;32m" + "C " + "\033[0m" + "sta per " + "\033[0;32m" + "GATTO " + "\033[0m" + ", " +
+							"\033[0;35m" + "P " + "\033[0m" + "sta per " + "\033[0;35m" + "PIANTA " + "\033[0m" + ", " +
+							"\033[0;31m" + "G " + "\033[0m" + "sta per " + "\033[0;31m" + "GIOCO " + "\033[0m" + ", " +
+							"\033[0;34m" + "F " + "\033[0m" + "sta per " + "\033[0;34m" + "CORNICE " + "\033[0m" + ", " +
+							"\033[0;36m" + "T " + "\033[0m" + "sta per " + "\033[0;36m" + "TROFEO " + "\033[0m" + "e " +
+							"\033[0;37m" + "L " + "\033[0m" + "sta per " + "\033[0;37m" + "LIBRO " + "\033[0m");
 		System.out.println("   ");
 		String riga = new String();
 		System.out.println("     0 1 2 3 4 5 6 7 8");
