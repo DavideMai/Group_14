@@ -648,7 +648,7 @@ public class PlanciaGioco {
 					coordinate[i][j + 1] = y;
 					if (x > 8 || x < 0 || y > 8 || y < 0 || tessereConfinanti(x, y) == false) {
 						System.out.println("\033[0;31m"
-								+ "la carta non può essere pescata, inserisci nuove coordinate: " + "\033[0m");
+								+ "la carta non puo' essere pescata, inserisci nuove coordinate: " + "\033[0m");
 					}
 				} while (x > 8 || x < 0 || y > 8 || y < 0);
 			} while (LatoVuoto(x, y) == false || getTessera(x, y) == TesseraOggetto.VUOTA
@@ -663,7 +663,7 @@ public class PlanciaGioco {
 			System.out.println();
 			sc.nextLine();
 			do {
-				System.out.println("Vuoi pescare la seconda tessera? Se sì, inserisci T, altrimenti inserisci F");
+				System.out.println("Vuoi pescare la seconda tessera? Se si', inserisci T, altrimenti inserisci F");
 				inserimento = sc.nextLine();
 			} while (!inserimento.matches("T") && !inserimento.matches("t") && !inserimento.matches("F")
 					&& !inserimento.matches("f"));
@@ -762,7 +762,7 @@ public class PlanciaGioco {
 				pescabile = false;
 				
 				do {
-					System.out.println("Vuoi pescare la terza tessera? Se sì, inserisci T, altrimenti inserisci F");
+					System.out.println("Vuoi pescare la terza tessera? Se si', inserisci T, altrimenti inserisci F");
 					inserimento = sc.nextLine();
 				} while (!inserimento.matches("T") && !inserimento.matches("t") && !inserimento.matches("F")
 						&& !inserimento.matches("f"));
@@ -877,7 +877,7 @@ public class PlanciaGioco {
 									+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 							System.out.println("pescaggio finito... proseguire");
 						} else {
-							System.out.println("\033[0;31m" + "non ci sono più tessere da pescare" + "\033[0m");
+							System.out.println("\033[0;31m" + "non ci sono piu' tessere da pescare" + "\033[0m");
 							System.out.println("pescaggio finito... proseguire");
 						}
 					}
@@ -936,7 +936,7 @@ public class PlanciaGioco {
 									+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 							System.out.println("pescaggio finito... proseguire");
 						} else {
-							System.out.println("\033[0;31m" + "non ci sono più tessere da pescare" + "\033[0m");
+							System.out.println("\033[0;31m" + "non ci sono piu' tessere da pescare" + "\033[0m");
 							System.out.println("pescaggio finito... proseguire");
 						}
 					}
@@ -995,7 +995,7 @@ public class PlanciaGioco {
 									+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 							System.out.println("pescaggio finito... proseguire");
 						} else {
-							System.out.println("\033[0;31m" + "non ci sono più tessere da pescare" + "\033[0m");
+							System.out.println("\033[0;31m" + "non ci sono piu' tessere da pescare" + "\033[0m");
 							System.out.println("pescaggio finito... proseguire");
 						}
 					}

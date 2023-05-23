@@ -29,7 +29,7 @@ public class Libreria {
 			System.out.println("\033[0;32m" + "Scegli la colonna nella quale vuoi inserire le tessere" + "\033[0m");
 			N = sc.nextInt();
 			if (N < 0 || N > 4) {
-				System.out.println("\033[0;31m" + "Colonna che non esiste" + "\033[0m");
+				System.out.println("\033[0;31m" + "ERRORE. Colonna che non esiste" + "\033[0m");
 			}
 		} while (N < 0 || N > 4);
 
@@ -213,7 +213,7 @@ public class Libreria {
 			System.out.println(riga);
 		}
 		int massimo = this.numeroMassimoDaPescare();
-		System.out.println("Numero massimo di tessere pescabili: " + massimo);
+		System.out.println("Numero massimo di tessere pescabili: " + "\033[0;32m" + massimo + "\033[0m");
 	}
 
 	/**
@@ -235,9 +235,9 @@ public class Libreria {
 			}
 		}
 		if (controllo == false) {
-			System.out.println("la libreria è piena");
+			System.out.println("\033[0;31m" + "la libreria è piena" + "\033[0m");
 		} else {
-			System.out.println("La libreria ha ancora celle libere");
+			System.out.println("\033[0;32m" + "La libreria ha ancora celle libere" + "\033[0m");
 		}
 		return controllo;
 	}
@@ -340,7 +340,7 @@ public class Libreria {
 				}
 			}
 			if (spaziDisponibili < t) {
-				System.out.println("\033[0;31m" + "Seleziona una colonna valida" + "\033[0m");
+				System.out.println("\033[0;31m" + "ERRORE. Seleziona una colonna valida" + "\033[0m");
 			}
 		} while (spaziDisponibili < t);
 
@@ -356,10 +356,10 @@ public class Libreria {
 								coordinate[x + 1][y + 1]) == TesseraOggetto.VUOTA
 						|| scelta == 3 && plancia.getTessera(coordinate[x + 2][y],
 								coordinate[x + 2][y + 1]) == TesseraOggetto.VUOTA) {
-					System.out.println("\033[0;31m" + "Seleziona una tessera che non sia VUOTA" + "\033[0m");
+					System.out.println("\033[0;31m" + "ERRORE. Seleziona una tessera che non sia VUOTA" + "\033[0m");
 				}
 				if (scelta < 1 || scelta > 3) {
-					System.out.println("\033[0;31m" + "Scegli un valore valido" + "\033[0m");
+					System.out.println("\033[0;31m" + "ERRORE. Scegli un numero tra 1 e 3" + "\033[0m");
 				}
 			} while (scelta < 1 || scelta > 3
 					|| scelta == 1 && plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.VUOTA
@@ -496,7 +496,7 @@ public class Libreria {
 	 * questo metodo trova quante tessere si possono pescare al massimo, in base al
 	 * numero di celle vuote per ogni colonna della libreria
 	 * 
-	 * @return il numero massimo di tessere da pescare
+	 * @return massimo: il numero massimo di tessere da pescare
 	 */
 	public int numeroMassimoDaPescare() {
 		int numeroPescabili[] = { 0, 0, 0, 0, 0 };

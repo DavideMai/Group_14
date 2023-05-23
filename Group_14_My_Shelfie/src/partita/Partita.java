@@ -33,7 +33,7 @@ public class Partita {
 			 */
 			do {
 				sc.reset();
-				System.out.println("Vuoi inserire un nuovo giocatore? Se sì, inserisci T, altrimenti inserisci F");
+				System.out.println("Vuoi inserire un nuovo giocatore? Se si', inserisci T, altrimenti inserisci F");
 				inserimento = sc.nextLine();
 			} while (!inserimento.matches("T") && !inserimento.matches("t") && !inserimento.matches("F")
 					&& !inserimento.matches("f"));
