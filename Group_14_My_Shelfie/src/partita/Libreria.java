@@ -202,16 +202,17 @@ public class Libreria {
 		System.out.println("Visualizzazione libreria");
 		System.out.println("    ");
 		String riga = new String();
-		System.out.println("     0 1 2 3 4 ");
-		System.out.println("     ");
+		System.out.println("  | 0 1 2 3 4 |");
+		System.out.println("- | - - - - - |");
 		for (int i = 0; i < 6; i++) {
-			riga = i + "    ";
+			riga = i + " | ";
 			for (int j = 0; j < 5; j++) {
 				if (tesseraoggetto[i][j] != null)
 					riga = riga + toString(tesseraoggetto[i][j]);
 			}
-			System.out.println(riga);
+			System.out.println(riga + "| ");
 		}
+		System.out.println("- | - - - - - |");
 		int massimo = this.numeroMassimoDaPescare();
 		System.out.println("Numero massimo di tessere pescabili: " + "\033[0;32m" + massimo + "\033[0m");
 	}
