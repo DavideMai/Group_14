@@ -47,22 +47,7 @@ public abstract class ObiettivoComune {
 		descrizione[11] = "Cinque colonne di altezza crescente o decrescente: a partire dalla prima colonna a sinistra o a destra, ogni colonna successiva deve essere formata da una tessera in più. Le tessere possono essere di qualsiasi tipo";
 	}*/
 	
-	public Libreria rimuovi_adiacenza(Libreria libreria, TesseraOggetto t)
-	{
-		if(libreria.riga +1 <6)
-		{
-			if(libreria.getTessera(libreria.riga+1, libreria.colonna)!=TesseraOggetto.VUOTA)
-			{
-				if(libreria.getTessera(libreria.riga+1, libreria.colonna)==t)
-				{
-					
-				}
-			}
-		}
-		
-		
-		return libreria;
-	}
+
 
 	public static int generateRandomNumber() {
 		Random rand = new Random();
