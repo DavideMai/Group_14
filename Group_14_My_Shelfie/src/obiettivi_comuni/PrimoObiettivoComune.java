@@ -12,6 +12,15 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Controllo primo obiettivo comune, cerca che le tessere inserite siano dello stesso tipo di quelle a destra
+	 * o sopra, se verificato le metto nulle nella libreria_virtuale per evitare di contare le coppie due volte. Controlla che il 
+	 * contatore sia maggiore o uguale a 6.
+	 * 
+	 * @param libreria del giocatore
+	 * 
+	 * @return valore booleano 
+	 */
 	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria) {
 		
@@ -19,7 +28,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 		libreria_virtuale=libreria;
 		int contatore=0;
 		
-		//ciclo controllo riga 6 e sopra
+		//ciclo controllo riga 5 e sopra
 		for(int j=0; j<4; j++)
 		{
 			if(libreria_virtuale.getTessera(5, j)!=TesseraOggetto.VUOTA)
@@ -41,7 +50,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 				}
 			}
 		}
-		//controllo riga 5 e sopra
+		//controllo riga 4 e sopra
 		for(int j=0; j<4; j++)
 		{
 			if(libreria_virtuale.getTessera(4, j)!=TesseraOggetto.VUOTA)
@@ -63,7 +72,8 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 				}
 			}		
 		}
-		
+	
+		//controllo riga 3 e sopra
 		for(int j=0; j<4; j++)
 		{
 			if(libreria_virtuale.getTessera(3, j)!=TesseraOggetto.VUOTA)
@@ -86,6 +96,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 			}		
 		}
 		
+		//controllo riga 2 e sopra
 		for(int j=0; j<4; j++)
 		{
 			if(libreria_virtuale.getTessera(2, j)!=TesseraOggetto.VUOTA)
@@ -109,6 +120,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 			}		
 		}
 		
+		//controllo riga 1 e sopra
 		for(int j=0; j<4; j++)
 		{
 			if(libreria_virtuale.getTessera(1, j)!=TesseraOggetto.VUOTA)
@@ -132,7 +144,7 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 			}		
 		}
 		
-		
+		//controllo ultima colonna
 		if(libreria_virtuale.getTessera(5, 4)!=TesseraOggetto.VUOTA && libreria_virtuale.getTessera(4, 4)!=TesseraOggetto.VUOTA)
 		{
 			if(libreria_virtuale.getTessera(5, 4)==libreria_virtuale.getTessera(4, 4))
@@ -188,16 +200,12 @@ public class PrimoObiettivoComune extends ObiettivoComune {
 			}
 		}
 			
-		
+		//controllo se contatore ha trovato 6 coppie di tessere uguali
 		if(contatore>=6)
 		{
 			return true;
 		}
 			
 		return false;
-	}
-	
-
-	
+	}	
 }
-

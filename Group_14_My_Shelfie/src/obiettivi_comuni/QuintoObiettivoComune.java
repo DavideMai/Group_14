@@ -11,6 +11,15 @@ public class QuintoObiettivoComune extends ObiettivoComune {
 		descrizione="Tre colonne formate ciascuna da 6 tessere di uno, due o tre tipi differenti. Colonne diverse possono avere combinazioni diverse di tipi di tessere";
 		// TODO Auto-generated constructor stub
 	}
+	/**
+	 * Controllo quinto obiettivo comune: scorro la libreria, cercando tre colonne formate da 6 tessere con max 3 tipi diversi per colonna. 
+	 *
+	 * Se il contatore è maggiore o uguale a 3 ritorna vero
+	 * 
+	 * @param libreria del giocatore
+	 * 
+	 * @return valore booleano 
+	 */
 
 	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria) {
@@ -56,7 +65,7 @@ public class QuintoObiettivoComune extends ObiettivoComune {
 			if(controllo!=true)
 			{
 				int contatore2=0;
-				for(int k=0; k<6; k++)
+				for(int k=0; k<6; k++) 
 				{
 					if(ntessere[k]==0)
 					{

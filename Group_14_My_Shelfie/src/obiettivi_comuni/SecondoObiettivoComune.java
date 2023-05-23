@@ -10,7 +10,16 @@ public class SecondoObiettivoComune extends ObiettivoComune {
 		descrizione="Quattro tessere dello stesso tipo ai quattro angolo della libreria";
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	/**
+	 * Controllo secondo obiettivo comune, cerca le quattro tessere nei 
+	 * 4 angoli della libreria e controlla che siano uguali. 
+	 * 
+	 * @param libreria del giocatore
+	 * 
+	 * @return valore booleano 
+	 */
+	
 	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria) 
 	{

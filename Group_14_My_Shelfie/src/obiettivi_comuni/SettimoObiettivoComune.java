@@ -12,6 +12,15 @@ public class SettimoObiettivoComune extends ObiettivoComune {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Controllo settimo obiettivo comune: cercon 5 tessere dello stesso tipo che formano una diagonale scorrendo la libreria.
+	 * Vengono controllate le possibili opzioni di diagonale.
+	 * 
+	 * @param libreria del giocatore
+	 * 
+	 * @return valore booleano 
+	 */
+	
 	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria) {
 		

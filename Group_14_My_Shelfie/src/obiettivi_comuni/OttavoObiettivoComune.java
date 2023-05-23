@@ -13,15 +13,15 @@ public class OttavoObiettivoComune extends ObiettivoComune {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public int getNumeroCarta()
-	{
-		return numero_carta;
-	}
-	
-	public String getDescrizione()
-	{
-		return descrizione;
-	}
+	/**
+	 * Controllo ottavo obiettivo comune: scorro la libreria cercando 4 righe con 5 tessere di max 3 diversi tipi. 
+	 * ritorna true se il contatore risulta maggiore o uguale a 4.
+	 * 
+	 * 
+	 * @param libreria del giocatore
+	 * 
+	 * @return valore booleano 
+	 */
 	
 	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria)

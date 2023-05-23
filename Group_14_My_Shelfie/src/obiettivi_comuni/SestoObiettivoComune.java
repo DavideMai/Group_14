@@ -12,6 +12,15 @@ public class SestoObiettivoComune extends ObiettivoComune {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Controllo sesto obiettivo comune: scorro la libreria cercando 8 tessere dello stesso tipo. Se
+	 * uno dei vari contatori delle tessere è maggiore di 7 ritorna true
+	 * 
+	 * @param libreria del giocatore
+	 * 
+	 * @return valore booleano 
+	 */
+	
 	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria) {
 		

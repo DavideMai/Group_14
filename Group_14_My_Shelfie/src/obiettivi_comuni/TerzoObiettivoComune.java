@@ -12,6 +12,14 @@ public class TerzoObiettivoComune extends ObiettivoComune {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Controllo terzo obiettivo comune, cerco 4 tessere uguali sulla stessa riga o colonna scorrendo la libreria,
+	 * se la trovo, metto le celle VUOTE per non contare due volte. Ritorna vero se il contatore risulta maggiore o uguale a 4
+	 * 
+	 * @param libreria del giocatore
+	 * 
+	 * @return valore booleano 
+	 */
 	@Override
 	public boolean ControlloObiettivoComune(Libreria libreria) {
 		
