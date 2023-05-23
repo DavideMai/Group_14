@@ -2,6 +2,8 @@ package partita;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+import java.time.*;
 import obiettivi_comuni.*;
 
 public class Partita {
@@ -271,6 +273,15 @@ public class Partita {
 			g.AumentaPunteggioGiocatore(1); // il primo giocatore a riempire la libreria riceve un punto
 		}
 		plancia.ControlloTessere();
+		/**
+		 * il seguente try-catch fa sì che si attendano 5 secondi tra un turno e l'altro
+		 */
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
