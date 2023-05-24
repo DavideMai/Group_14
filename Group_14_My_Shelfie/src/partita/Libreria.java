@@ -352,7 +352,6 @@ public class Libreria {
 				if (scelta < 1 || scelta > 3) {
 					System.out.println("\033[0;31m" + "ERRORE. Scegli un numero tra 1 e 3" + "\033[0m");
 				}
-				sc.close();
 			} while (scelta < 1 || scelta > 3
 					|| scelta == 1 && plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.VUOTA
 					|| scelta == 2 && plancia.getTessera(coordinate[x + 1][y],
