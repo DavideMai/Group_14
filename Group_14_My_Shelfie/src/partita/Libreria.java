@@ -156,7 +156,7 @@ public class Libreria {
 		}
 		return tesseracontrollo;
 	}
-
+	
 	public void setCellaVuota(int riga, int colonna) {
 		tesseraoggetto[riga][colonna] = TesseraOggetto.VUOTA;
 	}
