@@ -36,7 +36,7 @@ public class SestoObiettivoPersonale extends ObiettivoPersonale {
 		if (tesseraoggetto[4][1] == TesseraOggetto.GIOCO) {
 			contatore++;
 		}
-		if (tesseraoggetto[4][3] == TesseraOggetto.GIOCO) {
+		if (tesseraoggetto[4][3] == TesseraOggetto.CORNICE) {
 			contatore++;
 		}
 		if (tesseraoggetto[5][0] == TesseraOggetto.PIANTA) {
