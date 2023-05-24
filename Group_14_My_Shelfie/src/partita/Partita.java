@@ -254,6 +254,8 @@ public class Partita {
 						numeroRimanentiSecondoObiettivo--;
 					}
 				}
+				System.out.println("I giocatori che devono ancora completare il primo obiettivo comune sono " + numeroRimanentiPrimoObiettivo);
+				System.out.println("I giocatori che devono ancora completare il secondo obiettivo comune sono " + numeroRimanentiSecondoObiettivo);
 				plancia.ControlloTessere();
 				/**
 				 * il seguente try-catch fa sì che si attendano 5 secondi tra un turno e l'altro

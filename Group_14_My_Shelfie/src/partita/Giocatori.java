@@ -170,19 +170,15 @@ public class Giocatori {
 				this.primoObiettivo = true;
 				switch (rimanenti) {
 				case 4:
-					rimanenti--;
 					aumento = 8;
 					break;
 				case 3:
-					rimanenti--;
 					aumento = 6;
 					break;
 				case 2:
-					rimanenti--;
 					aumento = 4;
 					break;
 				case 1:
-					rimanenti--;
 					aumento = 2;
 					break;
 				}
@@ -191,7 +187,6 @@ public class Giocatori {
 			}
 
 		}
-		System.out.println("I giocatori che devono ancora completare il primo obiettivo comune sono " + rimanenti);
 		return aumento;
 	}
 
@@ -211,19 +206,15 @@ public class Giocatori {
 				this.secondoObiettivo = true;
 				switch (rimanenti) {
 				case 4:
-					rimanenti--;
 					aumento = 8;
 					break;
 				case 3:
-					rimanenti--;
 					aumento = 6;
 					break;
 				case 2:
-					rimanenti--;
 					aumento = 4;
 					break;
 				case 1:
-					rimanenti--;
 					aumento = 2;
 					break;
 				}
@@ -231,7 +222,7 @@ public class Giocatori {
 						+ " ha completato il secondo obiettivo comune e guadagna " + aumento + " punti");
 			}
 		}
-		System.out.println("I giocatori che devono ancora completare il secondo obiettivo comune sono " + rimanenti);
+
 		return aumento;
 	}
 
