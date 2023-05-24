@@ -216,11 +216,12 @@ public class Partita {
 
 		} while (PrimoNumero1 == SecondoNumero1);
 
-		
 		// System.out.println("Stampa degli obiettivi comuni in corso... \n");
 
 		/**
-		 * ciclo che permette a ogni giocatore di fare il suo turno
+		 * ciclo che permette a ogni giocatore di pescare le tessere e inserirle nella
+		 * libreria. Controlla anche gli obiettivi comuni a ogni turno e se la partita è
+		 * terminata
 		 */
 		int[][] coordinate;
 		do {
@@ -264,6 +265,10 @@ public class Partita {
 			}
 
 		} while (!terminata);
+		/**
+		 * il seguente ciclo for calcola i punteggi per gli obiettivi personali e li
+		 * visualizza a schermo
+		 */
 		for (int i = 0; i < numberPlayer; i++) {
 			giocatori.get(i).assegnaPunteggioObiettivoPersonale();
 			System.out

@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import utils.TesseraOggetto;
 
-
 public class PrimoObiettivoPersonale extends ObiettivoPersonale {
 
 	public TesseraOggetto[][] ObiettivoPersonale = new TesseraOggetto[6][5];
@@ -16,8 +15,8 @@ public class PrimoObiettivoPersonale extends ObiettivoPersonale {
 		ObiettivoPersonale[4][1] = TesseraOggetto.TROFEO;
 		ObiettivoPersonale[4][4] = TesseraOggetto.PIANTA;
 		ObiettivoPersonale[5][0] = TesseraOggetto.CORNICE;
-		for (int i = 0; i <6; i++) {
-			for (int j = 0; j<5; j++) {
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
 				if (ObiettivoPersonale[i][j] == null) {
 					ObiettivoPersonale[i][j] = TesseraOggetto.VUOTA;
 				}
@@ -25,7 +24,7 @@ public class PrimoObiettivoPersonale extends ObiettivoPersonale {
 		}
 	}
 
-	public int ControllaObiettivoPersonale(TesseraOggetto[][] tesseraoggetto) { 
+	public int ControllaObiettivoPersonale(TesseraOggetto[][] tesseraoggetto) {
 
 		int punteggio = 0;
 		int contatore = 0;
@@ -73,51 +72,48 @@ public class PrimoObiettivoPersonale extends ObiettivoPersonale {
 
 		return punteggio;
 	}
-	
 
-	
 	public void VisualizzaObiettivoPersonale() { // funzione per visualizzare la carta obiettivo personale
 		System.out.println("Visualizzazione Obiettivo Personale");
 		String riga = new String();
 		System.out.println("    0 | 1 | 2 | 3 | 4 |");
 		System.out.println("  ---------------------");
-		for (int i = 0; i<6; i++) {
+		for (int i = 0; i < 6; i++) {
 			riga = "";
-			for (int j = 0; j<5;j++) {
+			for (int j = 0; j < 5; j++) {
 				riga = riga + toString(this.ObiettivoPersonale[i][j]) + "|";
 			}
-			System.out.println( i + " |" + riga);
-			
+			System.out.println(i + " |" + riga);
+
 		}
 	}
+
 	public String toString(TesseraOggetto t) {
 		String tessera = new String();
 		switch (t) {
 		case VUOTA:
-			tessera = "\033[0;30m"+" V "+"\033[0m";
+			tessera = "\033[0;30m" + " V " + "\033[0m";
 			break;
 		case GATTO:
-			tessera = "\033[0;32m"+" C "+"\033[0m";
+			tessera = "\033[0;32m" + " C " + "\033[0m";
 			break;
 		case PIANTA:
-			tessera = "\033[0;35m"+" P "+"\033[0m";
+			tessera = "\033[0;35m" + " P " + "\033[0m";
 			break;
 		case GIOCO:
-			tessera = "\033[0;31m"+" G "+"\033[0m";
+			tessera = "\033[0;31m" + " G " + "\033[0m";
 			break;
 		case CORNICE:
-			tessera = "\033[0;34m"+" F "+"\033[0m";
+			tessera = "\033[0;34m" + " F " + "\033[0m";
 			break;
 		case TROFEO:
-			tessera = "\033[0;36m"+" T "+"\033[0m";
+			tessera = "\033[0;36m" + " T " + "\033[0m";
 			break;
 		case LIBRO:
-			tessera = "\033[0;37m"+" L "+"\033[0m";
+			tessera = "\033[0;37m" + " L " + "\033[0m";
 			break;
 		}
 		return tessera;
 	}
 
-	
-	}
-
+}

@@ -35,50 +35,34 @@ public class Libreria {
 
 		return N;
 	}
-	
-	public Libreria()
-	{
-		
+
+	public Libreria() {
+
 	}
-	
-	public Libreria(Libreria l)
-	{
-		for(int i=0; i<6; i++)
-		{
-			for(int j=0; j<5; j++)
-			{
-				if(l.getTessera(i, j)==TesseraOggetto.CORNICE)
-				{
-					tesseraoggetto[i][j]=TesseraOggetto.CORNICE;
-				}
-				else if(l.getTessera(i, j)==TesseraOggetto.GATTO)
-				{
-					tesseraoggetto[i][j]=TesseraOggetto.GATTO;
-				}
-				else if(l.getTessera(i, j)==TesseraOggetto.GIOCO)
-				{
-					tesseraoggetto[i][j]=TesseraOggetto.GIOCO;
-				}
-				else if(l.getTessera(i, j)==TesseraOggetto.LIBRO)
-				{
-					tesseraoggetto[i][j]=TesseraOggetto.LIBRO;
-				}
-				else if(l.getTessera(i, j)==TesseraOggetto.PIANTA)
-				{
-					tesseraoggetto[i][j]=TesseraOggetto.PIANTA;
-				}
-				else if(l.getTessera(i, j)==TesseraOggetto.TROFEO)
-				{
-					tesseraoggetto[i][j]=TesseraOggetto.TROFEO;
-				}
-				else if(l.getTessera(i, j)==TesseraOggetto.VUOTA)
-				{
-					tesseraoggetto[i][j]=TesseraOggetto.VUOTA;
+
+	public Libreria(Libreria l) {
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (l.getTessera(i, j) == TesseraOggetto.CORNICE) {
+					tesseraoggetto[i][j] = TesseraOggetto.CORNICE;
+				} else if (l.getTessera(i, j) == TesseraOggetto.GATTO) {
+					tesseraoggetto[i][j] = TesseraOggetto.GATTO;
+				} else if (l.getTessera(i, j) == TesseraOggetto.GIOCO) {
+					tesseraoggetto[i][j] = TesseraOggetto.GIOCO;
+				} else if (l.getTessera(i, j) == TesseraOggetto.LIBRO) {
+					tesseraoggetto[i][j] = TesseraOggetto.LIBRO;
+				} else if (l.getTessera(i, j) == TesseraOggetto.PIANTA) {
+					tesseraoggetto[i][j] = TesseraOggetto.PIANTA;
+				} else if (l.getTessera(i, j) == TesseraOggetto.TROFEO) {
+					tesseraoggetto[i][j] = TesseraOggetto.TROFEO;
+				} else if (l.getTessera(i, j) == TesseraOggetto.VUOTA) {
+					tesseraoggetto[i][j] = TesseraOggetto.VUOTA;
 				}
 			}
 		}
-		
+
 	}
+
 	/**
 	 * funzione necessaria a poter poi rappresentare a schermo la libreria
 	 */
@@ -266,12 +250,12 @@ public class Libreria {
 	 * @return controllo: può essere true (libreria piena) oppure false (ci sono
 	 *         celle vuote)
 	 */
-	
+
 	public boolean controlloLibreria() {
 		boolean controllo = true;
-		for(int i = 0; i < 6; i++) {
-			for(int j = 0; j < 5; j++) {
-				if(this.getTessera(i, j).equals(TesseraOggetto.VUOTA)) {
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (this.getTessera(i, j).equals(TesseraOggetto.VUOTA)) {
 					controllo = false;
 				}
 			}
