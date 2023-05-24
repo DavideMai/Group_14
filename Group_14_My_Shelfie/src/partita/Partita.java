@@ -244,9 +244,15 @@ public class Partita {
 
 				if (numeroRimanentiPrimoObiettivo != 0) {
 					giocatori.get(i).controlloPrimoObiettivoComune(obiettivoComune, numeroRimanentiPrimoObiettivo);
+					if(obiettivoComune.ControlloObiettivoComune(giocatori.get(i).getLibreria()) && !giocatori.get(i).isSecondoObiettivo()) {
+						numeroRimanentiPrimoObiettivo--;
+					}
 				}
 				if (numeroRimanentiSecondoObiettivo != 0) {
 					giocatori.get(i).controlloSecondoObiettivoComune(obiettivoComune2, numeroRimanentiSecondoObiettivo);
+					if(obiettivoComune2.ControlloObiettivoComune(giocatori.get(i).getLibreria()) && !giocatori.get(i).isSecondoObiettivo()) {
+						numeroRimanentiSecondoObiettivo--;
+					}
 				}
 				plancia.ControlloTessere();
 				/**

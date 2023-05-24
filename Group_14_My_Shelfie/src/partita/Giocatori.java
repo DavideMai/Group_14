@@ -56,7 +56,6 @@ public class Giocatori {
 	 */
 	public Giocatori(String nome, int numero) {
 		this.nome = nome;
-		punteggio = -1;
 		this.setNumero_giocatore(numero);
 		libreria = new Libreria();
 		for (int i = 0; i < 6; i++) {
@@ -171,19 +170,22 @@ public class Giocatori {
 				this.primoObiettivo = true;
 				switch (rimanenti) {
 				case 4:
+					rimanenti--;
 					aumento = 8;
 					break;
 				case 3:
+					rimanenti--;
 					aumento = 6;
 					break;
 				case 2:
+					rimanenti--;
 					aumento = 4;
 					break;
 				case 1:
+					rimanenti--;
 					aumento = 2;
 					break;
 				}
-				rimanenti--;
 				System.out.println("Il giocatore " + this.nome + " ha completato il primo obiettivo comune e guadagna "
 						+ aumento + " punti");
 			}
@@ -209,19 +211,22 @@ public class Giocatori {
 				this.secondoObiettivo = true;
 				switch (rimanenti) {
 				case 4:
+					rimanenti--;
 					aumento = 8;
 					break;
 				case 3:
+					rimanenti--;
 					aumento = 6;
 					break;
 				case 2:
+					rimanenti--;
 					aumento = 4;
 					break;
 				case 1:
+					rimanenti--;
 					aumento = 2;
 					break;
 				}
-				rimanenti--;
 				System.out.println("Il giocatore " + this.nome
 						+ " ha completato il secondo obiettivo comune e guadagna " + aumento + " punti");
 			}
@@ -281,5 +286,21 @@ public class Giocatori {
 
 	public void setObiettivoComune(ObiettivoComune obiettivoComune) {
 		this.obiettivoComune = obiettivoComune;
+	}
+
+	public boolean isPrimoObiettivo() {
+		return primoObiettivo;
+	}
+
+	public void setPrimoObiettivo(boolean primoObiettivo) {
+		this.primoObiettivo = primoObiettivo;
+	}
+
+	public boolean isSecondoObiettivo() {
+		return secondoObiettivo;
+	}
+
+	public void setSecondoObiettivo(boolean secondoObiettivo) {
+		this.secondoObiettivo = secondoObiettivo;
 	}
 }
