@@ -244,18 +244,22 @@ public class Partita {
 
 				if (numeroRimanentiPrimoObiettivo != 0) {
 					giocatori.get(i).controlloPrimoObiettivoComune(obiettivoComune, numeroRimanentiPrimoObiettivo);
-					if(obiettivoComune.ControlloObiettivoComune(giocatori.get(i).getLibreria()) && !giocatori.get(i).isSecondoObiettivo()) {
+					if (obiettivoComune.ControlloObiettivoComune(giocatori.get(i).getLibreria())
+							&& !giocatori.get(i).isPrimoObiettivo()) {
 						numeroRimanentiPrimoObiettivo--;
 					}
 				}
 				if (numeroRimanentiSecondoObiettivo != 0) {
 					giocatori.get(i).controlloSecondoObiettivoComune(obiettivoComune2, numeroRimanentiSecondoObiettivo);
-					if(obiettivoComune2.ControlloObiettivoComune(giocatori.get(i).getLibreria()) && !giocatori.get(i).isSecondoObiettivo()) {
+					if (obiettivoComune2.ControlloObiettivoComune(giocatori.get(i).getLibreria())
+							&& !giocatori.get(i).isSecondoObiettivo()) {
 						numeroRimanentiSecondoObiettivo--;
 					}
 				}
-				System.out.println("I giocatori che devono ancora completare il primo obiettivo comune sono " + numeroRimanentiPrimoObiettivo);
-				System.out.println("I giocatori che devono ancora completare il secondo obiettivo comune sono " + numeroRimanentiSecondoObiettivo);
+				System.out.println("I giocatori che devono ancora completare il primo obiettivo comune sono "
+						+ numeroRimanentiPrimoObiettivo);
+				System.out.println("I giocatori che devono ancora completare il secondo obiettivo comune sono "
+						+ numeroRimanentiSecondoObiettivo);
 				plancia.ControlloTessere();
 				/**
 				 * il seguente try-catch fa sì che si attendano 5 secondi tra un turno e l'altro

@@ -230,8 +230,8 @@ public class Giocatori {
 	 * funzione che controlla se il giocatore ha completato uno (o entrambi) gli
 	 * obiettivi comuni, e assegna i punteggi di conseguenza
 	 * 
-	 * @param o1               primo obiettivo comune da controllare
-	 * @param o2               secondo obiettivo comune da controllare
+	 * @param o                obiettivo comune da controllare
+	 * 
 	 * @param rimanentiPrimo   quanti giocatori devono ancora completare il primo
 	 *                         obiettivo comune
 	 * @param rimanentiSecondo quanti giocatori devono ancora completare il secondo
