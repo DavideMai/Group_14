@@ -274,6 +274,6 @@ public class Partita {
 			System.out
 					.println(giocatori.get(i).getNome() + " ha ottenuto " + giocatori.get(i).getPunteggio() + " punti");
 		}
-		sc.close();
+
 	}
 }

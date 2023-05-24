@@ -481,7 +481,6 @@ public class Libreria {
 
 			t--;
 		} while (t > 0);
-		sc.close();
 	}
 
 	/**
