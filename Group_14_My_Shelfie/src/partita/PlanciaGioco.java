@@ -798,8 +798,10 @@ public class PlanciaGioco {
 							if (selezione < 1 || selezione > 2) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
 							} else if (selezione == numero_1) {
+								riprova = false;
 								break;
 							} else if (selezione == numero_2) {
+								riprova = false;
 								break;
 							} else {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
@@ -839,12 +841,14 @@ public class PlanciaGioco {
 						System.out.println("1-sopra: " + (coordinate[i][j] - 1) + "," + coordinate[i][j + 1] + "-"
 								+ toStringSecondo(getSopra(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
+						numero_1 = 1;
 					}
 					if ((getdoppiaSotto(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
 							&& LatoVuoto((coordinate[i][j] + 2), coordinate[i][j + 1]) == true)) {
 						System.out.println("2-sotto: " + (coordinate[i][j] + 2) + "," + coordinate[i][j + 1] + "-"
 								+ toStringSecondo(getdoppiaSotto(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
+						numero_2 = 2;
 					}
 					i++;
 					if (pescabile) {
@@ -854,8 +858,10 @@ public class PlanciaGioco {
 							if (selezione < 1 || selezione > 2) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
 							} else if (selezione == numero_1) {
+								riprova = false;
 								break;
 							} else if (selezione == numero_2) {
+								riprova = false;
 								break;
 							} else {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
@@ -912,8 +918,10 @@ public class PlanciaGioco {
 							if (selezione < 3 || selezione > 4) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
 							} else if (selezione == numero_3) {
+								riprova = false;
 								break;
 							} else if (selezione == numero_4) {
+								riprova = false;
 								break;
 							} else {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
@@ -970,8 +978,10 @@ public class PlanciaGioco {
 							if (selezione < 3 || selezione > 4) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
 							} else if (selezione == numero_3) {
+								riprova = false;
 								break;
 							} else if (selezione == numero_4) {
+								riprova = false;
 								break;
 							} else {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
