@@ -1,7 +1,5 @@
 package partita;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Scanner;
 
 import utils.TesseraOggetto;
@@ -157,37 +155,6 @@ public class Libreria {
 			tesseracontrollo = TesseraOggetto.VUOTA;
 		}
 		return tesseracontrollo;
-	}
-
-	/**
-	 * serie di funzioni che rendono una cella della libreria un determinato tipo di
-	 * tessera
-	 * 
-	 * @param riga:    riga della cella
-	 * @param colonna: colonna della cella
-	 */
-	public void setCellaTrofeo(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.TROFEO;
-	}
-
-	public void setCellaPianta(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.PIANTA;
-	}
-
-	public void setCellaGatto(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.GATTO;
-	}
-
-	public void setCellaGioco(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.GIOCO;
-	}
-
-	public void setCellaCornice(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.CORNICE;
-	}
-
-	public void setCellaLibro(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.LIBRO;
 	}
 
 	public void setCellaVuota(int riga, int colonna) {
@@ -361,8 +328,6 @@ public class Libreria {
 			for (int i = 0; i < 6; i++) {
 				if (tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
 					spaziDisponibili++;
-				} else {
-					spaziDisponibili = spaziDisponibili;
 				}
 			}
 			if (spaziDisponibili < t) {
@@ -516,6 +481,7 @@ public class Libreria {
 
 			t--;
 		} while (t > 0);
+		sc.close();
 	}
 
 	/**

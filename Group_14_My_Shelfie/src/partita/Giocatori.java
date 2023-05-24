@@ -1,6 +1,5 @@
 package partita;
 
-import java.math.*;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -58,7 +57,7 @@ public class Giocatori {
 	public Giocatori(String nome, int numero) {
 		this.nome = nome;
 		punteggio = -1;
-		this.numero_giocatore = numero;
+		this.setNumero_giocatore(numero);
 		libreria = new Libreria();
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
@@ -266,5 +265,21 @@ public class Giocatori {
 	public void assegnaPunteggioObiettivoPersonale() {
 		this.AumentaPunteggioGiocatore(
 				this.obiettivoPersonale.ControllaObiettivoPersonale(this.getLibreria().getTesseraoggetto()));
+	}
+
+	public int getNumero_giocatore() {
+		return numero_giocatore;
+	}
+
+	public void setNumero_giocatore(int numero_giocatore) {
+		this.numero_giocatore = numero_giocatore;
+	}
+
+	public ObiettivoComune getObiettivoComune() {
+		return obiettivoComune;
+	}
+
+	public void setObiettivoComune(ObiettivoComune obiettivoComune) {
+		this.obiettivoComune = obiettivoComune;
 	}
 }
