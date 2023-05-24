@@ -246,14 +246,18 @@ public class Partita {
 					giocatori.get(i).controlloPrimoObiettivoComune(obiettivoComune, numeroRimanentiPrimoObiettivo);
 					if (obiettivoComune.ControlloObiettivoComune(giocatori.get(i).getLibreria())
 							&& !giocatori.get(i).isPrimoObiettivo()) {
+						System.out.println("Primo obiettivo completato!");
 						numeroRimanentiPrimoObiettivo--;
+						giocatori.get(i).setPrimoObiettivo(true);
 					}
 				}
 				if (numeroRimanentiSecondoObiettivo != 0) {
 					giocatori.get(i).controlloSecondoObiettivoComune(obiettivoComune2, numeroRimanentiSecondoObiettivo);
 					if (obiettivoComune2.ControlloObiettivoComune(giocatori.get(i).getLibreria())
 							&& !giocatori.get(i).isSecondoObiettivo()) {
+						System.out.println("Secondo obiettivo completato!");
 						numeroRimanentiSecondoObiettivo--;
+						giocatori.get(i).setSecondoObiettivo(true);
 					}
 				}
 				System.out.println("I giocatori che devono ancora completare il primo obiettivo comune sono "

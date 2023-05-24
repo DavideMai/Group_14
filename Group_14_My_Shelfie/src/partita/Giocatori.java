@@ -167,7 +167,6 @@ public class Giocatori {
 		int aumento = 0;
 		if (!this.primoObiettivo) {
 			if (o.ControlloObiettivoComune(libreria)) {
-				this.primoObiettivo = true;
 				switch (rimanenti) {
 				case 4:
 					aumento = 8;
@@ -203,7 +202,6 @@ public class Giocatori {
 		int aumento = 0;
 		if (!this.secondoObiettivo) {
 			if (o.ControlloObiettivoComune(libreria)) {
-				this.secondoObiettivo = true;
 				switch (rimanenti) {
 				case 4:
 					aumento = 8;
