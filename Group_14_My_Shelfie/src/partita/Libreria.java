@@ -156,7 +156,7 @@ public class Libreria {
 		}
 		return tesseracontrollo;
 	}
-	
+
 	public void setCellaVuota(int riga, int colonna) {
 		tesseraoggetto[riga][colonna] = TesseraOggetto.VUOTA;
 	}
@@ -512,5 +512,289 @@ public class Libreria {
 
 	public TesseraOggetto[][] getTesseraoggetto() {
 		return tesseraoggetto;
+	}
+
+	TesseraOggetto[][] libreria_appoggio = new TesseraOggetto[6][5]; // Libreria di appoggio per verifica punteggio
+
+	public int ControllaObiettiviFinali() {
+		int Punteggio = 0;
+		int punteggiofinale[] = new int[6];
+		int cont = 0;
+
+		// CONTROLLO TESSERE GATTO
+		reset(libreria_appoggio);
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (tesseraoggetto[i][j] == TesseraOggetto.GATTO) {
+					libreria_appoggio[i][j] = tesseraoggetto[i][j];
+				}
+			}
+		}
+
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (libreria_appoggio[i][j] == getDestra(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSotto(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSinistra(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSopra(i, j)) {
+					cont++;
+				}
+				libreria_appoggio[i][j] = TesseraOggetto.VUOTA;
+			}
+		}
+
+		if (cont == 0) {
+			punteggiofinale[0] = 0;
+		} else {
+			if (cont < 4 && cont > 1) {
+				cont++;
+				punteggiofinale[0] = cont;
+			}
+		}
+
+		// CONTROLLO TESSERE TROFEO
+		cont = 0;
+		reset(libreria_appoggio);
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (tesseraoggetto[i][j] == TesseraOggetto.TROFEO) {
+					libreria_appoggio[i][j] = tesseraoggetto[i][j];
+				}
+			}
+		}
+
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (libreria_appoggio[i][j] == getDestra(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSotto(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSinistra(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSopra(i, j)) {
+					cont++;
+				}
+				libreria_appoggio[i][j] = TesseraOggetto.VUOTA;
+			}
+		}
+
+		if (cont == 0) {
+			punteggiofinale[1] = 0;
+		} else {
+			if (cont < 4 && cont > 1) {
+				cont++;
+				punteggiofinale[1] = cont;
+			}
+		}
+
+		// CONTROLLO TESSERE CORNICI
+		cont = 0;
+		reset(libreria_appoggio);
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (tesseraoggetto[i][j] == TesseraOggetto.CORNICE) {
+					libreria_appoggio[i][j] = tesseraoggetto[i][j];
+				}
+			}
+		}
+
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (libreria_appoggio[i][j] == getDestra(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSotto(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSinistra(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSopra(i, j)) {
+					cont++;
+				}
+				libreria_appoggio[i][j] = TesseraOggetto.VUOTA;
+			}
+		}
+
+		if (cont == 0) {
+			punteggiofinale[2] = 0;
+		} else {
+			if (cont < 4 && cont > 1) {
+				cont++;
+				punteggiofinale[2] = cont;
+			}
+		}
+
+		// CONTROLLO TESSERE LIBRI
+		cont = 0;
+		reset(libreria_appoggio);
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (tesseraoggetto[i][j] == TesseraOggetto.LIBRO) {
+					libreria_appoggio[i][j] = tesseraoggetto[i][j];
+				}
+			}
+		}
+
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (libreria_appoggio[i][j] == getDestra(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSotto(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSinistra(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSopra(i, j)) {
+					cont++;
+				}
+				libreria_appoggio[i][j] = TesseraOggetto.VUOTA;
+			}
+		}
+
+		if (cont == 0) {
+			punteggiofinale[3] = 0;
+		} else {
+			if (cont < 4 && cont > 1) {
+				cont++;
+				punteggiofinale[3] = cont;
+			}
+		}
+
+		// CONTROLLO TESSERE GIOCHI
+		cont = 0;
+		reset(libreria_appoggio);
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (tesseraoggetto[i][j] == TesseraOggetto.GIOCO) {
+					libreria_appoggio[i][j] = tesseraoggetto[i][j];
+				}
+			}
+		}
+
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (libreria_appoggio[i][j] == getDestra(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSotto(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSinistra(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSopra(i, j)) {
+					cont++;
+				}
+				libreria_appoggio[i][j] = TesseraOggetto.VUOTA;
+			}
+		}
+
+		if (cont == 0) {
+			punteggiofinale[4] = 0;
+		} else {
+			if (cont < 4 && cont > 1) {
+				cont++;
+				punteggiofinale[4] = cont;
+			}
+		}
+
+		// CONTROLLO TESSERE PIANTE
+		cont = 0;
+		reset(libreria_appoggio);
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (tesseraoggetto[i][j] == TesseraOggetto.PIANTA) {
+					libreria_appoggio[i][j] = tesseraoggetto[i][j];
+				}
+			}
+		}
+
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (libreria_appoggio[i][j] == getDestra(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSotto(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSinistra(i, j)) {
+					cont++;
+				}
+				if (libreria_appoggio[i][j] == getSopra(i, j)) {
+					cont++;
+				}
+				libreria_appoggio[i][j] = TesseraOggetto.VUOTA;
+			}
+		}
+
+		if (cont == 0) {
+			punteggiofinale[5] = 0;
+		} else {
+			if (cont < 4 && cont > 1) {
+				cont++;
+				punteggiofinale[5] = cont;
+			}
+		}
+
+		for (int k = 0; k < 6; k++) {
+			if (punteggiofinale[k] == 3) {
+				Punteggio += 2;
+			} else if (punteggiofinale[k] == 4) {
+				Punteggio += 3;
+			} else if (punteggiofinale[k] == 5) {
+				Punteggio += 5;
+			} else if (punteggiofinale[k] > 5) {
+				Punteggio += 8;
+			}
+		}
+		return Punteggio;
+	}
+
+	public TesseraOggetto getDestra(int riga, int colonna) {
+		if (colonna == 4) {
+			return TesseraOggetto.VUOTA;
+		}
+		return libreria_appoggio[riga][colonna + 1];
+	}
+
+	public TesseraOggetto getSopra(int riga, int colonna) {
+		if (riga == 0) {
+			return TesseraOggetto.VUOTA;
+		}
+		return libreria_appoggio[riga - 1][colonna];
+	}
+
+	public TesseraOggetto getSotto(int riga, int colonna) {
+		if (riga == 5) {
+			return TesseraOggetto.VUOTA;
+		}
+		return libreria_appoggio[riga + 1][colonna];
+	}
+
+	public TesseraOggetto getSinistra(int riga, int colonna) {
+		if (colonna == 0) {
+			return TesseraOggetto.VUOTA;
+		}
+		return libreria_appoggio[riga][colonna - 1];
+	}
+
+	public void reset(TesseraOggetto[][] t) {
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 5; j++) {
+				t[i][j] = TesseraOggetto.VUOTA;
+			}
+		}
 	}
 }
