@@ -22,14 +22,21 @@ public class Libreria {
 	 * @return N: numero della colonna
 	 */
 	public int selezionaColonna() {
-		int N;
+		String temp = new String();
+		int N = -1;
 		do {
 			System.out.println("\033[0;32m" + "Scegli la colonna nella quale vuoi inserire le tessere" + "\033[0m");
-			N = sc.nextInt();
-			if (N < 0 || N > 4) {
+			temp = sc.nextLine();
+			if (isNumeric(temp)) {
+				N = Integer.parseInt(temp);
+			}
+			if ((N < 0 || N > 4) && isNumeric(temp)) {
 				System.out.println("\033[0;31m" + "ERRORE. Colonna che non esiste" + "\033[0m");
 			}
-		} while (N < 0 || N > 4);
+			if (!isNumeric(temp)) {
+				System.out.println("Inserire un numero");
+			}
+		} while (N < 0 || N > 4 || !isNumeric(temp));
 
 		return N;
 	}
@@ -311,6 +318,7 @@ public class Libreria {
 		int n = 0, x = 0, y = 0, t = 0;
 		int scelta = 0;
 		int spaziDisponibili = 0;
+		String temp = new String();
 
 		if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) != TesseraOggetto.VUOTA) {
 			t++; // t è la variabile che conta il numero di tessere da inserire
@@ -341,7 +349,10 @@ public class Libreria {
 						+ toStringSecondo(plancia.getTessera(coordinate[x][y], coordinate[x][y + 1])) + " " + " 2-"
 						+ toStringSecondo(plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1])) + " "
 						+ " 3-" + toStringSecondo(plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1])));
-				scelta = sc.nextInt(); // scelta indica quale tessera inserire per prima
+				temp = sc.nextLine();
+				if (isNumeric(temp)) {
+					scelta = Integer.parseInt(temp);
+				}
 				if (scelta == 1 && plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.VUOTA
 						|| scelta == 2 && plancia.getTessera(coordinate[x + 1][y],
 								coordinate[x + 1][y + 1]) == TesseraOggetto.VUOTA
@@ -795,6 +806,21 @@ public class Libreria {
 			for (int j = 0; j < 5; j++) {
 				t[i][j] = TesseraOggetto.VUOTA;
 			}
+		}
+	}
+
+	/**
+	 * Metodo che, passata una stringa, controlla se è un numero
+	 * 
+	 * @param str stringa da controllare
+	 * @return true se è un numero, false se non lo è
+	 */
+	public boolean isNumeric(String str) {
+		try {
+			Double.parseDouble(str);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
 		}
 	}
 }

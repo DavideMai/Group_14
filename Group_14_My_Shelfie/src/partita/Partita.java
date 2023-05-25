@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import obiettivi_comuni.*;
+import utils.Regolamento;
 
 public class Partita {
 	/**
@@ -13,6 +14,7 @@ public class Partita {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		Regolamento regolamento = new Regolamento();
 		PlanciaGioco plancia = new PlanciaGioco();
 		ObiettivoComune obiettivoComune = null;
 		ObiettivoComune obiettivoComune2 = null;
@@ -24,7 +26,22 @@ public class Partita {
 		int numeroRimanentiPrimoObiettivo;
 		int numeroRimanentiSecondoObiettivo;
 		String inserimento = new String();
+		int numeroRegolamento = -1;
+		String numeroRegolamentoTemp = new String();
 		ArrayList<Giocatori> giocatori = new ArrayList<Giocatori>();
+		do {
+			System.out.println(
+					"Vuoi visualizzare il regolamento? Inserire 1 per visualizzare le regole sul pescaggio delle tessere\nInserire 2 per le regole sull'inserimento delle tessere nella libreria\nInserire 3 per le regole di ripristino della plancia\nInserire 4 per le regole sugli obiettivi comuni\nInserire 5 per le regole sugli obiettivi personali\nInserire 6 per le regole sulla fine della partita\nInserire 7 per terminare la visualizzazione del regolamento");
+			numeroRegolamentoTemp = sc.nextLine();
+			if(isNumeric(numeroRegolamentoTemp)) {
+				numeroRegolamento = Integer.parseInt(numeroRegolamentoTemp);
+				regolamento.visualizzaRegolamento(numeroRegolamento);
+			}
+			else {
+				System.out.println("Inserire un numero intero");
+			}
+		} while (numeroRegolamento != 7 || !isNumeric(numeroRegolamentoTemp));
+		numeroRegolamento = -1;
 		do {
 			/**
 			 * il seguente ciclo do - while chiede l'inserimento delle lettere T o F, e
@@ -227,6 +244,30 @@ public class Partita {
 		do {
 			for (int i = 0; i < numberPlayer; i++) {
 				System.out.println("Turno del giocatore: " + giocatori.get(i).getNome());
+				/**
+				 * Il seguente do-while permette di visualizzare il regolamento
+				 */
+				do {
+					System.out.println(
+							"Vuoi visualizzare il regolamento? Inserire 1 per visualizzare le regole sul pescaggio delle tessere\nInserire 2 per le regole sull'inserimento delle tessere nella libreria\nInserire 3 per le regole di ripristino della plancia\nInserire 4 per le regole sugli obiettivi comuni\nInserire 5 per le regole sugli obiettivi personali\nInserire 6 per le regole sulla fine della partita\nInserire 7 per terminare la visualizzazione del regolamento");
+					numeroRegolamentoTemp = sc.nextLine();
+					if(isNumeric(numeroRegolamentoTemp)) {
+						numeroRegolamento = Integer.parseInt(numeroRegolamentoTemp);
+						regolamento.visualizzaRegolamento(numeroRegolamento);
+						System.out.println("\n\n\n");
+						
+					}
+					else {
+						System.out.println("Inserire un numero intero");
+					}
+				} while (numeroRegolamento != 7 || !isNumeric(numeroRegolamentoTemp));
+				numeroRegolamento = -1;
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				plancia.visualizzaPlancia();
 				giocatori.get(i).getObiettivoPersonale().VisualizzaObiettivoPersonale();
 				System.out.println(obiettivoComune.getDescrizione());
@@ -292,4 +333,12 @@ public class Partita {
 		}
 
 	}
+	public static boolean isNumeric(String str) { 
+		  try {  
+		    Double.parseDouble(str);  
+		    return true;
+		  } catch(NumberFormatException e){  
+		    return false;  
+		  }  
+		}
 }
