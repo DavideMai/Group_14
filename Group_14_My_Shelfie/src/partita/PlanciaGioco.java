@@ -618,8 +618,8 @@ public class PlanciaGioco {
 	 */
 	public int[][] PescaTessere(int maxtessere_pescabili) {
 		int[][] coordinate = new int[3][2]; // array che salva le coordinate delle carte pescate
-		int i = 0, j = 0, precedente = 0, selezione = 0, numero_1 = 0, numero_2 = 0, numero_3 = 0,
-				numero_4 = 0;/*
+		int i = 0, j = 0, numero_1 = 0, numero_2 = 0, numero_3 = 0,
+				numero_4 = 0,copia=0,copia2=0;/*
 								 * indice array..., indice array..., variabile di memorizzazione carta pescata
 								 * precedentemente..., variabile utilizzata come indice a schermo che permette
 								 * la scelta della carta da pescare
@@ -627,7 +627,7 @@ public class PlanciaGioco {
 		int x = coordinate[i][j];// variabile usiliaria
 		int y = coordinate[i + 1][j];// variabile usiliaria
 		Boolean scelta = null, pescabile = false, scelta2 = null, riprova = false;// varibaili di controllo
-		String inserimento = new String();
+		String inserimento = new String(), precedente = new String(),selezione = new String();
 		Scanner sc = new Scanner(System.in);
 		sc.reset();
 		// do {
@@ -645,7 +645,7 @@ public class PlanciaGioco {
 							"\033[0;32m" + "inserisci la colonna della tessera che vuoi pescare: " + "\033[0m");
 					y = sc.nextInt();
 					coordinate[i][j + 1] = y;
-					if (x > 8 || x < 0 || y > 8 || y < 0 || tessereConfinanti(x, y) == false) {
+					if (x > 8 || x < 0 || y > 8 || y < 0 || tessereConfinanti(x, y) == false || getTessera(x, y) == TesseraOggetto.VUOTA) {
 						System.out.println("\033[0;31m"
 								+ "la carta non puo' essere pescata, inserisci nuove coordinate: " + "\033[0m");
 					}
@@ -702,21 +702,29 @@ public class PlanciaGioco {
 					if (pescabile == false) {
 						System.out.println("\033[0;31m" + "non ci sono più tessere da pescare" + "\033[0m");
 						break;
-					}
-					do {
+					}do {
+						do {
 						System.out.println("\033[0;32m"
 								+ "inserisci il numero della tessera che vuoi pescare (1,2,3,4): " + "\033[0m");
-						precedente = sc.nextInt();
-						if (precedente < 1 || precedente > 4) {
+						precedente = sc.nextLine();
+						
+						if (isNumeric(precedente))
+						{
+							copia = Integer.parseInt(precedente);
+						}else {
+							System.out.println("\033[0;31m" + "inserisci un numero!" + "\033[0m");
+						}
+						}while(!isNumeric(precedente));
+						if (copia < 1 || copia > 4) {
 							System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
 							riprova = true;
-						} else if (precedente == numero_1) {
+						} else if (copia == numero_1) {
 							break;
-						} else if (precedente == numero_2) {
+						} else if (copia == numero_2) {
 							break;
-						} else if (precedente == numero_3) {
+						} else if (copia == numero_3) {
 							break;
-						} else if (precedente == numero_4) {
+						} else if (copia == numero_4) {
 							break;
 						} else {
 							System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
@@ -724,7 +732,7 @@ public class PlanciaGioco {
 						}
 					} while (riprova == true);
 
-					switch (precedente) {
+					switch (copia) {
 					case 1:
 						coordinate[i][j] = (x + 1);
 						coordinate[i][j + 1] = y;
@@ -746,7 +754,6 @@ public class PlanciaGioco {
 							+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 					scelta = false;
 				}
-				sc.nextLine();
 			}
 		}
 //pescaggio terza tessera 
@@ -775,7 +782,7 @@ public class PlanciaGioco {
 				 * in base alla carta precedente mostra le carte disponibili da pescare due
 				 * posizioni sopra e sotto
 				 */
-				if (precedente == 1) {
+				if (copia == 1) {
 					if ((getSotto(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
 							&& LatoVuoto((coordinate[i][j] + 1), coordinate[i][j + 1]) == true)) {
 						System.out.println("1-sotto: " + (coordinate[i][j] + 1) + "," + coordinate[i][j + 1] + "-"
@@ -793,14 +800,23 @@ public class PlanciaGioco {
 					i++;
 					if (pescabile) {
 						do {
-							System.out.println("\033[0;32m" + "scegli la tessera da pescare (1,2):" + "\033[0m");
-							selezione = sc.nextInt();
-							if (selezione < 1 || selezione > 2) {
+							do {
+								System.out.println("\033[0;32m" + "scegli la tessera da pescare (1,2):" + "\033[0m");
+								selezione = sc.nextLine();
+								
+								if (isNumeric(selezione))
+								{
+									copia2 = Integer.parseInt(selezione);
+								}else {
+									System.out.println("\033[0;31m" + "inserisci un numero!" + "\033[0m");
+								}
+								}while(!isNumeric(selezione));
+							if (copia2 < 1 || copia2 > 2) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
-							} else if (selezione == numero_1) {
+							} else if (copia2 == numero_1) {
 								riprova = false;
 								break;
-							} else if (selezione == numero_2) {
+							} else if (copia2 == numero_2) {
 								riprova = false;
 								break;
 							} else {
@@ -808,7 +824,7 @@ public class PlanciaGioco {
 								riprova = true;
 							}
 						} while (riprova == true);
-						switch (selezione) {
+						switch (copia2) {
 						case 1:
 							coordinate[i][j] = (coordinate[i - 1][j] + 1);
 							coordinate[i][j + 1] = coordinate[i - 1][j + 1];
@@ -831,7 +847,7 @@ public class PlanciaGioco {
 				 * in base alla carta precedente mostra le carte disponibili da pescare due
 				 * posizioni sotto e sopra
 				 */
-				else if (precedente == 2) {
+				else if (copia == 2) {
 					numero_1 = 0;
 					numero_2 = 0;
 					numero_3 = 0;
@@ -853,14 +869,23 @@ public class PlanciaGioco {
 					i++;
 					if (pescabile) {
 						do {
-							System.out.println("\033[0;32m" + "scegli la tessera da pescare (1,2):" + "\033[0m");
-							selezione = sc.nextInt();
-							if (selezione < 1 || selezione > 2) {
+							do {
+								System.out.println("\033[0;32m" + "scegli la tessera da pescare (1,2):" + "\033[0m");
+								selezione = sc.nextLine();
+								
+								if (isNumeric(selezione))
+								{
+									copia2 = Integer.parseInt(selezione);
+								}else {
+									System.out.println("\033[0;31m" + "inserisci un numero!" + "\033[0m");
+								}
+								}while(!isNumeric(selezione));
+							if (copia2 < 1 || copia2 > 2) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
-							} else if (selezione == numero_1) {
+							} else if (copia2 == numero_1) {
 								riprova = false;
 								break;
-							} else if (selezione == numero_2) {
+							} else if (copia2 == numero_2) {
 								riprova = false;
 								break;
 							} else {
@@ -868,7 +893,7 @@ public class PlanciaGioco {
 								riprova = true;
 							}
 						} while (riprova == true);
-						switch (selezione) {
+						switch (copia2) {
 						case 1:
 							coordinate[i][j] = (coordinate[i - 1][j] - 1);
 							coordinate[i][j + 1] = coordinate[i - 1][j + 1];
@@ -891,7 +916,7 @@ public class PlanciaGioco {
 				 * in base alla carta precedente mostra le carte disponibili da pescare due
 				 * posizioni a sinistra e a destra
 				 */
-				else if (precedente == 3) {
+				else if (copia == 3) {
 					numero_1 = 0;
 					numero_2 = 0;
 					numero_3 = 0;
@@ -913,14 +938,23 @@ public class PlanciaGioco {
 					i++;
 					if (pescabile) {
 						do {
-							System.out.println("\033[0;32m" + "scegli la tessera da pescare (3,4):" + "\033[0m");
-							selezione = sc.nextInt();
-							if (selezione < 3 || selezione > 4) {
+							do {
+								System.out.println("\033[0;32m" + "scegli la tessera da pescare (3,4):" + "\033[0m");
+								selezione = sc.nextLine();
+								
+								if (isNumeric(selezione))
+								{
+									copia2 = Integer.parseInt(selezione);
+								}else {
+									System.out.println("\033[0;31m" + "inserisci un numero!" + "\033[0m");
+								}
+								}while(!isNumeric(selezione));
+							if (copia2 < 3 || copia2 > 4) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
-							} else if (selezione == numero_3) {
+							} else if (copia2 == numero_3) {
 								riprova = false;
 								break;
-							} else if (selezione == numero_4) {
+							} else if (copia2 == numero_4) {
 								riprova = false;
 								break;
 							} else {
@@ -928,7 +962,7 @@ public class PlanciaGioco {
 								riprova = true;
 							}
 						} while (riprova == true);
-						switch (selezione) {
+						switch (copia2) {
 						case 3:
 							coordinate[i][j] = coordinate[i - 1][j];
 							coordinate[i][j + 1] = (coordinate[i - 1][j + 1] + 1);
@@ -951,7 +985,7 @@ public class PlanciaGioco {
 				 * in base alla carta precedente mostra le carte disponibili da pescare due
 				 * posizioni a destra e a sinistra
 				 */
-				else if (precedente == 4) {
+				else if (copia == 4) {
 					numero_1 = 0;
 					numero_2 = 0;
 					numero_3 = 0;
@@ -973,14 +1007,23 @@ public class PlanciaGioco {
 					i++;
 					if (pescabile) {
 						do {
-							System.out.println("\033[0;32m" + "scegli la tessera da pescare (3,4):" + "\033[0m");
-							selezione = sc.nextInt();
-							if (selezione < 3 || selezione > 4) {
+							do {
+								System.out.println("\033[0;32m" + "scegli la tessera da pescare (3,4):" + "\033[0m");
+								selezione = sc.nextLine();
+								
+								if (isNumeric(selezione))
+								{
+									copia2 = Integer.parseInt(selezione);
+								}else {
+									System.out.println("\033[0;31m" +"inserisci un numero!"+ "\033[0m");
+								}
+								}while(!isNumeric(selezione));
+							if (copia2 < 3 || copia2 > 4) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
-							} else if (selezione == numero_3) {
+							} else if (copia2 == numero_3) {
 								riprova = false;
 								break;
-							} else if (selezione == numero_4) {
+							} else if (copia2 == numero_4) {
 								riprova = false;
 								break;
 							} else {
@@ -988,7 +1031,7 @@ public class PlanciaGioco {
 								riprova = true;
 							}
 						} while (riprova == true);
-						switch (selezione) {
+						switch (copia2) {
 						case 3:
 							coordinate[i][j] = coordinate[i - 1][j];
 							coordinate[i][j + 1] = (coordinate[i - 1][j + 1] + 2);
@@ -1024,5 +1067,16 @@ public class PlanciaGioco {
 			}
 			System.out.println();
 		}
+	}
+	public static boolean isNumeric(String strNum) {
+	    if (strNum == null) {
+	        return false;
+	    }
+	    try {
+	        int d = Integer.parseInt(strNum);
+	    } catch (NumberFormatException nfe) {
+	        return false;
+	    }
+	    return true;
 	}
 }
