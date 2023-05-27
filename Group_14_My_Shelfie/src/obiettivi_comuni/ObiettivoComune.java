@@ -3,7 +3,6 @@ package obiettivi_comuni;
 import java.util.Random;
 
 import partita.Libreria;
-import utils.TesseraOggetto;
 
 /**
  * La classe astratta "ObiettivoComune" rappresenta un obiettivo comune del
