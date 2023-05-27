@@ -32,9 +32,11 @@ public class Libreria {
 			}
 			if ((N < 0 || N > 4) && isNumeric(temp)) {
 				System.out.println("\033[0;31m" + "ERRORE. Colonna che non esiste" + "\033[0m");
+				System.out.println(" ");
 			}
 			if (!isNumeric(temp)) {
 				System.out.println("Inserire un numero");
+				System.out.println(" ");
 			}
 		} while (N < 0 || N > 4 || !isNumeric(temp));
 
@@ -200,7 +202,7 @@ public class Libreria {
 	 */
 	public void visualizzaLibreria() {
 		System.out.println("   ");
-		System.out.println("Visualizzazione libreria");
+		System.out.println("\033[0;36m" + "Visualizzazione libreria" + "\033[0m");
 		System.out.println("    ");
 		String riga = new String();
 		System.out.println("  | 0 1 2 3 4 |");
@@ -216,6 +218,7 @@ public class Libreria {
 		System.out.println("- | - - - - - |");
 		int massimo = this.numeroMassimoDaPescare();
 		System.out.println("Numero massimo di tessere pescabili: " + "\033[0;32m" + massimo + "\033[0m");
+		System.out.println(" ");
 	}
 
 	/**
@@ -236,8 +239,10 @@ public class Libreria {
 		}
 		if (controllo) {
 			System.out.println("\033[0;31m" + "la libreria e' piena" + "\033[0m");
+			System.out.println(" ");
 		} else {
 			System.out.println("\033[0;32m" + "La libreria ha ancora celle libere" + "\033[0m");
+			System.out.println(" ");
 		}
 		return controllo;
 	}
@@ -340,15 +345,16 @@ public class Libreria {
 			}
 			if (spaziDisponibili < t) {
 				System.out.println("\033[0;31m" + "ERRORE. Seleziona una colonna valida" + "\033[0m");
+				System.out.println(" ");
 			}
 		} while (spaziDisponibili < t);
 
 		do {
 			do {
-				System.out.println("Quale tessera vuoi inserire? 1-"
-						+ toStringSecondo(plancia.getTessera(coordinate[x][y], coordinate[x][y + 1])) + " " + " 2-"
-						+ toStringSecondo(plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1])) + " "
-						+ " 3-" + toStringSecondo(plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1])));
+				System.out.println("\033[0;36m" + "Quale tessera vuoi inserire?" + "\033[0m" +
+						" 1-" + toStringSecondo(plancia.getTessera(coordinate[x][y], coordinate[x][y + 1])) + " " + 
+						" 2-" + toStringSecondo(plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1])) + " " +
+						" 3-" + toStringSecondo(plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1])));
 				temp = sc.nextLine();
 				if (isNumeric(temp)) {
 					scelta = Integer.parseInt(temp);
@@ -359,9 +365,11 @@ public class Libreria {
 						|| scelta == 3 && plancia.getTessera(coordinate[x + 2][y],
 								coordinate[x + 2][y + 1]) == TesseraOggetto.VUOTA) {
 					System.out.println("\033[0;31m" + "ERRORE. Seleziona una tessera che non sia VUOTA" + "\033[0m");
+					System.out.println(" ");
 				}
 				if (scelta < 1 || scelta > 3) {
 					System.out.println("\033[0;31m" + "ERRORE. Scegli un numero tra 1 e 3" + "\033[0m");
+					System.out.println(" ");
 				}
 			} while (scelta < 1 || scelta > 3
 					|| scelta == 1 && plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.VUOTA

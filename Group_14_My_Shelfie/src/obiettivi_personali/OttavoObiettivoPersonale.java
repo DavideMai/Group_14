@@ -66,7 +66,8 @@ public class OttavoObiettivoPersonale extends ObiettivoPersonale {
 	}
 
 	public void VisualizzaObiettivoPersonale() { // funzione per visualizzare la carta obiettivo personale
-		System.out.println("Visualizzazione Obiettivo Personale");
+		System.out.println("\033[0;36m" + "Visualizzazione Obiettivo Personale" + "\033[0m");
+		System.out.println(" ");
 		String riga = new String();
 		System.out.println("    0 | 1 | 2 | 3 | 4 |");
 		System.out.println("  ---------------------");

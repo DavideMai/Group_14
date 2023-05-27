@@ -382,7 +382,8 @@ public class PlanciaGioco {
 	 */
 	public void visualizzaPlancia() {
 		System.out.println("   ");
-		System.out.println("\033[0;32m" + "Visualizzazione plancia" + "\033[0m");
+		System.out.println("\033[0;36m" + "Visualizzazione plancia" + "\033[0m");
+		System.out.println(" ");
 		System.out.println("\033[0;30m" + "V " + "\033[0m" + "sta per " + "\033[0;30m" + "VUOTO " + "\033[0m" + ", "
 				+ "\033[0;32m" + "C " + "\033[0m" + "sta per " + "\033[0;32m" + "GATTO " + "\033[0m" + ", "
 				+ "\033[0;35m" + "P " + "\033[0m" + "sta per " + "\033[0;35m" + "PIANTA " + "\033[0m" + ", "
@@ -635,7 +636,7 @@ public class PlanciaGioco {
 		// do {
 //pescaggio prima tessera
 		if (maxtessere_pescabili >= 1) {
-			System.out.println("pescaggio prima tessera...");
+			System.out.println("\033[0;32m" + "pescaggio prima tessera..." + "\033[0m");
 			System.out.println();
 
 			do {
@@ -649,22 +650,25 @@ public class PlanciaGioco {
 					coordinate[i][j + 1] = y;
 					if (x > 8 || x < 0 || y > 8 || y < 0 || tessereConfinanti(x, y) == false || getTessera(x, y) == TesseraOggetto.VUOTA) {
 						System.out.println("\033[0;31m"
-								+ "la carta non puo' essere pescata, inserisci nuove coordinate: " + "\033[0m");
+								+ "la carta non puo' essere pescata, inserisci nuove coordinate " + "\033[0m");
+						System.out.println(" ");
 					}
 				} while (x > 8 || x < 0 || y > 8 || y < 0);
 			} while (LatoVuoto(x, y) == false || getTessera(x, y) == TesseraOggetto.VUOTA
 					|| tessereConfinanti(x, y) == false);
+			System.out.println(" ");
 			System.out.println("hai pescato la tessera " + toStringSecondo(tesseraoggetto[x][y]));
 			i++;
 			// break;
 		}
 //pescaggio seconda tessera
 		if (maxtessere_pescabili >= 2) {
-			System.out.println("pescaggio seconda tessera...");
+			System.out.println(" ");
+			System.out.println("\033[0;32m" + "pescaggio seconda tessera..." + "\033[0m");
 			System.out.println();
 			sc.nextLine();
 			do {
-				System.out.println("Vuoi pescare la seconda tessera? Se si', inserisci T, altrimenti inserisci F");
+				System.out.println("\033[0;36m" + "Vuoi pescare la seconda tessera?"  + "\033[0m" + " Se si', inserisci" + "\033[0;32m" + " T" + "\033[0m" + ", altrimenti inserisci" + "\033[0;31m" + " F" + "\033[0m");
 				inserimento = sc.nextLine();
 			} while (!inserimento.matches("T") && !inserimento.matches("t") && !inserimento.matches("F")
 					&& !inserimento.matches("f"));
@@ -715,10 +719,12 @@ public class PlanciaGioco {
 							copia = Integer.parseInt(precedente);
 						}else {
 							System.out.println("\033[0;31m" + "inserisci un numero!" + "\033[0m");
+							System.out.println(" ");
 						}
 						}while(!isNumeric(precedente));
 						if (copia < 1 || copia > 4) {
 							System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+							System.out.println(" ");
 							riprova = true;
 						} else if (copia == numero_1) {
 							break;
@@ -730,6 +736,7 @@ public class PlanciaGioco {
 							break;
 						} else {
 							System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+							System.out.println(" ");
 							riprova = true;
 						}
 					} while (riprova == true);
@@ -760,7 +767,8 @@ public class PlanciaGioco {
 		}
 //pescaggio terza tessera 
 		if (maxtessere_pescabili >= 3 && pescabile) {
-			System.out.println("pescaggio terza tessera...");
+			System.out.println(" ");
+			System.out.println("\033[0;32m" + "pescaggio terza tessera..." + "\033[0m");
 			System.out.println();
 			numero_1 = 0;
 			numero_2 = 0;
@@ -770,7 +778,7 @@ public class PlanciaGioco {
 			pescabile = false;
 
 			do {
-				System.out.println("Vuoi pescare la terza tessera? Se si', inserisci T, altrimenti inserisci F");
+				System.out.println("\033[0;36m" + "Vuoi pescare la terza tessera?" + "\033[0m" + " Se si', inserisci" + "\033[0;32m" + " T" + "\033[0m" + ", altrimenti inserisci" + "\033[0;31m" + " F" + "\033[0m");
 				inserimento = sc.nextLine();
 			} while (!inserimento.matches("T") && !inserimento.matches("t") && !inserimento.matches("F")
 					&& !inserimento.matches("f"));
@@ -838,10 +846,13 @@ public class PlanciaGioco {
 						}
 						System.out.println("hai pescato la tessera "
 								+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
-						System.out.println("pescaggio finito... proseguire");
+						System.out.println("\033[0;32m" + "pescaggio finito... proseguire" + "\033[0m");
+						System.out.println(" ");
 					} else {
-						System.out.println("\033[0;31m" + "non ci sono più tessere da pescare" + "\033[0m");
-						System.out.println("pescaggio finito... proseguire");
+						System.out.println("\033[0;31m" + "non ci sono piu' tessere da pescare" + "\033[0m");
+						System.out.println(" ");
+						System.out.println("\033[0;32m" + "pescaggio finito... proseguire" + "\033[0m");
+						System.out.println(" ");
 					}
 				}
 
@@ -880,10 +891,12 @@ public class PlanciaGioco {
 									copia2 = Integer.parseInt(selezione);
 								}else {
 									System.out.println("\033[0;31m" + "inserisci un numero!" + "\033[0m");
+									System.out.println(" ");
 								}
 								}while(!isNumeric(selezione));
 							if (copia2 < 1 || copia2 > 2) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+								System.out.println(" ");
 							} else if (copia2 == numero_1) {
 								riprova = false;
 								break;
@@ -892,6 +905,7 @@ public class PlanciaGioco {
 								break;
 							} else {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+								System.out.println(" ");
 								riprova = true;
 							}
 						} while (riprova == true);
@@ -907,10 +921,13 @@ public class PlanciaGioco {
 						}
 						System.out.println("hai pescato la tessera "
 								+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
-						System.out.println("pescaggio finito... proseguire");
+						System.out.println("\033[0;32m" + "pescaggio finito... proseguire" + "\033[0m");
+						System.out.println(" ");
 					} else {
 						System.out.println("\033[0;31m" + "non ci sono piu' tessere da pescare" + "\033[0m");
-						System.out.println("pescaggio finito... proseguire");
+						System.out.println(" ");
+						System.out.println("\033[0;32m" + "pescaggio finito... proseguire" + "\033[0m");
+						System.out.println(" ");
 					}
 				}
 
@@ -949,10 +966,12 @@ public class PlanciaGioco {
 									copia2 = Integer.parseInt(selezione);
 								}else {
 									System.out.println("\033[0;31m" + "inserisci un numero!" + "\033[0m");
+									System.out.println(" ");
 								}
 								}while(!isNumeric(selezione));
 							if (copia2 < 3 || copia2 > 4) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+								System.out.println(" ");
 							} else if (copia2 == numero_3) {
 								riprova = false;
 								break;
@@ -961,6 +980,7 @@ public class PlanciaGioco {
 								break;
 							} else {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+								System.out.println(" ");
 								riprova = true;
 							}
 						} while (riprova == true);
@@ -976,10 +996,13 @@ public class PlanciaGioco {
 						}
 						System.out.println("hai pescato la tessera "
 								+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
-						System.out.println("pescaggio finito... proseguire");
+						System.out.println("\033[0;32m" + "pescaggio finito... proseguire" + "\033[0m");
+						System.out.println(" ");
 					} else {
 						System.out.println("\033[0;31m" + "non ci sono piu' tessere da pescare" + "\033[0m");
-						System.out.println("pescaggio finito... proseguire");
+						System.out.println(" ");
+						System.out.println("\033[0;32m" + "pescaggio finito... proseguire" + "\033[0m");
+						System.out.println(" ");
 					}
 				}
 
@@ -1018,10 +1041,12 @@ public class PlanciaGioco {
 									copia2 = Integer.parseInt(selezione);
 								}else {
 									System.out.println("\033[0;31m" +"inserisci un numero!"+ "\033[0m");
+									System.out.println(" ");
 								}
 								}while(!isNumeric(selezione));
 							if (copia2 < 3 || copia2 > 4) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+								System.out.println(" ");
 							} else if (copia2 == numero_3) {
 								riprova = false;
 								break;
@@ -1030,6 +1055,7 @@ public class PlanciaGioco {
 								break;
 							} else {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
+								System.out.println(" ");
 								riprova = true;
 							}
 						} while (riprova == true);
@@ -1045,14 +1071,18 @@ public class PlanciaGioco {
 						}
 						System.out.println("hai pescato la tessera "
 								+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
-						System.out.println("pescaggio finito... proseguire");
+						System.out.println("\033[0;32m" + "pescaggio finito... proseguire" + "\033[0m");
+						System.out.println(" ");
 					} else {
 						System.out.println("\033[0;31m" + "non ci sono piu' tessere da pescare" + "\033[0m");
-						System.out.println("pescaggio finito... proseguire");
+						System.out.println(" ");
+						System.out.println("\033[0;32m" + "pescaggio finito... proseguire" + "\033[0m");
+						System.out.println(" ");
 					}
 				}
 			} else {
-				System.out.println("pescaggio finito... proseguire");
+				System.out.println("\033[0;32m" + "pescaggio finito... proseguire" + "\033[0m");
+				System.out.println(" ");
 			}
 
 		}

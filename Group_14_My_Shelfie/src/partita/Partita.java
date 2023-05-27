@@ -32,7 +32,14 @@ public class Partita {
 		ArrayList<Giocatori> giocatori = new ArrayList<Giocatori>();
 		do {
 			System.out.println(
-					"\033[0;36m" + "Vuoi visualizzare il regolamento?" + "\033[0m" + "\nInserire 1 per visualizzare le regole sul pescaggio delle tessere\nInserire 2 per le regole sull'inserimento delle tessere nella libreria\nInserire 3 per le regole di ripristino della plancia\nInserire 4 per le regole sugli obiettivi comuni\nInserire 5 per le regole sugli obiettivi personali\nInserire 6 per le regole sulla fine della partita\nInserire 7 per terminare la visualizzazione del regolamento");
+					"\033[0;36m" + "Vuoi visualizzare il regolamento?" + "\033[0m"
+					+ "\nInserire" + "\033[0;32m" + " 1" + "\033[0m" + " per visualizzare le regole sul pescaggio delle tessere"
+					+ "\nInserire" + "\033[0;32m" + " 2" + "\033[0m" + " per le regole sull'inserimento delle tessere nella libreria"
+					+ "\nInserire" + "\033[0;32m" + " 3" + "\033[0m" + " per le regole di ripristino della plancia"
+					+ "\nInserire" + "\033[0;32m" + " 4" + "\033[0m" + " per le regole sugli obiettivi comuni"
+					+ "\nInserire" + "\033[0;32m" + " 5" + "\033[0m" + " per le regole sugli obiettivi personali"
+					+ "\nInserire" + "\033[0;32m" + " 6" + "\033[0m" + " per le regole sulla fine della partita"
+					+ "\nInserire" + "\033[0;32m" + " 7" + "\033[0m" + " per terminare la visualizzazione del regolamento");
 			numeroRegolamentoTemp = sc.nextLine();
 			if(isNumeric(numeroRegolamentoTemp)) {
 				numeroRegolamento = Integer.parseInt(numeroRegolamentoTemp);
@@ -40,6 +47,7 @@ public class Partita {
 			}
 			else { 
 				System.out.println("\033[0;31m" + "Inserire un numero intero" + "\033[0m");
+				System.out.println(" ");
 			}
 		} while (numeroRegolamento != 7 || !isNumeric(numeroRegolamentoTemp));
 		numeroRegolamento = -1;
@@ -51,7 +59,7 @@ public class Partita {
 			 */
 			do {
 				sc.reset();
-				System.out.println("\033[0;36m" + "Vuoi inserire un nuovo giocatore?" + "\033[0m" + " Se si', inserisci T, altrimenti inserisci F");
+				System.out.println("\033[0;36m" + "Vuoi inserire un nuovo giocatore?" + "\033[0m" + " Se si', inserisci" + "\033[0;32m" + " T"  + "\033[0m" + ", altrimenti inserisci" + "\033[0;31m" + " F" + "\033[0m");
 				inserimento = sc.nextLine();
 			} while (!inserimento.matches("T") && !inserimento.matches("t") && !inserimento.matches("F")
 					&& !inserimento.matches("f"));
@@ -72,7 +80,6 @@ public class Partita {
 				System.out.println(" ");
 				giocatori.get(numberPlayer - 1).AssegnaObiettivoPersonale();
 				giocatori.get(numberPlayer - 1).getObiettivoPersonale().VisualizzaObiettivoPersonale();
-				System.out.println(" ");
 			}
 			/**
 			 * throws IllegalArgumentException quando vengono inseriti meno di due giocatori
@@ -84,6 +91,7 @@ public class Partita {
 			} catch (IllegalArgumentException e) {
 				System.err.println(e.getLocalizedMessage());
 			}
+			System.out.println(" ");
 		} while ((nextPlayer && numberPlayer < 4) || numberPlayer <= 1);
 		plancia.CancellaCelle(numberPlayer);
 		plancia.SetCella();
@@ -256,7 +264,14 @@ public class Partita {
 				do {
 					System.out.println(" ");
 					System.out.println(
-							"\033[0;36m" + "Vuoi visualizzare il regolamento?" + "\033[0m" + "\nInserire 1 per visualizzare le regole sul pescaggio delle tessere\nInserire 2 per le regole sull'inserimento delle tessere nella libreria\nInserire 3 per le regole di ripristino della plancia\nInserire 4 per le regole sugli obiettivi comuni\nInserire 5 per le regole sugli obiettivi personali\nInserire 6 per le regole sulla fine della partita\nInserire 7 per terminare la visualizzazione del regolamento");
+							"\033[0;36m" + "Vuoi visualizzare il regolamento?" + "\033[0m"
+									+ "\nInserire" + "\033[0;32m" + " 1" + "\033[0m" + " per visualizzare le regole sul pescaggio delle tessere"
+									+ "\nInserire" + "\033[0;32m" + " 2" + "\033[0m" + " per le regole sull'inserimento delle tessere nella libreria"
+									+ "\nInserire" + "\033[0;32m" + " 3" + "\033[0m" + " per le regole di ripristino della plancia"
+									+ "\nInserire" + "\033[0;32m" + " 4" + "\033[0m" + " per le regole sugli obiettivi comuni"
+									+ "\nInserire" + "\033[0;32m" + " 5" + "\033[0m" + " per le regole sugli obiettivi personali"
+									+ "\nInserire" + "\033[0;32m" + " 6" + "\033[0m" + " per le regole sulla fine della partita"
+									+ "\nInserire" + "\033[0;32m" + " 7" + "\033[0m" + " per terminare la visualizzazione del regolamento");
 					numeroRegolamentoTemp = sc.nextLine();
 					if(isNumeric(numeroRegolamentoTemp)) {
 						numeroRegolamento = Integer.parseInt(numeroRegolamentoTemp);

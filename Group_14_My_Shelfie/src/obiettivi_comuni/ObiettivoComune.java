@@ -32,7 +32,7 @@ public abstract class ObiettivoComune {
 	 */
 	public int getNumeroCarta() {
 		System.out.println("   ");
-		System.out.println("Numero carta obiettivo comune: ");
+		System.out.println("\033[0;32m" + "Numero carta obiettivo comune: " + "\033[0m");
 		return numero_carta;
 	}
 
@@ -43,7 +43,7 @@ public abstract class ObiettivoComune {
 	 */
 	public String getDescrizione() {
 		System.out.println("     ");
-		System.out.println("Descrizione obiettivo comune: ");
+		System.out.println("\033[0;32m" + "Descrizione obiettivo comune: " + "\033[0m");
 		return descrizione;
 	}
 
