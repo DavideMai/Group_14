@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import obiettivi_comuni.*;
+
 import utils.Regolamento;
 
 public class Partita {
