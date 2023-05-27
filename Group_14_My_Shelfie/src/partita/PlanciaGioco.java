@@ -41,7 +41,8 @@ public class PlanciaGioco {
 	 */
 
 	public void CancellaCelle(int contatore_giocatori) {
-		System.out.println("Preparazione plancia di gioco...");
+		System.out.println(" ");
+		System.out.println("\033[0;32m" + "Preparazione plancia di gioco..." + "\033[0m");
 
 		this.contatore_giocatori = contatore_giocatori;
 
@@ -381,7 +382,7 @@ public class PlanciaGioco {
 	 */
 	public void visualizzaPlancia() {
 		System.out.println("   ");
-		System.out.println("Visualizzazione plancia");
+		System.out.println("\033[0;32m" + "Visualizzazione plancia" + "\033[0m");
 		System.out.println("\033[0;30m" + "V " + "\033[0m" + "sta per " + "\033[0;30m" + "VUOTO " + "\033[0m" + ", "
 				+ "\033[0;32m" + "C " + "\033[0m" + "sta per " + "\033[0;32m" + "GATTO " + "\033[0m" + ", "
 				+ "\033[0;35m" + "P " + "\033[0m" + "sta per " + "\033[0;35m" + "PIANTA " + "\033[0m" + ", "
@@ -401,6 +402,7 @@ public class PlanciaGioco {
 			}
 			System.out.println(riga);
 		}
+		System.out.println(" ");
 	}
 
 	/**
@@ -522,7 +524,7 @@ public class PlanciaGioco {
 			}
 		}
 		if (cellepescabili == 0) {
-			System.out.println("riempimento plancia...");
+			System.out.println("\033[0;32m" + "riempimento plancia..." + "\033[0m");
 			SetCella();
 		}
 	}

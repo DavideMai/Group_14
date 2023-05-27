@@ -39,10 +39,12 @@ public class Regolamento {
 			System.out.println(finePartita);
 			break;
 		case 7:
-			System.out.println("Fine visualizzazione regolamento, ritorno alla partita");
+			System.out.println("\033[0;32m" + "Fine visualizzazione regolamento, ritorno alla partita" + "\033[0m");
+			System.out.println(" ");
 			break;
 		default:
-			System.out.println("Inserire un numero corretto");
+			System.out.println("\033[0;31m" + "Inserire un numero corretto" + "\033[0m");
+			System.out.println(" ");
 			break;
 		}
 	}
