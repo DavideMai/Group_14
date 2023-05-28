@@ -312,7 +312,7 @@ public class PlanciaGioco {
 	}
 
 	/**
-	 * 
+	 * metodo che ritorna la tessera corrispondente alla riga e colonna indicate 
 	 * @param riga    riga della tessera
 	 * @param colonna colonna della tessera
 	 * @return la tessera presente nelle coordinate
@@ -368,6 +368,12 @@ public class PlanciaGioco {
 		System.out.println(plancia[riga + 1][colonna]);
 	}
 
+	/**
+	 * metodo che controlla se tutte le tessere confinanti sono di tipo vuoto
+	 * @param riga
+	 * @param colonna
+	 * @return true se almeno una delle tessere confinanti non è vuota
+	 */
 	public Boolean tessereConfinanti(int riga, int colonna) {
 
 		if (getSinistra(riga, colonna) == TesseraOggetto.VUOTA && getDestra(riga, colonna) == TesseraOggetto.VUOTA
@@ -564,6 +570,12 @@ public class PlanciaGioco {
 		return tessera;
 	}
 
+	/**
+	 * questo metodo associa  ad ogni tipo enumerativo di tesseraOggetto la parola e il colore della 
+	 * tessera usati nel gioco permettendo di visualizzare le tessere colorate
+	 * @param t oggetto di tipo TesseraOggetto che assume il nome e il colore 
+	 * @return tessera 
+	 */
 	public String toStringSecondo(TesseraOggetto t) {
 		String tessera = new String();
 		switch (t) {
@@ -610,14 +622,13 @@ public class PlanciaGioco {
 	/**
 	 * questa funzione permette di pescare le tessere dalla plancia, la funzione
 	 * ritorna un array dove sono contenute le coordinate delle carte pescate la
-	 * funzione permette di pescare soltanto carte con almeno un lato libero e
+	 * funzione permette di pescare soltanto dalle celle con almeno un lato libero e
 	 * ovviamente con una tesssera al proprio interno inoltre mostra a schermo
 	 * soltanto le carte che possono essere pescate in caso di una seconda o terza
 	 * scelta escludendo quelle vuote o quelle senza lato vuoto e usando anche la
-	 * condizione che siano adiacenti e che formino soltanto linee rette SE AVETE
-	 * MODIFICHE DA FARE CHE POSSONO ACCORCIARE IL CODICE FATE PURE, QUESTO ERA
-	 * L'UNICO MODO CHE MI E' VENUTO IN MENTE PER RENDERE L'ESPERIENZA DI GIOCO IL
-	 * PIU SEMPLICE POSSIBILE
+	 * condizione che siano adiacenti e che formino soltanto linee rette. 
+	 * @param maxtessere_pescabili numero massimo di tessere inseribili nella libreria
+	 * @return coordinate, array contenente le coordinate delle tessere pescate 
 	 */
 	public int[][] PescaTessere(int maxtessere_pescabili) {
 		int[][] coordinate = new int[3][2]; // array che salva le coordinate delle carte pescate
@@ -629,11 +640,10 @@ public class PlanciaGioco {
 								 */
 		int x = coordinate[i][j];// variabile usiliaria
 		int y = coordinate[i + 1][j];// variabile usiliaria
-		Boolean scelta = null, pescabile = false, scelta2 = null, riprova = false;// varibaili di controllo
+		Boolean scelta = null, pescabile = false, riprova = false;// varibaili di controllo
 		String inserimento = new String(), precedente = new String(),selezione = new String();
 		Scanner sc = new Scanner(System.in);
 		sc.reset();
-		// do {
 //pescaggio prima tessera
 		if (maxtessere_pescabili >= 1) {
 			System.out.println("\033[0;32m" + "pescaggio prima tessera..." + "\033[0m");
@@ -659,7 +669,6 @@ public class PlanciaGioco {
 			System.out.println(" ");
 			System.out.println("hai pescato la tessera " + toStringSecondo(tesseraoggetto[x][y]));
 			i++;
-			// break;
 		}
 //pescaggio seconda tessera
 		if (maxtessere_pescabili >= 2) {
@@ -933,7 +942,7 @@ public class PlanciaGioco {
 
 				/*
 				 * in base alla carta precedente mostra le carte disponibili da pescare due
-				 * posizioni a sinistra e a destra
+				 * posizioni a sinistra e una a destra
 				 */
 				else if (copia == 3) {
 					numero_1 = 0;
@@ -1008,7 +1017,7 @@ public class PlanciaGioco {
 
 				/*
 				 * in base alla carta precedente mostra le carte disponibili da pescare due
-				 * posizioni a destra e a sinistra
+				 * posizioni a destra e una a sinistra
 				 */
 				else if (copia == 4) {
 					numero_1 = 0;
@@ -1086,12 +1095,13 @@ public class PlanciaGioco {
 			}
 
 		}
-
-		// break;
-		// } while (true);
 		return coordinate;
 	}
 
+	/**
+	 * metodo ch evisualizza l'array bidimensionale di appoggio denominato coordinate 
+	 * @param coordinate
+	 */
 	public void VisualizzaCoordinate(int[][] coordinate) {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 2; j++) {
@@ -1100,12 +1110,18 @@ public class PlanciaGioco {
 			System.out.println();
 		}
 	}
+	/**
+	 * metodo che controlla se la stringa passata è un numero o meno
+	 * @param strNum
+	 * @return true se è un numero
+	 */
 	public static boolean isNumeric(String strNum) {
 	    if (strNum == null) {
 	        return false;
 	    }
 	    try {
-	        int d = Integer.parseInt(strNum);
+	        @SuppressWarnings("unused")
+			int d = Integer.parseInt(strNum);
 	    } catch (NumberFormatException nfe) {
 	        return false;
 	    }
