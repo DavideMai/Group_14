@@ -1,7 +1,5 @@
 package partita;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import utils.Cella;
@@ -517,7 +515,6 @@ public class PlanciaGioco {
 	 * senno la plancia viene ricaricata con il metodo set cella.
 	 */
 	public void ControlloTessere() {
-		boolean controllo;
 		int cellepescabili = 0;
 
 		for (int i = 0; i < 9; i++) {
@@ -648,7 +645,6 @@ public class PlanciaGioco {
 		if (maxtessere_pescabili >= 1) {
 			System.out.println("\033[0;32m" + "pescaggio prima tessera..." + "\033[0m");
 			System.out.println();
-
 			do {
 				do {
 					System.out.println("\033[0;32m" + "inserisci la riga della tessera che vuoi pescare: " + "\033[0m");
