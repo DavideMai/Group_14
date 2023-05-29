@@ -66,7 +66,7 @@ public class Giocatori {
 	 */
 	public void aumentaPunteggioGiocatore(int aumento) {
 		this.punteggio += aumento;
-	} // prova commento 3
+	}
 
 	/**
 	 * Funzione che assegna un obiettivo personale non ancora uscito al giocatore

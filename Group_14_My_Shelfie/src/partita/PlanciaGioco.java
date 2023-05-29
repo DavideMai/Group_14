@@ -177,6 +177,9 @@ public class PlanciaGioco {
 			if (numeroCornici > 0) {
 				numeroCornici--;
 			}
+			break;
+		case VUOTA: 
+			break;
 		}
 	}
 
@@ -1092,7 +1095,7 @@ public class PlanciaGioco {
 	}
 
 	/**
-	 * metodo ch evisualizza l'array bidimensionale di appoggio denominato
+	 * metodo che visualizza l'array bidimensionale di appoggio denominato
 	 * coordinate
 	 * 
 	 * @param coordinate
