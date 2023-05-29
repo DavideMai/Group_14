@@ -7,9 +7,9 @@ public class NonoObiettivoComune extends ObiettivoComune {
 
 	public NonoObiettivoComune() {
 		super();
-		numero_carta = 9;
+		numeroCarta = 9;
 		descrizione = "Due colonne formate ciascuna da 6 diversi tipi di tessere";
-		// TODO Auto-generated constructor stub
+
 	}
 
 	/**
@@ -24,35 +24,35 @@ public class NonoObiettivoComune extends ObiettivoComune {
 	 */
 
 	@Override
-	public boolean ControlloObiettivoComune(Libreria libreria) {
+	public boolean controlloObiettivoComune(Libreria libreria) {
 
 		int contatore = 0; // contatore per controllare numero max di colonne
 
 		for (int j = 0; j < 5; j++) // scorro le colonne
 		{
-			int ntessere[] = new int[6]; // salvo il numero di tessere diverse nella stessa colonna
+			int nTessere[] = new int[6]; // salvo il numero di tessere diverse nella stessa colonna
 
 			for (int i = 0; i < 6; i++) // scorro le righe
 			{
 				if (libreria.getTessera(i, j) != TesseraOggetto.VUOTA) {
 					if (libreria.getTessera(i, j) == TesseraOggetto.CORNICE) {
-						ntessere[0]++;
+						nTessere[0]++;
 					} else if (libreria.getTessera(i, j) == TesseraOggetto.GATTO) {
-						ntessere[1]++;
+						nTessere[1]++;
 					} else if (libreria.getTessera(i, j) == TesseraOggetto.GIOCO) {
-						ntessere[2]++;
+						nTessere[2]++;
 					} else if (libreria.getTessera(i, j) == TesseraOggetto.LIBRO) {
-						ntessere[3]++;
+						nTessere[3]++;
 					} else if (libreria.getTessera(i, j) == TesseraOggetto.PIANTA) {
-						ntessere[4]++;
+						nTessere[4]++;
 					} else if (libreria.getTessera(i, j) == TesseraOggetto.TROFEO) {
-						ntessere[5]++;
+						nTessere[5]++;
 					}
 
 				}
 			}
-			if (ntessere[0] == 1 && ntessere[1] == 1 && ntessere[2] == 1 && ntessere[3] == 1 && ntessere[4] == 1
-					&& ntessere[5] == 1) {
+			if (nTessere[0] == 1 && nTessere[1] == 1 && nTessere[2] == 1 && nTessere[3] == 1 && nTessere[4] == 1
+					&& nTessere[5] == 1) {
 
 				contatore++;
 

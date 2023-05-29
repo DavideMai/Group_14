@@ -7,9 +7,8 @@ public class SettimoObiettivoComune extends ObiettivoComune {
 
 	public SettimoObiettivoComune() {
 		super();
-		numero_carta = 7;
+		numeroCarta = 7;
 		descrizione = "Cinque tessere dello stesso tipo che formano una diagonale";
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -23,7 +22,7 @@ public class SettimoObiettivoComune extends ObiettivoComune {
 	 */
 
 	@Override
-	public boolean ControlloObiettivoComune(Libreria libreria) {
+	public boolean controlloObiettivoComune(Libreria libreria) {
 
 		// controllo prima diagonale
 		if (libreria.getTessera(0, 0) != TesseraOggetto.VUOTA) {

@@ -7,9 +7,9 @@ public class DecimoObiettivoComune extends ObiettivoComune {
 
 	public DecimoObiettivoComune() {
 		super();
-		numero_carta = 10;
+		numeroCarta = 10;
 		descrizione = "Cinque tessere dello stesso tipo che formano una X";
-		// TODO Auto-generated constructor stub
+
 	}
 
 	/**
@@ -21,7 +21,7 @@ public class DecimoObiettivoComune extends ObiettivoComune {
 	 * @return valore booleano
 	 */
 	@Override
-	public boolean ControlloObiettivoComune(Libreria libreria) {
+	public boolean controlloObiettivoComune(Libreria libreria) {
 		for (int j = 0; j < 3; j++) // colonna
 		{
 

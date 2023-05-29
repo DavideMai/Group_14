@@ -12,25 +12,26 @@ public class Libreria {
 	public int riga;
 	public int colonna;
 
-	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[6][5];
+	TesseraOggetto[][] tesseraOggetto = new TesseraOggetto[6][5];
+	TesseraOggetto[][] libreriaAppoggio = new TesseraOggetto[6][5]; // Libreria di appoggio per verifica punteggio
 	Scanner sc = new Scanner(System.in);
 
 	/**
 	 * funzione che seleziona la colonna nella quale si vuole inserire la/le
 	 * tessera/e
 	 * 
-	 * @return N: numero della colonna
+	 * @return n: numero della colonna
 	 */
 	public int selezionaColonna() {
 		String temp = new String();
-		int N = -1;
+		int n = -1;
 		do {
 			System.out.println("\033[0;32m" + "Scegli la colonna nella quale vuoi inserire le tessere" + "\033[0m");
 			temp = sc.nextLine();
 			if (isNumeric(temp)) {
-				N = Integer.parseInt(temp);
+				n = Integer.parseInt(temp);
 			}
-			if ((N < 0 || N > 4) && isNumeric(temp)) {
+			if ((n < 0 || n > 4) && isNumeric(temp)) {
 				System.out.println("\033[0;31m" + "ERRORE. Colonna che non esiste" + "\033[0m");
 				System.out.println(" ");
 			}
@@ -38,32 +39,37 @@ public class Libreria {
 				System.out.println("Inserire un numero");
 				System.out.println(" ");
 			}
-		} while (N < 0 || N > 4 || !isNumeric(temp));
+		} while (n < 0 || n > 4 || !isNumeric(temp));
 
-		return N;
+		return n;
 	}
 
 	public Libreria() {
 
 	}
 
+	/**
+	 * costruttore della libreria
+	 * 
+	 * @param l la libreria da copiare
+	 */
 	public Libreria(Libreria l) {
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
 				if (l.getTessera(i, j) == TesseraOggetto.CORNICE) {
-					tesseraoggetto[i][j] = TesseraOggetto.CORNICE;
+					tesseraOggetto[i][j] = TesseraOggetto.CORNICE;
 				} else if (l.getTessera(i, j) == TesseraOggetto.GATTO) {
-					tesseraoggetto[i][j] = TesseraOggetto.GATTO;
+					tesseraOggetto[i][j] = TesseraOggetto.GATTO;
 				} else if (l.getTessera(i, j) == TesseraOggetto.GIOCO) {
-					tesseraoggetto[i][j] = TesseraOggetto.GIOCO;
+					tesseraOggetto[i][j] = TesseraOggetto.GIOCO;
 				} else if (l.getTessera(i, j) == TesseraOggetto.LIBRO) {
-					tesseraoggetto[i][j] = TesseraOggetto.LIBRO;
+					tesseraOggetto[i][j] = TesseraOggetto.LIBRO;
 				} else if (l.getTessera(i, j) == TesseraOggetto.PIANTA) {
-					tesseraoggetto[i][j] = TesseraOggetto.PIANTA;
+					tesseraOggetto[i][j] = TesseraOggetto.PIANTA;
 				} else if (l.getTessera(i, j) == TesseraOggetto.TROFEO) {
-					tesseraoggetto[i][j] = TesseraOggetto.TROFEO;
+					tesseraOggetto[i][j] = TesseraOggetto.TROFEO;
 				} else if (l.getTessera(i, j) == TesseraOggetto.VUOTA) {
-					tesseraoggetto[i][j] = TesseraOggetto.VUOTA;
+					tesseraOggetto[i][j] = TesseraOggetto.VUOTA;
 				}
 			}
 		}
@@ -140,59 +146,96 @@ public class Libreria {
 	 * @return tesseracontrollo: controlla se la cella e' vuota
 	 */
 	public TesseraOggetto getTessera(int riga, int colonna) {
-		TesseraOggetto tesseracontrollo = TesseraOggetto.VUOTA;
+		TesseraOggetto tesseraControllo = TesseraOggetto.VUOTA;
 
-		if (tesseraoggetto[riga][colonna] == TesseraOggetto.CORNICE) {
-			tesseracontrollo = TesseraOggetto.CORNICE;
+		if (tesseraOggetto[riga][colonna] == TesseraOggetto.CORNICE) {
+			tesseraControllo = TesseraOggetto.CORNICE;
 		}
-		if (tesseraoggetto[riga][colonna] == TesseraOggetto.GATTO) {
-			tesseracontrollo = TesseraOggetto.GATTO;
+		if (tesseraOggetto[riga][colonna] == TesseraOggetto.GATTO) {
+			tesseraControllo = TesseraOggetto.GATTO;
 		}
-		if (tesseraoggetto[riga][colonna] == TesseraOggetto.TROFEO) {
-			tesseracontrollo = TesseraOggetto.TROFEO;
+		if (tesseraOggetto[riga][colonna] == TesseraOggetto.TROFEO) {
+			tesseraControllo = TesseraOggetto.TROFEO;
 		}
-		if (tesseraoggetto[riga][colonna] == TesseraOggetto.GIOCO) {
-			tesseracontrollo = TesseraOggetto.GIOCO;
+		if (tesseraOggetto[riga][colonna] == TesseraOggetto.GIOCO) {
+			tesseraControllo = TesseraOggetto.GIOCO;
 		}
-		if (tesseraoggetto[riga][colonna] == TesseraOggetto.LIBRO) {
-			tesseracontrollo = TesseraOggetto.LIBRO;
+		if (tesseraOggetto[riga][colonna] == TesseraOggetto.LIBRO) {
+			tesseraControllo = TesseraOggetto.LIBRO;
 		}
-		if (tesseraoggetto[riga][colonna] == TesseraOggetto.PIANTA) {
-			tesseracontrollo = TesseraOggetto.PIANTA;
+		if (tesseraOggetto[riga][colonna] == TesseraOggetto.PIANTA) {
+			tesseraControllo = TesseraOggetto.PIANTA;
 		}
-		if (tesseraoggetto[riga][colonna] == TesseraOggetto.VUOTA) {
-			tesseracontrollo = TesseraOggetto.VUOTA;
+		if (tesseraOggetto[riga][colonna] == TesseraOggetto.VUOTA) {
+			tesseraControllo = TesseraOggetto.VUOTA;
 		}
-		return tesseracontrollo;
+		return tesseraControllo;
 	}
 
+	/**
+	 * setta la cella della libreria a vuota
+	 * 
+	 * @param riga    riga della cella
+	 * @param colonna colonna della cella
+	 */
 	public void setCellaVuota(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.VUOTA;
+		tesseraOggetto[riga][colonna] = TesseraOggetto.VUOTA;
 	}
 
+	/**
+	 * setta ogni cella della libreria a vuota
+	 */
 	public void setCellaVuoto() {
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				tesseraoggetto[i][j] = TesseraOggetto.VUOTA;
+				tesseraOggetto[i][j] = TesseraOggetto.VUOTA;
 			}
 		}
 	}
 
-	public void CellaConfinantedx(Libreria l, int riga, int colonna) {
+	/**
+	 * accede alla libreria e controlla la cella confinante a destra
+	 * 
+	 * @param l       libreria da controllare
+	 * @param riga    riga della cella da controllare
+	 * @param colonna colonna della cella da controllare
+	 */
+	public void cellaConfinanteDx(Libreria l, int riga, int colonna) {
 		l.getTessera(riga, colonna + 1);
 	}
 
-	public void CellaConfinantesx(Libreria l, int riga, int colonna) {
+	/**
+	 * accede alla libreria e controlla la cella confinante a sinistra
+	 * 
+	 * @param l       libreria da controllare
+	 * @param riga    riga della cella da controllare
+	 * @param colonna colonna della cella da controllare
+	 */
+	public void cellaConfinanteSx(Libreria l, int riga, int colonna) {
 
 		l.getTessera(riga, colonna - 1);
 	}
 
-	public void CellaConfinantesopra(Libreria l, int riga, int colonna) {
+	/**
+	 * accede alla libreria e controlla la cella confinante sopra
+	 * 
+	 * @param l       libreria da controllare
+	 * @param riga    riga della cella da controllare
+	 * @param colonna colonna della cella da controllare
+	 */
+	public void cellaConfinanteSopra(Libreria l, int riga, int colonna) {
 
 		l.getTessera(riga - 1, colonna);
 	}
 
-	public void CellaConfinantesotto(Libreria l, int riga, int colonna) {
+	/**
+	 * accede alla libreria e controlla la cella confinante sotto
+	 * 
+	 * @param l       libreria da controllare
+	 * @param riga    riga della cella da controllare
+	 * @param colonna colonna della cella da controllare
+	 */
+	public void cellaConfinanteSotto(Libreria l, int riga, int colonna) {
 
 		l.getTessera(riga + 1, colonna);
 	}
@@ -210,8 +253,8 @@ public class Libreria {
 		for (int i = 0; i < 6; i++) {
 			riga = i + " | ";
 			for (int j = 0; j < 5; j++) {
-				if (tesseraoggetto[i][j] != null)
-					riga = riga + toString(tesseraoggetto[i][j]);
+				if (tesseraOggetto[i][j] != null)
+					riga = riga + toString(tesseraOggetto[i][j]);
 			}
 			System.out.println(riga + "| ");
 		}
@@ -275,7 +318,7 @@ public class Libreria {
 			n = column.selezionaColonna(); // n è il numero della colonna scelta
 			spaziDisponibili = 0;
 			for (int i = 0; i < 6; i++) {
-				if (tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
+				if (tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
 					spaziDisponibili++;
 				}
 			}
@@ -287,10 +330,10 @@ public class Libreria {
 
 		do {
 			do {
-				System.out.println("\033[0;36m" + "Quale tessera vuoi inserire?" + "\033[0m" +
-						" 1-" + toStringSecondo(plancia.getTessera(coordinate[x][y], coordinate[x][y + 1])) + " " + 
-						" 2-" + toStringSecondo(plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1])) + " " +
-						" 3-" + toStringSecondo(plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1])));
+				System.out.println("\033[0;36m" + "Quale tessera vuoi inserire?" + "\033[0m" + " 1-"
+						+ toStringSecondo(plancia.getTessera(coordinate[x][y], coordinate[x][y + 1])) + " " + " 2-"
+						+ toStringSecondo(plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1])) + " "
+						+ " 3-" + toStringSecondo(plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1])));
 				temp = sc.nextLine();
 				if (isNumeric(temp)) {
 					scelta = Integer.parseInt(temp);
@@ -318,34 +361,34 @@ public class Libreria {
 			case 1:
 				for (int i = 5; i >= 0; i--) {
 					if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.CORNICE
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.CORNICE;
-						plancia.tesseraoggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.CORNICE;
+						plancia.tesseraOggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					} else if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.GATTO
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.GATTO;
-						plancia.tesseraoggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.GATTO;
+						plancia.tesseraOggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					} else if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.GIOCO
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.GIOCO;
-						plancia.tesseraoggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.GIOCO;
+						plancia.tesseraOggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					} else if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.LIBRO
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.LIBRO;
-						plancia.tesseraoggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.LIBRO;
+						plancia.tesseraOggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					} else if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.PIANTA
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.PIANTA;
-						plancia.tesseraoggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.PIANTA;
+						plancia.tesseraOggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					} else if (plancia.getTessera(coordinate[x][y], coordinate[x][y + 1]) == TesseraOggetto.TROFEO
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.TROFEO;
-						plancia.tesseraoggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.TROFEO;
+						plancia.tesseraOggetto[coordinate[x][y]][coordinate[x][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					}
 				}
@@ -354,39 +397,39 @@ public class Libreria {
 			case 2:
 				for (int i = 5; i >= 0; i--) {
 					if (plancia.getTessera(coordinate[x + 1][y], coordinate[x + 1][y + 1]) == TesseraOggetto.CORNICE
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.CORNICE;
-						plancia.tesseraoggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.CORNICE;
+						plancia.tesseraOggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					} else if (plancia.getTessera(coordinate[x + 1][y],
 							coordinate[x + 1][y + 1]) == TesseraOggetto.GATTO
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.GATTO;
-						plancia.tesseraoggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.GATTO;
+						plancia.tesseraOggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					} else if (plancia.getTessera(coordinate[x + 1][y],
 							coordinate[x + 1][y + 1]) == TesseraOggetto.GIOCO
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.GIOCO;
-						plancia.tesseraoggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.GIOCO;
+						plancia.tesseraOggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					} else if (plancia.getTessera(coordinate[x + 1][y],
 							coordinate[x + 1][y + 1]) == TesseraOggetto.LIBRO
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.LIBRO;
-						plancia.tesseraoggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.LIBRO;
+						plancia.tesseraOggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					} else if (plancia.getTessera(coordinate[x + 1][y],
 							coordinate[x + 1][y + 1]) == TesseraOggetto.PIANTA
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.PIANTA;
-						plancia.tesseraoggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.PIANTA;
+						plancia.tesseraOggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					} else if (plancia.getTessera(coordinate[x + 1][y],
 							coordinate[x + 1][y + 1]) == TesseraOggetto.TROFEO
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.TROFEO;
-						plancia.tesseraoggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.TROFEO;
+						plancia.tesseraOggetto[coordinate[x + 1][y]][coordinate[x + 1][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					}
 				}
@@ -395,39 +438,39 @@ public class Libreria {
 			case 3:
 				for (int i = 5; i >= 0; i--) {
 					if (plancia.getTessera(coordinate[x + 2][y], coordinate[x + 2][y + 1]) == TesseraOggetto.CORNICE
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.CORNICE;
-						plancia.tesseraoggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.CORNICE;
+						plancia.tesseraOggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					} else if (plancia.getTessera(coordinate[x + 2][y],
 							coordinate[x + 2][y + 1]) == TesseraOggetto.GATTO
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.GATTO;
-						plancia.tesseraoggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.GATTO;
+						plancia.tesseraOggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					} else if (plancia.getTessera(coordinate[x + 2][y],
 							coordinate[x + 2][y + 1]) == TesseraOggetto.GIOCO
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.GIOCO;
-						plancia.tesseraoggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.GIOCO;
+						plancia.tesseraOggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					} else if (plancia.getTessera(coordinate[x + 2][y],
 							coordinate[x + 2][y + 1]) == TesseraOggetto.LIBRO
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.LIBRO;
-						plancia.tesseraoggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.LIBRO;
+						plancia.tesseraOggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					} else if (plancia.getTessera(coordinate[x + 2][y],
 							coordinate[x + 2][y + 1]) == TesseraOggetto.PIANTA
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.PIANTA;
-						plancia.tesseraoggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.PIANTA;
+						plancia.tesseraOggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					} else if (plancia.getTessera(coordinate[x + 2][y],
 							coordinate[x + 2][y + 1]) == TesseraOggetto.TROFEO
-							&& tesseraoggetto[i][n] == TesseraOggetto.VUOTA) {
-						tesseraoggetto[i][n] = TesseraOggetto.TROFEO;
-						plancia.tesseraoggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
+							&& tesseraOggetto[i][n] == TesseraOggetto.VUOTA) {
+						tesseraOggetto[i][n] = TesseraOggetto.TROFEO;
+						plancia.tesseraOggetto[coordinate[x + 2][y]][coordinate[x + 2][y + 1]] = TesseraOggetto.VUOTA;
 						break;
 					}
 				}
@@ -445,10 +488,10 @@ public class Libreria {
 	 * @return massimo: il numero massimo di tessere da pescare
 	 */
 	public int numeroMassimoDaPescare() {
-		int numeroPescabili[] = { 0, 0, 0, 0, 0 };
+		int[] numeroPescabili = { 0, 0, 0, 0, 0 };
 		for (int j = 0; j < 5; j++) {
 			for (int i = 0; i < 6; i++) {
-				if (this.tesseraoggetto[i][j] == TesseraOggetto.VUOTA) {
+				if (this.tesseraOggetto[i][j] == TesseraOggetto.VUOTA) {
 					numeroPescabili[j]++;
 				}
 			}
@@ -466,285 +509,322 @@ public class Libreria {
 	}
 
 	public TesseraOggetto[][] getTesseraoggetto() {
-		return tesseraoggetto;
+		return tesseraOggetto;
 	}
 
-	TesseraOggetto[][] libreria_appoggio = new TesseraOggetto[6][5]; // Libreria di appoggio per verifica punteggio
-
-	public int ControllaObiettiviFinali() {
-		int Punteggio = 0;
-		int punteggiofinale[] = new int[6];
+	/**
+	 * controlla il completamento degli obiettivi di fine partita, e restituisce un
+	 * aumento di punteggio
+	 * 
+	 * @return quanti punti guadagna il giocatore
+	 */
+	public int controllaObiettiviFinali() {
+		int punteggio = 0;
+		int punteggioFinale[] = new int[6];
 		int cont = 0;
 
 		// CONTROLLO TESSERE GATTO
-		reset(libreria_appoggio);
+		reset(libreriaAppoggio);
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (tesseraoggetto[i][j] == TesseraOggetto.GATTO) {
-					libreria_appoggio[i][j] = tesseraoggetto[i][j];
+				if (tesseraOggetto[i][j] == TesseraOggetto.GATTO) {
+					libreriaAppoggio[i][j] = tesseraOggetto[i][j];
 				}
 			}
 		}
 
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (libreria_appoggio[i][j] == getDestra(i, j)) {
+				if (libreriaAppoggio[i][j] == getDestra(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSotto(i, j)) {
+				if (libreriaAppoggio[i][j] == getSotto(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSinistra(i, j)) {
+				if (libreriaAppoggio[i][j] == getSinistra(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSopra(i, j)) {
+				if (libreriaAppoggio[i][j] == getSopra(i, j)) {
 					cont++;
 				}
-				libreria_appoggio[i][j] = TesseraOggetto.VUOTA;
+				libreriaAppoggio[i][j] = TesseraOggetto.VUOTA;
 			}
 		}
 
 		if (cont == 0) {
-			punteggiofinale[0] = 0;
+			punteggioFinale[0] = 0;
 		} else {
 			if (cont < 4 && cont > 1) {
 				cont++;
-				punteggiofinale[0] = cont;
+				punteggioFinale[0] = cont;
 			}
 		}
 
 		// CONTROLLO TESSERE TROFEO
 		cont = 0;
-		reset(libreria_appoggio);
+		reset(libreriaAppoggio);
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (tesseraoggetto[i][j] == TesseraOggetto.TROFEO) {
-					libreria_appoggio[i][j] = tesseraoggetto[i][j];
+				if (tesseraOggetto[i][j] == TesseraOggetto.TROFEO) {
+					libreriaAppoggio[i][j] = tesseraOggetto[i][j];
 				}
 			}
 		}
 
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (libreria_appoggio[i][j] == getDestra(i, j)) {
+				if (libreriaAppoggio[i][j] == getDestra(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSotto(i, j)) {
+				if (libreriaAppoggio[i][j] == getSotto(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSinistra(i, j)) {
+				if (libreriaAppoggio[i][j] == getSinistra(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSopra(i, j)) {
+				if (libreriaAppoggio[i][j] == getSopra(i, j)) {
 					cont++;
 				}
-				libreria_appoggio[i][j] = TesseraOggetto.VUOTA;
+				libreriaAppoggio[i][j] = TesseraOggetto.VUOTA;
 			}
 		}
 
 		if (cont == 0) {
-			punteggiofinale[1] = 0;
+			punteggioFinale[1] = 0;
 		} else {
 			if (cont < 4 && cont > 1) {
 				cont++;
-				punteggiofinale[1] = cont;
+				punteggioFinale[1] = cont;
 			}
 		}
 
 		// CONTROLLO TESSERE CORNICI
 		cont = 0;
-		reset(libreria_appoggio);
+		reset(libreriaAppoggio);
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (tesseraoggetto[i][j] == TesseraOggetto.CORNICE) {
-					libreria_appoggio[i][j] = tesseraoggetto[i][j];
+				if (tesseraOggetto[i][j] == TesseraOggetto.CORNICE) {
+					libreriaAppoggio[i][j] = tesseraOggetto[i][j];
 				}
 			}
 		}
 
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (libreria_appoggio[i][j] == getDestra(i, j)) {
+				if (libreriaAppoggio[i][j] == getDestra(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSotto(i, j)) {
+				if (libreriaAppoggio[i][j] == getSotto(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSinistra(i, j)) {
+				if (libreriaAppoggio[i][j] == getSinistra(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSopra(i, j)) {
+				if (libreriaAppoggio[i][j] == getSopra(i, j)) {
 					cont++;
 				}
-				libreria_appoggio[i][j] = TesseraOggetto.VUOTA;
+				libreriaAppoggio[i][j] = TesseraOggetto.VUOTA;
 			}
 		}
 
 		if (cont == 0) {
-			punteggiofinale[2] = 0;
+			punteggioFinale[2] = 0;
 		} else {
 			if (cont < 4 && cont > 1) {
 				cont++;
-				punteggiofinale[2] = cont;
+				punteggioFinale[2] = cont;
 			}
 		}
 
 		// CONTROLLO TESSERE LIBRI
 		cont = 0;
-		reset(libreria_appoggio);
+		reset(libreriaAppoggio);
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (tesseraoggetto[i][j] == TesseraOggetto.LIBRO) {
-					libreria_appoggio[i][j] = tesseraoggetto[i][j];
+				if (tesseraOggetto[i][j] == TesseraOggetto.LIBRO) {
+					libreriaAppoggio[i][j] = tesseraOggetto[i][j];
 				}
 			}
 		}
 
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (libreria_appoggio[i][j] == getDestra(i, j)) {
+				if (libreriaAppoggio[i][j] == getDestra(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSotto(i, j)) {
+				if (libreriaAppoggio[i][j] == getSotto(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSinistra(i, j)) {
+				if (libreriaAppoggio[i][j] == getSinistra(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSopra(i, j)) {
+				if (libreriaAppoggio[i][j] == getSopra(i, j)) {
 					cont++;
 				}
-				libreria_appoggio[i][j] = TesseraOggetto.VUOTA;
+				libreriaAppoggio[i][j] = TesseraOggetto.VUOTA;
 			}
 		}
 
 		if (cont == 0) {
-			punteggiofinale[3] = 0;
+			punteggioFinale[3] = 0;
 		} else {
 			if (cont < 4 && cont > 1) {
 				cont++;
-				punteggiofinale[3] = cont;
+				punteggioFinale[3] = cont;
 			}
 		}
 
 		// CONTROLLO TESSERE GIOCHI
 		cont = 0;
-		reset(libreria_appoggio);
+		reset(libreriaAppoggio);
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (tesseraoggetto[i][j] == TesseraOggetto.GIOCO) {
-					libreria_appoggio[i][j] = tesseraoggetto[i][j];
+				if (tesseraOggetto[i][j] == TesseraOggetto.GIOCO) {
+					libreriaAppoggio[i][j] = tesseraOggetto[i][j];
 				}
 			}
 		}
 
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (libreria_appoggio[i][j] == getDestra(i, j)) {
+				if (libreriaAppoggio[i][j] == getDestra(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSotto(i, j)) {
+				if (libreriaAppoggio[i][j] == getSotto(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSinistra(i, j)) {
+				if (libreriaAppoggio[i][j] == getSinistra(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSopra(i, j)) {
+				if (libreriaAppoggio[i][j] == getSopra(i, j)) {
 					cont++;
 				}
-				libreria_appoggio[i][j] = TesseraOggetto.VUOTA;
+				libreriaAppoggio[i][j] = TesseraOggetto.VUOTA;
 			}
 		}
 
 		if (cont == 0) {
-			punteggiofinale[4] = 0;
+			punteggioFinale[4] = 0;
 		} else {
 			if (cont < 4 && cont > 1) {
 				cont++;
-				punteggiofinale[4] = cont;
+				punteggioFinale[4] = cont;
 			}
 		}
 
 		// CONTROLLO TESSERE PIANTE
 		cont = 0;
-		reset(libreria_appoggio);
+		reset(libreriaAppoggio);
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (tesseraoggetto[i][j] == TesseraOggetto.PIANTA) {
-					libreria_appoggio[i][j] = tesseraoggetto[i][j];
+				if (tesseraOggetto[i][j] == TesseraOggetto.PIANTA) {
+					libreriaAppoggio[i][j] = tesseraOggetto[i][j];
 				}
 			}
 		}
 
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (libreria_appoggio[i][j] == getDestra(i, j)) {
+				if (libreriaAppoggio[i][j] == getDestra(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSotto(i, j)) {
+				if (libreriaAppoggio[i][j] == getSotto(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSinistra(i, j)) {
+				if (libreriaAppoggio[i][j] == getSinistra(i, j)) {
 					cont++;
 				}
-				if (libreria_appoggio[i][j] == getSopra(i, j)) {
+				if (libreriaAppoggio[i][j] == getSopra(i, j)) {
 					cont++;
 				}
-				libreria_appoggio[i][j] = TesseraOggetto.VUOTA;
+				libreriaAppoggio[i][j] = TesseraOggetto.VUOTA;
 			}
 		}
 
 		if (cont == 0) {
-			punteggiofinale[5] = 0;
+			punteggioFinale[5] = 0;
 		} else {
 			if (cont < 4 && cont > 1) {
 				cont++;
-				punteggiofinale[5] = cont;
+				punteggioFinale[5] = cont;
 			}
 		}
 
 		for (int k = 0; k < 6; k++) {
-			if (punteggiofinale[k] == 3) {
-				Punteggio += 2;
-			} else if (punteggiofinale[k] == 4) {
-				Punteggio += 3;
-			} else if (punteggiofinale[k] == 5) {
-				Punteggio += 5;
-			} else if (punteggiofinale[k] > 5) {
-				Punteggio += 8;
+			if (punteggioFinale[k] == 3) {
+				punteggio += 2;
+			} else if (punteggioFinale[k] == 4) {
+				punteggio += 3;
+			} else if (punteggioFinale[k] == 5) {
+				punteggio += 5;
+			} else if (punteggioFinale[k] > 5) {
+				punteggio += 8;
 			}
 		}
-		return Punteggio;
+		return punteggio;
 	}
 
+	/**
+	 * preleva la tessera oggetto a destra di quella selezionata
+	 * 
+	 * @param riga    riga della tessera da analizzare
+	 * @param colonna colonna della tessera da analizzare
+	 * @return la tesseraoggetto
+	 */
 	public TesseraOggetto getDestra(int riga, int colonna) {
 		if (colonna == 4) {
 			return TesseraOggetto.VUOTA;
 		}
-		return libreria_appoggio[riga][colonna + 1];
+		return libreriaAppoggio[riga][colonna + 1];
 	}
 
+	/**
+	 * preleva la tessera oggetto sopra quella selezionata
+	 * 
+	 * @param riga    riga della tessera da analizzare
+	 * @param colonna colonna della tessera da analizzare
+	 * @return la tesseraoggetto
+	 */
 	public TesseraOggetto getSopra(int riga, int colonna) {
 		if (riga == 0) {
 			return TesseraOggetto.VUOTA;
 		}
-		return libreria_appoggio[riga - 1][colonna];
+		return libreriaAppoggio[riga - 1][colonna];
 	}
 
+	/**
+	 * preleva la tessera oggetto sotto quella selezionata
+	 * 
+	 * @param riga    riga della tessera da analizzare
+	 * @param colonna colonna della tessera da analizzare
+	 * @return la tesseraoggetto
+	 */
 	public TesseraOggetto getSotto(int riga, int colonna) {
 		if (riga == 5) {
 			return TesseraOggetto.VUOTA;
 		}
-		return libreria_appoggio[riga + 1][colonna];
+		return libreriaAppoggio[riga + 1][colonna];
 	}
 
+	/**
+	 * preleva la tessera oggetto a sinistra di quella selezionata
+	 * 
+	 * @param riga    riga della tessera da analizzare
+	 * @param colonna colonna della tessera da analizzare
+	 * @return la tesseraoggetto
+	 */
 	public TesseraOggetto getSinistra(int riga, int colonna) {
 		if (colonna == 0) {
 			return TesseraOggetto.VUOTA;
 		}
-		return libreria_appoggio[riga][colonna - 1];
+		return libreriaAppoggio[riga][colonna - 1];
 	}
 
+	/**
+	 * passata una matrice di tessere oggetto, setta ogni elemento a vuoto
+	 * 
+	 * @param t la matrice da settare a vuota
+	 */
 	public void reset(TesseraOggetto[][] t) {
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {

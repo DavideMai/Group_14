@@ -31,21 +31,20 @@ public class Partita {
 		String numeroRegolamentoTemp = new String();
 		ArrayList<Giocatori> giocatori = new ArrayList<Giocatori>();
 		do {
-			System.out.println(
-					"\033[0;36m" + "Vuoi visualizzare il regolamento?" + "\033[0m"
-					+ "\nInserire" + "\033[0;32m" + " 1" + "\033[0m" + " per visualizzare le regole sul pescaggio delle tessere"
-					+ "\nInserire" + "\033[0;32m" + " 2" + "\033[0m" + " per le regole sull'inserimento delle tessere nella libreria"
-					+ "\nInserire" + "\033[0;32m" + " 3" + "\033[0m" + " per le regole di ripristino della plancia"
-					+ "\nInserire" + "\033[0;32m" + " 4" + "\033[0m" + " per le regole sugli obiettivi comuni"
-					+ "\nInserire" + "\033[0;32m" + " 5" + "\033[0m" + " per le regole sugli obiettivi personali"
-					+ "\nInserire" + "\033[0;32m" + " 6" + "\033[0m" + " per le regole sulla fine della partita"
-					+ "\nInserire" + "\033[0;32m" + " 7" + "\033[0m" + " per terminare la visualizzazione del regolamento");
+			System.out.println("\033[0;36m" + "Vuoi visualizzare il regolamento?" + "\033[0m" + "\nInserire"
+					+ "\033[0;32m" + " 1" + "\033[0m" + " per visualizzare le regole sul pescaggio delle tessere"
+					+ "\nInserire" + "\033[0;32m" + " 2" + "\033[0m"
+					+ " per le regole sull'inserimento delle tessere nella libreria" + "\nInserire" + "\033[0;32m"
+					+ " 3" + "\033[0m" + " per le regole di ripristino della plancia" + "\nInserire" + "\033[0;32m"
+					+ " 4" + "\033[0m" + " per le regole sugli obiettivi comuni" + "\nInserire" + "\033[0;32m" + " 5"
+					+ "\033[0m" + " per le regole sugli obiettivi personali" + "\nInserire" + "\033[0;32m" + " 6"
+					+ "\033[0m" + " per le regole sulla fine della partita" + "\nInserire" + "\033[0;32m" + " 7"
+					+ "\033[0m" + " per terminare la visualizzazione del regolamento");
 			numeroRegolamentoTemp = sc.nextLine();
-			if(isNumeric(numeroRegolamentoTemp)) {
+			if (isNumeric(numeroRegolamentoTemp)) {
 				numeroRegolamento = Integer.parseInt(numeroRegolamentoTemp);
 				regolamento.visualizzaRegolamento(numeroRegolamento);
-			}
-			else { 
+			} else {
 				System.out.println("\033[0;31m" + "Inserire un numero intero" + "\033[0m");
 				System.out.println(" ");
 			}
@@ -59,7 +58,8 @@ public class Partita {
 			 */
 			do {
 				sc.reset();
-				System.out.println("\033[0;36m" + "Vuoi inserire un nuovo giocatore?" + "\033[0m" + " Se si', inserisci" + "\033[0;32m" + " T"  + "\033[0m" + ", altrimenti inserisci" + "\033[0;31m" + " F" + "\033[0m");
+				System.out.println("\033[0;36m" + "Vuoi inserire un nuovo giocatore?" + "\033[0m" + " Se si', inserisci"
+						+ "\033[0;32m" + " T" + "\033[0m" + ", altrimenti inserisci" + "\033[0;31m" + " F" + "\033[0m");
 				inserimento = sc.nextLine();
 			} while (!inserimento.matches("T") && !inserimento.matches("t") && !inserimento.matches("F")
 					&& !inserimento.matches("f"));
@@ -78,8 +78,8 @@ public class Partita {
 				giocatori.add(new Giocatori(nome, numberPlayer));
 				System.out.println("\033[0;32m" + "Inserimento giocatore completato" + "\033[0m");
 				System.out.println(" ");
-				giocatori.get(numberPlayer - 1).AssegnaObiettivoPersonale();
-				giocatori.get(numberPlayer - 1).getObiettivoPersonale().VisualizzaObiettivoPersonale();
+				giocatori.get(numberPlayer - 1).assegnaObiettivoPersonale();
+				giocatori.get(numberPlayer - 1).getObiettivoPersonale().visualizzaObiettivoPersonale();
 			}
 			/**
 			 * throws IllegalArgumentException quando vengono inseriti meno di due giocatori
@@ -93,28 +93,28 @@ public class Partita {
 			}
 			System.out.println(" ");
 		} while ((nextPlayer && numberPlayer < 4) || numberPlayer <= 1);
-		plancia.CancellaCelle(numberPlayer);
-		plancia.SetCella();
+		plancia.cancellaCelle(numberPlayer);
+		plancia.setCella();
 		numeroRimanentiPrimoObiettivo = numberPlayer;
 		numeroRimanentiSecondoObiettivo = numberPlayer;
 
-		int PrimoNumero1;
-		int SecondoNumero1;
+		int primoNumero1;
+		int secondoNumero1;
 		/**
 		 * il do-while seguente genera i due obiettivi comuni della partita in modo che
 		 * siano diversi tra loro
 		 */
 		do {
 
-			int PrimoNumero = ObiettivoComune.generateRandomNumber();
-			int SecondoNumero = ObiettivoComune.generateRandomNumber();
+			int primoNumero = ObiettivoComune.generateRandomNumber();
+			int secondoNumero = ObiettivoComune.generateRandomNumber();
 
-			PrimoNumero1 = PrimoNumero; // variabile d'appoggio
-			SecondoNumero1 = SecondoNumero; // variabile d'appoggio
+			primoNumero1 = primoNumero; // variabile d'appoggio
+			secondoNumero1 = secondoNumero; // variabile d'appoggio
 			System.out.println(" ");
 			System.out.println("\033[0;36m" + "Visualizzazione primo obiettivo comune" + "\033[0m");
-			if (PrimoNumero != SecondoNumero) {
-				switch (PrimoNumero) {
+			if (primoNumero != secondoNumero) {
+				switch (primoNumero) {
 				case 0:
 					obiettivoComune = new PrimoObiettivoComune();
 					System.out.println(obiettivoComune.getNumeroCarta() + " ");
@@ -179,7 +179,7 @@ public class Partita {
 				}
 				System.out.println(" ");
 				System.out.println("\033[0;36m" + "Visualizzazione secondo obiettivo comune" + "\033[0m");
-				switch (SecondoNumero) {
+				switch (secondoNumero) {
 				case 0:
 					obiettivoComune2 = new PrimoObiettivoComune();
 					System.out.println(obiettivoComune2.getNumeroCarta() + " ");
@@ -244,9 +244,7 @@ public class Partita {
 
 			}
 
-		} while (PrimoNumero1 == SecondoNumero1);
-
-		// System.out.println("Stampa degli obiettivi comuni in corso... \n");
+		} while (primoNumero1 == secondoNumero1);
 
 		/**
 		 * ciclo che permette a ogni giocatore di pescare le tessere e inserirle nella
@@ -263,23 +261,23 @@ public class Partita {
 				 */
 				do {
 					System.out.println(" ");
-					System.out.println(
-							"\033[0;36m" + "Vuoi visualizzare il regolamento?" + "\033[0m"
-									+ "\nInserire" + "\033[0;32m" + " 1" + "\033[0m" + " per visualizzare le regole sul pescaggio delle tessere"
-									+ "\nInserire" + "\033[0;32m" + " 2" + "\033[0m" + " per le regole sull'inserimento delle tessere nella libreria"
-									+ "\nInserire" + "\033[0;32m" + " 3" + "\033[0m" + " per le regole di ripristino della plancia"
-									+ "\nInserire" + "\033[0;32m" + " 4" + "\033[0m" + " per le regole sugli obiettivi comuni"
-									+ "\nInserire" + "\033[0;32m" + " 5" + "\033[0m" + " per le regole sugli obiettivi personali"
-									+ "\nInserire" + "\033[0;32m" + " 6" + "\033[0m" + " per le regole sulla fine della partita"
-									+ "\nInserire" + "\033[0;32m" + " 7" + "\033[0m" + " per terminare la visualizzazione del regolamento");
+					System.out.println("\033[0;36m" + "Vuoi visualizzare il regolamento?" + "\033[0m" + "\nInserire"
+							+ "\033[0;32m" + " 1" + "\033[0m"
+							+ " per visualizzare le regole sul pescaggio delle tessere" + "\nInserire" + "\033[0;32m"
+							+ " 2" + "\033[0m" + " per le regole sull'inserimento delle tessere nella libreria"
+							+ "\nInserire" + "\033[0;32m" + " 3" + "\033[0m"
+							+ " per le regole di ripristino della plancia" + "\nInserire" + "\033[0;32m" + " 4"
+							+ "\033[0m" + " per le regole sugli obiettivi comuni" + "\nInserire" + "\033[0;32m" + " 5"
+							+ "\033[0m" + " per le regole sugli obiettivi personali" + "\nInserire" + "\033[0;32m"
+							+ " 6" + "\033[0m" + " per le regole sulla fine della partita" + "\nInserire" + "\033[0;32m"
+							+ " 7" + "\033[0m" + " per terminare la visualizzazione del regolamento");
 					numeroRegolamentoTemp = sc.nextLine();
-					if(isNumeric(numeroRegolamentoTemp)) {
+					if (isNumeric(numeroRegolamentoTemp)) {
 						numeroRegolamento = Integer.parseInt(numeroRegolamentoTemp);
 						regolamento.visualizzaRegolamento(numeroRegolamento);
 						System.out.println("\n\n\n");
-						
-					}
-					else {
+
+					} else {
 						System.out.println("\033[0;31m" + "Inserire un numero intero" + "\033[0m");
 					}
 				} while (numeroRegolamento != 7 || !isNumeric(numeroRegolamentoTemp));
@@ -287,27 +285,27 @@ public class Partita {
 				try {
 					TimeUnit.SECONDS.sleep(2);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 				plancia.visualizzaPlancia();
-				giocatori.get(i).getObiettivoPersonale().VisualizzaObiettivoPersonale();
+				giocatori.get(i).getObiettivoPersonale().visualizzaObiettivoPersonale();
 				System.out.println(obiettivoComune.getDescrizione());
 				System.out.println(obiettivoComune2.getDescrizione());
 				giocatori.get(i).getLibreria().visualizzaLibreria();
-				coordinate = plancia.PescaTessere(giocatori.get(i).getLibreria().numeroMassimoDaPescare());
+				coordinate = plancia.pescaTessere(giocatori.get(i).getLibreria().numeroMassimoDaPescare());
 				giocatori.get(i).getLibreria().inserimentoTessere(plancia, coordinate);
 				giocatori.get(i).getLibreria().visualizzaLibreria();
 				if (giocatori.get(i).getLibreria().controlloLibreria() && !terminata) {
 					terminata = true;
 
-					giocatori.get(i).AumentaPunteggioGiocatore(1); // il primo giocatore a riempire la libreria riceve
+					giocatori.get(i).aumentaPunteggioGiocatore(1); // il primo giocatore a riempire la libreria riceve
 																	// un punto
 				}
 
 				if (numeroRimanentiPrimoObiettivo != 0) {
 					giocatori.get(i).controlloPrimoObiettivoComune(obiettivoComune, numeroRimanentiPrimoObiettivo);
-					if (obiettivoComune.ControlloObiettivoComune(giocatori.get(i).getLibreria())
+					if (obiettivoComune.controlloObiettivoComune(giocatori.get(i).getLibreria())
 							&& !giocatori.get(i).isPrimoObiettivo()) {
 						System.out.println("\033[0;32m" + "Primo obiettivo completato!" + "\033[0m");
 						numeroRimanentiPrimoObiettivo--;
@@ -316,7 +314,7 @@ public class Partita {
 				}
 				if (numeroRimanentiSecondoObiettivo != 0) {
 					giocatori.get(i).controlloSecondoObiettivoComune(obiettivoComune2, numeroRimanentiSecondoObiettivo);
-					if (obiettivoComune2.ControlloObiettivoComune(giocatori.get(i).getLibreria())
+					if (obiettivoComune2.controlloObiettivoComune(giocatori.get(i).getLibreria())
 							&& !giocatori.get(i).isSecondoObiettivo()) {
 						System.out.println("\033[0;32m" + "Secondo obiettivo completato!" + "\033[0m");
 						numeroRimanentiSecondoObiettivo--;
@@ -324,17 +322,16 @@ public class Partita {
 					}
 				}
 				System.out.println("I giocatori che devono ancora completare il primo obiettivo comune sono "
-						+ "\033[0;32m" +  numeroRimanentiPrimoObiettivo + "\033[0m");
+						+ "\033[0;32m" + numeroRimanentiPrimoObiettivo + "\033[0m");
 				System.out.println("I giocatori che devono ancora completare il secondo obiettivo comune sono "
 						+ "\033[0;32m" + numeroRimanentiSecondoObiettivo + "\033[0m");
-				plancia.ControlloTessere();
+				plancia.controlloTessere();
 				/**
 				 * il seguente try-catch fa sì che si attendano 5 secondi tra un turno e l'altro
 				 */
 				try {
 					TimeUnit.SECONDS.sleep(3);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				if (terminata) {
@@ -350,17 +347,25 @@ public class Partita {
 		 */
 		for (int i = 0; i < numberPlayer; i++) {
 			giocatori.get(i).assegnaPunteggioObiettivoPersonale();
-			System.out
-					.println(giocatori.get(i).getNome() + " ha ottenuto " + "\033[0;32m" + giocatori.get(i).getPunteggio() + "\033[0m" + " punti");
+			giocatori.get(i).aumentaPunteggioGiocatore(giocatori.get(i).getLibreria().controllaObiettiviFinali());
+			System.out.println(giocatori.get(i).getNome() + " ha ottenuto " + "\033[0;32m"
+					+ giocatori.get(i).getPunteggio() + "\033[0m" + " punti");
 		}
-
+		sc.close();
 	}
-	public static boolean isNumeric(String str) { 
-		  try {  
-		    Double.parseDouble(str);  
-		    return true;
-		  } catch(NumberFormatException e){  
-		    return false;  
-		  }  
+
+	/**
+	 * Metodo che, passata una stringa, controlla se è un numero
+	 * 
+	 * @param str stringa da controllare
+	 * @return true se è un numero, false se non lo è
+	 */
+	public static boolean isNumeric(String str) {
+		try {
+			Double.parseDouble(str);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
 		}
+	}
 }

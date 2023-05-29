@@ -7,9 +7,9 @@ public class SecondoObiettivoComune extends ObiettivoComune {
 
 	public SecondoObiettivoComune() {
 		super();
-		numero_carta = 2;
+		numeroCarta = 2;
 		descrizione = "Quattro tessere dello stesso tipo ai quattro angoli della libreria";
-		// TODO Auto-generated constructor stub
+
 	}
 
 	/**
@@ -22,16 +22,18 @@ public class SecondoObiettivoComune extends ObiettivoComune {
 	 */
 
 	@Override
-	public boolean ControlloObiettivoComune(Libreria libreria) {
+	public boolean controlloObiettivoComune(Libreria libreria) {
 		// controllo i 4 angoli della libreria
-		if(libreria.getTessera(0, 0)!=TesseraOggetto.VUOTA && libreria.getTessera(0, 4)!=TesseraOggetto.VUOTA && libreria.getTessera(5, 0)!=TesseraOggetto.VUOTA && libreria.getTessera(5, 4)!=TesseraOggetto.VUOTA )
-		{
-			if (libreria.getTessera(0, 0) == libreria.getTessera(0, 4)&& libreria.getTessera(0, 0) == libreria.getTessera(5, 0) && libreria.getTessera(0, 0) == libreria.getTessera(5, 4)) 
-			{
-			return true;
+		if (libreria.getTessera(0, 0) != TesseraOggetto.VUOTA && libreria.getTessera(0, 4) != TesseraOggetto.VUOTA
+				&& libreria.getTessera(5, 0) != TesseraOggetto.VUOTA
+				&& libreria.getTessera(5, 4) != TesseraOggetto.VUOTA) {
+			if (libreria.getTessera(0, 0) == libreria.getTessera(0, 4)
+					&& libreria.getTessera(0, 0) == libreria.getTessera(5, 0)
+					&& libreria.getTessera(0, 0) == libreria.getTessera(5, 4)) {
+				return true;
 			}
 		}
-		
+
 		return false;
 	}
 

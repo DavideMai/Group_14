@@ -3,43 +3,43 @@ package obiettivi_personali;
 import utils.TesseraOggetto;
 
 public class DecimoObiettivoPersonale extends ObiettivoPersonale {
-	public TesseraOggetto[][] ObiettivoPersonale = new TesseraOggetto[6][5];
+	public TesseraOggetto[][] obiettivoPersonale = new TesseraOggetto[6][5];
 
 	public DecimoObiettivoPersonale() {
-		ObiettivoPersonale[0][2] = TesseraOggetto.LIBRO;
-		ObiettivoPersonale[1][1] = TesseraOggetto.PIANTA;
-		ObiettivoPersonale[2][2] = TesseraOggetto.CORNICE;
-		ObiettivoPersonale[3][3] = TesseraOggetto.TROFEO;
-		ObiettivoPersonale[4][4] = TesseraOggetto.GIOCO;
-		ObiettivoPersonale[5][0] = TesseraOggetto.GATTO;
+		obiettivoPersonale[0][2] = TesseraOggetto.LIBRO;
+		obiettivoPersonale[1][1] = TesseraOggetto.PIANTA;
+		obiettivoPersonale[2][2] = TesseraOggetto.CORNICE;
+		obiettivoPersonale[3][3] = TesseraOggetto.TROFEO;
+		obiettivoPersonale[4][4] = TesseraOggetto.GIOCO;
+		obiettivoPersonale[5][0] = TesseraOggetto.GATTO;
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (ObiettivoPersonale[i][j] == null) {
-					ObiettivoPersonale[i][j] = TesseraOggetto.VUOTA;
+				if (obiettivoPersonale[i][j] == null) {
+					obiettivoPersonale[i][j] = TesseraOggetto.VUOTA;
 				}
 			}
 		}
 	}
 
-	public int ControllaObiettivoPersonale(TesseraOggetto[][] tesseraoggetto) {
+	public int controllaObiettivoPersonale(TesseraOggetto[][] tesseraOggetto) {
 		int punteggio = 0;
 		int contatore = 0;
-		if (tesseraoggetto[0][2] == TesseraOggetto.LIBRO) {
+		if (tesseraOggetto[0][2] == TesseraOggetto.LIBRO) {
 			contatore++;
 		}
-		if (tesseraoggetto[1][1] == TesseraOggetto.PIANTA) {
+		if (tesseraOggetto[1][1] == TesseraOggetto.PIANTA) {
 			contatore++;
 		}
-		if (tesseraoggetto[2][2] == TesseraOggetto.CORNICE) {
+		if (tesseraOggetto[2][2] == TesseraOggetto.CORNICE) {
 			contatore++;
 		}
-		if (tesseraoggetto[3][3] == TesseraOggetto.TROFEO) {
+		if (tesseraOggetto[3][3] == TesseraOggetto.TROFEO) {
 			contatore++;
 		}
-		if (tesseraoggetto[4][4] == TesseraOggetto.GIOCO) {
+		if (tesseraOggetto[4][4] == TesseraOggetto.GIOCO) {
 			contatore++;
 		}
-		if (tesseraoggetto[5][0] == TesseraOggetto.GATTO) {
+		if (tesseraOggetto[5][0] == TesseraOggetto.GATTO) {
 			contatore++;
 		}
 		switch (contatore) {
@@ -65,7 +65,8 @@ public class DecimoObiettivoPersonale extends ObiettivoPersonale {
 		return punteggio;
 	}
 
-	public void VisualizzaObiettivoPersonale() { // funzione per visualizzare la carta obiettivo personale
+	@Override
+	public void visualizzaObiettivoPersonale() { // funzione per visualizzare la carta obiettivo personale
 		System.out.println("\033[0;36m" + "Visualizzazione Obiettivo Personale" + "\033[0m");
 		System.out.println(" ");
 		String riga = new String();
@@ -74,7 +75,7 @@ public class DecimoObiettivoPersonale extends ObiettivoPersonale {
 		for (int i = 0; i < 6; i++) {
 			riga = "";
 			for (int j = 0; j < 5; j++) {
-				riga = riga + toString(this.ObiettivoPersonale[i][j]) + "|";
+				riga = riga + toString(this.obiettivoPersonale[i][j]) + "|";
 			}
 			System.out.println(i + " |" + riga);
 

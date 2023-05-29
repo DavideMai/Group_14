@@ -7,7 +7,7 @@ public class DodicesimoObiettivoComune extends ObiettivoComune {
 
 	public DodicesimoObiettivoComune() {
 		super();
-		numero_carta = 12;
+		numeroCarta = 12;
 		descrizione = "Cinque colonne di altezza crescente o decrescente: a partire dalla prima colonna a sinistra o a destra, ogni colonna successiva deve essere formata da una tessera in più. Le tessere possono essere di qualsiasi tipo";
 		// TODO Auto-generated constructor stub
 	}
@@ -24,42 +24,32 @@ public class DodicesimoObiettivoComune extends ObiettivoComune {
 	 */
 
 	@Override
-	public boolean ControlloObiettivoComune(Libreria libreria) {
-		int[] ntessere_colonna = new int[5]; // 5 elementi per il numero di righe
+	public boolean controlloObiettivoComune(Libreria libreria) {
+		int[] nTessereColonna = new int[5]; // 5 elementi per il numero di righe
 		int conta = 0;
-		ntessere_colonna[0] = NumeroTessereColonna(libreria, 0); // assegno in posizione 0 il numero di tessere della
-																	// prima colonna
-		ntessere_colonna[1] = NumeroTessereColonna(libreria, 1); // assegno in posizione 1 il numero di tessere della
-																	// seconda colonna
-		ntessere_colonna[2] = NumeroTessereColonna(libreria, 2); // assegno in posizione 2 il numero di tessere della
-																	// terza colonna
-		ntessere_colonna[3] = NumeroTessereColonna(libreria, 3); // assegno in posizione 3 il numero di tessere della
-																	// quarta colonna
-		ntessere_colonna[4] = NumeroTessereColonna(libreria, 4); // assegno in posizione 4 il numero di tessere della
-																	// quinta colonna
-
-		/*
-		 * System.out.println("Colonna 0 "+ntessere_colonna[0]);
-		 * System.out.println("Colonna 1 "+ntessere_colonna[1]);
-		 * System.out.println("Colonna 2 "+ntessere_colonna[2]);
-		 * System.out.println("Colonna 3 "+ntessere_colonna[3]);
-		 * System.out.println("Colonna 4 "+ntessere_colonna[4]);
-		 */
+		nTessereColonna[0] = numeroTessereColonna(libreria, 0); // assegno in posizione 0 il numero di tessere della
+																// prima colonna
+		nTessereColonna[1] = numeroTessereColonna(libreria, 1); // assegno in posizione 1 il numero di tessere della
+																// seconda colonna
+		nTessereColonna[2] = numeroTessereColonna(libreria, 2); // assegno in posizione 2 il numero di tessere della
+																// terza colonna
+		nTessereColonna[3] = numeroTessereColonna(libreria, 3); // assegno in posizione 3 il numero di tessere della
+																// quarta colonna
+		nTessereColonna[4] = numeroTessereColonna(libreria, 4); // assegno in posizione 4 il numero di tessere della
+																// quinta colonna
 
 		for (int n = 0; n < 5; n++) {
 
-			conta = conta + ntessere_colonna[n];
+			conta = conta + nTessereColonna[n];
 		}
-
-		// System.out.println("conta: "+conta);
 
 		if (conta == 20 || conta == 15) {
 
-			if (ntessere_colonna[0] < ntessere_colonna[1] && ntessere_colonna[1] < ntessere_colonna[2]
-					&& ntessere_colonna[2] < ntessere_colonna[3] && ntessere_colonna[3] < ntessere_colonna[4]) {
+			if (nTessereColonna[0] < nTessereColonna[1] && nTessereColonna[1] < nTessereColonna[2]
+					&& nTessereColonna[2] < nTessereColonna[3] && nTessereColonna[3] < nTessereColonna[4]) {
 				return true; // ordine crescente delle colonne
-			} else if (ntessere_colonna[0] > ntessere_colonna[1] && ntessere_colonna[1] > ntessere_colonna[2]
-					&& ntessere_colonna[2] > ntessere_colonna[3] && ntessere_colonna[3] > ntessere_colonna[4]) {
+			} else if (nTessereColonna[0] > nTessereColonna[1] && nTessereColonna[1] > nTessereColonna[2]
+					&& nTessereColonna[2] > nTessereColonna[3] && nTessereColonna[3] > nTessereColonna[4]) {
 				return true; // ordine decrescente delle colonne
 			}
 		}
@@ -75,18 +65,18 @@ public class DodicesimoObiettivoComune extends ObiettivoComune {
 	 * @return ntessere: il numero di tessere di ogni colonna
 	 */
 
-	public int NumeroTessereColonna(Libreria libreria, int colonna) {
-		int ntessere = 0;
+	public int numeroTessereColonna(Libreria libreria, int colonna) {
+		int nTessere = 0;
 
 		for (int i = 5; i >= 0; i--) {
 			if (libreria.getTessera(i, colonna) != TesseraOggetto.VUOTA) {
-				ntessere++;
+				nTessere++;
 			} else {
 
-				return ntessere;
+				return nTessere;
 			}
 		}
 
-		return ntessere;
+		return nTessere;
 	}
 }

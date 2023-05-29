@@ -1,49 +1,47 @@
 package obiettivi_personali;
 
-import java.util.Arrays;
-
 import utils.TesseraOggetto;
 
 public class PrimoObiettivoPersonale extends ObiettivoPersonale {
 
-	public TesseraOggetto[][] ObiettivoPersonale = new TesseraOggetto[6][5];
+	public TesseraOggetto[][] obiettivoPersonale = new TesseraOggetto[6][5];
 
 	public PrimoObiettivoPersonale() {
-		ObiettivoPersonale[0][2] = TesseraOggetto.GIOCO;
-		ObiettivoPersonale[2][2] = TesseraOggetto.GATTO;
-		ObiettivoPersonale[3][4] = TesseraOggetto.LIBRO;
-		ObiettivoPersonale[4][1] = TesseraOggetto.TROFEO;
-		ObiettivoPersonale[4][4] = TesseraOggetto.PIANTA;
-		ObiettivoPersonale[5][0] = TesseraOggetto.CORNICE;
+		obiettivoPersonale[0][2] = TesseraOggetto.GIOCO;
+		obiettivoPersonale[2][2] = TesseraOggetto.GATTO;
+		obiettivoPersonale[3][4] = TesseraOggetto.LIBRO;
+		obiettivoPersonale[4][1] = TesseraOggetto.TROFEO;
+		obiettivoPersonale[4][4] = TesseraOggetto.PIANTA;
+		obiettivoPersonale[5][0] = TesseraOggetto.CORNICE;
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				if (ObiettivoPersonale[i][j] == null) {
-					ObiettivoPersonale[i][j] = TesseraOggetto.VUOTA;
+				if (obiettivoPersonale[i][j] == null) {
+					obiettivoPersonale[i][j] = TesseraOggetto.VUOTA;
 				}
 			}
 		}
 	}
 
-	public int ControllaObiettivoPersonale(TesseraOggetto[][] tesseraoggetto) {
+	public int controllaObiettivoPersonale(TesseraOggetto[][] tesseraOggetto) {
 
 		int punteggio = 0;
 		int contatore = 0;
-		if (tesseraoggetto[0][2] == TesseraOggetto.GIOCO) {
+		if (tesseraOggetto[0][2] == TesseraOggetto.GIOCO) {
 			contatore += 1;
 		}
-		if (tesseraoggetto[2][2] == TesseraOggetto.GATTO) {
+		if (tesseraOggetto[2][2] == TesseraOggetto.GATTO) {
 			contatore += 1;
 		}
-		if (tesseraoggetto[3][4] == TesseraOggetto.LIBRO) {
+		if (tesseraOggetto[3][4] == TesseraOggetto.LIBRO) {
 			contatore += 1;
 		}
-		if (tesseraoggetto[4][1] == TesseraOggetto.TROFEO) {
+		if (tesseraOggetto[4][1] == TesseraOggetto.TROFEO) {
 			contatore += 1;
 		}
-		if (tesseraoggetto[4][4] == TesseraOggetto.PIANTA) {
+		if (tesseraOggetto[4][4] == TesseraOggetto.PIANTA) {
 			contatore += 1;
 		}
-		if (tesseraoggetto[5][0] == TesseraOggetto.CORNICE) {
+		if (tesseraOggetto[5][0] == TesseraOggetto.CORNICE) {
 			contatore += 1;
 		}
 
@@ -73,7 +71,9 @@ public class PrimoObiettivoPersonale extends ObiettivoPersonale {
 		return punteggio;
 	}
 
-	public void VisualizzaObiettivoPersonale() { // funzione per visualizzare la carta obiettivo personale
+	@Override
+
+	public void visualizzaObiettivoPersonale() { // funzione per visualizzare la carta obiettivo personale
 		System.out.println("\033[0;36m" + "Visualizzazione Obiettivo Personale" + "\033[0m");
 		System.out.println(" ");
 		String riga = new String();
@@ -82,7 +82,7 @@ public class PrimoObiettivoPersonale extends ObiettivoPersonale {
 		for (int i = 0; i < 6; i++) {
 			riga = "";
 			for (int j = 0; j < 5; j++) {
-				riga = riga + toString(this.ObiettivoPersonale[i][j]) + "|";
+				riga = riga + toString(this.obiettivoPersonale[i][j]) + "|";
 			}
 			System.out.println(i + " |" + riga);
 

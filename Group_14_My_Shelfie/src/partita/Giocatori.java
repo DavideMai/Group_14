@@ -6,19 +6,6 @@ import java.util.Set;
 
 import obiettivi_personali.*;
 import obiettivi_comuni.*;
-import obiettivi_personali.DecimoObiettivoPersonale;
-import obiettivi_personali.DodicesimoObiettivoPersonale;
-import obiettivi_personali.NonoObiettivoPersonale;
-import obiettivi_personali.ObiettivoPersonale;
-import obiettivi_personali.OttavoObiettivoPersonale;
-import obiettivi_personali.PrimoObiettivoPersonale;
-import obiettivi_personali.QuartoObiettivoPersonale;
-import obiettivi_personali.QuintoObiettivoPersonale;
-import obiettivi_personali.SecondoObiettivoPersonale;
-import obiettivi_personali.SestoObiettivoPersonale;
-import obiettivi_personali.SettimoObiettivoPersonale;
-import obiettivi_personali.TerzoObiettivoPersonale;
-import obiettivi_personali.UndicesimoObiettivoPersonale;
 import utils.TesseraOggetto;
 
 /**
@@ -30,8 +17,8 @@ import utils.TesseraOggetto;
 public class Giocatori {
 	private String nome;
 	private int punteggio = 0;
-	private int numero_giocatore;
-	private int contatore_giocatori;
+	private int numeroGiocatore;
+	private int contatoreGiocatori;
 	private ObiettivoPersonale obiettivoPersonale;
 	private ObiettivoComune obiettivoComune;
 	private Libreria libreria;
@@ -44,7 +31,7 @@ public class Giocatori {
 
 	private static Set<Integer> numeriEstratti = new HashSet<Integer>();
 
-	public void SetNomeGiocatore(String nome) {
+	public void setNomeGiocatore(String nome) {
 		this.nome = nome;
 	}
 
@@ -56,11 +43,11 @@ public class Giocatori {
 	 */
 	public Giocatori(String nome, int numero) {
 		this.nome = nome;
-		this.setNumero_giocatore(numero);
+		this.setNumeroGiocatore(numero);
 		libreria = new Libreria();
 		for (int i = 0; i < 6; i++) {
 			for (int j = 0; j < 5; j++) {
-				libreria.tesseraoggetto[i][j] = TesseraOggetto.VUOTA;
+				libreria.tesseraOggetto[i][j] = TesseraOggetto.VUOTA;
 			}
 		}
 	}
@@ -70,28 +57,28 @@ public class Giocatori {
 	 * @return quanti giocatori ci sono nella partita
 	 */
 	public int getNumeroGiocatori() {
-		return this.contatore_giocatori;
+		return this.contatoreGiocatori;
 	}
 
 	/**
 	 * 
 	 * @param aumento quanto il punteggio del giocatore deve aumentare
 	 */
-	public void AumentaPunteggioGiocatore(int aumento) {
+	public void aumentaPunteggioGiocatore(int aumento) {
 		this.punteggio += aumento;
 	} // prova commento 3
 
 	/**
 	 * Funzione che assegna un obiettivo personale non ancora uscito al giocatore
 	 */
-	public void AssegnaObiettivoPersonale() {
-		int NumeroRandom;
-		NumeroRandom = generateRandomNumber();
-		while (numeriEstratti.contains(NumeroRandom)) {
-			NumeroRandom = generateRandomNumber();
+	public void assegnaObiettivoPersonale() {
+		int numeroRandom;
+		numeroRandom = generateRandomNumber();
+		while (numeriEstratti.contains(numeroRandom)) {
+			numeroRandom = generateRandomNumber();
 		}
-		numeriEstratti.add(NumeroRandom);
-		switch (NumeroRandom) {
+		numeriEstratti.add(numeroRandom);
+		switch (numeroRandom) {
 		case 0:
 			this.obiettivoPersonale = new PrimoObiettivoPersonale();
 			break;
@@ -132,24 +119,49 @@ public class Giocatori {
 
 	}
 
+	/**
+	 * genera un numero casuale tra 0 e 11
+	 * 
+	 * @return il numero generato
+	 */
 	public static int generateRandomNumber() {
 		Random rand = new Random();
 		int randomNum = rand.nextInt(11);
 		return randomNum;
 	}
 
+	/**
+	 * ritorna la libreria
+	 * 
+	 * @return libreria
+	 */
 	public Libreria getLibreria() {
 		return libreria;
 	}
 
+	/**
+	 * permette di settare la libreria
+	 * 
+	 * @param libreria la libreria da modificare
+	 */
 	public void setLibreria(Libreria libreria) {
 		this.libreria = libreria;
 	}
 
+	/**
+	 * permette di ottenere il nome del giocatore
+	 * 
+	 * @return il nome del giocatore
+	 */
 	public String getNome() {
 		return nome;
 	}
 
+	/**
+	 * permette di ottenere l'obiettivo personale del giocatore
+	 * 
+	 * @return l'obiettivo personale
+	 */
 	public ObiettivoPersonale getObiettivoPersonale() {
 		return obiettivoPersonale;
 	}
@@ -166,7 +178,7 @@ public class Giocatori {
 	public int assegnaPunteggioPrimoObiettivo(Libreria libreria, ObiettivoComune o, int rimanenti) {
 		int aumento = 0;
 		if (!this.primoObiettivo) {
-			if (o.ControlloObiettivoComune(libreria)) {
+			if (o.controlloObiettivoComune(libreria)) {
 				switch (rimanenti) {
 				case 4:
 					aumento = 8;
@@ -201,7 +213,7 @@ public class Giocatori {
 	public int assegnaPunteggioSecondoObiettivo(Libreria libreria, ObiettivoComune o, int rimanenti) {
 		int aumento = 0;
 		if (!this.secondoObiettivo) {
-			if (o.ControlloObiettivoComune(libreria)) {
+			if (o.controlloObiettivoComune(libreria)) {
 				switch (rimanenti) {
 				case 4:
 					aumento = 8;
@@ -236,12 +248,12 @@ public class Giocatori {
 	 *                         obiettivo comune
 	 */
 	public void controlloPrimoObiettivoComune(ObiettivoComune o, int rimanentiPrimo) {
-		this.AumentaPunteggioGiocatore(assegnaPunteggioPrimoObiettivo(this.libreria, o, rimanentiPrimo));
+		this.aumentaPunteggioGiocatore(assegnaPunteggioPrimoObiettivo(this.libreria, o, rimanentiPrimo));
 
 	}
 
 	public void controlloSecondoObiettivoComune(ObiettivoComune o, int rimanentiSecondo) {
-		this.AumentaPunteggioGiocatore(assegnaPunteggioSecondoObiettivo(this.libreria, o, rimanentiSecondo));
+		this.aumentaPunteggioGiocatore(assegnaPunteggioSecondoObiettivo(this.libreria, o, rimanentiSecondo));
 	}
 
 	/**
@@ -257,38 +269,78 @@ public class Giocatori {
 	 * completato l'obiettivo personale
 	 */
 	public void assegnaPunteggioObiettivoPersonale() {
-		this.AumentaPunteggioGiocatore(
-				this.obiettivoPersonale.ControllaObiettivoPersonale(this.getLibreria().getTesseraoggetto()));
+		this.aumentaPunteggioGiocatore(
+				this.obiettivoPersonale.controllaObiettivoPersonale(this.getLibreria().getTesseraoggetto()));
 	}
 
-	public int getNumero_giocatore() {
-		return numero_giocatore;
+	/**
+	 * permette di ottenere il numero del giocatore
+	 * 
+	 * @return il numero del giocatore
+	 */
+	public int getNumeroGiocatore() {
+		return numeroGiocatore;
 	}
 
-	public void setNumero_giocatore(int numero_giocatore) {
-		this.numero_giocatore = numero_giocatore;
+	/**
+	 * permette di modificare il numero del giocatore
+	 * 
+	 * @param numeroGiocatore il numero che si vuole dare
+	 */
+	public void setNumeroGiocatore(int numeroGiocatore) {
+		this.numeroGiocatore = numeroGiocatore;
 	}
 
+	/**
+	 * permette di ottenere l'obiettivo comune
+	 * 
+	 * @return l'obiettivo comune
+	 */
 	public ObiettivoComune getObiettivoComune() {
 		return obiettivoComune;
 	}
 
+	/**
+	 * permette di settare l'obiettivo comune
+	 * 
+	 * @param obiettivoComune l'obiettivo da copiare
+	 */
 	public void setObiettivoComune(ObiettivoComune obiettivoComune) {
 		this.obiettivoComune = obiettivoComune;
 	}
 
+	/**
+	 * controlla se il giocatore ha già completato il primo obiettivo comune
+	 * 
+	 * @return ritorna la variabile
+	 */
 	public boolean isPrimoObiettivo() {
 		return primoObiettivo;
 	}
 
+	/**
+	 * modifica lo stato di completamento del primo obiettivo comune
+	 * 
+	 * @param primoObiettivo true o false
+	 */
 	public void setPrimoObiettivo(boolean primoObiettivo) {
 		this.primoObiettivo = primoObiettivo;
 	}
 
+	/**
+	 * controlla se il giocatore ha già completato il secondo obiettivo comune
+	 * 
+	 * @return ritorna la variabile
+	 */
 	public boolean isSecondoObiettivo() {
 		return secondoObiettivo;
 	}
 
+	/**
+	 * modifica lo stato di completamento del secondo obiettivo comune
+	 * 
+	 * @param secondoObiettivo true o false
+	 */
 	public void setSecondoObiettivo(boolean secondoObiettivo) {
 		this.secondoObiettivo = secondoObiettivo;
 	}

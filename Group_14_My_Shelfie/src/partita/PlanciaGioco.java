@@ -5,14 +5,18 @@ import java.util.Scanner;
 import utils.Cella;
 import utils.TesseraOggetto;
 
+/**
+ * classe che permette di gestire la plancia
+ * 
+ * @author david
+ *
+ */
 public class PlanciaGioco {
 
-	public int contatore_giocatori;
-	public int codice_cella;
-
-	// Cella [][] arrayplancia = new Cella [riga][colonna];
+	public int contatoreGiocatori;
+	public int codiceCella;
 	Cella[][] plancia = new Cella[9][9]; // questo attributo viene usato per gestire la plancia
-	TesseraOggetto[][] tesseraoggetto = new TesseraOggetto[9][9]; // matrice per gestire le tessere sulla plancia
+	TesseraOggetto[][] tesseraOggetto = new TesseraOggetto[9][9]; // matrice per gestire le tessere sulla plancia
 	int numeroGatti = 22;
 	int numeroTrofei = 22;
 	int numeroGiochi = 22;
@@ -20,34 +24,22 @@ public class PlanciaGioco {
 	int numeroPiante = 22;
 	int numeroLibri = 22;
 
-	// questa funzione seleziona una cella per esempio per pescare una carta dalla
-	// plancia
-
-	/*
-	 * public boolean Selezione (int riga ,int colonna) { boolean contenuto;
-	 * contenuto = plancia[riga][colonna].utilizzabile; return contenuto; } commento
-	 * perchè per ora è inutile, sostituita con getTessera.
+	/**
+	 * questo metodo permette di rendere ogni cella della plancia utilizzabile in
+	 * base al numero di giocatori
+	 * 
+	 * @param contatoreGiocatori il numero di giocatori che partecipano alla partita
 	 */
-
-	/*
-	 * questa funzione imposta lo stato della plancia in / base al numero di
-	 * giocatori inizializzando il contenuto di ogni cella, / (di tipo stringa) in
-	 * 'cella libera' o ' cella inutilizzabile?, e mettendo quindi a disposizione le
-	 * celle al gioco la plancia è formata da 11 righe e colonne; la colonna 0 e la
-	 * colonna 11 servono solo per facilitare la funzione di controllo in modo
-	 * analogo funziona per le righe.
-	 */
-
-	public void CancellaCelle(int contatore_giocatori) {
+	public void cancellaCelle(int contatoreGiocatori) {
 		System.out.println(" ");
 		System.out.println("\033[0;32m" + "Preparazione plancia di gioco..." + "\033[0m");
 
-		this.contatore_giocatori = contatore_giocatori;
+		this.contatoreGiocatori = contatoreGiocatori;
 
-		if (contatore_giocatori == 2) {
+		if (contatoreGiocatori == 2) {
 			for (int i = 0; i < 9; i++) {
 				for (int j = 0; j < 9; j++) {
-					switch (plancia[i][j].codice_cella) {
+					switch (plancia[i][j].codiceCella) {
 
 					case 1:
 						plancia[i][j].utilizzabile = false;
@@ -66,10 +58,10 @@ public class PlanciaGioco {
 			}
 		}
 		;
-		if (contatore_giocatori == 3) {
+		if (contatoreGiocatori == 3) {
 			for (int i = 0; i < 9; i++) {
 				for (int j = 0; j < 9; j++) {
-					switch (plancia[i][j].codice_cella) {
+					switch (plancia[i][j].codiceCella) {
 
 					case 1:
 						plancia[i][j].utilizzabile = false;
@@ -87,10 +79,10 @@ public class PlanciaGioco {
 				}
 			}
 		}
-		if (contatore_giocatori == 4) {
+		if (contatoreGiocatori == 4) {
 			for (int i = 0; i < 9; i++) {
 				for (int j = 0; j < 9; j++) {
-					switch (plancia[i][j].codice_cella) {
+					switch (plancia[i][j].codiceCella) {
 
 					case 1:
 						plancia[i][j].utilizzabile = false;
@@ -118,34 +110,34 @@ public class PlanciaGioco {
 	 * @param colonna la colonna della cella
 	 */
 
-	public void SetCellaTrofeo(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.TROFEO;
-		RiduciNumeroTessere(TesseraOggetto.TROFEO);
+	public void setCellaTrofeo(int riga, int colonna) {
+		tesseraOggetto[riga][colonna] = TesseraOggetto.TROFEO;
+		riduciNumeroTessere(TesseraOggetto.TROFEO);
 	}
 
-	public void SetCellaPianta(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.PIANTA;
-		RiduciNumeroTessere(TesseraOggetto.PIANTA);
+	public void setCellaPianta(int riga, int colonna) {
+		tesseraOggetto[riga][colonna] = TesseraOggetto.PIANTA;
+		riduciNumeroTessere(TesseraOggetto.PIANTA);
 	}
 
-	public void SetCellaGatto(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.GATTO;
-		RiduciNumeroTessere(TesseraOggetto.GATTO);
+	public void setCellaGatto(int riga, int colonna) {
+		tesseraOggetto[riga][colonna] = TesseraOggetto.GATTO;
+		riduciNumeroTessere(TesseraOggetto.GATTO);
 	}
 
-	public void SetCellaGioco(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.GIOCO;
-		RiduciNumeroTessere(TesseraOggetto.GIOCO);
+	public void setCellaGioco(int riga, int colonna) {
+		tesseraOggetto[riga][colonna] = TesseraOggetto.GIOCO;
+		riduciNumeroTessere(TesseraOggetto.GIOCO);
 	}
 
-	public void SetCellaCornice(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.CORNICE;
-		RiduciNumeroTessere(TesseraOggetto.CORNICE);
+	public void setCellaCornice(int riga, int colonna) {
+		tesseraOggetto[riga][colonna] = TesseraOggetto.CORNICE;
+		riduciNumeroTessere(TesseraOggetto.CORNICE);
 	}
 
-	public void SetCellaLibro(int riga, int colonna) {
-		tesseraoggetto[riga][colonna] = TesseraOggetto.LIBRO;
-		RiduciNumeroTessere(TesseraOggetto.LIBRO);
+	public void setCellaLibro(int riga, int colonna) {
+		tesseraOggetto[riga][colonna] = TesseraOggetto.LIBRO;
+		riduciNumeroTessere(TesseraOggetto.LIBRO);
 	}
 
 	/**
@@ -154,7 +146,7 @@ public class PlanciaGioco {
 	 * @param tessera la tessera di cui bisogna ridurre il numero
 	 */
 
-	public void RiduciNumeroTessere(TesseraOggetto tessera) {
+	public void riduciNumeroTessere(TesseraOggetto tessera) {
 		switch (tessera) {
 		case TROFEO:
 			if (numeroTrofei > 0) {
@@ -199,148 +191,149 @@ public class PlanciaGioco {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
 				plancia[i][j] = new Cella();
-				tesseraoggetto[i][j] = TesseraOggetto.VUOTA;
+				tesseraOggetto[i][j] = TesseraOggetto.VUOTA;
 			}
 		}
-		plancia[0][0].codice_cella = 1;
-		plancia[0][1].codice_cella = 1;
-		plancia[0][2].codice_cella = 1;
-		plancia[0][3].codice_cella = 3;
-		plancia[0][4].codice_cella = 4;
-		plancia[0][5].codice_cella = 1;
-		plancia[0][6].codice_cella = 1;
-		plancia[0][7].codice_cella = 1;
-		plancia[0][8].codice_cella = 1;
+		plancia[0][0].codiceCella = 1;
+		plancia[0][1].codiceCella = 1;
+		plancia[0][2].codiceCella = 1;
+		plancia[0][3].codiceCella = 3;
+		plancia[0][4].codiceCella = 4;
+		plancia[0][5].codiceCella = 1;
+		plancia[0][6].codiceCella = 1;
+		plancia[0][7].codiceCella = 1;
+		plancia[0][8].codiceCella = 1;
 
 		// seconda riga, tutte le colonne
 
-		plancia[1][0].codice_cella = 1;
-		plancia[1][1].codice_cella = 1; // inutilizzabile
-		plancia[1][2].codice_cella = 1;
-		plancia[1][3].codice_cella = 2;
-		plancia[1][4].codice_cella = 2; // almeno 3 giocatori
-		plancia[1][5].codice_cella = 4; // almeno 4 giocatori
-		plancia[1][6].codice_cella = 1;
-		plancia[1][7].codice_cella = 1;
-		plancia[1][8].codice_cella = 1;
+		plancia[1][0].codiceCella = 1;
+		plancia[1][1].codiceCella = 1; // inutilizzabile
+		plancia[1][2].codiceCella = 1;
+		plancia[1][3].codiceCella = 2;
+		plancia[1][4].codiceCella = 2; // almeno 3 giocatori
+		plancia[1][5].codiceCella = 4; // almeno 4 giocatori
+		plancia[1][6].codiceCella = 1;
+		plancia[1][7].codiceCella = 1;
+		plancia[1][8].codiceCella = 1;
 
 		// terza riga, tutte le colonne
 
-		plancia[2][0].codice_cella = 1;
-		plancia[2][1].codice_cella = 1;
-		plancia[2][2].codice_cella = 3;
-		plancia[2][3].codice_cella = 2;
-		plancia[2][4].codice_cella = 2; // almeno 2 giocatori
-		plancia[2][5].codice_cella = 2;
-		plancia[2][6].codice_cella = 3;
-		plancia[2][7].codice_cella = 1;
-		plancia[2][8].codice_cella = 1;
+		plancia[2][0].codiceCella = 1;
+		plancia[2][1].codiceCella = 1;
+		plancia[2][2].codiceCella = 3;
+		plancia[2][3].codiceCella = 2;
+		plancia[2][4].codiceCella = 2; // almeno 2 giocatori
+		plancia[2][5].codiceCella = 2;
+		plancia[2][6].codiceCella = 3;
+		plancia[2][7].codiceCella = 1;
+		plancia[2][8].codiceCella = 1;
 
 		// quarta riga, tutte le colonne
 
-		plancia[3][0].codice_cella = 1;
-		plancia[3][1].codice_cella = 4;
-		plancia[3][2].codice_cella = 2;
-		plancia[3][3].codice_cella = 2;
-		plancia[3][4].codice_cella = 2;
-		plancia[3][5].codice_cella = 2;
-		plancia[3][6].codice_cella = 2;
-		plancia[3][7].codice_cella = 2;
-		plancia[3][8].codice_cella = 3;
+		plancia[3][0].codiceCella = 1;
+		plancia[3][1].codiceCella = 4;
+		plancia[3][2].codiceCella = 2;
+		plancia[3][3].codiceCella = 2;
+		plancia[3][4].codiceCella = 2;
+		plancia[3][5].codiceCella = 2;
+		plancia[3][6].codiceCella = 2;
+		plancia[3][7].codiceCella = 2;
+		plancia[3][8].codiceCella = 3;
 
 		// quinta riga, tutte le colonne
 
-		plancia[4][0].codice_cella = 4;
-		plancia[4][1].codice_cella = 2;
-		plancia[4][2].codice_cella = 2;
-		plancia[4][3].codice_cella = 2;
-		plancia[4][4].codice_cella = 2;
-		plancia[4][5].codice_cella = 2;
-		plancia[4][6].codice_cella = 2;
-		plancia[4][7].codice_cella = 2;
-		plancia[4][8].codice_cella = 4;
+		plancia[4][0].codiceCella = 4;
+		plancia[4][1].codiceCella = 2;
+		plancia[4][2].codiceCella = 2;
+		plancia[4][3].codiceCella = 2;
+		plancia[4][4].codiceCella = 2;
+		plancia[4][5].codiceCella = 2;
+		plancia[4][6].codiceCella = 2;
+		plancia[4][7].codiceCella = 2;
+		plancia[4][8].codiceCella = 4;
 
 		// sesta riga, tutte le colonne
-		plancia[5][0].codice_cella = 3;
-		plancia[5][1].codice_cella = 2;
-		plancia[5][2].codice_cella = 2;
-		plancia[5][3].codice_cella = 2;
-		plancia[5][4].codice_cella = 2;
-		plancia[5][5].codice_cella = 2;
-		plancia[5][6].codice_cella = 2;
-		plancia[5][7].codice_cella = 4;
-		plancia[5][8].codice_cella = 1;
+		plancia[5][0].codiceCella = 3;
+		plancia[5][1].codiceCella = 2;
+		plancia[5][2].codiceCella = 2;
+		plancia[5][3].codiceCella = 2;
+		plancia[5][4].codiceCella = 2;
+		plancia[5][5].codiceCella = 2;
+		plancia[5][6].codiceCella = 2;
+		plancia[5][7].codiceCella = 4;
+		plancia[5][8].codiceCella = 1;
 
 		// settima riga, tutte le colonne
 
-		plancia[6][0].codice_cella = 1;
-		plancia[6][1].codice_cella = 1;
-		plancia[6][2].codice_cella = 3;
-		plancia[6][3].codice_cella = 2;
-		plancia[6][4].codice_cella = 2;
-		plancia[6][5].codice_cella = 2;
-		plancia[6][6].codice_cella = 3;
-		plancia[6][7].codice_cella = 1;
-		plancia[6][8].codice_cella = 1;
+		plancia[6][0].codiceCella = 1;
+		plancia[6][1].codiceCella = 1;
+		plancia[6][2].codiceCella = 3;
+		plancia[6][3].codiceCella = 2;
+		plancia[6][4].codiceCella = 2;
+		plancia[6][5].codiceCella = 2;
+		plancia[6][6].codiceCella = 3;
+		plancia[6][7].codiceCella = 1;
+		plancia[6][8].codiceCella = 1;
 
 		// ottava riga, tutte le colonne
 
-		plancia[7][0].codice_cella = 1;
-		plancia[7][1].codice_cella = 1;
-		plancia[7][2].codice_cella = 1;
-		plancia[7][3].codice_cella = 4;
-		plancia[7][4].codice_cella = 2;
-		plancia[7][5].codice_cella = 2;
-		plancia[7][6].codice_cella = 1;
-		plancia[7][7].codice_cella = 1;
-		plancia[7][8].codice_cella = 1;
+		plancia[7][0].codiceCella = 1;
+		plancia[7][1].codiceCella = 1;
+		plancia[7][2].codiceCella = 1;
+		plancia[7][3].codiceCella = 4;
+		plancia[7][4].codiceCella = 2;
+		plancia[7][5].codiceCella = 2;
+		plancia[7][6].codiceCella = 1;
+		plancia[7][7].codiceCella = 1;
+		plancia[7][8].codiceCella = 1;
 
 		// nona riga, tutte le colonne
 
-		plancia[8][0].codice_cella = 1;
-		plancia[8][1].codice_cella = 1;
-		plancia[8][2].codice_cella = 1;
-		plancia[8][3].codice_cella = 1;
-		plancia[8][4].codice_cella = 4;
-		plancia[8][5].codice_cella = 3;
-		plancia[8][6].codice_cella = 1;
-		plancia[8][7].codice_cella = 1;
-		plancia[8][8].codice_cella = 1;
+		plancia[8][0].codiceCella = 1;
+		plancia[8][1].codiceCella = 1;
+		plancia[8][2].codiceCella = 1;
+		plancia[8][3].codiceCella = 1;
+		plancia[8][4].codiceCella = 4;
+		plancia[8][5].codiceCella = 3;
+		plancia[8][6].codiceCella = 1;
+		plancia[8][7].codiceCella = 1;
+		plancia[8][8].codiceCella = 1;
 
 	}
 
 	/**
-	 * metodo che ritorna la tessera corrispondente alla riga e colonna indicate 
+	 * metodo che ritorna la tessera corrispondente alla riga e colonna indicate
+	 * 
 	 * @param riga    riga della tessera
 	 * @param colonna colonna della tessera
 	 * @return la tessera presente nelle coordinate
 	 */
 
 	public TesseraOggetto getTessera(int riga, int colonna) {
-		TesseraOggetto tesseracontrollo = TesseraOggetto.VUOTA;
+		TesseraOggetto tesseraControllo = TesseraOggetto.VUOTA;
 
-		if (tesseraoggetto[riga][colonna] == TesseraOggetto.CORNICE) {
-			tesseracontrollo = TesseraOggetto.CORNICE;
+		if (tesseraOggetto[riga][colonna] == TesseraOggetto.CORNICE) {
+			tesseraControllo = TesseraOggetto.CORNICE;
 		}
-		if (tesseraoggetto[riga][colonna] == TesseraOggetto.GATTO) {
-			tesseracontrollo = TesseraOggetto.GATTO;
+		if (tesseraOggetto[riga][colonna] == TesseraOggetto.GATTO) {
+			tesseraControllo = TesseraOggetto.GATTO;
 		}
-		if (tesseraoggetto[riga][colonna] == TesseraOggetto.TROFEO) {
-			tesseracontrollo = TesseraOggetto.TROFEO;
+		if (tesseraOggetto[riga][colonna] == TesseraOggetto.TROFEO) {
+			tesseraControllo = TesseraOggetto.TROFEO;
 		}
-		if (tesseraoggetto[riga][colonna] == TesseraOggetto.GIOCO) {
-			tesseracontrollo = TesseraOggetto.GIOCO;
+		if (tesseraOggetto[riga][colonna] == TesseraOggetto.GIOCO) {
+			tesseraControllo = TesseraOggetto.GIOCO;
 		}
-		if (tesseraoggetto[riga][colonna] == TesseraOggetto.LIBRO) {
-			tesseracontrollo = TesseraOggetto.LIBRO;
+		if (tesseraOggetto[riga][colonna] == TesseraOggetto.LIBRO) {
+			tesseraControllo = TesseraOggetto.LIBRO;
 		}
-		if (tesseraoggetto[riga][colonna] == TesseraOggetto.PIANTA) {
-			tesseracontrollo = TesseraOggetto.PIANTA;
+		if (tesseraOggetto[riga][colonna] == TesseraOggetto.PIANTA) {
+			tesseraControllo = TesseraOggetto.PIANTA;
 		}
-		if (tesseraoggetto[riga][colonna] == TesseraOggetto.VUOTA) {
-			tesseracontrollo = TesseraOggetto.VUOTA;
+		if (tesseraOggetto[riga][colonna] == TesseraOggetto.VUOTA) {
+			tesseraControllo = TesseraOggetto.VUOTA;
 		}
-		return tesseracontrollo;
+		return tesseraControllo;
 	}
 
 	/**
@@ -368,6 +361,7 @@ public class PlanciaGioco {
 
 	/**
 	 * metodo che controlla se tutte le tessere confinanti sono di tipo vuoto
+	 * 
 	 * @param riga
 	 * @param colonna
 	 * @return true se almeno una delle tessere confinanti non è vuota
@@ -402,8 +396,8 @@ public class PlanciaGioco {
 		for (int i = 0; i < 9; i++) {
 			riga = i + "    ";
 			for (int j = 0; j < 9; j++) {
-				if (tesseraoggetto[i][j] != null)
-					riga = riga + toString(tesseraoggetto[i][j]);
+				if (tesseraOggetto[i][j] != null)
+					riga = riga + toString(tesseraOggetto[i][j]);
 			}
 			System.out.println(riga);
 		}
@@ -413,7 +407,7 @@ public class PlanciaGioco {
 	/**
 	 * funzione che posiziona in modo semi-casuale le tessere sulla plancia
 	 */
-	public void SetCella() {
+	public void setCella() {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
 
@@ -421,22 +415,22 @@ public class PlanciaGioco {
 					int scelta = (int) (Math.random() * 6);
 					switch (scelta) {
 					case 0:
-						SetCellaTrofeo(i, j);
+						setCellaTrofeo(i, j);
 						break;
 					case 1:
-						SetCellaPianta(i, j);
+						setCellaPianta(i, j);
 						break;
 					case 2:
-						SetCellaGatto(i, j);
+						setCellaGatto(i, j);
 						break;
 					case 3:
-						SetCellaGioco(i, j);
+						setCellaGioco(i, j);
 						break;
 					case 4:
-						SetCellaCornice(i, j);
+						setCellaCornice(i, j);
 						break;
 					case 5:
-						SetCellaLibro(i, j);
+						setCellaLibro(i, j);
 						break;
 					}
 				}
@@ -457,56 +451,56 @@ public class PlanciaGioco {
 		if (colonna == 0) {
 			return TesseraOggetto.VUOTA;
 		}
-		return tesseraoggetto[riga][colonna - 1];
+		return tesseraOggetto[riga][colonna - 1];
 	}
 
 	public TesseraOggetto getdoppiaSinistra(int riga, int colonna) {
 		if (colonna == 0 || colonna == 1) {
 			return TesseraOggetto.VUOTA;
 		}
-		return tesseraoggetto[riga][colonna - 2];
+		return tesseraOggetto[riga][colonna - 2];
 	}
 
 	public TesseraOggetto getDestra(int riga, int colonna) {
 		if (colonna == 8) {
 			return TesseraOggetto.VUOTA;
 		}
-		return tesseraoggetto[riga][colonna + 1];
+		return tesseraOggetto[riga][colonna + 1];
 	}
 
 	public TesseraOggetto getdoppiaDestra(int riga, int colonna) {
 		if (colonna == 8 || colonna == 7) {
 			return TesseraOggetto.VUOTA;
 		}
-		return tesseraoggetto[riga][colonna + 2];
+		return tesseraOggetto[riga][colonna + 2];
 	}
 
 	public TesseraOggetto getSopra(int riga, int colonna) {
 		if (riga == 0) {
 			return TesseraOggetto.VUOTA;
 		}
-		return tesseraoggetto[riga - 1][colonna];
+		return tesseraOggetto[riga - 1][colonna];
 	}
 
 	public TesseraOggetto getdoppiaSopra(int riga, int colonna) {
 		if (riga == 0 || riga == 1) {
 			return TesseraOggetto.VUOTA;
 		}
-		return tesseraoggetto[riga - 2][colonna];
+		return tesseraOggetto[riga - 2][colonna];
 	}
 
 	public TesseraOggetto getSotto(int riga, int colonna) {
 		if (riga == 8) {
 			return TesseraOggetto.VUOTA;
 		}
-		return tesseraoggetto[riga + 1][colonna];
+		return tesseraOggetto[riga + 1][colonna];
 	}
 
 	public TesseraOggetto getdoppiaSotto(int riga, int colonna) {
 		if (riga == 8 || riga == 7) {
 			return TesseraOggetto.VUOTA;
 		}
-		return tesseraoggetto[riga + 2][colonna];
+		return tesseraOggetto[riga + 2][colonna];
 	}
 
 	/**
@@ -514,22 +508,22 @@ public class PlanciaGioco {
 	 * pescabili, in caso ci fosse ancora una tessera pescabile il gioco continua
 	 * senno la plancia viene ricaricata con il metodo set cella.
 	 */
-	public void ControlloTessere() {
-		int cellepescabili = 0;
+	public void controlloTessere() {
+		int cellePescabili = 0;
 
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
-				if (tesseraoggetto[i][j] != TesseraOggetto.VUOTA && plancia[i][j].utilizzabile) {
+				if (tesseraOggetto[i][j] != TesseraOggetto.VUOTA && plancia[i][j].utilizzabile) {
 					if (tessereConfinanti(i, j) == true) {
-						cellepescabili++;
+						cellePescabili++;
 						break;
 					}
 				}
 			}
 		}
-		if (cellepescabili == 0) {
+		if (cellePescabili == 0) {
 			System.out.println("\033[0;32m" + "riempimento plancia..." + "\033[0m");
-			SetCella();
+			setCella();
 		}
 	}
 
@@ -568,10 +562,12 @@ public class PlanciaGioco {
 	}
 
 	/**
-	 * questo metodo associa  ad ogni tipo enumerativo di tesseraOggetto la parola e il colore della 
-	 * tessera usati nel gioco permettendo di visualizzare le tessere colorate
-	 * @param t oggetto di tipo TesseraOggetto che assume il nome e il colore 
-	 * @return tessera 
+	 * questo metodo associa ad ogni tipo enumerativo di tesseraOggetto la parola e
+	 * il colore della tessera usati nel gioco permettendo di visualizzare le
+	 * tessere colorate
+	 * 
+	 * @param t oggetto di tipo TesseraOggetto che assume il nome e il colore
+	 * @return tessera
 	 */
 	public String toStringSecondo(TesseraOggetto t) {
 		String tessera = new String();
@@ -608,7 +604,7 @@ public class PlanciaGioco {
 	 * @param colonna colonna della tessera
 	 * @return true se ha almeno un lato libero
 	 */
-	public Boolean LatoVuoto(int riga, int colonna) {
+	public Boolean latoVuoto(int riga, int colonna) {
 		if (getSinistra(riga, colonna) == TesseraOggetto.VUOTA || getDestra(riga, colonna) == TesseraOggetto.VUOTA
 				|| getSopra(riga, colonna) == TesseraOggetto.VUOTA || getSotto(riga, colonna) == TesseraOggetto.VUOTA) {
 			return true;
@@ -623,26 +619,28 @@ public class PlanciaGioco {
 	 * ovviamente con una tesssera al proprio interno inoltre mostra a schermo
 	 * soltanto le carte che possono essere pescate in caso di una seconda o terza
 	 * scelta escludendo quelle vuote o quelle senza lato vuoto e usando anche la
-	 * condizione che siano adiacenti e che formino soltanto linee rette. 
-	 * @param maxtessere_pescabili numero massimo di tessere inseribili nella libreria
-	 * @return coordinate, array contenente le coordinate delle tessere pescate 
+	 * condizione che siano adiacenti e che formino soltanto linee rette.
+	 * 
+	 * @param maxTesserePescabili numero massimo di tessere inseribili nella
+	 *                            libreria
+	 * @return coordinate, array contenente le coordinate delle tessere pescate
 	 */
-	public int[][] PescaTessere(int maxtessere_pescabili) {
+	public int[][] pescaTessere(int maxTesserePescabili) {
 		int[][] coordinate = new int[3][2]; // array che salva le coordinate delle carte pescate
-		int i = 0, j = 0, numero_1 = 0, numero_2 = 0, numero_3 = 0,
-				numero_4 = 0,copia=0,copia2=0;/*
-								 * indice array..., indice array..., variabile di memorizzazione carta pescata
-								 * precedentemente..., variabile utilizzata come indice a schermo che permette
-								 * la scelta della carta da pescare
-								 */
+		int i = 0, j = 0, numero1 = 0, numero2 = 0, numero3 = 0, numero4 = 0, copia = 0,
+				copia2 = 0;/*
+							 * indice array..., indice array..., variabile di memorizzazione carta pescata
+							 * precedentemente..., variabile utilizzata come indice a schermo che permette
+							 * la scelta della carta da pescare
+							 */
 		int x = coordinate[i][j];// variabile usiliaria
 		int y = coordinate[i + 1][j];// variabile usiliaria
 		Boolean scelta = null, pescabile = false, riprova = false;// varibaili di controllo
-		String inserimento = new String(), precedente = new String(),selezione = new String();
+		String inserimento = new String(), precedente = new String(), selezione = new String();
 		Scanner sc = new Scanner(System.in);
 		sc.reset();
 //pescaggio prima tessera
-		if (maxtessere_pescabili >= 1) {
+		if (maxTesserePescabili >= 1) {
 			System.out.println("\033[0;32m" + "pescaggio prima tessera..." + "\033[0m");
 			System.out.println();
 			do {
@@ -654,26 +652,28 @@ public class PlanciaGioco {
 							"\033[0;32m" + "inserisci la colonna della tessera che vuoi pescare: " + "\033[0m");
 					y = sc.nextInt();
 					coordinate[i][j + 1] = y;
-					if (x > 8 || x < 0 || y > 8 || y < 0 || tessereConfinanti(x, y) == false || getTessera(x, y) == TesseraOggetto.VUOTA) {
+					if (x > 8 || x < 0 || y > 8 || y < 0 || tessereConfinanti(x, y) == false
+							|| getTessera(x, y) == TesseraOggetto.VUOTA) {
 						System.out.println("\033[0;31m"
 								+ "la carta non puo' essere pescata, inserisci nuove coordinate " + "\033[0m");
 						System.out.println(" ");
 					}
 				} while (x > 8 || x < 0 || y > 8 || y < 0);
-			} while (LatoVuoto(x, y) == false || getTessera(x, y) == TesseraOggetto.VUOTA
+			} while (latoVuoto(x, y) == false || getTessera(x, y) == TesseraOggetto.VUOTA
 					|| tessereConfinanti(x, y) == false);
 			System.out.println(" ");
-			System.out.println("hai pescato la tessera " + toStringSecondo(tesseraoggetto[x][y]));
+			System.out.println("hai pescato la tessera " + toStringSecondo(tesseraOggetto[x][y]));
 			i++;
 		}
 //pescaggio seconda tessera
-		if (maxtessere_pescabili >= 2) {
+		if (maxTesserePescabili >= 2) {
 			System.out.println(" ");
 			System.out.println("\033[0;32m" + "pescaggio seconda tessera..." + "\033[0m");
 			System.out.println();
 			sc.nextLine();
 			do {
-				System.out.println("\033[0;36m" + "Vuoi pescare la seconda tessera?"  + "\033[0m" + " Se si', inserisci" + "\033[0;32m" + " T" + "\033[0m" + ", altrimenti inserisci" + "\033[0;31m" + " F" + "\033[0m");
+				System.out.println("\033[0;36m" + "Vuoi pescare la seconda tessera?" + "\033[0m" + " Se si', inserisci"
+						+ "\033[0;32m" + " T" + "\033[0m" + ", altrimenti inserisci" + "\033[0;31m" + " F" + "\033[0m");
 				inserimento = sc.nextLine();
 			} while (!inserimento.matches("T") && !inserimento.matches("t") && !inserimento.matches("F")
 					&& !inserimento.matches("f"));
@@ -686,58 +686,58 @@ public class PlanciaGioco {
 				while (scelta) {
 					System.out.println(
 							"la tessera che peschi deve essere adiacente a quella precedente e deve avere almeno un lato libero, scegli tra queste: \n");
-					if (getSotto(x, y) != TesseraOggetto.VUOTA && LatoVuoto((x + 1), y) == true) {
+					if (getSotto(x, y) != TesseraOggetto.VUOTA && latoVuoto((x + 1), y) == true) {
 						System.out.println(
 								"1-sotto: " + (x + 1) + "," + y + " " + toStringSecondo(getSotto(x, y)) + "\n");// sotto
 						pescabile = true;
-						numero_1 = 1;
+						numero1 = 1;
 					}
-					if (getSopra(x, y) != TesseraOggetto.VUOTA && LatoVuoto((x - 1), y) == true) {
+					if (getSopra(x, y) != TesseraOggetto.VUOTA && latoVuoto((x - 1), y) == true) {
 						System.out.println(
 								"2-sopra: " + (x - 1) + "," + y + " " + toStringSecondo(getSopra(x, y)) + "\n");// sopra
 						pescabile = true;
-						numero_2 = 2;
+						numero2 = 2;
 					}
-					if (getDestra(x, y) != TesseraOggetto.VUOTA && LatoVuoto(x, (y + 1)) == true) {
+					if (getDestra(x, y) != TesseraOggetto.VUOTA && latoVuoto(x, (y + 1)) == true) {
 						System.out.println(
 								"3-destra: " + x + "," + (y + 1) + " " + toStringSecondo(getDestra(x, y)) + "\n");// dx
 						pescabile = true;
-						numero_3 = 3;
+						numero3 = 3;
 					}
-					if (getSinistra(x, y) != TesseraOggetto.VUOTA && LatoVuoto(x, (y - 1)) == true) {
+					if (getSinistra(x, y) != TesseraOggetto.VUOTA && latoVuoto(x, (y - 1)) == true) {
 						System.out.println(
 								"4-sinistra: " + x + "," + (y - 1) + " " + toStringSecondo(getSinistra(x, y)) + "\n");// sx
 						pescabile = true;
-						numero_4 = 4;
+						numero4 = 4;
 					}
 					if (pescabile == false) {
 						System.out.println("\033[0;31m" + "non ci sono più tessere da pescare" + "\033[0m");
 						break;
-					}do {
+					}
+					do {
 						do {
-						System.out.println("\033[0;32m"
-								+ "inserisci il numero della tessera che vuoi pescare (1,2,3,4): " + "\033[0m");
-						precedente = sc.nextLine();
-						
-						if (isNumeric(precedente))
-						{
-							copia = Integer.parseInt(precedente);
-						}else {
-							System.out.println("\033[0;31m" + "inserisci un numero!" + "\033[0m");
-							System.out.println(" ");
-						}
-						}while(!isNumeric(precedente));
+							System.out.println("\033[0;32m"
+									+ "inserisci il numero della tessera che vuoi pescare (1,2,3,4): " + "\033[0m");
+							precedente = sc.nextLine();
+
+							if (isNumeric(precedente)) {
+								copia = Integer.parseInt(precedente);
+							} else {
+								System.out.println("\033[0;31m" + "inserisci un numero!" + "\033[0m");
+								System.out.println(" ");
+							}
+						} while (!isNumeric(precedente));
 						if (copia < 1 || copia > 4) {
 							System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
 							System.out.println(" ");
 							riprova = true;
-						} else if (copia == numero_1) {
+						} else if (copia == numero1) {
 							break;
-						} else if (copia == numero_2) {
+						} else if (copia == numero2) {
 							break;
-						} else if (copia == numero_3) {
+						} else if (copia == numero3) {
 							break;
-						} else if (copia == numero_4) {
+						} else if (copia == numero4) {
 							break;
 						} else {
 							System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
@@ -765,25 +765,26 @@ public class PlanciaGioco {
 						break;
 					}
 					System.out.println("hai pescato la tessera "
-							+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
+							+ toStringSecondo(tesseraOggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 					scelta = false;
 				}
 			}
 		}
 //pescaggio terza tessera 
-		if (maxtessere_pescabili >= 3 && pescabile) {
+		if (maxTesserePescabili >= 3 && pescabile) {
 			System.out.println(" ");
 			System.out.println("\033[0;32m" + "pescaggio terza tessera..." + "\033[0m");
 			System.out.println();
-			numero_1 = 0;
-			numero_2 = 0;
-			numero_3 = 0;
-			numero_4 = 0;
+			numero1 = 0;
+			numero2 = 0;
+			numero3 = 0;
+			numero4 = 0;
 
 			pescabile = false;
 
 			do {
-				System.out.println("\033[0;36m" + "Vuoi pescare la terza tessera?" + "\033[0m" + " Se si', inserisci" + "\033[0;32m" + " T" + "\033[0m" + ", altrimenti inserisci" + "\033[0;31m" + " F" + "\033[0m");
+				System.out.println("\033[0;36m" + "Vuoi pescare la terza tessera?" + "\033[0m" + " Se si', inserisci"
+						+ "\033[0;32m" + " T" + "\033[0m" + ", altrimenti inserisci" + "\033[0;31m" + " F" + "\033[0m");
 				inserimento = sc.nextLine();
 			} while (!inserimento.matches("T") && !inserimento.matches("t") && !inserimento.matches("F")
 					&& !inserimento.matches("f"));
@@ -799,18 +800,18 @@ public class PlanciaGioco {
 				 */
 				if (copia == 1) {
 					if ((getSotto(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
-							&& LatoVuoto((coordinate[i][j] + 1), coordinate[i][j + 1]) == true)) {
+							&& latoVuoto((coordinate[i][j] + 1), coordinate[i][j + 1]) == true)) {
 						System.out.println("1-sotto: " + (coordinate[i][j] + 1) + "," + coordinate[i][j + 1] + "-"
 								+ toStringSecondo(getSotto(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
-						numero_1 = 1;
+						numero1 = 1;
 					}
 					if ((getdoppiaSopra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
-							&& LatoVuoto((coordinate[i][j] - 2), coordinate[i][j + 1]) == true)) {
+							&& latoVuoto((coordinate[i][j] - 2), coordinate[i][j + 1]) == true)) {
 						System.out.println("2-sopra: " + (coordinate[i][j] - 2) + "," + coordinate[i][j + 1] + "-"
 								+ toStringSecondo(getdoppiaSopra(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
-						numero_2 = 2;
+						numero2 = 2;
 					}
 					i++;
 					if (pescabile) {
@@ -818,20 +819,19 @@ public class PlanciaGioco {
 							do {
 								System.out.println("\033[0;32m" + "scegli la tessera da pescare (1,2):" + "\033[0m");
 								selezione = sc.nextLine();
-								
-								if (isNumeric(selezione))
-								{
+
+								if (isNumeric(selezione)) {
 									copia2 = Integer.parseInt(selezione);
-								}else {
+								} else {
 									System.out.println("\033[0;31m" + "inserisci un numero!" + "\033[0m");
 								}
-								}while(!isNumeric(selezione));
+							} while (!isNumeric(selezione));
 							if (copia2 < 1 || copia2 > 2) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
-							} else if (copia2 == numero_1) {
+							} else if (copia2 == numero1) {
 								riprova = false;
 								break;
-							} else if (copia2 == numero_2) {
+							} else if (copia2 == numero2) {
 								riprova = false;
 								break;
 							} else {
@@ -850,7 +850,7 @@ public class PlanciaGioco {
 							break;
 						}
 						System.out.println("hai pescato la tessera "
-								+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
+								+ toStringSecondo(tesseraOggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 						System.out.println("\033[0;32m" + "pescaggio finito... proseguire" + "\033[0m");
 						System.out.println(" ");
 					} else {
@@ -866,23 +866,23 @@ public class PlanciaGioco {
 				 * posizioni sotto e sopra
 				 */
 				else if (copia == 2) {
-					numero_1 = 0;
-					numero_2 = 0;
-					numero_3 = 0;
-					numero_4 = 0;
+					numero1 = 0;
+					numero2 = 0;
+					numero3 = 0;
+					numero4 = 0;
 					if ((getSopra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
-							&& LatoVuoto((coordinate[i][j] - 1), coordinate[i][j + 1]) == true)) {
+							&& latoVuoto((coordinate[i][j] - 1), coordinate[i][j + 1]) == true)) {
 						System.out.println("1-sopra: " + (coordinate[i][j] - 1) + "," + coordinate[i][j + 1] + "-"
 								+ toStringSecondo(getSopra(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
-						numero_1 = 1;
+						numero1 = 1;
 					}
 					if ((getdoppiaSotto(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
-							&& LatoVuoto((coordinate[i][j] + 2), coordinate[i][j + 1]) == true)) {
+							&& latoVuoto((coordinate[i][j] + 2), coordinate[i][j + 1]) == true)) {
 						System.out.println("2-sotto: " + (coordinate[i][j] + 2) + "," + coordinate[i][j + 1] + "-"
 								+ toStringSecondo(getdoppiaSotto(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
-						numero_2 = 2;
+						numero2 = 2;
 					}
 					i++;
 					if (pescabile) {
@@ -890,22 +890,21 @@ public class PlanciaGioco {
 							do {
 								System.out.println("\033[0;32m" + "scegli la tessera da pescare (1,2):" + "\033[0m");
 								selezione = sc.nextLine();
-								
-								if (isNumeric(selezione))
-								{
+
+								if (isNumeric(selezione)) {
 									copia2 = Integer.parseInt(selezione);
-								}else {
+								} else {
 									System.out.println("\033[0;31m" + "inserisci un numero!" + "\033[0m");
 									System.out.println(" ");
 								}
-								}while(!isNumeric(selezione));
+							} while (!isNumeric(selezione));
 							if (copia2 < 1 || copia2 > 2) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
 								System.out.println(" ");
-							} else if (copia2 == numero_1) {
+							} else if (copia2 == numero1) {
 								riprova = false;
 								break;
-							} else if (copia2 == numero_2) {
+							} else if (copia2 == numero2) {
 								riprova = false;
 								break;
 							} else {
@@ -925,7 +924,7 @@ public class PlanciaGioco {
 							break;
 						}
 						System.out.println("hai pescato la tessera "
-								+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
+								+ toStringSecondo(tesseraOggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 						System.out.println("\033[0;32m" + "pescaggio finito... proseguire" + "\033[0m");
 						System.out.println(" ");
 					} else {
@@ -941,23 +940,23 @@ public class PlanciaGioco {
 				 * posizioni a sinistra e una a destra
 				 */
 				else if (copia == 3) {
-					numero_1 = 0;
-					numero_2 = 0;
-					numero_3 = 0;
-					numero_4 = 0;
+					numero1 = 0;
+					numero2 = 0;
+					numero3 = 0;
+					numero4 = 0;
 					if ((getDestra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
-							&& LatoVuoto(coordinate[i][j], (coordinate[i][j + 1] + 1)) == true)) {
+							&& latoVuoto(coordinate[i][j], (coordinate[i][j + 1] + 1)) == true)) {
 						System.out.println("3-destra: " + coordinate[i][j] + "," + (coordinate[i][j + 1] + 1) + "-"
 								+ toStringSecondo(getDestra(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
-						numero_3 = 3;
+						numero3 = 3;
 					}
 					if ((getdoppiaSinistra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
-							&& LatoVuoto(coordinate[i][j], (coordinate[i][j + 1] - 2)) == true)) {
+							&& latoVuoto(coordinate[i][j], (coordinate[i][j + 1] - 2)) == true)) {
 						System.out.println("4-sinistra: " + coordinate[i][j] + "," + (coordinate[i][j + 1] - 2) + "-"
 								+ toStringSecondo(getdoppiaSinistra(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
-						numero_4 = 4;
+						numero4 = 4;
 					}
 					i++;
 					if (pescabile) {
@@ -965,22 +964,21 @@ public class PlanciaGioco {
 							do {
 								System.out.println("\033[0;32m" + "scegli la tessera da pescare (3,4):" + "\033[0m");
 								selezione = sc.nextLine();
-								
-								if (isNumeric(selezione))
-								{
+
+								if (isNumeric(selezione)) {
 									copia2 = Integer.parseInt(selezione);
-								}else {
+								} else {
 									System.out.println("\033[0;31m" + "inserisci un numero!" + "\033[0m");
 									System.out.println(" ");
 								}
-								}while(!isNumeric(selezione));
+							} while (!isNumeric(selezione));
 							if (copia2 < 3 || copia2 > 4) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
 								System.out.println(" ");
-							} else if (copia2 == numero_3) {
+							} else if (copia2 == numero3) {
 								riprova = false;
 								break;
-							} else if (copia2 == numero_4) {
+							} else if (copia2 == numero4) {
 								riprova = false;
 								break;
 							} else {
@@ -1000,7 +998,7 @@ public class PlanciaGioco {
 							break;
 						}
 						System.out.println("hai pescato la tessera "
-								+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
+								+ toStringSecondo(tesseraOggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 						System.out.println("\033[0;32m" + "pescaggio finito... proseguire" + "\033[0m");
 						System.out.println(" ");
 					} else {
@@ -1016,23 +1014,23 @@ public class PlanciaGioco {
 				 * posizioni a destra e una a sinistra
 				 */
 				else if (copia == 4) {
-					numero_1 = 0;
-					numero_2 = 0;
-					numero_3 = 0;
-					numero_4 = 0;
+					numero1 = 0;
+					numero2 = 0;
+					numero3 = 0;
+					numero4 = 0;
 					if ((getdoppiaDestra(coordinate[i][j], coordinate[i][j + 1]) != TesseraOggetto.VUOTA
-							&& LatoVuoto((coordinate[i][j]), (coordinate[i][j + 1]) + 2) == true)) {
+							&& latoVuoto((coordinate[i][j]), (coordinate[i][j + 1]) + 2) == true)) {
 						System.out.println("3-destra: " + coordinate[i][j] + "," + (coordinate[i][j + 1] + 2) + "-"
 								+ toStringSecondo(getdoppiaDestra(coordinate[i][j], coordinate[i][j + 1])) + "\n");
 						pescabile = true;
-						numero_3 = 3;
+						numero3 = 3;
 					}
 					if ((getSinistra((coordinate[i][j]), coordinate[i][j + 1]) != TesseraOggetto.VUOTA
-							&& LatoVuoto((coordinate[i][j]), (coordinate[i][j + 1]) - 1) == true)) {
+							&& latoVuoto((coordinate[i][j]), (coordinate[i][j + 1]) - 1) == true)) {
 						System.out.println("4-sinistra: " + coordinate[i][j] + "," + (coordinate[i][j + 1] - 1) + "-"
 								+ toStringSecondo(getSinistra((coordinate[i][j]), coordinate[i][j + 1])) + "\n");
 						pescabile = true;
-						numero_4 = 4;
+						numero4 = 4;
 					}
 					i++;
 					if (pescabile) {
@@ -1040,22 +1038,21 @@ public class PlanciaGioco {
 							do {
 								System.out.println("\033[0;32m" + "scegli la tessera da pescare (3,4):" + "\033[0m");
 								selezione = sc.nextLine();
-								
-								if (isNumeric(selezione))
-								{
+
+								if (isNumeric(selezione)) {
 									copia2 = Integer.parseInt(selezione);
-								}else {
-									System.out.println("\033[0;31m" +"inserisci un numero!"+ "\033[0m");
+								} else {
+									System.out.println("\033[0;31m" + "inserisci un numero!" + "\033[0m");
 									System.out.println(" ");
 								}
-								}while(!isNumeric(selezione));
+							} while (!isNumeric(selezione));
 							if (copia2 < 3 || copia2 > 4) {
 								System.out.println("\033[0;31m" + "numero tessera non valido" + "\033[0m");
 								System.out.println(" ");
-							} else if (copia2 == numero_3) {
+							} else if (copia2 == numero3) {
 								riprova = false;
 								break;
-							} else if (copia2 == numero_4) {
+							} else if (copia2 == numero4) {
 								riprova = false;
 								break;
 							} else {
@@ -1075,7 +1072,7 @@ public class PlanciaGioco {
 							break;
 						}
 						System.out.println("hai pescato la tessera "
-								+ toStringSecondo(tesseraoggetto[coordinate[i][j]][coordinate[i][j + 1]]));
+								+ toStringSecondo(tesseraOggetto[coordinate[i][j]][coordinate[i][j + 1]]));
 						System.out.println("\033[0;32m" + "pescaggio finito... proseguire" + "\033[0m");
 						System.out.println(" ");
 					} else {
@@ -1095,10 +1092,12 @@ public class PlanciaGioco {
 	}
 
 	/**
-	 * metodo ch evisualizza l'array bidimensionale di appoggio denominato coordinate 
+	 * metodo ch evisualizza l'array bidimensionale di appoggio denominato
+	 * coordinate
+	 * 
 	 * @param coordinate
 	 */
-	public void VisualizzaCoordinate(int[][] coordinate) {
+	public void visualizzaCoordinate(int[][] coordinate) {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 2; j++) {
 				System.out.print(coordinate[i][j] + " ");
@@ -1106,21 +1105,23 @@ public class PlanciaGioco {
 			System.out.println();
 		}
 	}
+
 	/**
 	 * metodo che controlla se la stringa passata è un numero o meno
+	 * 
 	 * @param strNum
 	 * @return true se è un numero
 	 */
 	public static boolean isNumeric(String strNum) {
-	    if (strNum == null) {
-	        return false;
-	    }
-	    try {
-	        @SuppressWarnings("unused")
+		if (strNum == null) {
+			return false;
+		}
+		try {
+			@SuppressWarnings("unused")
 			int d = Integer.parseInt(strNum);
-	    } catch (NumberFormatException nfe) {
-	        return false;
-	    }
-	    return true;
+		} catch (NumberFormatException nfe) {
+			return false;
+		}
+		return true;
 	}
 }

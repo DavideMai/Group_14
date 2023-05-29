@@ -11,14 +11,23 @@ import utils.TesseraOggetto;
  */
 public abstract class ObiettivoPersonale {
 	public ObiettivoPersonale() {
-		TesseraOggetto[][] ObiettivoPersonale = new TesseraOggetto[6][5];
-	}
-
-	public void VisualizzaObiettivoPersonale() {
-		// TODO Auto-generated method stub
 
 	}
 
-	public abstract int ControllaObiettivoPersonale(TesseraOggetto[][] tesseraoggetto);
+	/**
+	 * Metodo astratto che permette a ogni sottoclasse di visualizzare l'obiettivo
+	 * personale
+	 */
+	public void visualizzaObiettivoPersonale() {
+	}
+
+	/**
+	 * metodo stratto che, passata una libreria, controlla quante caselle
+	 * dell'obiettivo personale sono state completate
+	 * 
+	 * @param tesseraoggetto la libreria del giocatore
+	 * @return l'aumento del punteggio
+	 */
+	public abstract int controllaObiettivoPersonale(TesseraOggetto[][] tesseraoggetto);
 
 }
