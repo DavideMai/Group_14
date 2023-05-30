@@ -402,10 +402,10 @@ public class PlanciaGioco {
 				if (tesseraOggetto[i][j] != null)
 					riga = riga + toString(tesseraOggetto[i][j]);
 			}
-			riga = riga + "    " + i;
+			riga = riga + "   " + i;
 			System.out.println(riga);
 		}
-		System.out.println("\n");
+		System.out.println(" ");
 		System.out.println("     0 1 2 3 4 5 6 7 8");
 		System.out.println(" ");
 	}
