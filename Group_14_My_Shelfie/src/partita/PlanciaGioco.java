@@ -686,7 +686,7 @@ public class PlanciaGioco {
 			System.out.println(" ");
 			System.out.println("\033[0;32m" + "pescaggio seconda tessera..." + "\033[0m");
 			System.out.println();
-			//sc.nextLine();
+			
 			do {
 				System.out.println("\033[0;36m" + "Vuoi pescare la seconda tessera?" + "\033[0m" + " Se si', inserisci"
 						+ "\033[0;32m" + " T" + "\033[0m" + ", altrimenti inserisci" + "\033[0;31m" + " F" + "\033[0m");
