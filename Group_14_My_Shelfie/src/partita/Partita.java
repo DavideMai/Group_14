@@ -15,8 +15,10 @@ public class Partita {
 	 * Classe principale del progetto. Esegue la partita
 	 * 
 	 * @param args
+	 * @throws IOException 
+	 * @throws HeadlessException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws HeadlessException, IOException {
 		Regolamento regolamento = new Regolamento();
 		PlanciaGioco plancia = new PlanciaGioco();
 		ObiettivoComune obiettivoComune = null;
@@ -295,15 +297,8 @@ public class Partita {
 				giocatori.get(i).getObiettivoPersonale().visualizzaObiettivoPersonale();
 				System.out.println(obiettivoComune.getDescrizione());
 				System.out.println(obiettivoComune2.getDescrizione());
-				try {
-					Desig.initialize(primoNumero1, secondoNumero1);
-				} catch (HeadlessException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				
+				Desig.initialize(primoNumero1, secondoNumero1);
 				Desig.frame.show();
 				giocatori.get(i).getLibreria().visualizzaLibreria();
 				coordinate = plancia.pescaTessere(giocatori.get(i).getLibreria().numeroMassimoDaPescare());
