@@ -289,7 +289,7 @@ public class Partita {
 					e.printStackTrace();
 				}
 				plancia.visualizzaPlancia();
-
+				
 				giocatori.get(i).getObiettivoPersonale().visualizzaObiettivoPersonale();
 				System.out.println(obiettivoComune.getDescrizione());
 				System.out.println(obiettivoComune2.getDescrizione());
