@@ -643,6 +643,7 @@ public class PlanciaGioco {
 		int y = coordinate[i + 1][j];// variabile usiliaria
 		Boolean scelta = null, pescabile = false, riprova = false;// varibaili di controllo
 		String inserimento = new String(), precedente = new String(), selezione = new String();
+		String temp = new String();
 		Scanner sc = new Scanner(System.in);
 		sc.reset();
 //pescaggio prima tessera
@@ -651,12 +652,21 @@ public class PlanciaGioco {
 			System.out.println();
 			do {
 				do {
-					System.out.println("\033[0;32m" + "inserisci la riga della tessera che vuoi pescare: " + "\033[0m");
-					x = sc.nextInt();
+					do {
+						System.out.println("\033[0;32m" + "inserisci la riga della tessera che vuoi pescare: " + "\033[0m");
+						temp = sc.nextLine();
+						if(isNumeric(temp)) {
+							x = Integer.parseInt(temp);
+						}
+					}while(!isNumeric(temp));
 					coordinate[i][j] = x;
-					System.out.println(
-							"\033[0;32m" + "inserisci la colonna della tessera che vuoi pescare: " + "\033[0m");
-					y = sc.nextInt();
+					do {
+						System.out.println("\033[0;32m" + "inserisci la colonna della tessera che vuoi pescare: " + "\033[0m");
+						temp = sc.nextLine();
+						if(isNumeric(temp)) {
+							y = Integer.parseInt(temp);
+						}
+					}while(!isNumeric(temp));
 					coordinate[i][j + 1] = y;
 					if (x > 8 || x < 0 || y > 8 || y < 0 || tessereConfinanti(x, y) == false
 							|| getTessera(x, y) == TesseraOggetto.VUOTA) {
@@ -676,7 +686,7 @@ public class PlanciaGioco {
 			System.out.println(" ");
 			System.out.println("\033[0;32m" + "pescaggio seconda tessera..." + "\033[0m");
 			System.out.println();
-			sc.nextLine();
+			//sc.nextLine();
 			do {
 				System.out.println("\033[0;36m" + "Vuoi pescare la seconda tessera?" + "\033[0m" + " Se si', inserisci"
 						+ "\033[0;32m" + " T" + "\033[0m" + ", altrimenti inserisci" + "\033[0;31m" + " F" + "\033[0m");
