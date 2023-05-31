@@ -1,5 +1,7 @@
 package partita;
 
+import java.awt.HeadlessException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -293,7 +295,15 @@ public class Partita {
 				giocatori.get(i).getObiettivoPersonale().visualizzaObiettivoPersonale();
 				System.out.println(obiettivoComune.getDescrizione());
 				System.out.println(obiettivoComune2.getDescrizione());
-				Desig.initialize(primoNumero1, secondoNumero2);
+				try {
+					Desig.initialize(primoNumero1, secondoNumero1);
+				} catch (HeadlessException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				Desig.frame.show();
 				giocatori.get(i).getLibreria().visualizzaLibreria();
 				coordinate = plancia.pescaTessere(giocatori.get(i).getLibreria().numeroMassimoDaPescare());
