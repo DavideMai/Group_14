@@ -36,7 +36,7 @@ public class Libreria {
 				System.out.println(" ");
 			}
 			if (!isNumeric(temp)) {
-				System.out.println("Inserire un numero");
+				System.out.println("\033[0;31m" + "ERRORE. Inserire un numero" + "\033[0m");
 				System.out.println(" ");
 			}
 		} while (n < 0 || n > 4 || !isNumeric(temp));
