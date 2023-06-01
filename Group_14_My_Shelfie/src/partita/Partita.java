@@ -293,14 +293,13 @@ public class Partita {
 					e.printStackTrace();
 				}
 				plancia.visualizzaPlancia();
+
 				giocatori.get(i).getObiettivoPersonale().visualizzaObiettivoPersonale();
 				System.out.println(obiettivoComune.getDescrizione());
 				System.out.println(obiettivoComune2.getDescrizione());
-
 				
 				Design.initialize(primoNumero1, secondoNumero1);
 				Design.frame.show();
-
 				giocatori.get(i).getLibreria().visualizzaLibreria();
 				coordinate = plancia.pescaTessere(giocatori.get(i).getLibreria().numeroMassimoDaPescare());
 				giocatori.get(i).getLibreria().inserimentoTessere(plancia, coordinate);
