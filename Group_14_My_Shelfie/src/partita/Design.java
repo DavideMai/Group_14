@@ -36,6 +36,7 @@ public class Design {
 	 */
 
 	public static JFrame initialize(int primo, int secondo) throws HeadlessException, IOException {
+	
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.getContentPane().setIgnoreRepaint(true);
@@ -225,6 +226,7 @@ public class Design {
 		frame.setBounds(100, 100, 439, 477);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		return frame;
+	
 	}
-
+	
 }

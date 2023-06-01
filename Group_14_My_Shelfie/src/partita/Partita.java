@@ -15,10 +15,11 @@ public class Partita {
 	 * Classe principale del progetto. Esegue la partita
 	 * 
 	 * @param args
-	 * @throws IOException 
-	 * @throws HeadlessException 
+	 * @throws IOException
+	 * @throws HeadlessException
 	 */
 	public static void main(String[] args) throws HeadlessException, IOException {
+
 		Regolamento regolamento = new Regolamento();
 		PlanciaGioco plancia = new PlanciaGioco();
 		ObiettivoComune obiettivoComune = null;
@@ -104,6 +105,7 @@ public class Partita {
 
 		int primoNumero1;
 		int secondoNumero1;
+
 		/**
 		 * il do-while seguente genera i due obiettivi comuni della partita in modo che
 		 * siano diversi tra loro
@@ -256,6 +258,7 @@ public class Partita {
 		 * terminata
 		 */
 		int[][] coordinate;
+		Design.initialize(primoNumero1, secondoNumero1);
 		do {
 			for (int i = 0; i < numberPlayer; i++) {
 				System.out.println(" ");
@@ -297,9 +300,11 @@ public class Partita {
 				giocatori.get(i).getObiettivoPersonale().visualizzaObiettivoPersonale();
 				System.out.println(obiettivoComune.getDescrizione());
 				System.out.println(obiettivoComune2.getDescrizione());
-				
-				Design.initialize(primoNumero1, secondoNumero1);
-				Design.frame.show();
+
+				if (Design.frame.isShowing() == false) {
+					Design.frame.show();
+
+				}
 				giocatori.get(i).getLibreria().visualizzaLibreria();
 				coordinate = plancia.pescaTessere(giocatori.get(i).getLibreria().numeroMassimoDaPescare());
 				giocatori.get(i).getLibreria().inserimentoTessere(plancia, coordinate);
