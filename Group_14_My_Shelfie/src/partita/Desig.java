@@ -40,6 +40,7 @@ public class Desig {
 		frame.setResizable(false);
 		frame.getContentPane().setIgnoreRepaint(true);
 		frame.getContentPane().setLayout(null);
+		frame.setIconImage(ImageIO.read(new File("Icon 50x50px.png")));
 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(10, 11, 400, 187);
