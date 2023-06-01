@@ -298,8 +298,8 @@ public class Partita {
 				System.out.println(obiettivoComune2.getDescrizione());
 
 				
-				Desig.initialize(primoNumero1, secondoNumero1);
-				Desig.frame.show();
+				Design.initialize(primoNumero1, secondoNumero1);
+				Design.frame.show();
 
 				giocatori.get(i).getLibreria().visualizzaLibreria();
 				coordinate = plancia.pescaTessere(giocatori.get(i).getLibreria().numeroMassimoDaPescare());

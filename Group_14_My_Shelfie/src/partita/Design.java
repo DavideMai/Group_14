@@ -15,13 +15,13 @@ import javax.imageio.ImageIO;
 
 import javax.swing.JLabel;
 
-public class Desig {
+public class Design {
 	public static JFrame frame;
 
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public Desig() throws HeadlessException, IOException {
+	public Design() throws HeadlessException, IOException {
 		int primo = 0;
 		int secondo = 0;
 		initialize(primo, secondo);
@@ -223,7 +223,7 @@ public class Desig {
 		}
 
 		frame.setBounds(100, 100, 439, 477);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		return frame;
 	}
 
