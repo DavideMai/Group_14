@@ -42,6 +42,7 @@ public class Design {
 		frame.getContentPane().setIgnoreRepaint(true);
 		frame.getContentPane().setLayout(null);
 		frame.setIconImage(ImageIO.read(new File("Icon 50x50px.png")));
+		frame.setTitle("Obiettivi comuni");
 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(10, 11, 400, 187);
