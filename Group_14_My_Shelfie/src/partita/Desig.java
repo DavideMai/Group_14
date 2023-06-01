@@ -23,22 +23,6 @@ public class Desig {
 	public static JFrame frame;
 	
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Desig.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
-	/**
 	 * @wbp.parser.entryPoint
 	 */
 	public Desig() throws HeadlessException, IOException {
